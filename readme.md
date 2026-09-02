@@ -1,4 +1,3 @@
-
 # A-1 Drain Cleaning | Mason City, Iowa
 **Professional, local drain cleaning and sewer line service in Mason City, Iowa. Call 641-530-2728 for fast, honest service from an experienced owner-operator.**
  * **Phone:** 641-530-2728
