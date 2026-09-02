@@ -179,9 +179,9 @@ nav a:hover {
   }
 
   50% {
-    transform: scale(1.12);
-    filter: brightness(1.35);
-    box-shadow: 0 0 30px 10px rgba(255,0,0,.8);
+    transform: scale(1.05);
+    filter: brightness(1.1);
+    box-shadow: 0 6px 20px rgba(255,0,0,.3);
   }
 }
 
