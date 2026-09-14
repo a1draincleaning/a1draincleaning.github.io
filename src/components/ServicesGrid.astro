@@ -1,0 +1,5 @@
+---
+import {services} from '../data/services';
+const featured=services.slice(0,9);
+---
+<section id="services" class="py-14"><div class="container"><p class="font-bold uppercase tracking-wide text-[#D9383A]">Drain and sewer work</p><h2 class="brand mt-1 text-4xl text-[#1A1A68]">Problems A-1 can help with</h2><p class="mt-4 max-w-3xl text-lg">From a clogged kitchen sink to a main sewer line backup, the right equipment depends on where the blockage is and what is causing it.</p><div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{featured.map(s=><article class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm"><h3 class="brand text-2xl text-[#1A1A68]"><a href={`/services/${s.slug}/`}>{s.title}</a></h3><p class="mt-3 text-gray-700">{s.description}</p><a class="mt-4 inline-block font-bold text-[#D9383A]" href={`/services/${s.slug}/`}>Read about {s.title.toLowerCase()} →</a></article>)}</div><a class="mt-7 inline-block font-bold text-[#1A1A68]" href="/services/">See all drain and sewer services →</a></div></section>
