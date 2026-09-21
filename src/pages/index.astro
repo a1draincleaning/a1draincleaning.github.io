@@ -1,4 +1,75 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro'; import Header from '../components/Header.astro'; import Hero from '../components/Hero.astro'; import ServicesGrid from '../components/ServicesGrid.astro'; import Problems from '../components/Problems.astro'; import ContactCTA from '../components/ContactCTA.astro'; import Footer from '../components/Footer.astro'; import {serviceAreas} from '../data/serviceAreas';
----
-<MainLayout title="Drain Cleaning Mason City Iowa | A-1 Drain Cleaning" description="A-1 Drain Cleaning provides drain cleaning and sewer service in Mason City, Iowa for clogged drains, sewer backups, slow drains, basement floor drains, laundry drains and main sewer lines." path="/" schemaType="Plumber"><Header/><main id="main"><Hero/><section class="bg-[#1A1A68] py-5 text-center text-white"><div class="container font-bold">Homeowners & businesses • Local owner-operator • 641-530-2728</div></section><ServicesGrid/><Problems/><section class="py-14"><div class="container"><p class="font-bold uppercase tracking-wide text-[#D9383A]">Where we work</p><h2 class="brand mt-1 text-4xl text-[#1A1A68]">Mason City and surrounding communities</h2><p class="mt-4 max-w-3xl">A-1 is based in Mason City and travels for drain cleaning and sewer work in North Iowa and nearby communities.</p><div class="mt-6 flex flex-wrap gap-2">{serviceAreas.map(city=><span class="rounded-full border border-gray-300 bg-white px-3 py-1.5 text-sm">{city}</span>)}</div><a class="mt-6 inline-block font-bold text-[#D9383A]" href="/service-area/">See the service area →</a></div></section><ContactCTA/></main><Footer/></MainLayout>
+
+import MainLayout from "../layouts/MainLayout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Drain Cleaning in Mason City, Iowa | A-1 Drain Cleaning";
+const description =
+"A-1 Drain Cleaning provides drain cleaning and sewer services in Mason City and North Iowa. Over 25 years of experience.";
+
+<MainLayout title={title} description={description}>
+  <Header />  <main>
+    <section class="bg-slate-950 px-6 py-20 text-white">
+      <div class="mx-auto max-w-6xl">
+        <p class="font-bold uppercase tracking-widest text-red-400">
+          A-1 Drain Cleaning
+        </p>    <h1 class="mt-4 max-w-4xl text-5xl font-black sm:text-6xl">
+      Drain Cleaning in Mason City, Iowa
+    </h1>
+
+    <p class="mt-6 max-w-2xl text-xl leading-8 text-slate-300">
+      Professional drain and sewer cleaning for homeowners and businesses
+      throughout Mason City and North Iowa.
+    </p>
+
+    <p class="mt-6 text-lg font-bold">
+      Over 25 years of experience
+    </p>
+
+    <div class="mt-8 flex flex-wrap gap-4">
+      <a
+        href="tel:+16415302728"
+        class="rounded-xl bg-[#d9383a] px-7 py-4 text-lg font-black text-white"
+      >
+        Call 641-530-2728
+      </a>
+
+      <a
+        href="/services/"
+        class="rounded-xl border-2 border-white px-7 py-4 text-lg font-bold text-white"
+      >
+        View Services
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="px-6 py-16">
+  <div class="mx-auto max-w-6xl">
+    <h2 class="text-3xl font-black text-slate-950">
+      Drain & Sewer Services
+    </h2>
+
+    <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div class="rounded-2xl border border-slate-200 p-6">
+        <h3 class="font-black">Main Drain Cleaning</h3>
+      </div>
+
+      <div class="rounded-2xl border border-slate-200 p-6">
+        <h3 class="font-black">Sewer Line Cleaning</h3>
+      </div>
+
+      <div class="rounded-2xl border border-slate-200 p-6">
+        <h3 class="font-black">Basement Floor Drains</h3>
+      </div>
+
+      <div class="rounded-2xl border border-slate-200 p-6">
+        <h3 class="font-black">Clogged Drains</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </main>  <Footer />
+</MainLayout>
