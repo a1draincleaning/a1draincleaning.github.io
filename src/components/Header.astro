@@ -1,4 +1,4 @@
----
+
 interface Props {
   phone?: string;
   phoneRaw?: string;
@@ -16,41 +16,60 @@ const {
 
 <header class="border-b border-gray-200 bg-white">
 
-  <!-- Top service bar -->
   <div class="bg-[#D9383A] text-white">
-    <div class="mx-auto flex max-w-7xl items-center justify-center px-4 py-2 text-center text-sm font-bold sm:text-base">
-      Drain &amp; Sewer Cleaning • Mason City &amp; North Iowa
+    <div class="mx-auto max-w-7xl px-4 py-2 text-center text-sm font-bold">
+      Fast Local Drain &amp; Sewer Cleaning in Mason City &amp; North Iowa
     </div>
   </div>
 
-  <!-- Main header -->
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <div class="flex min-h-[88px] items-center justify-between gap-4">
+    <div class="flex min-h-[100px] items-center justify-between gap-6">
 
-      <!-- Logo / Business -->
-      <a href="/" class="group flex min-w-0 items-center">
-        <div>
-          <div
-            class="text-4xl font-black leading-none tracking-[-0.06em] text-[#1A1A68] sm:text-5xl"
-          >
-            A-1
-          </div>
+      <a href="/" class="shrink-0">
+        <div
+          class="font-black leading-[0.8] tracking-[-0.08em] text-[#1A1A68]"
+          style="font-family: Georgia, 'Times New Roman', serif; font-style: italic; transform: scaleX(1.08); transform-origin: left center;"
+        >
+          <span class="text-5xl sm:text-6xl">A-1</span>
+        </div>
 
-          <div class="mt-1 text-xs font-black uppercase tracking-[0.16em] text-[#1A1A68] sm:text-sm">
-            Drain Cleaning
-          </div>
+        <div class="mt-2 text-xs font-black uppercase tracking-[0.18em] text-[#1A1A68] sm:text-sm">
+          Drain Cleaning
         </div>
       </a>
 
-      <!-- Location -->
       <div class="hidden text-center lg:block">
-        <p class="text-sm font-black uppercase tracking-[0.14em] text-gray-500">
+        <p class="text-xs font-black uppercase tracking-[0.18em] text-gray-500">
           Local Drain &amp; Sewer Service
         </p>
-
-        <p class="mt-1 text-base font-bold text-[#1A1A68]">
+        <p class="mt-1 text-lg font-bold text-[#1A1A68]">
           {location}
         </p>
       </div>
 
-      <!--
+      <a
+        href={`tel:+1${phoneRaw}`}
+        class="phone-pulse shrink-0 rounded-md bg-[#D9383A] px-5 py-3.5 text-base font-black text-white transition hover:bg-red-700 sm:px-7"
+        aria-label={`Call ${businessName} at ${phone}`}
+      >
+        Call {phone}
+      </a>
+
+    </div>
+  </div>
+
+  <nav class="border-t border-gray-100" aria-label="Main navigation">
+    <div class="mx-auto max-w-7xl overflow-x-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex min-w-max justify-center gap-7 py-3 text-sm font-bold sm:gap-10 sm:text-base">
+
+        <a href="/" class="text-[#1A1A68] hover:text-[#D9383A]">Home</a>
+        <a href="/services/" class="text-[#1A1A68] hover:text-[#D9383A]">Services</a>
+        <a href="/service-area/" class="text-[#1A1A68] hover:text-[#D9383A]">Service Area</a>
+        <a href="/about/" class="text-[#1A1A68] hover:text-[#D9383A]">About Us</a>
+        <a href="/contact/" class="text-[#1A1A68] hover:text-[#D9383A]">Contact</a>
+
+      </div>
+    </div>
+  </nav>
+
+</header>
