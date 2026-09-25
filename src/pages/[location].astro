@@ -8,7 +8,7 @@ import { generateGraphSchema } from '../utils/schema';
 
 export function getStaticPaths() {
   return citiesData.map((city) => ({
-    params: { location: city.slug.replace(/-ia$/, '') },
+    params: { location: city.slug },
     props: { city },
   }));
 }
