@@ -1,0 +1,1 @@
+{"name":"a1-drain-cleaning","type":"module","scripts":{"dev":"astro dev","build":"astro build","preview":"astro preview"},"dependencies":{"@astrojs/sitemap":"latest","astro":"latest","astro-seo":"latest","astro-seo-schema":"latest"}}
