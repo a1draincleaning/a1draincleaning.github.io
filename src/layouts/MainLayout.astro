@@ -1,6 +1,6 @@
 ---
 import '../styles/global.css';
-const {title,description,path='/',schemaType='LocalBusiness',service} = Astro.props;
+const {title,description,path='/',schemaType='LocalBusiness',service,schemaGraph} = Astro.props;
 const canonical = new URL(path, Astro.site ?? 'https://a1draincleaning.github.io').href;
 const business = {
   '@context':'https://schema.org','@type':'Plumber','@id':'https://a1draincleaning.github.io/#business',
@@ -10,7 +10,7 @@ const business = {
   areaServed:'North Iowa and nearby communities',
   openingHoursSpecification:[{'@type':'OpeningHoursSpecification',dayOfWeek:['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'],opens:'00:00',closes:'23:59'}]
 };
-const schema = service ? {'@context':'https://schema.org','@type':'Service',name:service.title,description:service.description,provider:{'@id':'https://a1draincleaning.github.io/#business'},areaServed:{'@type':'Place',name:'North Iowa and nearby communities'},url:canonical} : business;
+const schema = schemaGraph ?? (service ? {'@context':'https://schema.org','@type':'Service',name:service.title,description:service.description,provider:{'@id':'https://a1draincleaning.github.io/#business'},areaServed:{'@type':'Place',name:'North Iowa and nearby communities'},url:canonical} : business);
 ---
 <!doctype html>
 <html lang="en">
