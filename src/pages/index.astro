@@ -1,80 +1,25 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 import Header from "../components/Header.astro";
+import Hero from "../components/Hero.astro";
+import Problems from "../components/Problems.astro";
+import ServicesGrid from "../components/ServicesGrid.astro";
+import ContactCTA from "../components/ContactCTA.astro";
 import Footer from "../components/Footer.astro";
 
 const title = "Drain Cleaning in Mason City, Iowa | A-1 Drain Cleaning";
-
 const description =
   "A-1 Drain Cleaning provides drain cleaning and sewer services in Mason City and North Iowa. Over 25 years of experience.";
 ---
 
 <MainLayout title={title} description={description}>
-  <Header/>
+  <Header />
 
-  <main>
-    <section class="bg-slate-950 px-6 py-20 text-white">
-      <div class="mx-auto max-w-6xl">
-        <p class="font-bold uppercase tracking-widest text-red-400">
-          A-1 Drain Cleaning
-        </p>
-
-        <h1 class="mt-4 max-w-4xl text-5xl font-black sm:text-6xl">
-          Drain Cleaning in Mason City, Iowa
-        </h1>
-
-        <p class="mt-6 max-w-2xl text-xl leading-8 text-slate-300">
-          Professional drain and sewer cleaning for homeowners and businesses
-          throughout Mason City and North Iowa.
-        </p>
-
-        <p class="mt-6 text-lg font-bold">
-          Over 25 years of experience
-        </p>
-
-        <div class="mt-8 flex flex-wrap gap-4">
-          <a
-            href="tel:+16415302728"
-            class="rounded-xl bg-[#d9383a] px-7 py-4 text-lg font-black text-white"
-          >
-            Call 641-530-2728
-          </a>
-
-          <a
-            href="/services/"
-            class="rounded-xl border-2 border-white px-7 py-4 text-lg font-bold text-white"
-          >
-            View Services
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <section class="px-6 py-16">
-      <div class="mx-auto max-w-6xl">
-        <h2 class="text-3xl font-black text-slate-950">
-          Drain &amp; Sewer Services
-        </h2>
-
-        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="rounded-2xl border border-slate-200 p-6">
-            <h3 class="font-black">Main Drain Cleaning</h3>
-          </div>
-
-          <div class="rounded-2xl border border-slate-200 p-6">
-            <h3 class="font-black">Sewer Line Cleaning</h3>
-          </div>
-
-          <div class="rounded-2xl border border-slate-200 p-6">
-            <h3 class="font-black">Basement Floor Drains</h3>
-          </div>
-
-          <div class="rounded-2xl border border-slate-200 p-6">
-            <h3 class="font-black">Clogged Drains</h3>
-          </div>
-        </div>
-      </div>
-    </section>
+  <main id="main">
+    <Hero />
+    <Problems />
+    <ServicesGrid />
+    <ContactCTA />
   </main>
 
   <Footer />
