@@ -1,0 +1,8 @@
+---
+import { SEO } from 'astro-seo';
+import { Schema } from 'astro-seo-schema';
+import '../styles/global.css';
+const {title,description,canonical=Astro.url} = Astro.props;
+const phone='641-530-2728';
+---
+<html lang="en"><head><meta charset="utf-8" /><meta name="viewport" content="width=device-width" /><SEO title={title} description={description} canonical={canonical} openGraph={{basic:{title, type:'website', image:new URL('/favicon.svg',Astro.site)}}} /><Schema schema={{'@context':'https://schema.org','@type':'LocalBusiness',name:'A-1 Drain Cleaning',telephone:phone,url:'https://a1draincleaning.github.io',address:{'@type':'PostalAddress',addressLocality:'Mason City',addressRegion:'IA',postalCode:'50401',addressCountry:'US'},areaServed:['Mason City','Clear Lake','Charles City','Forest City','Northwood','Osage']}} /></head><body><header class="sitehead"><div class="wrap nav"><a class="brand" href="/">A-1 Drain Cleaning</a><nav class="navlinks" aria-label="Main navigation"><a href="/services/">Services</a><a href="/service-area/">Service Area</a><a href="/#faq">FAQ</a><a class="btn" href={'tel:'+phone}>Call {phone}</a></nav></div></header><main><slot /></main><footer class="sitefoot"><div class="wrap"><div class="brand">A-1 Drain Cleaning</div><p>Mason City, Iowa • Drain and sewer cleaning</p><p><a class="phone" href={'tel:'+phone}>{phone}</a></p><p>Serving Mason City and surrounding North Iowa communities.</p></div></footer></body></html>
