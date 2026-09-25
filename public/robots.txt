@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://a1draincleaning.github.io/sitemap.xml
