@@ -10,7 +10,7 @@ export interface BusinessInfo {
   owner: string;
   phoneTel: string;
   url: string;
-  logoUrl: string;
+  logoUrl?: string;
   addressLocality: string;
   addressRegion: string;
   postalCode: string;
@@ -48,7 +48,7 @@ export function generateGraphSchema(
       name: businessInfo.name,
       url: businessInfo.url,
       telephone: businessInfo.phoneTel,
-      logo: businessInfo.logoUrl,
+      ...(businessInfo.logoUrl ? { logo: businessInfo.logoUrl } : {}),
       address: {
         '@type': 'PostalAddress',
         addressLocality: businessInfo.addressLocality,
