@@ -1,0 +1,130 @@
+---
+---
+
+<section class="bg-gray-50 py-16 md:py-20">
+  <div class="container">
+    <div class="mx-auto max-w-4xl rounded-2xl border border-gray-200 bg-white p-6 shadow-sm md:p-10">
+      <!-- Header -->
+      <div class="mb-8 max-w-2xl">
+        <p class="font-bold uppercase tracking-[0.18em] text-[#D9383A]">Contact A-1</p>
+        <h2 class="brand mt-2 text-4xl text-[#0D3B66]">Need drain service?</h2>
+        <p class="mt-3 text-lg text-gray-700">
+          Tell us what's happening and we'll call back about the best next step.
+        </p>
+      </div>
+
+      <!-- Form -->
+      <form class="grid gap-5 md:grid-cols-2">
+        <!-- Name -->
+        <div>
+          <label for="name" class="mb-2 block text-sm font-bold text-[#0D3B66]">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 focus:border-[#0D3B66] focus:ring-2 focus:ring-[#0D3B66] focus:ring-opacity-20 focus:outline-none"
+            placeholder="Your name"
+          />
+        </div>
+
+        <!-- Phone -->
+        <div>
+          <label for="phone" class="mb-2 block text-sm font-bold text-[#0D3B66]">Phone</label>
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 focus:border-[#0D3B66] focus:ring-2 focus:ring-[#0D3B66] focus:ring-opacity-20 focus:outline-none"
+            placeholder="(641) 555-1234"
+          />
+        </div>
+
+        <!-- Service Needed -->
+        <div>
+          <label for="service" class="mb-2 block text-sm font-bold text-[#0D3B66]">Service Needed</label>
+          <select
+            id="service"
+            name="service"
+            required
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 focus:border-[#0D3B66] focus:ring-2 focus:ring-[#0D3B66] focus:ring-opacity-20 focus:outline-none"
+          >
+            <option value="">Select a service</option>
+            <option value="drain-cleaning">Drain cleaning</option>
+            <option value="sewer-line">Sewer line cleaning</option>
+            <option value="main-drain">Main drain problem</option>
+            <option value="emergency">Emergency backup</option>
+            <option value="hydro-jetting">Hydro jetting</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <!-- City / Area -->
+        <div>
+          <label for="city" class="mb-2 block text-sm font-bold text-[#0D3B66]">City / Area</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            required
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 focus:border-[#0D3B66] focus:ring-2 focus:ring-[#0D3B66] focus:ring-opacity-20 focus:outline-none"
+            placeholder="Mason City"
+          />
+        </div>
+
+        <!-- Address -->
+        <div class="md:col-span-2">
+          <label for="address" class="mb-2 block text-sm font-bold text-[#0D3B66]">Address</label>
+          <input
+            type="text"
+            id="address"
+            name="address"
+            required
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 focus:border-[#0D3B66] focus:ring-2 focus:ring-[#0D3B66] focus:ring-opacity-20 focus:outline-none"
+            placeholder="Street address or nearby landmark"
+          />
+        </div>
+
+        <!-- What's happening -->
+        <div class="md:col-span-2">
+          <label for="message" class="mb-2 block text-sm font-bold text-[#0D3B66]">What's happening?</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="5"
+            required
+            class="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-gray-900 focus:border-[#0D3B66] focus:ring-2 focus:ring-[#0D3B66] focus:ring-opacity-20 focus:outline-none"
+            placeholder="Slow drain, sewer backup, toilet clogs, floor drain issue, etc."
+          ></textarea>
+        </div>
+
+        <!-- Emergency checkbox and submit -->
+        <div class="md:col-span-2 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <label class="flex items-center gap-3 text-sm font-medium text-gray-700">
+            <input
+              type="checkbox"
+              id="emergency"
+              name="emergency"
+              class="h-4 w-4 rounded border-gray-300 text-[#D9383A] focus:ring-2 focus:ring-[#D9383A] focus:ring-opacity-20"
+            />
+            Emergency service needed
+          </label>
+
+          <button
+            type="submit"
+            class="inline-flex items-center justify-center rounded-lg bg-[#D9383A] px-6 py-3.5 text-base font-bold text-white hover:bg-red-700 transition"
+          >
+            Request Service
+          </button>
+        </div>
+      </form>
+
+      <!-- Footer note -->
+      <div class="mt-8 border-t border-gray-200 pt-6 text-center text-sm text-gray-600">
+        <p>Or call us directly at <span class="font-bold text-[#0D3B66]">641-530-2728</span></p>
+        <p class="mt-2">Local service • Mason City & North Iowa</p>
+      </div>
+    </div>
+  </div>
+</section>
