@@ -1,0 +1,25 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import Services from '../components/Services.astro';
+import Trust from '../components/Trust.astro';
+import ContactForm from '../components/ContactForm.astro';
+
+const title = "Drain Cleaning & Sewer Services | A-1 Drain Cleaning | Mason City, Iowa";
+const description = "A-1 Drain Cleaning provides professional drain and sewer services in Mason City and North Iowa. Over 25 years of experience. Call 641-530-2728.";
+---
+
+<MainLayout title={title} description={description}>
+  <Header />
+  
+  <main id="main">
+    <Hero />
+    <Services />
+    <Trust />
+    <ContactForm />
+  </main>
+  
+  <Footer />
+</MainLayout>
