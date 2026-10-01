@@ -1,4 +1,5 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import ServicesGrid from "../components/ServicesGrid.astro";
@@ -6,13 +7,17 @@ import ContactCTA from "../components/ContactCTA.astro";
 import Footer from "../components/Footer.astro";
 
 const title = "Drain Cleaning & Sewer Services | A-1 Drain Cleaning";
-const description = "A-1 Drain Cleaning provides drain cleaning and sewer services in Mason City and North Iowa. Over 25 years of experience.";
+const description = "Local drain cleaning and sewer service in Mason City and North Iowa. Call A-1 Drain Cleaning at 641-530-2728.";
 ---
 
-<main id="main">
+<MainLayout title={title} description={description} path="/">
   <Header />
-  <Hero />
-  <ServicesGrid />
-  <ContactCTA />
+
+  <main id="main">
+    <Hero />
+    <ServicesGrid />
+    <ContactCTA />
+  </main>
+
   <Footer />
-</main>
+</MainLayout>
