@@ -33,7 +33,21 @@ a {
   letter-spacing: -0.055em;
 }
 
-.bg-white .text-slate-600,\n.bg-slate-100 .text-slate-600 {\n  color: #334155 !important;\n}\n\n.bg-white .text-slate-500,\n.bg-slate-100 .text-slate-500 {\n  color: #475569 !important;\n}\n\n.call-button {\n  color: #fff !important;\n}\n\n.skip {
+.bg-white .text-slate-600,
+.bg-slate-100 .text-slate-600 {
+  color: #334155 !important;
+}
+
+.bg-white .text-slate-500,
+.bg-slate-100 .text-slate-500 {
+  color: #475569 !important;
+}
+
+.call-button {
+  color: #fff !important;
+}
+
+.skip {
   position: absolute;
   left: -9999px;
   top: 8px;
