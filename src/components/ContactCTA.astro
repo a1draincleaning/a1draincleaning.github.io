@@ -1,10 +1,65 @@
+---
+interface Props {
+  showForm?: boolean;
+}
+
+const { showForm = false } = Astro.props;
+---
+
 <section class="bg-[#b4232b] py-14 text-white sm:py-16">
-  <div class="container flex flex-col gap-7 lg:flex-row lg:items-center lg:justify-between">
-    <div>
-      <p class="text-sm font-black uppercase tracking-[0.2em] text-red-100">Drain problem?</p>
-      <h2 class="mt-2 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">Tell A-1 what the water is doing.</h2>
-      <p class="mt-3 max-w-2xl text-lg leading-7 text-red-50">If wastewater is coming up through a floor drain, several fixtures are backing up, or a drain simply will not clear, call the drain cleaner.</p>
+  <div class="container">
+    <div class="flex flex-col gap-7 lg:flex-row lg:items-start lg:justify-between">
+      <div>
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-red-100">Drain problem?</p>
+        <h2 class="mt-2 max-w-3xl text-4xl font-black tracking-tight sm:text-5xl">Tell A-1 what the water is doing.</h2>
+        <p class="mt-3 max-w-2xl text-lg leading-7 text-red-50">If wastewater is coming up through a floor drain, several fixtures are backing up, or a drain simply will not clear, call the drain cleaner.</p>
+      </div>
+      <a href="tel:+16415302728" class="call-button shrink-0 rounded-md bg-white px-7 py-4 text-center text-xl font-black text-[#b4232b] shadow-lg hover:bg-slate-100">641-530-2728</a>
     </div>
-    <a href="tel:+16415302728" class="call-button shrink-0 rounded-md bg-white px-7 py-4 text-center text-xl font-black text-[#b4232b] shadow-lg hover:bg-slate-100">641-530-2728</a>
+
+    {showForm && (
+      <form class="mt-10 grid gap-5 rounded-lg bg-white p-6 text-slate-950 shadow-xl sm:p-8" action="#" method="post">
+        <div class="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label for="contact-name" class="block text-sm font-black">Name</label>
+            <input id="contact-name" name="name" type="text" autocomplete="name" required class="mt-2 w-full rounded-md border border-slate-300 px-4 py-3 text-base outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20" />
+          </div>
+          <div>
+            <label for="contact-phone" class="block text-sm font-black">Phone</label>
+            <input id="contact-phone" name="phone" type="tel" autocomplete="tel" required class="mt-2 w-full rounded-md border border-slate-300 px-4 py-3 text-base outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20" />
+          </div>
+        </div>
+
+        <div>
+          <label for="contact-email" class="block text-sm font-black">Email</label>
+          <input id="contact-email" name="email" type="email" autocomplete="email" class="mt-2 w-full rounded-md border border-slate-300 px-4 py-3 text-base outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20" />
+        </div>
+
+        <div>
+          <label for="drain-problem" class="block text-sm font-black">What is the drain problem?</label>
+          <select id="drain-problem" name="drain_problem" required class="mt-2 w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-base outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20">
+            <option value="">Select a problem</option>
+            <option>Clogged toilet</option>
+            <option>Kitchen sink drain</option>
+            <option>Bathroom sink drain</option>
+            <option>Bathtub / shower drain</option>
+            <option>Floor drain</option>
+            <option>Laundry / washing machine drain</option>
+            <option>Main sewer line</option>
+            <option>Sewer backup</option>
+            <option>Storm sewer</option>
+            <option>Tree roots in sewer line</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="contact-message" class="block text-sm font-black">Tell us what is happening</label>
+          <textarea id="contact-message" name="message" rows="5" class="mt-2 w-full rounded-md border border-slate-300 px-4 py-3 text-base outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20"></textarea>
+        </div>
+
+        <button type="submit" class="w-full rounded-md bg-[#b4232b] px-6 py-4 text-lg font-black text-white hover:bg-[#951d24] sm:w-auto sm:justify-self-start">SEND REQUEST</button>
+      </form>
+    )}
   </div>
 </section>
