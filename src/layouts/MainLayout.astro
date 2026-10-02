@@ -110,7 +110,8 @@ const schema = {
       basic: {
         title,
         type: 'website',
-        url: canonical
+        url: canonical,
+        image: new URL('/favicon.svg', canonical).href
       },
       optional: {
         description,
