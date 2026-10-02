@@ -2,7 +2,7 @@
 
 :root {
   font-family: Arial, Helvetica, sans-serif;
-  color: #0f172a;
+  color: #1A1A68;
   background: #f8fafc;
 }
 
@@ -44,7 +44,7 @@ a {
 
 .call-button {
   color: #fff !important;
-  box-shadow: 0 -4px 0 #2563eb, 0 4px 0 #2563eb !important;
+  box-shadow: 0 -4px 0 #1A1A68, 0 4px 0 #1A1A68 !important;
 }
 
 .skip {
