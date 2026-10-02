@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@700;800;900&display=swap');
 @import 'tailwindcss';
 
 :root {
@@ -24,6 +25,12 @@ body {
 
 a {
   color: inherit;
+}
+
+.brand-slab {
+  font-family: 'Roboto Slab', Rockwell, 'Courier New', serif;
+  font-weight: 900;
+  letter-spacing: -0.055em;
 }
 
 .skip {
