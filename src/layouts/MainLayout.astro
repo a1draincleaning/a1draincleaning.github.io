@@ -14,13 +14,7 @@ interface Props {
   };
 }
 
-const {
-  title,
-  description,
-  path = '/',
-  service
-} = Astro.props;
-
+const { title, description, path = '/', service } = Astro.props;
 const canonical = new URL(path, Astro.site ?? 'https://a1draincleaning.github.io').href;
 
 const business = {
@@ -30,11 +24,6 @@ const business = {
   name: 'A-1 Drain Cleaning',
   url: 'https://a1draincleaning.github.io/',
   telephone: '+1-641-530-2728',
-  email: 'a1draincleaning@gmail.com',
-  founder: {
-    '@type': 'Person',
-    name: 'Josh Theilen'
-  },
   address: {
     '@type': 'PostalAddress',
     streetAddress: '206 29th St SW',
@@ -43,21 +32,10 @@ const business = {
     postalCode: '50401',
     addressCountry: 'US'
   },
-  areaServed: 'North Iowa and nearby communities',
-  openingHoursSpecification: [{
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: [
-      'Monday',
-      'Tuesday',
-      'Wednesday',
-      'Thursday',
-      'Friday',
-      'Saturday',
-      'Sunday'
-    ],
-    opens: '00:00',
-    closes: '23:59'
-  }]
+  areaServed: {
+    '@type': 'AdministrativeArea',
+    name: 'North Iowa'
+  }
 };
 
 const schema = service
@@ -66,13 +44,8 @@ const schema = service
       '@type': 'Service',
       name: service.title,
       description: service.description,
-      provider: {
-        '@id': 'https://a1draincleaning.github.io/#business'
-      },
-      areaServed: {
-        '@type': 'Place',
-        name: 'North Iowa and nearby communities'
-      },
+      provider: { '@id': 'https://a1draincleaning.github.io/#business' },
+      areaServed: { '@type': 'AdministrativeArea', name: 'North Iowa' },
       url: canonical
     }
   : business;
@@ -124,8 +97,8 @@ const schema = service
 <body>
   <a class="skip" href="#main">Skip to content</a>
   <slot />
-  <div class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-gray-300 p-3 md:hidden">
-    <a class="phone-pulse block rounded-md bg-[#D9383A] px-4 py-3 text-center font-bold text-white" href="tel:+16415302728">
+  <div class="fixed bottom-0 left-0 right-0 z-50 border-t border-slate-300 bg-white p-3 md:hidden">
+    <a class="block rounded-md bg-[#b4232b] px-4 py-3 text-center font-black text-white" href="tel:+16415302728">
       Call A-1 Drain Cleaning: 641-530-2728
     </a>
   </div>
