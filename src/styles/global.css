@@ -33,7 +33,7 @@ a {
   letter-spacing: -0.055em;
 }
 
-.skip {
+.call-button {\n  color: #fff !important;\n}\n\n.skip {
   position: absolute;
   left: -9999px;
   top: 8px;
