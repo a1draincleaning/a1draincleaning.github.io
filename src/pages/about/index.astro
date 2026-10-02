@@ -1,0 +1,40 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<MainLayout
+  title="About A-1 Drain Cleaning | Mason City Iowa"
+  description="Learn about A-1 Drain Cleaning, a local Mason City, Iowa drain and sewer service business serving North Iowa."
+  path="/about/"
+>
+  <Header />
+  <main id="main">
+    <section class="bg-slate-950 py-16 text-white sm:py-20">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-red-300">A-1 Drain Cleaning</p>
+        <h1 class="mt-3 max-w-4xl text-5xl font-black tracking-tight sm:text-6xl">A local drain cleaner in Mason City, Iowa</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200">A-1 focuses on drain cleaning and sewer work: clearing clogged drains, opening main lines, cutting roots, and finding out what is happening when a line keeps backing up.</p>
+      </div>
+    </section>
+
+    <section class="bg-white py-16 sm:py-20">
+      <div class="container grid gap-10 lg:grid-cols-2">
+        <article>
+          <h2 class="text-3xl font-black tracking-tight text-slate-950">What the business does</h2>
+          <p class="mt-4 leading-8 text-slate-700">The work ranges from a stopped kitchen sink or toilet to a main sewer line that is sending wastewater back through a basement floor drain. Cable drain machines, sewer cameras, locating equipment, root-cutting equipment, and hydro-jetting are used when they fit the problem.</p>
+        </article>
+        <article>
+          <h2 class="text-3xl font-black tracking-tight text-slate-950">Where A-1 works</h2>
+          <p class="mt-4 leading-8 text-slate-700">A-1 is based at 206 29th St SW in Mason City and serves Mason City and surrounding North Iowa communities. Service availability depends on the job and schedule.</p>
+          <a href="/service-area/" class="mt-5 inline-block font-black text-[#b4232b]">See the service area →</a>
+        </article>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </main>
+  <Footer />
+</MainLayout>
