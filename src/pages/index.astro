@@ -1,4 +1,77 @@
 ---
-import MainLayout from '../layouts/MainLayout.astro'; import Header from '../components/Header.astro'; import Hero from '../components/Hero.astro'; import ServicesGrid from '../components/ServicesGrid.astro'; import Problems from '../components/Problems.astro'; import ContactCTA from '../components/ContactCTA.astro'; import Footer from '../components/Footer.astro'; import {serviceAreas} from '../data/serviceAreas';
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import ServicesGrid from '../components/ServicesGrid.astro';
+import Problems from '../components/Problems.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+import Footer from '../components/Footer.astro';
+import { serviceAreas } from '../data/serviceAreas';
 ---
-<MainLayout title="Drain Cleaning Mason City Iowa | A-1 Drain Cleaning" description="A-1 Drain Cleaning provides drain cleaning and sewer service in Mason City, Iowa for clogged drains, sewer backups, slow drains, basement floor drains, laundry drains and main sewer lines." path="/" schemaType="Plumber"><Header/><main id="main"><Hero/><section class="bg-[#1A1A68] py-5 text-center text-white"><div class="container font-bold">Homeowners & businesses • Local owner-operator • 641-530-2728</div></section><ServicesGrid/><Problems/><section class="py-14"><div class="container"><p class="font-bold uppercase tracking-wide text-[#D9383A]">Where we work</p><h2 class="brand mt-1 text-4xl text-[#1A1A68]">Mason City and surrounding communities</h2><p class="mt-4 max-w-3xl">A-1 is based in Mason City and travels for drain cleaning and sewer work in North Iowa and nearby communities.</p><div class="mt-6 flex flex-wrap gap-2">{serviceAreas.map(city=><span class="rounded-full border border-gray-300 bg-white px-3 py-1.5 text-sm">{city}</span>)}</div><a class="mt-6 inline-block font-bold text-[#D9383A]" href="/service-area/">See the service area →</a></div></section><ContactCTA/></main><Footer/></MainLayout>
+
+<MainLayout
+  title="Drain Cleaning Mason City Iowa | A-1 Drain Cleaning"
+  description="A-1 Drain Cleaning clears clogged drains, main drains, sewer lines, basement floor drains, laundry drains, toilets and tree roots in Mason City and North Iowa."
+  path="/"
+>
+  <Header />
+  <main id="main">
+    <Hero />
+
+    <section aria-label="A-1 Drain Cleaning highlights" class="border-b border-slate-200 bg-white">
+      <div class="container grid gap-px bg-slate-200 sm:grid-cols-2 lg:grid-cols-4">
+        <article class="bg-white px-5 py-6">
+          <p class="text-xs font-black uppercase tracking-[0.16em] text-slate-500">Based in</p>
+          <p class="mt-1 text-lg font-black text-slate-950">Mason City, Iowa</p>
+        </article>
+        <article class="bg-white px-5 py-6">
+          <p class="text-xs font-black uppercase tracking-[0.16em] text-slate-500">Work</p>
+          <p class="mt-1 text-lg font-black text-slate-950">Drain & sewer clearing</p>
+        </article>
+        <article class="bg-white px-5 py-6">
+          <p class="text-xs font-black uppercase tracking-[0.16em] text-slate-500">Equipment</p>
+          <p class="mt-1 text-lg font-black text-slate-950">Cable machines & cameras</p>
+        </article>
+        <article class="bg-white px-5 py-6">
+          <p class="text-xs font-black uppercase tracking-[0.16em] text-slate-500">Call</p>
+          <a href="tel:+16415302728" class="mt-1 block text-lg font-black text-[#b4232b]">641-530-2728</a>
+        </article>
+      </div>
+    </section>
+
+    <ServicesGrid />
+    <Problems />
+
+    <section class="bg-slate-100 py-16 sm:py-20">
+      <div class="container grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-start">
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Equipment & methods</p>
+          <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">The right tool depends on the line.</h2>
+        </div>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <article class="border border-slate-200 bg-white p-5"><h3 class="font-black">Drain machines</h3><p class="mt-2 text-sm leading-6 text-slate-600">Cable equipment clears ordinary drain restrictions, main drains, roots, and other blockages.</p></article>
+          <article class="border border-slate-200 bg-white p-5"><h3 class="font-black">Sewer cameras</h3><p class="mt-2 text-sm leading-6 text-slate-600">A camera can show what is inside a sewer line when a recurring problem needs more investigation.</p></article>
+          <article class="border border-slate-200 bg-white p-5"><h3 class="font-black">Line locating</h3><p class="mt-2 text-sm leading-6 text-slate-600">Locating equipment can help identify where an underground sewer or drain line runs.</p></article>
+          <article class="border border-slate-200 bg-white p-5"><h3 class="font-black">Hydro-jetting</h3><p class="mt-2 text-sm leading-6 text-slate-600">Pressurized water can clean buildup when jetting is appropriate for the pipe and blockage.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-16 sm:py-20">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">North Iowa</p>
+        <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Mason City and surrounding communities</h2>
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-600">A-1 is based in Mason City and serves North Iowa communities for drain cleaning and sewer work. Availability depends on the job and schedule.</p>
+        <div class="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          {serviceAreas.slice(0, 24).map((city) => (
+            <a href="/service-area/" class="border border-slate-200 bg-slate-50 px-3 py-3 text-sm font-bold hover:border-[#b4232b] hover:bg-white">{city}</a>
+          ))}
+        </div>
+        <a href="/service-area/" class="mt-7 inline-block font-black text-[#b4232b]">View the full service area →</a>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </main>
+  <Footer />
+</MainLayout>
