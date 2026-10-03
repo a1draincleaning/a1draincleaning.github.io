@@ -15,31 +15,31 @@
         </div>
       </div>
 
-      <form class="border border-slate-200 bg-white p-6 shadow-sm sm:p-8" action="/contact/" method="get">
+      <form class="border border-slate-200 bg-white p-6 shadow-sm sm:p-8" action="/contact/" method="get" toolname="start_a1_drain_cleaning_request" tooldescription="Start a customer request for A-1 Drain Cleaning by collecting the customer name, phone, email, address, drain problem, and description.">
         <div class="grid gap-5 sm:grid-cols-2">
           <div>
             <label for="name" class="block text-sm font-black text-slate-950">Name</label>
-            <input id="name" name="name" type="text" autocomplete="name" required class="mt-2 block min-h-12 w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none focus:border-[#b4232b] focus:ring-2 focus:ring-[#b4232b]/20" />
+            <input id="name" name="name" type="text" autocomplete="name" required toolparamdescription="Customer full name." class="mt-2 block min-h-12 w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none focus:border-[#b4232b] focus:ring-2 focus:ring-[#b4232b]/20" />
           </div>
 
           <div>
             <label for="phone" class="block text-sm font-black text-slate-950">Phone</label>
-            <input id="phone" name="phone" type="tel" autocomplete="tel" required class="mt-2 block min-h-12 w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none focus:border-[#b4232b] focus:ring-2 focus:ring-[#b4232b]/20" />
+            <input id="phone" name="phone" type="tel" autocomplete="tel" required toolparamdescription="Customer phone number." class="mt-2 block min-h-12 w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none focus:border-[#b4232b] focus:ring-2 focus:ring-[#b4232b]/20" />
           </div>
 
           <div>
             <label for="email" class="block text-sm font-black text-slate-950">Email</label>
-            <input id="email" name="email" type="email" autocomplete="email" class="mt-2 block min-h-12 w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none focus:border-[#b4232b] focus:ring-2 focus:ring-[#b4232b]/20" />
+            <input id="email" name="email" type="email" autocomplete="email" toolparamdescription="Customer email address, if they want a reply by email." class="mt-2 block min-h-12 w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none focus:border-[#b4232b] focus:ring-2 focus:ring-[#b4232b]/20" />
           </div>
 
           <div>
             <label for="address" class="block text-sm font-black text-slate-950">Address</label>
-            <input id="address" name="address" type="text" autocomplete="street-address" required class="mt-2 block min-h-12 w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none focus:border-[#b4232b] focus:ring-2 focus:ring-[#b4232b]/20" />
+            <input id="address" name="address" type="text" autocomplete="street-address" required toolparamdescription="Customer service address." class="mt-2 block min-h-12 w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none focus:border-[#b4232b] focus:ring-2 focus:ring-[#b4232b]/20" />
           </div>
 
           <div class="sm:col-span-2">
             <label for="drain-problem" class="block text-sm font-black text-slate-950">Drain Problem</label>
-            <select id="drain-problem" name="drain-problem" required class="mt-2 block min-h-12 w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none focus:border-[#b4232b] focus:ring-2 focus:ring-[#b4232b]/20">
+            <select id="drain-problem" name="drain-problem" required toolparamdescription="The type of drain or sewer problem the customer is reporting." class="mt-2 block min-h-12 w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none focus:border-[#b4232b] focus:ring-2 focus:ring-[#b4232b]/20">
               <option value="">Select a drain problem</option>
               <option>Clogged Toilet</option>
               <option>Kitchen Sink Drain</option>
@@ -58,7 +58,7 @@
 
           <div class="sm:col-span-2">
             <label for="message" class="block text-sm font-black text-slate-950">What’s going on?</label>
-            <textarea id="message" name="message" rows="5" placeholder="Tell us what is backing up, what is not draining, or where you see water." class="mt-2 block w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none focus:border-[#b4232b] focus:ring-2 focus:ring-[#b4232b]/20"></textarea>
+            <textarea id="message" name="message" rows="5" toolparamdescription="Description of what is backing up, not draining, or where water is appearing." placeholder="Tell us what is backing up, what is not draining, or where you see water." class="mt-2 block w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-slate-950 outline-none focus:border-[#b4232b] focus:ring-2 focus:ring-[#b4232b]/20"></textarea>
           </div>
         </div>
 
