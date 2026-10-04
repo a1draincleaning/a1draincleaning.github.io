@@ -43,8 +43,16 @@ a {
 }
 
 .call-button {
-  color: #fff !important;
-  box-shadow: 0 -4px 0 #1A1A68, 0 4px 0 #1A1A68 !important;
+  color: #000 !important;
+  background: #ff5a00 !important;
+  border-radius: 0.65rem !important;
+  font-family: 'Arial Black', Arial, Helvetica, sans-serif !important;
+  font-weight: 900 !important;
+  box-shadow: none !important;
+}
+
+.call-button:hover {
+  background: #ff6a1a !important;
 }
 
 .skip {
