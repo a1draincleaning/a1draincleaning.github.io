@@ -7,7 +7,6 @@ import Problems from '../components/Problems.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import Footer from '../components/Footer.astro';
 import GoogleBusinessInfo from '../components/GoogleBusinessInfo.astro';
-import { serviceAreas } from '../data/serviceAreas';
 ---
 
 <MainLayout
@@ -57,14 +56,9 @@ import { serviceAreas } from '../data/serviceAreas';
     <section class="bg-white py-16 sm:py-20">
       <div class="container">
         <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">North Iowa</p>
-        <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Mason City and surrounding communities</h2>
-        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-600">A-1 is based in Mason City and serves North Iowa communities for drain cleaning and sewer work. Availability depends on the job and schedule.</p>
-        <div class="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-          {serviceAreas.slice(0, 24).map((city) => (
-            <a href="/service-area/" class="border border-slate-200 bg-slate-50 px-3 py-3 text-sm font-bold hover:border-[#b4232b] hover:bg-white">{city}</a>
-          ))}
-        </div>
-        <a href="/service-area/" class="mt-7 inline-block font-black text-[#b4232b]">View the full service area →</a>
+        <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Mason City and North Iowa</h2>
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-600">A-1 Drain Cleaning is based in Mason City, Iowa and serves Mason City and surrounding North Iowa communities for drain cleaning and sewer work.</p>
+        <a href="/service-area/" class="mt-7 inline-block font-black text-[#b4232b]">See the full service area →</a>
       </div>
     </section>
 
