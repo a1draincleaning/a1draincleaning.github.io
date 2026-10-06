@@ -12,7 +12,27 @@ export function getStaticPaths() {
 const { service } = Astro.props;
 const title = `${service.title} | A-1 Drain Cleaning`;
 const description = `${service.description} A-1 Drain Cleaning serves Mason City and North Iowa. Call 641-530-2728.`;
-const relatedServices = services.filter((item) => item.slug !== service.slug).filter((item) => service.problems.some((problem) => item.problems.some((itemProblem) => itemProblem.toLowerCase().includes(problem.toLowerCase().split(' ')[0])))).slice(0, 3);
+const relatedServiceMap: Record<string, string[]> = {
+  'main-drain-cleaning': ['sewer-line-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
+  'sewer-line-cleaning': ['main-drain-cleaning', 'tree-roots-in-sewer-line', 'basement-floor-drains'],
+  'tree-roots-in-sewer-line': ['sewer-line-cleaning', 'main-drain-cleaning', 'drain-repair'],
+  'hydro-jetting': ['main-drain-cleaning', 'sewer-line-cleaning', 'drain-repair'],
+  'basement-floor-drains': ['main-drain-cleaning', 'sewer-line-cleaning', 'washing-machine-basement-flooding', 'laundry-drains', 'sewer-backup-emergency'],
+  'washing-machine-basement-flooding': ['basement-floor-drains', 'laundry-drains', 'main-drain-cleaning'],
+  'laundry-drains': ['washing-machine-basement-flooding', 'basement-floor-drains', 'main-drain-cleaning'],
+  'sewer-backup-emergency': ['main-drain-cleaning', 'sewer-line-cleaning', 'basement-floor-drains'],
+  'toilet-clogs': ['main-drain-cleaning', 'sewer-line-cleaning', 'basement-floor-drains'],
+  'kitchen-bathroom-drains': ['main-drain-cleaning', 'toilet-clogs', 'laundry-drains'],
+  'drain-repair': ['sewer-line-cleaning', 'tree-roots-in-sewer-line', 'hydro-jetting'],
+  'septic-lines': ['main-drain-cleaning', 'sewer-line-cleaning', 'sewer-backup-emergency'],
+  'roof-vent-drains': ['kitchen-bathroom-drains', 'toilet-clogs', 'main-drain-cleaning'],
+  'garbage-disposal': ['kitchen-bathroom-drains', 'drain-repair', 'main-drain-cleaning'],
+  'dishwasher-drain': ['kitchen-bathroom-drains', 'garbage-disposal', 'main-drain-cleaning'],
+  'sump-pumps': ['sewer-backup-emergency', 'basement-floor-drains']
+};
+const relatedServices = (relatedServiceMap[service.slug] || [])
+  .map((slug) => services.find((item) => item.slug === slug))
+  .filter((item): item is typeof services[number] => Boolean(item));
 const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'washing-machine-basement-flooding', 'laundry-drains', 'sewer-backup-emergency'];
 ---
 
