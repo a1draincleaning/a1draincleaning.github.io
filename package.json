@@ -13,7 +13,7 @@
     "astro": "7.3.5",
     "astro-seo": "1.2.0",
     "astro-seo-schema": "7.0.0",
-    "schema-dts": "2.0.0",
+    "schema-dts": "1.1.5",
     "typescript": "6.0.3"
   },
   "devDependencies": {
