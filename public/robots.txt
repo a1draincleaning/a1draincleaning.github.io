@@ -19,7 +19,7 @@ User-agent: CCBot
 Disallow: /
 
 User-agent: SemrushBot
-Disallow: /
+Allow: /
 
 User-agent: DotBot
 Disallow: /
