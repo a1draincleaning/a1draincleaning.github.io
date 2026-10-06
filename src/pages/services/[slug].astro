@@ -13,6 +13,7 @@ const { service } = Astro.props;
 const title = `${service.title} | A-1 Drain Cleaning`;
 const description = `${service.description} A-1 Drain Cleaning serves Mason City and North Iowa. Call 641-530-2728.`;
 const relatedServices = services.filter((item) => item.slug !== service.slug).filter((item) => service.problems.some((problem) => item.problems.some((itemProblem) => itemProblem.toLowerCase().includes(problem.toLowerCase().split(' ')[0])))).slice(0, 3);
+const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'washing-machine-basement-flooding', 'laundry-drains', 'sewer-backup-emergency'];
 ---
 
 <MainLayout title={title} description={description} path={`/services/${service.slug}/`} service={service}>
@@ -54,6 +55,13 @@ const relatedServices = services.filter((item) => item.slug !== service.slug).fi
               <p class="mt-3 leading-7 text-slate-700">In a house without a basement, a completely stopped main line may send wastewater into a bathtub or shower instead of a basement floor drain. The lowest available fixture is often where the backup becomes visible first.</p>
             </div>
           )}
+          {floorDrainClusterSlugs.includes(service.slug) && (
+            <div class="mt-8 border-l-4 border-[#b4232b] bg-slate-50 p-6">
+              <h2 class="text-2xl font-black tracking-tight text-slate-950">Floor drain backup can be part of a larger blockage</h2>
+              <p class="mt-3 leading-7 text-slate-700">If wastewater is coming up through a floor drain, especially when the washing machine drains or another fixture is used, the restriction may be farther down the shared drain or main sewer line.</p>
+              <a href="/services/basement-floor-drains/" class="mt-4 inline-block font-black text-[#b4232b] underline underline-offset-4">See floor drain backup causes and symptoms →</a>
+            </div>
+          )}
           <h2 class="mt-12 text-3xl font-black tracking-tight text-slate-950">Signs the drain may be involved</h2>
           <ul class="mt-5 grid gap-3 sm:grid-cols-2">{service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}</ul>
         </article>
@@ -78,7 +86,7 @@ const relatedServices = services.filter((item) => item.slug !== service.slug).fi
             <a href="/services/main-drain-cleaning/" class="border border-slate-200 bg-white p-5 font-black text-slate-950 hover:border-[#b4232b]">Main drain cleaning →</a>
             <a href="/services/sewer-line-cleaning/" class="border border-slate-200 bg-white p-5 font-black text-slate-950 hover:border-[#b4232b]">Sewer line cleaning →</a>
             <a href="/services/laundry-drains/" class="border border-slate-200 bg-white p-5 font-black text-slate-950 hover:border-[#b4232b]">Laundry drain problems →</a>
-            <a href="/services/sewer-backup-emergency-service/" class="border border-slate-200 bg-white p-5 font-black text-slate-950 hover:border-[#b4232b]">Sewer backup emergency service →</a>
+            <a href="/services/sewer-backup-emergency/" class="border border-slate-200 bg-white p-5 font-black text-slate-950 hover:border-[#b4232b]">Sewer backup emergency service →</a>
           </div>
         )}
         {relatedServices.length > 0 && (<div class="mt-12 grid gap-4 sm:grid-cols-3">{relatedServices.map((related) => (<a href={`/services/${related.slug}/`} class="border border-slate-200 bg-white p-5 font-black text-slate-950 hover:border-[#b4232b]">{related.title} →</a>))}</div>)}
