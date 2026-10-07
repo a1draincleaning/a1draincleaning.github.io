@@ -42,6 +42,11 @@ a {
   color: #475569 !important;
 }
 
+.bg-white .text-slate-400,
+.bg-slate-100 .text-slate-400 {
+  color: #475569 !important;
+}
+
 .call-button {
   color: #000 !important;
   background: #ff5a00 !important;
