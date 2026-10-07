@@ -1,8 +1,5 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-import ContactCTA from '../../components/ContactCTA.astro';
 import { services } from '../../data/services';
 
 export function getStaticPaths() {
@@ -10,39 +7,15 @@ export function getStaticPaths() {
 }
 
 const { service } = Astro.props;
-const title = `${service.title} | A-1 Drain Cleaning`;
-const description = `${service.description} A-1 Drain Cleaning serves Mason City and North Iowa. Call 641-530-2728.`;
-const relatedServiceMap: Record<string, string[]> = {
-  'main-drain-cleaning': ['sewer-line-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
-  'sewer-line-cleaning': ['main-drain-cleaning', 'tree-roots-in-sewer-line', 'basement-floor-drains'],
-  'tree-roots-in-sewer-line': ['sewer-line-cleaning', 'main-drain-cleaning', 'drain-repair'],
-  'hydro-jetting': ['main-drain-cleaning', 'sewer-line-cleaning', 'drain-repair'],
-  'basement-floor-drains': ['main-drain-cleaning', 'sewer-line-cleaning', 'washing-machine-basement-flooding', 'laundry-drains', 'sewer-backup-emergency'],
-  'washing-machine-basement-flooding': ['basement-floor-drains', 'laundry-drains', 'main-drain-cleaning'],
-  'laundry-drains': ['washing-machine-basement-flooding', 'basement-floor-drains', 'main-drain-cleaning'],
-  'sewer-backup-emergency': ['main-drain-cleaning', 'sewer-line-cleaning', 'basement-floor-drains'],
-  'toilet-clogs': ['main-drain-cleaning', 'sewer-line-cleaning', 'basement-floor-drains'],
-  'kitchen-bathroom-drains': ['main-drain-cleaning', 'toilet-clogs', 'laundry-drains'],
-  'drain-repair': ['sewer-line-cleaning', 'tree-roots-in-sewer-line', 'hydro-jetting'],
-  'septic-lines': ['main-drain-cleaning', 'sewer-line-cleaning', 'sewer-backup-emergency'],
-  'roof-vent-drains': ['kitchen-bathroom-drains', 'toilet-clogs', 'main-drain-cleaning'],
-  'garbage-disposal': ['kitchen-bathroom-drains', 'drain-repair', 'main-drain-cleaning'],
-  'dishwasher-drain': ['kitchen-bathroom-drains', 'garbage-disposal', 'main-drain-cleaning'],
-  'sump-pumps': ['sewer-backup-emergency', 'basement-floor-drains']
-};
-const relatedServices = (relatedServiceMap[service.slug] || [])
-  .map((slug) => services.find((item) => item.slug === slug))
-  .filter((item): item is typeof services[number] => Boolean(item));
-const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'washing-machine-basement-flooding', 'laundry-drains', 'sewer-backup-emergency'];
+const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'water-backup', 'basement-floor-drains', 'sewer-backup-emergency'];
+const isFloorDrainCluster = floorDrainClusterSlugs.includes(service.slug);
 ---
 
-<MainLayout title={title} description={description} path={`/services/${service.slug}/`} service={service}>
-  <Header />
-  <main id="main">
-    <section class="bg-[#1A1A68] text-white">
-      <div class="container py-14 sm:py-18 lg:py-24">
-        <nav aria-label="Breadcrumb" class="text-sm font-bold text-slate-300"><a href="/" class="hover:text-white">Home</a><span class="mx-2" aria-hidden="true">/</span><a href="/services/" class="hover:text-white">Services</a><span class="mx-2" aria-hidden="true">/</span><span class="text-white">{service.title}</span></nav>
-        <p class="mt-5 text-sm font-black uppercase tracking-[0.2em] text-red-300">Mason City • North Iowa</p>
+<MainLayout title={service.seoTitle} description={service.seoDescription}>
+  <main>
+    <section class="bg-slate-950 py-16 text-white sm:py-20">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-red-300">Mason City • North Iowa</p>
         <h1 class="mt-3 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">{service.title}</h1>
         <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">{service.description}</p>
         <a href="tel:+16415302728" class="call-button mt-8 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-center text-lg font-black text-white shadow-lg hover:bg-[#a82129]">CALL 641-530-2728</a>
@@ -63,30 +36,15 @@ const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'w
     <section class="bg-white py-16 sm:py-20">
       <div class="container grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
         <article>
-          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">About this drain problem</p>
-          <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">What can cause this problem?</h2>
-          <div class="mt-6 space-y-5">{service.details.map((paragraph) => (<p class="text-lg leading-8 text-slate-700">{paragraph}</p>))}</div>
-          {service.slug === 'basement-floor-drains' && (
-            <div class="mt-8 border-l-4 border-[#b4232b] bg-slate-50 p-6">
-              <h2 class="text-2xl font-black tracking-tight text-slate-950">Why is my floor drain backing up?</h2>
-              <p class="mt-3 leading-7 text-slate-700">A floor drain usually backs up because wastewater cannot move farther down the drain system. The restriction can be in the floor-drain branch, a shared drain line, or the main sewer line. Sewage backing up through a floor drain does not necessarily mean the floor drain itself is clogged.</p>
-              <p class="mt-3 leading-7 text-slate-700">If the floor drain backs up when doing laundry, the washing machine may simply be putting a large amount of water into a restricted line quickly. The same restriction can cause water or sewage to back up when a toilet is flushed or another sink, tub, or shower is used.</p>
-              <p class="mt-3 leading-7 text-slate-700">In a house without a basement, a completely stopped main line may send wastewater into a bathtub or shower instead of a basement floor drain. The lowest available fixture is often where the backup becomes visible first.</p>
-            </div>
-          )}
-          {floorDrainClusterSlugs.includes(service.slug) && (
-            <div class="mt-8 border-l-4 border-[#b4232b] bg-slate-50 p-6">
-              <h2 class="text-2xl font-black tracking-tight text-slate-950">Floor drain backup can be part of a larger blockage</h2>
-              <p class="mt-3 leading-7 text-slate-700">If wastewater is coming up through a floor drain, especially when the washing machine drains or another fixture is used, the restriction may be farther down the shared drain or main sewer line.</p>
-              <a href="/services/basement-floor-drains/" class="mt-4 inline-block font-black text-[#b4232b] underline underline-offset-4">See floor drain backup causes and symptoms →</a>
-            </div>
-          )}
-          <h2 class="mt-12 text-3xl font-black tracking-tight text-slate-950">Signs the drain may be involved</h2>
-          <ul class="mt-5 grid gap-3 sm:grid-cols-2">{service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}</ul>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">A-1 Drain Cleaning</p>
+          <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">{service.heading}</h2>
+          <div class="mt-6 space-y-5 text-lg leading-8 text-slate-700">
+            {service.paragraphs.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
         </article>
-        <aside class="border border-slate-200 bg-[#1A1A68] p-7 text-white shadow-xl sm:p-8">
-          <p class="text-sm font-black uppercase tracking-[0.18em] text-red-300">What A-1 looks for</p>
-          <h2 class="mt-2 text-3xl font-black">Tell us what the water is doing.</h2>
+        <aside class="bg-slate-950 p-7 text-white sm:p-8">
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-red-300">Need help with a drain?</p>
+          <p class="mt-4 text-2xl font-black">Tell A-1 what the water is doing.</p>
           <p class="mt-4 leading-7 text-slate-300">Tell A-1 which fixture is affected, whether it is slow or stopped, and whether other drains back up when water is used.</p>
           <a href="tel:+16415302728" class="call-button mt-6 block rounded-md bg-[#c52b34] px-5 py-4 text-center font-black text-white">CALL 641-530-2728</a>
           <a href="/services/" class="mt-5 block font-black text-white underline underline-offset-4">See all drain services</a>
@@ -99,7 +57,7 @@ const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'w
       <div class="container">
         <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Related problems</p>
         <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">What else can be connected?</h2>
-        <div class="mt-8 flex flex-wrap gap-2">{service.problems.map((problem) => (<span class="border border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-700">{problem}</span>)}</div>
+        <div class="mt-8 flex flex-wrap gap-2">{service.problems.map((problem) => (<span class="border border-slate-200 bg-white px-4 py-3 text-sm font-bold text-slate-700">{problem}</span>))}</div>
         {service.slug === 'basement-floor-drains' && (
           <div class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             <a href="/services/main-drain-cleaning/" class="border border-slate-200 bg-white p-5 font-black text-slate-950 hover:border-[#b4232b]">Main drain cleaning →</a>
@@ -108,27 +66,22 @@ const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'w
             <a href="/services/sewer-backup-emergency/" class="border border-slate-200 bg-white p-5 font-black text-slate-950 hover:border-[#b4232b]">Sewer backup emergency service →</a>
           </div>
         )}
-        {relatedServices.length > 0 && (<div class="mt-12 grid gap-4 sm:grid-cols-3">{relatedServices.map((related) => (<a href={`/services/${related.slug}/`} class="border border-slate-200 bg-white p-5 font-black text-slate-950 hover:border-[#b4232b]">{related.title} →</a>))}</div>)}
       </div>
     </section>
 
-    <section class="bg-slate-100 py-16 sm:py-20">
-      <div class="container grid gap-8 lg:grid-cols-2">
-        <article class="border border-slate-200 bg-white p-7 sm:p-8">
-          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Equipment & methods</p>
-          <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950">The equipment depends on the line.</h2>
-          <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning uses drain and sewer cleaning equipment with various sizes of cables, along with root-cutting equipment, sewer cameras, line locating equipment, and hydro jetting when the pipe and problem call for it.</p>
-          <p class="mt-4 leading-8 text-slate-700">The equipment used depends on the size of the line, where the blockage is, and what is causing the problem.</p>
-        </article>
-        <article class="border border-slate-200 bg-white p-7 sm:p-8">
-          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">North Iowa</p>
-          <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950">Mason City and surrounding communities</h2>
-          <p class="mt-4 leading-8 text-slate-700">A-1 is based in Mason City and serves North Iowa for drain cleaning and sewer work. Availability depends on the job and schedule.</p>
-          <a href="/service-area/" class="mt-5 inline-block font-black text-[#b4232b]">View service area →</a>
-        </article>
-      </div>
-    </section>
-    <ContactCTA />
+    {isFloorDrainCluster && (
+      <section class="bg-white py-16 sm:py-20">
+        <div class="container">
+          <div class="grid gap-5 md:grid-cols-3">
+            {service.faqs.map((faq) => (
+              <details class="border border-slate-200 bg-white p-5">
+                <summary class="cursor-pointer font-black text-slate-950">{faq.question}</summary>
+                <p class="mt-4 leading-7 text-slate-700">{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
   </main>
-  <Footer />
 </MainLayout>
