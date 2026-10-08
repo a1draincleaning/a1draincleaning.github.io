@@ -1,0 +1,122 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { uniqueServiceAreaCities, type ServiceAreaCity } from '../../data/serviceAreaCities';
+import { services } from '../../data/services';
+
+export function getStaticPaths() {
+  return uniqueServiceAreaCities.map((city) => ({
+    params: { slug: city.slug },
+    props: { city }
+  }));
+}
+
+const { city } = Astro.props as { city: ServiceAreaCity };
+const countyLabel = city.counties.map((county) => `${county} County`).join(' and ');
+const title = `Drain Cleaning in ${city.name}, Iowa | A-1 Drain Cleaning`;
+const description = `A-1 Drain Cleaning serves ${city.name}, Iowa for drain cleaning, main drain and sewer line cleaning, floor drain backups, sewer backups and related drain problems. Call 641-530-2728.`;
+const coreServices = services.filter((service) => [
+  'main-drain-cleaning',
+  'sewer-line-cleaning',
+  'tree-roots-in-sewer-line',
+  'basement-floor-drains',
+  'kitchen-bathroom-drains',
+  'toilet-clogs',
+  'laundry-drains',
+  'sewer-backup-emergency',
+  'hydro-jetting'
+].includes(service.slug));
+const nearbyCities = uniqueServiceAreaCities
+  .filter((item) => item.slug !== city.slug && item.counties.some((county) => city.counties.includes(county)))
+  .slice(0, 12);
+---
+
+<MainLayout title={title} description={description} path={`/service-area/${city.slug}/`}>
+  <Header />
+  <main id="main">
+    <section class="bg-[#1A1A68] py-14 text-white sm:py-20 lg:py-24">
+      <div class="container">
+        <nav aria-label="Breadcrumb" class="text-sm font-bold text-slate-300">
+          <a href="/" class="hover:text-white">Home</a>
+          <span class="mx-2" aria-hidden="true">/</span>
+          <a href="/service-area/" class="hover:text-white">Service Area</a>
+          <span class="mx-2" aria-hidden="true">/</span>
+          <span class="text-white">{city.name}</span>
+        </nav>
+        <p class="mt-5 text-sm font-black uppercase tracking-[0.2em] text-red-300">{countyLabel}</p>
+        <h1 class="mt-3 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">Drain Cleaning in {city.name}, Iowa</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
+          A-1 Drain Cleaning is based in Mason City and serves {city.name} for drain cleaning and sewer work.
+          If a drain is stopped, a floor drain is backing up, or wastewater is coming back into the house, tell us what the water is doing.
+        </p>
+        <a href="tel:+16415302728" class="call-button mt-8 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-center text-lg font-black text-white shadow-lg hover:bg-[#a82129]">CALL 641-530-2728</a>
+      </div>
+    </section>
+
+    <section class="bg-white py-16 sm:py-20">
+      <div class="container grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
+        <article>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">A-1 in {city.name}</p>
+          <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Drain and sewer problems around {city.name}</h2>
+          <p class="mt-6 text-lg leading-8 text-slate-700">
+            A-1 Drain Cleaning handles the drain problems that can shut down a house: clogged sinks, showers, tubs and toilets,
+            basement floor drains, washing machine drains, main drain blockages and sewer line backups.
+            When several fixtures are affected at once, the restriction may be farther down the drain system.
+          </p>
+          <p class="mt-5 text-lg leading-8 text-slate-700">
+            Floor drain backups are especially important when wastewater is coming up through the drain.
+            A washing machine can expose a restriction because it sends a large amount of water into the line quickly.
+            In a house without a basement, a completely stopped main line may instead send wastewater into a bathtub or shower.
+          </p>
+          <p class="mt-5 text-lg leading-8 text-slate-700">
+            A-1 chooses the equipment based on the line and the actual problem. That can include drain-cleaning equipment with different cable sizes,
+            root-cutting equipment, sewer cameras, line locating equipment, and hydro jetting when appropriate.
+          </p>
+        </article>
+
+        <aside class="border border-slate-200 bg-[#1A1A68] p-7 text-white shadow-xl sm:p-8">
+          <p class="text-sm font-black uppercase tracking-[0.18em] text-red-300">Need the line opened?</p>
+          <h2 class="mt-2 text-3xl font-black">Tell us what the water is doing.</h2>
+          <p class="mt-4 leading-7 text-slate-300">Tell A-1 which fixture is affected, whether it is slow or stopped, and whether another drain backs up when water is used.</p>
+          <a href="tel:+16415302728" class="call-button mt-6 block rounded-md bg-[#c52b34] px-5 py-4 text-center font-black text-white">CALL 641-530-2728</a>
+        </aside>
+      </div>
+    </section>
+
+    <section class="bg-slate-100 py-16 sm:py-20">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">{city.name} service</p>
+        <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Drain cleaning and sewer services</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {coreServices.map((service) => (
+            <a href={`/services/${service.slug}/`} class="border border-slate-200 bg-white p-6 hover:border-[#b4232b]">
+              <h3 class="text-xl font-black text-slate-950">{service.title}</h3>
+              <p class="mt-2 leading-7 text-slate-700">{service.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-16 sm:py-20">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">County service area</p>
+        <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">{city.name} and nearby communities</h2>
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
+          A-1's service area includes communities throughout the counties listed for this location. These are the nearby communities currently represented in the site service-area plan.
+        </p>
+        <div class="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          {nearbyCities.map((nearby) => (
+            <a href={`/service-area/${nearby.slug}/`} class="border border-slate-200 bg-slate-50 px-3 py-3 text-sm font-bold text-slate-950 hover:border-[#b4232b] hover:bg-white">{nearby.name}</a>
+          ))}
+        </div>
+        <a href="/service-area/" class="mt-8 inline-block font-black text-[#b4232b] underline underline-offset-4">See the full North Iowa service area →</a>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </main>
+  <Footer />
+</MainLayout>
