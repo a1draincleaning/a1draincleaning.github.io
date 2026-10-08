@@ -17,13 +17,13 @@
 - [Drain Cleaning](https://a1draincleaning.github.io/services/)
 - [Main Drain Cleaning](https://a1draincleaning.github.io/services/main-drain-cleaning/)
 - [Sewer Line Cleaning](https://a1draincleaning.github.io/services/sewer-line-cleaning/)
-- [Tree Roots in Sewer Lines](https://a1draincleaning.github.io/services/tree-roots-in-sewer-lines/)
+- [Tree Roots in Sewer Lines](https://a1draincleaning.github.io/services/tree-roots-in-sewer-line/)
 - [Hydro Jetting](https://a1draincleaning.github.io/services/hydro-jetting/)
 - [Floor Drain Backups & Basement Drains](https://a1draincleaning.github.io/services/basement-floor-drains/)
 - [Kitchen & Bathroom Drains](https://a1draincleaning.github.io/services/kitchen-bathroom-drains/)
 - [Toilet Clogs & Toilet Problems](https://a1draincleaning.github.io/services/toilet-clogs/)
-- [Laundry & Washing Machine Drains](https://a1draincleaning.github.io/services/laundry-washing-machine-drains/)
-- [Sewer Backup Emergency Service](https://a1draincleaning.github.io/services/sewer-backup-emergency-service/)
+- [Laundry & Washing Machine Drains](https://a1draincleaning.github.io/services/laundry-drains/)
+- [Sewer Backup Emergency Service](https://a1draincleaning.github.io/services/sewer-backup-emergency/)
 - [Smoke Testing](https://a1draincleaning.github.io/services/smoke-testing/)
 
 ## Drain and Sewer Problems
