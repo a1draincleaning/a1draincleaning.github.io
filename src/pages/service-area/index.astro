@@ -4,6 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 import { uniqueServiceAreaCities } from '../../data/serviceAreaCities';
+import { serviceAreas } from '../../data/serviceAreas';
 ---
 
 <MainLayout
@@ -28,8 +29,11 @@ import { uniqueServiceAreaCities } from '../../data/serviceAreaCities';
         <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Communities A-1 serves</h2>
         <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">The communities below are in the current service area. Availability can depend on the job and schedule.</p>
         <div class="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-          {serviceAreas.map((city) => (
-            <a href="/service-area/" class="border border-slate-200 bg-slate-50 px-3 py-3 text-sm font-bold text-slate-950 hover:border-[#b4232b] hover:bg-white">{city}</a>
+          {uniqueServiceAreaCities.map((city) => (
+            <a href={`/service-area/${city.slug}/`} class="border border-slate-200 bg-slate-50 px-3 py-3 text-sm font-bold text-slate-950 hover:border-[#b4232b] hover:bg-white">{city.name}</a>
+          ))}
+          {serviceAreas.filter((city) => city === 'Chapin' || city === 'Albert Lea, MN').map((city) => (
+            <span class="border border-slate-200 bg-slate-50 px-3 py-3 text-sm font-bold text-slate-950">{city}</span>
           ))}
         </div>
       </div>
