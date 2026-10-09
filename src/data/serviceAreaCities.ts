@@ -23,7 +23,6 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Dougherty', ['Cerro Gordo']],
     ['Mason City', ['Cerro Gordo']],
     ['Meservey', ['Cerro Gordo']],
-    ['Nora Springs', ['Floyd']],
     ['Plymouth', ['Cerro Gordo']],
     ['Rock Falls', ['Cerro Gordo']],
     ['Rockwell', ['Cerro Gordo']],
