@@ -11,18 +11,19 @@ const city = (name: string, counties: string[]): ServiceAreaCity => ({
 });
 
 /**
- * City/community pages for A-1's current 12-county North Iowa service-area plan.
+ * City/community pages for A-1's current 11-county North Iowa service-area plan.
  * County assignments are based on Iowa's incorporated-city directory and official
  * local-government sources. Review the full county coverage before expanding it.
  */
 export const serviceAreaCities: ServiceAreaCity[] = [
+  // County assignments checked against the Iowa Secretary of State incorporated-city list.
   // Cerro Gordo County
   ...[
     ['Clear Lake', ['Cerro Gordo']],
     ['Dougherty', ['Cerro Gordo']],
     ['Mason City', ['Cerro Gordo']],
     ['Meservey', ['Cerro Gordo']],
-    ['Nora Springs', ['Cerro Gordo', 'Floyd']],
+    ['Nora Springs', ['Floyd']],
     ['Plymouth', ['Cerro Gordo']],
     ['Rock Falls', ['Cerro Gordo']],
     ['Rockwell', ['Cerro Gordo']],
@@ -88,7 +89,6 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Britt', ['Hancock']],
     ['Corwith', ['Hancock']],
     ['Crystal Lake', ['Hancock']],
-    ['Forest City', ['Winnebago']],
     ['Garner', ['Hancock']],
     ['Goodell', ['Hancock']],
     ['Kanawha', ['Hancock']],
@@ -103,6 +103,7 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Mitchell', ['Mitchell']],
     ['Orchard', ['Mitchell']],
     ['Osage', ['Mitchell']],
+    ['Riceville', ['Mitchell']],
     ['St. Ansgar', ['Mitchell']],
     ['Stacyville', ['Mitchell']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
