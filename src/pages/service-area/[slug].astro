@@ -28,6 +28,8 @@ const priorityCityContent: Record<string, {
   infrastructureNote: string;
   sourceLabel: string;
   sourceUrl: string;
+  sourceLabel2?: string;
+  sourceUrl2?: string;
 }> = {
   'clear-lake': {
     infrastructureNote: 'The Clear Lake Sanitary District records that its sanitary sewer system began operating in 1956 and documents later collection-system improvements. The district has also described how stormwater entering sanitary sewers can reduce available capacity during wet weather. That history is useful context, but it cannot identify the cause of a backup at an individual home or establish the age of its private sewer lateral.',
@@ -63,6 +65,8 @@ const priorityCityContent: Record<string, {
     infrastructureNote: 'Garner’s Public Works Department identifies separate Streets/Storm Sewer and Water/Sewer units. The city also publishes instructions for reporting municipal sewer backups after hours. This helps distinguish a possible public-main issue from a blockage in a home’s private drain or sewer service; the location and cause still need to be checked rather than assumed.',
     sourceLabel: 'City of Garner Public Works',
     sourceUrl: 'https://garneriowa.org/departments/public-works/',
+    sourceLabel2: 'City of Garner sewer-backup contact notice',
+    sourceUrl2: 'https://garneriowa.org/city-government/announcements-notices/reminder-emergency-and-non-emergency-contact-information/',
     lead: 'A-1 Drain Cleaning serves Garner for clogged sinks and tubs, laundry-drain problems, main drain blockages, and sewer backups.',
     localIntro: 'Pay attention to whether the drain is just slow or whether wastewater comes back when another fixture is used. A problem that repeats after a drain has been cleared may need further investigation rather than another quick attempt at the same spot.',
     floorDrain: 'If laundry water comes up through a basement floor drain in Garner, do not assume the washing machine itself is at fault. A fast discharge can reveal a restriction farther down a shared drain line.',
@@ -165,7 +169,7 @@ const nearbyCities = uniqueServiceAreaCities
           <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Local infrastructure records</p>
           <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">What local records tell us</h2>
           <p class="mt-4 text-lg leading-8 text-slate-700">{localContent.infrastructureNote}</p>
-          <p class="mt-4 text-sm leading-6 text-slate-600">Source: <a href={localContent.sourceUrl} target="_blank" rel="noopener noreferrer" class="font-bold text-[#1A1A68] underline underline-offset-4">{localContent.sourceLabel}</a>. Public-system history does not establish the condition or material of a private home's sewer line.</p>
+          <p class="mt-4 text-sm leading-6 text-slate-600">Source: <a href={localContent.sourceUrl} target="_blank" rel="noopener noreferrer" class="font-bold text-[#1A1A68] underline underline-offset-4">{localContent.sourceLabel}</a>{localContent.sourceUrl2 && localContent.sourceLabel2 && (<>; <a href={localContent.sourceUrl2} target="_blank" rel="noopener noreferrer" class="font-bold text-[#1A1A68] underline underline-offset-4">{localContent.sourceLabel2}</a></>)}. Public-system history does not establish the condition or material of a private home's sewer line.</p>
         </div>
       </section>
     )}
