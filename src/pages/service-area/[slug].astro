@@ -39,7 +39,7 @@ const priorityCityContent: Record<string, {
     localIntro: 'If one sink or tub is slow, the restriction may be close to that fixture. If several drains are affected together, or using one fixture makes another drain back up, the problem may be farther down the shared drain system.',
     floorDrain: 'For a Clear Lake home with wastewater coming up through a basement floor drain, stop running water in the house when possible and call. The floor drain may be where the backup shows up, even when the blockage is farther down the line.',
     faqQuestion: 'Do you handle main drain backups in Clear Lake?',
-    faqAnswer: 'Yes. A-1 handles main drain and sewer-line blockages, including backups that show up at a floor drain, toilet, tub, or shower. The symptoms help determine where to start.'
+    faqAnswer: 'Yes. A-1 Drain Cleaning handles main drain and sewer-line blockages, including backups that show up at a floor drain, toilet, tub, or shower. The symptoms help determine where to start.'
   },
   'charles-city': {
     infrastructureNote: 'Charles City warns that Orangeburg pipe was installed in many residential areas around 1950–1970. If a home dates from that period, its actual sewer-line material should be verified rather than guessed from the house’s age. The city’s guidance also distinguishes its public main from the homeowner’s private service line.',
@@ -75,7 +75,7 @@ const priorityCityContent: Record<string, {
     localIntro: 'Tell us whether one fixture is affected or several, and whether the problem appears after flushing a toilet, draining a tub, or running the washing machine. These details help distinguish a local fixture clog from a larger drain-line restriction.',
     floorDrain: 'When a Northwood floor drain backs up with dirty water, stop using water in the house as much as practical and call. If the house has no basement, a main-line blockage may instead send wastewater into a tub or shower.',
     faqQuestion: 'What should I do first when sewage comes up a floor drain?',
-    faqAnswer: 'Stop running water in the house if possible, keep people and pets away from the wastewater, and call A-1. Avoid chemical drain cleaners when the line is already backed up.'
+    faqAnswer: 'Stop running water in the house if possible, keep people and pets away from the wastewater, and call A-1 Drain Cleaning. Avoid chemical drain cleaners when the line is already backed up.'
   }
 };
 const localContent = priorityCityContent[city.slug];
@@ -123,7 +123,7 @@ const nearbyCities = uniqueServiceAreaCities
     <section class="bg-white py-16 sm:py-20">
       <div class="container grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
         <article>
-          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">A-1 in {city.name}</p>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">A-1 Drain Cleaning in {city.name}</p>
           <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Drain and sewer problems around {city.name}</h2>
           <p class="mt-6 text-lg leading-8 text-slate-700">
             {localContent?.localIntro ?? `A-1 Drain Cleaning handles the drain problems that can shut down a house: clogged sinks, showers, tubs and toilets, basement floor drains, washing machine drains, main drain blockages and sewer line backups. When several fixtures are affected at once, the restriction may be farther down the drain system.`}
@@ -136,7 +136,7 @@ const nearbyCities = uniqueServiceAreaCities
         <aside class="border border-slate-200 bg-[#1A1A68] p-7 text-white shadow-xl sm:p-8">
           <p class="text-sm font-black uppercase tracking-[0.18em] text-red-300">Need the line opened?</p>
           <h2 class="mt-2 text-3xl font-black">Tell us what the water is doing.</h2>
-          <p class="mt-4 leading-7 text-slate-300">Tell A-1 which fixture is affected, whether it is slow or stopped, and whether another drain backs up when water is used.</p>
+          <p class="mt-4 leading-7 text-slate-300">Tell A-1 Drain Cleaning which fixture is affected, whether it is slow or stopped, and whether another drain backs up when water is used.</p>
           <a href="tel:+16415302728" class="call-button mt-6 block rounded-md bg-[#c52b34] px-5 py-4 text-center font-black text-white">CALL 641-530-2728</a>
         </aside>
       </div>
@@ -183,7 +183,7 @@ const nearbyCities = uniqueServiceAreaCities
         <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">County service area</p>
         <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">{city.name} and nearby communities</h2>
         <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-          A-1's service area includes communities throughout the counties listed for this location. A town is linked below only when it has a dedicated city page in the current build.
+          A-1 Drain Cleaning's service area includes communities throughout the counties listed for this location. A town is linked below only when it has a dedicated city page in the current build.
         </p>
         <div class="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {nearbyCities.map((nearby) => (
