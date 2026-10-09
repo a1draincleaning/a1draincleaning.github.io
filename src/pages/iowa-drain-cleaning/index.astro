@@ -1,0 +1,57 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'Iowa Drain Cleaning | A-1 Drain Cleaning';
+const description = 'Looking for another option for drain or sewer cleaning in Iowa? A-1 Drain Cleaning is based in Mason City and serves North Iowa. Call to discuss your location and problem.';
+---
+
+<MainLayout title={title} description={description} path="/iowa-drain-cleaning/">
+  <Header />
+  <main id="main">
+    <section class="bg-[#1A1A68] py-14 text-white sm:py-20">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-red-300">A-1 Drain Cleaning • Mason City, Iowa</p>
+        <h1 class="mt-4 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">Looking for Drain Cleaning in Iowa?</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">If you need another option for a drain or sewer problem, contact A-1 Drain Cleaning. We’re based in Mason City and serve North Iowa. Tell us where you’re located and what’s happening, and we’ll talk with you about whether we can help.</p>
+        <a href="tel:+16415302728" class="call-button mt-8 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-center text-lg font-black text-white shadow-lg hover:bg-[#a82129]">CALL 641-530-2728</a>
+      </div>
+    </section>
+
+    <section class="bg-white py-14 sm:py-18">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Drain and sewer problems</p>
+        <h2 class="mt-2 max-w-4xl text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Tell us what the drain is doing.</h2>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-700">A floor drain backing up, a main sewer line that has stopped, or several fixtures draining slowly can point to a problem farther down the line. A kitchen sink, bathroom drain, toilet, laundry drain, or floor drain may need a different approach depending on what is blocked and where the lines connect.</p>
+        <p class="mt-4 max-w-3xl leading-7 text-slate-700">If wastewater is coming up through a floor drain or another fixture, explain which fixture is affected and whether other drains are backing up too. That information can help narrow down what may be happening.</p>
+
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <a href="/services/main-drain-cleaning/" class="border border-slate-200 p-5 hover:border-[#b4232b]"><h3 class="text-lg font-black text-slate-950">Main Drain Cleaning</h3><p class="mt-2 leading-6 text-slate-700">For a stopped or backed-up main drain serving the home.</p></a>
+          <a href="/services/sewer-line-cleaning/" class="border border-slate-200 p-5 hover:border-[#b4232b]"><h3 class="text-lg font-black text-slate-950">Sewer Line Cleaning</h3><p class="mt-2 leading-6 text-slate-700">For sewer line blockages and related drainage trouble.</p></a>
+          <a href="/services/basement-floor-drains/" class="border border-slate-200 p-5 hover:border-[#b4232b]"><h3 class="text-lg font-black text-slate-950">Basement &amp; Floor Drains</h3><p class="mt-2 leading-6 text-slate-700">For water or sewage coming up through a floor drain.</p></a>
+          <a href="/services/kitchen-bathroom-drains/" class="border border-slate-200 p-5 hover:border-[#b4232b]"><h3 class="text-lg font-black text-slate-950">Kitchen &amp; Bathroom Drains</h3><p class="mt-2 leading-6 text-slate-700">For slow or stopped sinks, tubs, and showers.</p></a>
+          <a href="/services/toilet-clogs/" class="border border-slate-200 p-5 hover:border-[#b4232b]"><h3 class="text-lg font-black text-slate-950">Toilet Clogs</h3><p class="mt-2 leading-6 text-slate-700">For toilet clogs and related drain problems.</p></a>
+          <a href="/services/tree-roots-in-sewer-line/" class="border border-slate-200 p-5 hover:border-[#b4232b]"><h3 class="text-lg font-black text-slate-950">Tree Roots in Sewer Lines</h3><p class="mt-2 leading-6 text-slate-700">For sewer line trouble that may involve root growth.</p></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-100 py-14 sm:py-18">
+      <div class="container grid gap-8 lg:grid-cols-2 lg:items-center">
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Based in Mason City</p>
+          <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Need another drain cleaning option?</h2>
+          <p class="mt-4 leading-7 text-slate-700">Having trouble finding someone to take care of your drain or sewer problem? Give A-1 Drain Cleaning a call. We’re based in Mason City and serve North Iowa. If you need another option for service, get in touch and tell us where you’re located and what’s going on. We’ll talk with you about your situation and see if we can help.</p>
+          <a href="tel:+16415302728" class="call-button mt-6 inline-block rounded-md bg-[#b4232b] px-6 py-4 font-black text-white hover:bg-[#951d24]">CALL A-1 DRAIN CLEANING: 641-530-2728</a>
+        </div>
+        <div class="border border-slate-200 bg-white p-7">
+          <h3 class="text-xl font-black text-slate-950">Check our North Iowa service area</h3>
+          <p class="mt-3 leading-7 text-slate-700">A-1 Drain Cleaning’s regular service area is Mason City and surrounding North Iowa communities. The map and town list show the areas currently listed on our website. Contact us to discuss your location before assuming we can take a job farther away.</p>
+          <a href="/service-area/" class="mt-5 inline-block font-black text-[#b4232b] underline underline-offset-4">View service-area map and towns →</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</MainLayout>
