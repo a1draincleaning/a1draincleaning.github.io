@@ -82,13 +82,19 @@ Find city/county historic housing and collection-system records, plus authoritat
 
 ### Verified facts suitable for cautious page context
 - Charles City Area Development Corporation says much of the city's physical infrastructure was rebuilt after the 1968 tornado. Its statement is broad and does not establish which sewer segments were replaced, what materials were installed, or the condition of present-day private laterals.
-- The same source refers to a recently completed water-quality plant; confirm with City of Charles City primary records before using this as wastewater-treatment history, because “water quality plant” may refer to drinking water rather than wastewater.
+- The City's official wastewater-treatment page describes a Water Resource Recovery Facility with six wastewater-pumping stations and lists upgrades in 1985, 1994, 2003, 2013, 2015, and 2019. This is evidence of treatment-facility upgrades, not proof that all neighborhood sewer mains or private laterals were replaced.
+- The City's official sewer-backup guidance says that a private sewer service line is the property owner's responsibility when the city main is operating normally. It also states that bituminous-fiber pipe commonly called Orangeburg was installed in most residential areas during roughly 1950–1970. This is unusually direct local guidance, but it still does not prove that any particular house has Orangeburg; confirm age, records, and condition for the property in question.
+- The city's wastewater-updates page documents flood-protection work at the treatment plant after the 2008 flood threatened the raw lift station. This refers to the treatment facility, not proof of sewer backup in any specific neighborhood.
 
-### Primary source
+### Primary sources
+- City of Charles City Wastewater Treatment: https://www.cityofcharlescity.org/157/Wastewater-Treatment
+- City of Charles City Water Resource Recovery Facility: https://www.cityofcharlescity.org/155/Water-Resource-Recovery-Facility
+- City of Charles City Sewer Backups guidance: https://www.cityofcharlescity.org/212/Sewer-Backups
+- City of Charles City Wastewater Updates: https://cityofcharlescity.org/156/Plant-Updates
 - Charles City Area Development Corporation, infrastructure overview: https://www.charlescityia.com/s-projects-side-by-side
 
 ### Research still required
-Obtain a City of Charles City public-works/wastewater source, clarify whether any 1968 rebuilding records include sanitary sewer assets, and research local flood/soil and housing history. Do not imply the tornado replaced sewer lines without documentation.
+Find historical housing-age and soil/floodplain context, and determine whether any public records document the dates/materials of specific collection-system segments. Do not imply the 1968 tornado replaced sewer lines without documentation.
 
 ## Initial research: Forest City, Iowa (Winnebago and Hancock counties)
 
