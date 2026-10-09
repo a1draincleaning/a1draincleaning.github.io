@@ -70,16 +70,6 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['North Washington', ['Chickasaw']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
 
-  // Howard County (existing individually listed service community)
-  ...[
-    ['Chester', ['Howard']],
-    ['Cresco', ['Howard']],
-    ['Elma', ['Howard']],
-    ['Lime Springs', ['Howard']],
-    ['Protivin', ['Howard']],
-    ['Riceville', ['Howard']]
-  ].map(([name, counties]) => city(name as string, counties as string[])),
-
   // Franklin County
   ...[
     ['Alexander', ['Franklin']],
@@ -98,7 +88,7 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Britt', ['Hancock']],
     ['Corwith', ['Hancock']],
     ['Crystal Lake', ['Hancock']],
-    ['Forest City', ['Hancock', 'Winnebago']],
+    ['Forest City', ['Winnebago']],
     ['Garner', ['Hancock']],
     ['Goodell', ['Hancock']],
     ['Kanawha', ['Hancock']],
@@ -120,7 +110,7 @@ export const serviceAreaCities: ServiceAreaCity[] = [
   // Winnebago County
   ...[
     ['Buffalo Center', ['Winnebago']],
-    ['Forest City', ['Winnebago', 'Hancock']],
+    ['Forest City', ['Winnebago']],
     ['Lake Mills', ['Winnebago']],
     ['Leland', ['Winnebago']],
     ['Rake', ['Winnebago']],
