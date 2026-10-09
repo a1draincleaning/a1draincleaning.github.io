@@ -29,7 +29,7 @@ import { serviceAreas } from '../../data/serviceAreas';
         <h2 id="service-area-map-heading" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Map of A-1 Drain Cleaning's service area</h2>
         <p class="mt-4 max-w-3xl leading-7 text-slate-700">The pins mark towns listed in A-1's current service-area list. Tap a pin to see the town name. This is a town map, not a list of other businesses or a guaranteed boundary for every job.</p>
         <div class="mt-7 overflow-hidden rounded-lg border border-slate-300 bg-white shadow-sm">
-          <div id="a1-service-area-map" class="h-[420px] w-full sm:h-[520px]" role="application" aria-label="Interactive map with pins for A-1 Drain Cleaning service towns"></div>
+          <div id="a1-service-area-map" data-service-towns={JSON.stringify([...uniqueServiceAreaCities.map((city) => city.name), "Albert Lea, MN"])} class="h-[420px] w-full sm:h-[520px]" role="application" aria-label="Interactive map with pins for A-1 Drain Cleaning service towns"></div>
         </div>
         <p class="mt-3 text-sm text-slate-600">Map tiles © OpenStreetMap contributors. Call A-1 to confirm service for your address.</p>
       </div>
@@ -127,8 +127,9 @@ import { serviceAreas } from '../../data/serviceAreas';
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
+        const serviceTownNames = new Set(JSON.parse(mapElement.dataset.serviceTowns || '[]'));
         const markers = [];
-        serviceTowns.forEach((town) => {
+        serviceTowns.filter((town) => serviceTownNames.has(town.name)).forEach((town) => {
           const marker = L.marker(town.coords).addTo(map);
           marker.bindPopup('<strong>' + town.name + '</strong><br>A-1 Drain Cleaning service town');
           marker.bindTooltip(town.name, { direction: 'top', offset: [0, -24] });
@@ -150,7 +151,7 @@ import { serviceAreas } from '../../data/serviceAreas';
           {uniqueServiceAreaCities.map((city) => (
             <a href={`/service-area/${city.slug}/`} class="border border-slate-200 bg-slate-50 px-3 py-3 text-sm font-bold text-slate-950 hover:border-[#b4232b] hover:bg-white">{city.name}</a>
           ))}
-          {serviceAreas.filter((city) => city === 'Chapin' || city === 'Albert Lea, MN').map((city) => (
+          {serviceAreas.filter((city) => city === 'Albert Lea, MN').map((city) => (
             <span class="border border-slate-200 bg-slate-50 px-3 py-3 text-sm font-bold text-slate-950">{city}</span>
           ))}
         </div>
