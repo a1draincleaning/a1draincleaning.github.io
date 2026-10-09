@@ -169,7 +169,7 @@ const nearbyCities = uniqueServiceAreaCities
           <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Local infrastructure records</p>
           <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">What local records tell us</h2>
           <p class="mt-4 text-lg leading-8 text-slate-700">{localContent.infrastructureNote}</p>
-          <p class="mt-4 text-sm leading-6 text-slate-600">Source: <a href={localContent.sourceUrl} target="_blank" rel="noopener noreferrer" class="font-bold text-[#1A1A68] underline underline-offset-4">{localContent.sourceLabel}</a>{localContent.sourceUrl2 && localContent.sourceLabel2 && (<>; <a href={localContent.sourceUrl2} target="_blank" rel="noopener noreferrer" class="font-bold text-[#1A1A68] underline underline-offset-4">{localContent.sourceLabel2}</a></>)}. Public-system history does not establish the condition or material of a private home's sewer line.</p>
+          <p class="mt-4 text-sm leading-6 text-slate-600">Source: <a href={localContent.sourceUrl} target="_blank" rel="noopener noreferrer" class="font-bold text-[#1A1A68] underline underline-offset-4">{localContent.sourceLabel}</a>{localContent.sourceUrl2 && localContent.sourceLabel2 && <span> Additional source: <a href={localContent.sourceUrl2} target="_blank" rel="noopener noreferrer" class="font-bold text-[#1A1A68] underline underline-offset-4">{localContent.sourceLabel2}</a>.</span>}. Public-system history does not establish the condition or material of a private home's sewer line.</p>
         </div>
       </section>
     )}
