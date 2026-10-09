@@ -45,10 +45,6 @@ a {
   color: #111827 !important;
 }
 
-/* Prevent pale utility text from disappearing on white or light-gray sections. */
-:is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-gray-50, .bg-gray-100) :is(h1, h2, h3, h4, h5, h6, p, li, span, label, small, figcaption, a).text-white {
-  color: #111827 !important;
-}
 
 .call-button {
   color: #000 !important;
