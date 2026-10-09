@@ -117,3 +117,30 @@ Find official housing-age records and relevant soil/floodplain mapping, and insp
 ## Status and next steps
 
 The five existing priority pages are Clear Lake, Charles City, Forest City, Garner, and Northwood. The evidence above is a starting point, not a declaration that all five pages are fully researched. Complete the missing research for each before adding claims or promoting more city pages. Expand to the remaining towns only after each town has a source record and genuinely distinct, evidence-based copy.
+
+
+## County-by-county incorporated-city audit (October 2026)
+
+The service-area directory was checked against the Iowa Secretary of State's official **List of Incorporated Cities** (the published PDF is dated November 2, 2022): https://sos.iowa.gov/business/pdf/IncCities.pdf. This roster lists incorporated cities by county; the customer-facing directory also retains some additional communities A-1 may serve, even when they are not incorporated cities.
+
+The 11 counties currently shown on the service-area page are:
+
+- **Cerro Gordo County:** Clear Lake, Dougherty, Mason City, Meservey, Plymouth, Rock Falls, Rockwell, Swaledale, Thornton, Ventura.
+- **Floyd County:** Charles City, Colwell, Floyd, Marble Rock, Nora Springs, Rockford, Rudd.
+- **Hardin County:** Ackley, Alden, Buckeye, Eldora, Hubbard, Iowa Falls, New Providence, Owasa, Radcliffe, Steamboat Rock, Union, Whitten.
+- **Chickasaw County:** Alta Vista, Bassett, Fredericksburg, Ionia, Lawler, Nashua, New Hampton, North Washington.
+- **Franklin County:** Alexander, Coulter, Geneva, Hampton, Hansell, Latimer, Sheffield.
+- **Hancock County:** Britt, Corwith, Crystal Lake, Garner, Goodell, Kanawha, Klemme, Woden.
+- **Mitchell County:** Carpenter, McIntire, Mitchell, Orchard, Osage, Riceville, St. Ansgar, Stacyville.
+- **Winnebago County:** Buffalo Center, Forest City, Lake Mills, Leland, Rake, Scarville, Thompson.
+- **Worth County:** Fertile, Grafton, Hanlontown, Joice, Kensett, Manly, Northwood.
+- **Wright County:** Belmond, Clarion, Dows, Eagle Grove, Galt, Goldfield, Rowan, Woolstock.
+- **Butler County:** Allison, Aplington, Aredale, Bristow, Clarksville, Dumont, Greene, New Hartford, Parkersburg, Shell Rock.
+
+### Assignment corrections applied
+- Howard County is no longer part of the service-area directory.
+- Forest City is assigned to Winnebago County only, not Hancock County.
+- Nora Springs is assigned to Floyd County only, not Cerro Gordo County.
+- Riceville is assigned to Mitchell County.
+
+The official state roster is the baseline for incorporated-city completeness. Recheck the current state roster and municipal boundary sources before making future county-assignment changes. Do not remove additional non-incorporated communities from the public service list solely because they are absent from the incorporated-city roster.
