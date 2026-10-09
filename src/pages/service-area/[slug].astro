@@ -15,8 +15,57 @@ export function getStaticPaths() {
 
 const { city } = Astro.props as { city: ServiceAreaCity };
 const countyLabel = city.counties.map((county) => `${county} County`).join(' and ');
+
+// Priority-city copy is intentionally specific about customer problems and service
+// decisions, without inventing local landmarks, plumbing conditions, or job history.
+const priorityCityContent: Record<string, {
+  lead: string;
+  localIntro: string;
+  floorDrain: string;
+  faqQuestion: string;
+  faqAnswer: string;
+}> = {
+  'clear-lake': {
+    lead: 'A-1 Drain Cleaning travels from nearby Mason City to help Clear Lake homeowners with clogged drains, main-line blockages, and sewer backups.',
+    localIntro: 'If one sink or tub is slow, the restriction may be close to that fixture. If several drains are affected together, or using one fixture makes another drain back up, the problem may be farther down the shared drain system.',
+    floorDrain: 'For a Clear Lake home with wastewater coming up through a basement floor drain, stop running water in the house when possible and call. The floor drain may be where the backup shows up, even when the blockage is farther down the line.',
+    faqQuestion: 'Do you handle main drain backups in Clear Lake?',
+    faqAnswer: 'Yes. A-1 handles main drain and sewer-line blockages, including backups that show up at a floor drain, toilet, tub, or shower. The symptoms help determine where to start.'
+  },
+  'charles-city': {
+    lead: 'A-1 Drain Cleaning serves Charles City for stopped drains, main drain cleaning, sewer-line restrictions, and wastewater backing up into the house.',
+    localIntro: 'When a single fixture is affected, the clog may be in that fixture’s branch line. When a toilet, tub, and floor drain begin acting up together, tell us which fixtures are involved and what happens when water is used. That pattern helps narrow down the likely location.',
+    floorDrain: 'If a Charles City basement floor drain starts filling when the washing machine empties, the washer may simply be sending water into a restricted shared line. Avoid running more water until the cause is checked.',
+    faqQuestion: 'What if more than one drain is backing up in Charles City?',
+    faqAnswer: 'Several affected fixtures can point to a restriction in a branch line or the main drain. Describe which fixtures are affected and whether the backup happens during flushing, showering, or laundry.'
+  },
+  'forest-city': {
+    lead: 'A-1 Drain Cleaning serves Forest City for drain cleaning and sewer problems, from an individual stopped drain to a main-line backup affecting multiple fixtures.',
+    localIntro: 'The first useful distinction is whether the problem stays at one fixture or shows up in other places too. A kitchen sink that will not drain may need different work than a floor drain that rises when the toilet is flushed.',
+    floorDrain: 'If wastewater comes up through a floor drain in Forest City, avoid using sinks, toilets, the shower, or the washing machine until the backup is assessed. More water can add to the amount coming back into the house.',
+    faqQuestion: 'Can a floor drain backup mean the main sewer line is blocked?',
+    faqAnswer: 'It can. A floor drain is low in many basements, so a restriction farther down the drain system may show up there first. The location and timing of the backup help identify what needs to be checked.'
+  },
+  'garner': {
+    lead: 'A-1 Drain Cleaning serves Garner for clogged sinks and tubs, laundry-drain problems, main drain blockages, and sewer backups.',
+    localIntro: 'Pay attention to whether the drain is just slow or whether wastewater comes back when another fixture is used. A problem that repeats after a drain has been cleared may need further investigation rather than another quick attempt at the same spot.',
+    floorDrain: 'If laundry water comes up through a basement floor drain in Garner, do not assume the washing machine itself is at fault. A fast discharge can reveal a restriction farther down a shared drain line.',
+    faqQuestion: 'Why does the floor drain back up when the washer drains?',
+    faqAnswer: 'The washing machine sends a large amount of water into the drain in a short time. If a line downstream is restricted, that water may back up through a floor drain or another low opening.'
+  },
+  'northwood': {
+    lead: 'A-1 Drain Cleaning serves Northwood for household drain problems, floor drain backups, main drain cleaning, and sewer-line blockages.',
+    localIntro: 'Tell us whether one fixture is affected or several, and whether the problem appears after flushing a toilet, draining a tub, or running the washing machine. These details help distinguish a local fixture clog from a larger drain-line restriction.',
+    floorDrain: 'When a Northwood floor drain backs up with dirty water, stop using water in the house as much as practical and call. If the house has no basement, a main-line blockage may instead send wastewater into a tub or shower.',
+    faqQuestion: 'What should I do first when sewage comes up a floor drain?',
+    faqAnswer: 'Stop running water in the house if possible, keep people and pets away from the wastewater, and call A-1. Avoid chemical drain cleaners when the line is already backed up.'
+  }
+};
+const localContent = priorityCityContent[city.slug];
 const title = `Drain Cleaning in ${city.name}, Iowa | A-1 Drain Cleaning`;
-const description = `A-1 Drain Cleaning serves ${city.name}, Iowa for drain cleaning, main drain and sewer line cleaning, floor drain backups, sewer backups and related drain problems. Call 641-530-2728.`;
+const description = localContent
+  ? `A-1 Drain Cleaning serves ${city.name}, Iowa for clogged drains, floor drain backups, main drain cleaning and sewer-line blockages. Call 641-530-2728.`
+  : `A-1 Drain Cleaning serves ${city.name}, Iowa for drain cleaning, main drain and sewer line cleaning, floor drain backups, sewer backups and related drain problems. Call 641-530-2728.`;
 const coreServices = services.filter((service) => [
   'main-drain-cleaning',
   'sewer-line-cleaning',
@@ -48,8 +97,7 @@ const nearbyCities = uniqueServiceAreaCities
         <p class="mt-5 text-sm font-black uppercase tracking-[0.2em] text-red-300">{countyLabel}</p>
         <h1 class="mt-3 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">Drain Cleaning in {city.name}, Iowa</h1>
         <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
-          A-1 Drain Cleaning is based in Mason City and serves {city.name} for drain cleaning and sewer work.
-          If a drain is stopped, a floor drain is backing up, or wastewater is coming back into the house, tell us what the water is doing.
+          {localContent?.lead ?? `A-1 Drain Cleaning is based in Mason City and serves ${city.name} for drain cleaning and sewer work. If a drain is stopped, a floor drain is backing up, or wastewater is coming back into the house, tell us what the water is doing.`}
         </p>
         <a href="tel:+16415302728" class="call-button mt-8 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-center text-lg font-black text-white shadow-lg hover:bg-[#a82129]">CALL 641-530-2728</a>
       </div>
@@ -61,14 +109,10 @@ const nearbyCities = uniqueServiceAreaCities
           <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">A-1 in {city.name}</p>
           <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Drain and sewer problems around {city.name}</h2>
           <p class="mt-6 text-lg leading-8 text-slate-700">
-            A-1 Drain Cleaning handles the drain problems that can shut down a house: clogged sinks, showers, tubs and toilets,
-            basement floor drains, washing machine drains, main drain blockages and sewer line backups.
-            When several fixtures are affected at once, the restriction may be farther down the drain system.
+            {localContent?.localIntro ?? `A-1 Drain Cleaning handles the drain problems that can shut down a house: clogged sinks, showers, tubs and toilets, basement floor drains, washing machine drains, main drain blockages and sewer line backups. When several fixtures are affected at once, the restriction may be farther down the drain system.`}
           </p>
           <p class="mt-5 text-lg leading-8 text-slate-700">
-            Floor drain backups are especially important when wastewater is coming up through the drain.
-            A washing machine can expose a restriction because it sends a large amount of water into the line quickly.
-            In a house without a basement, a completely stopped main line may instead send wastewater into a bathtub or shower.
+            {localContent?.floorDrain ?? 'Floor drain backups are especially important when wastewater is coming up through the drain. A washing machine can expose a restriction because it sends a large amount of water into the line quickly. In a house without a basement, a completely stopped main line may instead send wastewater into a bathtub or shower.'}
           </p>
           <p class="mt-5 text-lg leading-8 text-slate-700">
             A-1 chooses the equipment based on the line and the actual problem. That can include drain-cleaning equipment with different cable sizes,
@@ -84,6 +128,17 @@ const nearbyCities = uniqueServiceAreaCities
         </aside>
       </div>
     </section>
+
+    {localContent && (
+      <section class="bg-slate-100 py-12 sm:py-16">
+        <div class="container max-w-4xl">
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Drain backup questions</p>
+          <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">{localContent.faqQuestion}</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-700">{localContent.faqAnswer}</p>
+          <a href="tel:+16415302728" class="call-button mt-6 inline-block rounded-md bg-[#c52b34] px-6 py-4 text-center font-black text-white">CALL 641-530-2728</a>
+        </div>
+      </section>
+    )}
 
     <section class="bg-slate-100 py-16 sm:py-20">
       <div class="container">
