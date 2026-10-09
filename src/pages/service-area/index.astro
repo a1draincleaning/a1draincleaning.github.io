@@ -23,6 +23,50 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
       </div>
     </section>
 
+    <section class="bg-white py-16 sm:py-20">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">North Iowa service area</p>
+        <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Communities A-1 serves</h2>
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">Towns with a dedicated city page are clickable. Other towns are still listed as service areas, but we do not present them as dedicated local landing pages until their page is built.</p>
+        <div class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold text-slate-700" aria-label="Service area link key">
+          <span><span class="mr-2 inline-block h-3 w-3 rounded-sm bg-[#1A1A68]" aria-hidden="true"></span>Dedicated city page</span>
+          <span><span class="mr-2 inline-block h-3 w-3 rounded-sm bg-slate-300" aria-hidden="true"></span>Service area only</span>
+        </div>
+        {[
+          'Cerro Gordo',
+          'Floyd',
+          'Hardin',
+          'Chickasaw',
+          'Howard',
+          'Franklin',
+          'Hancock',
+          'Mitchell',
+          'Winnebago',
+          'Worth',
+          'Wright',
+          'Butler'
+        ].map((county) => {
+          const countyCities = uniqueServiceAreaCities
+            .filter((city) => city.counties.includes(county))
+            .sort((a, b) => a.name.localeCompare(b.name));
+          return (
+            <section class="mt-8 first:mt-8" aria-labelledby={`county-${county.toLowerCase().replaceAll(' ', '-')}`}>
+              <h3 id={`county-${county.toLowerCase().replaceAll(' ', '-')}`} class="border-b-2 border-[#1A1A68] pb-2 text-2xl font-black text-slate-950">{county} County</h3>
+              <div class="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                {countyCities.map((city) => (
+                  builtServiceAreaCitySlugs.has(city.slug) ? (
+                    <a href={`/service-area/${city.slug}/`} class="border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold text-white hover:bg-[#141452]" style="color: #ffffff !important;">{city.name}</a>
+                  ) : (
+                    <span class="border border-slate-200 bg-slate-100 px-3 py-3 text-sm font-bold text-slate-600" aria-label={`${city.name} service area; dedicated city page not built yet`}>{city.name}</span>
+                  )
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
+    </section>
+
     <section class="bg-slate-100 py-12 sm:py-16" aria-labelledby="service-area-map-heading">
       <div class="container">
         <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">A-1 service towns</p>
@@ -120,7 +164,7 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
 
       const mapElement = document.getElementById('a1-service-area-map');
       if (mapElement) {
-        const map = L.map(mapElement, { scrollWheelZoom: false }).setView([43.16, -93.48], 8);
+        const map = L.map(mapElement, { scrollWheelZoom: false, dragging: !L.Browser.touch }).setView([43.16, -93.48], 8);
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
           maxZoom: 18,
           attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
@@ -139,50 +183,6 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
         }
       }
     </script>
-
-    <section class="bg-white py-16 sm:py-20">
-      <div class="container">
-        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">North Iowa service area</p>
-        <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Communities A-1 serves</h2>
-        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">Towns with a dedicated city page are clickable. Other towns are still listed as service areas, but we do not present them as dedicated local landing pages until their page is built.</p>
-        <div class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold text-slate-700" aria-label="Service area link key">
-          <span><span class="mr-2 inline-block h-3 w-3 rounded-sm bg-[#1A1A68]" aria-hidden="true"></span>Dedicated city page</span>
-          <span><span class="mr-2 inline-block h-3 w-3 rounded-sm bg-slate-300" aria-hidden="true"></span>Service area only</span>
-        </div>
-        {[
-          'Cerro Gordo',
-          'Floyd',
-          'Hardin',
-          'Chickasaw',
-          'Howard',
-          'Franklin',
-          'Hancock',
-          'Mitchell',
-          'Winnebago',
-          'Worth',
-          'Wright',
-          'Butler'
-        ].map((county) => {
-          const countyCities = uniqueServiceAreaCities
-            .filter((city) => city.counties.includes(county))
-            .sort((a, b) => a.name.localeCompare(b.name));
-          return (
-            <section class="mt-8 first:mt-8" aria-labelledby={`county-${county.toLowerCase().replaceAll(' ', '-')}`}>
-              <h3 id={`county-${county.toLowerCase().replaceAll(' ', '-')}`} class="border-b-2 border-[#1A1A68] pb-2 text-2xl font-black text-slate-950">{county} County</h3>
-              <div class="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-                {countyCities.map((city) => (
-                  builtServiceAreaCitySlugs.has(city.slug) ? (
-                    <a href={`/service-area/${city.slug}/`} class="border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold text-white hover:bg-[#141452]" style="color: #ffffff !important;">{city.name}</a>
-                  ) : (
-                    <span class="border border-slate-200 bg-slate-100 px-3 py-3 text-sm font-bold text-slate-600" aria-label={`${city.name} service area; dedicated city page not built yet`}>{city.name}</span>
-                  )
-                ))}
-              </div>
-            </section>
-          );
-        })}
-      </div>
-    </section>
 
     <section class="bg-slate-100 py-16 sm:py-20">
       <div class="container grid gap-8 lg:grid-cols-2">
