@@ -10,6 +10,11 @@ const city = (name: string, counties: string[]): ServiceAreaCity => ({
   counties
 });
 
+/**
+ * City/community pages for A-1's current nine-county North Iowa service-area plan.
+ * County labels follow the Iowa incorporated-cities directory; communities outside
+ * these counties are not added to this county-based page set without confirmation.
+ */
 export const serviceAreaCities: ServiceAreaCity[] = [
   // Cerro Gordo County
   ...[
@@ -17,6 +22,7 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Dougherty', ['Cerro Gordo']],
     ['Mason City', ['Cerro Gordo']],
     ['Meservey', ['Cerro Gordo']],
+    ['Nora Springs', ['Cerro Gordo', 'Floyd']],
     ['Plymouth', ['Cerro Gordo']],
     ['Rock Falls', ['Cerro Gordo']],
     ['Rockwell', ['Cerro Gordo']],
@@ -31,7 +37,6 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Colwell', ['Floyd']],
     ['Floyd', ['Floyd']],
     ['Marble Rock', ['Floyd']],
-    ['Nashua', ['Chickasaw']],
     ['Nora Springs', ['Floyd']],
     ['Rockford', ['Floyd']],
     ['Rudd', ['Floyd']]
@@ -39,10 +44,9 @@ export const serviceAreaCities: ServiceAreaCity[] = [
 
   // Franklin County
   ...[
-    ['Ackley', ['Hardin']],
     ['Alexander', ['Franklin']],
+    ['Chapin', ['Franklin']],
     ['Coulter', ['Franklin']],
-
     ['Geneva', ['Franklin']],
     ['Hampton', ['Franklin']],
     ['Hansell', ['Franklin']],
@@ -56,6 +60,7 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Britt', ['Hancock']],
     ['Corwith', ['Hancock']],
     ['Crystal Lake', ['Hancock']],
+    ['Forest City', ['Hancock', 'Winnebago']],
     ['Garner', ['Hancock']],
     ['Goodell', ['Hancock']],
     ['Kanawha', ['Hancock']],
@@ -70,7 +75,6 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Mitchell', ['Mitchell']],
     ['Orchard', ['Mitchell']],
     ['Osage', ['Mitchell']],
-    ['Riceville', ['Howard']],
     ['St. Ansgar', ['Mitchell']],
     ['Stacyville', ['Mitchell']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
@@ -78,7 +82,7 @@ export const serviceAreaCities: ServiceAreaCity[] = [
   // Winnebago County
   ...[
     ['Buffalo Center', ['Winnebago']],
-    ['Forest City', ['Winnebago']],
+    ['Forest City', ['Winnebago', 'Hancock']],
     ['Lake Mills', ['Winnebago']],
     ['Leland', ['Winnebago']],
     ['Rake', ['Winnebago']],
@@ -124,6 +128,16 @@ export const serviceAreaCities: ServiceAreaCity[] = [
   ].map(([name, counties]) => city(name as string, counties as string[]))
 ];
 
+// Merge repeated entries for towns that cross county lines rather than silently
+// dropping the second county when the same town appears in more than one group.
 export const uniqueServiceAreaCities = Array.from(
-  new Map(serviceAreaCities.map((item) => [item.slug, item])).values()
+  serviceAreaCities.reduce((bySlug, item) => {
+    const existing = bySlug.get(item.slug);
+    if (existing) {
+      existing.counties = Array.from(new Set([...existing.counties, ...item.counties]));
+    } else {
+      bySlug.set(item.slug, { ...item, counties: [...item.counties] });
+    }
+    return bySlug;
+  }, new Map<string, ServiceAreaCity>()).values()
 );
