@@ -42,22 +42,6 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Rudd', ['Floyd']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
 
-  // Hardin County (existing individually listed service community)
-  ...[
-    ['Ackley', ['Hardin']],
-    ['Alden', ['Hardin']],
-    ['Buckeye', ['Hardin']],
-    ['Eldora', ['Hardin']],
-    ['Hubbard', ['Hardin']],
-    ['Iowa Falls', ['Hardin']],
-    ['New Providence', ['Hardin']],
-    ['Owasa', ['Hardin']],
-    ['Radcliffe', ['Hardin']],
-    ['Steamboat Rock', ['Hardin']],
-    ['Union', ['Hardin']],
-    ['Whitten', ['Hardin']]
-  ].map(([name, counties]) => city(name as string, counties as string[])),
-
   // Chickasaw County (existing individually listed service community)
   ...[
     ['Alta Vista', ['Chickasaw']],
