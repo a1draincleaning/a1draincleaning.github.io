@@ -25,14 +25,14 @@ const priorityCityContent: Record<string, {
   floorDrain: string;
   faqQuestion: string;
   faqAnswer: string;
-  infrastructureNote: string;
-  sourceLabel: string;
-  sourceUrl: string;
+  infrastructureNote?: string;
+  sourceLabel?: string;
+  sourceUrl?: string;
   sourceLabel2?: string;
   sourceUrl2?: string;
 }> = {
   'clear-lake': {
-    infrastructureNote: 'The Clear Lake Sanitary District records that its sanitary sewer system began operating in 1956 and documents later collection-system improvements. The district has also described how stormwater entering sanitary sewers can reduce available capacity during wet weather. That history is useful context, but it cannot identify the cause of a backup at an individual home or establish the age of its private sewer lateral.',
+    infrastructureNote: 'Clear Lake’s sanitary district has documented that stormwater entering sanitary sewers can reduce available capacity during wet weather. If a backup happens during heavy rain, that timing is worth mentioning when the drain problem is checked—but it does not prove rain caused the backup.',
     sourceLabel: 'Clear Lake Sanitary District history',
     sourceUrl: 'https://clearlakesd.org/history/',
     lead: 'A-1 Drain Cleaning travels from nearby Mason City to help Clear Lake homeowners with clogged drains, main-line blockages, and sewer backups.',
@@ -42,7 +42,7 @@ const priorityCityContent: Record<string, {
     faqAnswer: 'Yes. A-1 handles main drain and sewer-line blockages, including backups that show up at a floor drain, toilet, tub, or shower. The symptoms help determine where to start.'
   },
   'charles-city': {
-    infrastructureNote: 'Charles City publishes specific sewer-backup guidance: the city checks its public main when a backup is reported, and says the private sewer service line is the property owner’s responsibility when the public main is operating normally. The city also notes that Orangeburg bituminous-fiber pipe was installed in many residential areas around 1950–1970. That makes a home’s installation history worth checking, but it does not prove that a particular property has Orangeburg pipe.',
+    infrastructureNote: 'Charles City warns that Orangeburg pipe was installed in many residential areas around 1950–1970. If a home dates from that period, its actual sewer-line material should be verified rather than guessed from the house’s age. The city’s guidance also distinguishes its public main from the homeowner’s private service line.',
     sourceLabel: 'City of Charles City sewer-backup guidance',
     sourceUrl: 'https://www.cityofcharlescity.org/212/Sewer-Backups',
     lead: 'A-1 Drain Cleaning serves Charles City for stopped drains, main drain cleaning, sewer-line restrictions, and wastewater backing up into the house.',
@@ -52,9 +52,6 @@ const priorityCityContent: Record<string, {
     faqAnswer: 'Several affected fixtures can point to a restriction in a branch line or the main drain. Describe which fixtures are affected and whether the backup happens during flushing, showering, or laundry.'
   },
   'forest-city': {
-    infrastructureNote: 'Forest City’s council records include a 2025 East Park Street sanitary sewer extension project. That is evidence of a specific public sewer project, not evidence that private sewer laterals across Forest City were replaced or that a particular home has a sewer defect. A home’s own drain and service line still need to be assessed on their actual symptoms and condition.',
-    sourceLabel: 'City of Forest City 2024–2025 resolutions',
-    sourceUrl: 'https://www.cityofforestcity.com/index.asp?DE=7E2A6CBE-44E9-4EC2-B56E-25EA02EE79F8&SEC=87527048-E114-4037-A154-0AFDB522854C',
     lead: 'A-1 Drain Cleaning serves Forest City for drain cleaning and sewer problems, from an individual stopped drain to a main-line backup affecting multiple fixtures.',
     localIntro: 'The first useful distinction is whether the problem stays at one fixture or shows up in other places too. A kitchen sink that will not drain may need different work than a floor drain that rises when the toilet is flushed.',
     floorDrain: 'If wastewater comes up through a floor drain in Forest City, avoid using sinks, toilets, the shower, or the washing machine until the backup is assessed. More water can add to the amount coming back into the house.',
@@ -62,7 +59,7 @@ const priorityCityContent: Record<string, {
     faqAnswer: 'It can. A floor drain is low in many basements, so a restriction farther down the drain system may show up there first. The location and timing of the backup help identify what needs to be checked.'
   },
   'garner': {
-    infrastructureNote: 'Garner’s Public Works Department identifies separate Streets/Storm Sewer and Water/Sewer units. The city also publishes instructions for reporting municipal sewer backups after hours. This helps distinguish a possible public-main issue from a blockage in a home’s private drain or sewer service; the location and cause still need to be checked rather than assumed.',
+    infrastructureNote: 'Garner publishes a city contact procedure for reporting possible municipal sewer backups after hours. If more than one property appears affected, contacting the city can help determine whether the public system needs checking; a blockage inside a home or its private service line is a separate possibility.',
     sourceLabel: 'City of Garner Public Works',
     sourceUrl: 'https://garneriowa.org/departments/public-works/',
     sourceLabel2: 'City of Garner sewer-backup contact notice',
@@ -74,9 +71,6 @@ const priorityCityContent: Record<string, {
     faqAnswer: 'The washing machine sends a large amount of water into the drain in a short time. If a line downstream is restricted, that water may back up through a floor drain or another low opening.'
   },
   'northwood': {
-    infrastructureNote: 'Northwood reports that its wastewater treatment facility was constructed in 2018. That date describes the treatment facility, not the installation date or material of sewer lines serving individual houses. Older private plumbing can still connect to a newer treatment plant, so the property’s own drain and sewer service must be evaluated separately.',
-    sourceLabel: 'City of Northwood Public Works',
-    sourceUrl: 'https://www.northwoodia.org/pview.aspx?catid=533&id=27340',
     lead: 'A-1 Drain Cleaning serves Northwood for household drain problems, floor drain backups, main drain cleaning, and sewer-line blockages.',
     localIntro: 'Tell us whether one fixture is affected or several, and whether the problem appears after flushing a toilet, draining a tub, or running the washing machine. These details help distinguish a local fixture clog from a larger drain-line restriction.',
     floorDrain: 'When a Northwood floor drain backs up with dirty water, stop using water in the house as much as practical and call. If the house has no basement, a main-line blockage may instead send wastewater into a tub or shower.',
@@ -163,13 +157,12 @@ const nearbyCities = uniqueServiceAreaCities
       </section>
     )}
 
-    {localContent && (
-      <section class="bg-white py-12 sm:py-16">
-        <div class="container max-w-4xl">
-          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Local infrastructure records</p>
-          <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">What local records tell us</h2>
-          <p class="mt-4 text-lg leading-8 text-slate-700">{localContent.infrastructureNote}</p>
-          <p class="mt-4 text-sm leading-6 text-slate-600">Source: <a href={localContent.sourceUrl} target="_blank" rel="noopener noreferrer" class="font-bold text-[#1A1A68] underline underline-offset-4">{localContent.sourceLabel}</a>{localContent.sourceUrl2 && localContent.sourceLabel2 && <span> Additional source: <a href={localContent.sourceUrl2} target="_blank" rel="noopener noreferrer" class="font-bold text-[#1A1A68] underline underline-offset-4">{localContent.sourceLabel2}</a>.</span>}. Public-system history does not establish the condition or material of a private home's sewer line.</p>
+    {localContent?.infrastructureNote && (
+      <section class="bg-white py-10 sm:py-12">
+        <div class="container max-w-4xl border-l-4 border-[#1A1A68] pl-5 sm:pl-7">
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Local sewer information</p>
+          <p class="mt-3 text-lg leading-8 text-slate-700">{localContent.infrastructureNote}</p>
+          {localContent.sourceUrl && localContent.sourceLabel && <p class="mt-3 text-sm leading-6 text-slate-600">Source: <a href={localContent.sourceUrl} target="_blank" rel="noopener noreferrer" class="font-bold text-[#1A1A68] underline underline-offset-4">{localContent.sourceLabel}</a>{localContent.sourceUrl2 && localContent.sourceLabel2 && <span>; <a href={localContent.sourceUrl2} target="_blank" rel="noopener noreferrer" class="font-bold text-[#1A1A68] underline underline-offset-4">{localContent.sourceLabel2}</a></span>}.</p>}
         </div>
       </section>
     )}
