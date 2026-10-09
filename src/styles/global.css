@@ -47,6 +47,11 @@ a {
   color: #475569 !important;
 }
 
+/* Keep explicitly white text readable when it is placed on a light surface. */
+:is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-gray-50, .bg-gray-100) :is(h1, h2, h3, h4, h5, h6, p, li, span, label, small, figcaption, a).text-white:not(.call-button):not(.bg-\[\#1A1A68\] *):not(.bg-\[\#b4232b\] *) {
+  color: #0f172a !important;
+}
+
 .call-button {
   color: #000 !important;
   background: #ff5a00 !important;
