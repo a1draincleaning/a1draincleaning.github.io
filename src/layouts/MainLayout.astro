@@ -113,7 +113,25 @@ const graph = [
           position: 3,
           name: service.title,
           item: canonical
-        }] : [])
+        }] : path === '/services/' ? [] : [{
+          '@type': 'ListItem',
+          position: 3,
+          name: title.replace(' | A-1 Drain Cleaning', ''),
+          item: canonical
+        }])
+      ] : path.startsWith('/service-area/') && path !== '/service-area/' ? [
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Areas We Serve',
+          item: 'https://a1draincleaning.github.io/service-area/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: title.replace(' | A-1 Drain Cleaning', ''),
+          item: canonical
+        }
       ] : [{
         '@type': 'ListItem',
         position: 2,
