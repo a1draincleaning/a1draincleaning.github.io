@@ -149,15 +149,38 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
           <span><span class="mr-2 inline-block h-3 w-3 rounded-sm bg-[#1A1A68]" aria-hidden="true"></span>Dedicated city page</span>
           <span><span class="mr-2 inline-block h-3 w-3 rounded-sm bg-slate-300" aria-hidden="true"></span>Service area only</span>
         </div>
-        <div class="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-          {uniqueServiceAreaCities.map((city) => (
-            builtServiceAreaCitySlugs.has(city.slug) ? (
-              <a href={`/service-area/${city.slug}/`} class="border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold text-white hover:bg-[#141452]" style="color: #ffffff !important;">{city.name}</a>
-            ) : (
-              <span class="border border-slate-200 bg-slate-100 px-3 py-3 text-sm font-bold text-slate-600" aria-label={`${city.name} service area; dedicated city page not built yet`}>{city.name}</span>
-            )
-          ))}
-        </div>
+        {[
+          'Cerro Gordo',
+          'Floyd',
+          'Hardin',
+          'Chickasaw',
+          'Howard',
+          'Franklin',
+          'Hancock',
+          'Mitchell',
+          'Winnebago',
+          'Worth',
+          'Wright',
+          'Butler'
+        ].map((county) => {
+          const countyCities = uniqueServiceAreaCities
+            .filter((city) => city.counties.includes(county))
+            .sort((a, b) => a.name.localeCompare(b.name));
+          return (
+            <section class="mt-8 first:mt-8" aria-labelledby={`county-${county.toLowerCase().replace(/\\s+/g, '-')}`}>
+              <h3 id={`county-${county.toLowerCase().replace(/\\s+/g, '-')}`} class="border-b-2 border-[#1A1A68] pb-2 text-2xl font-black text-slate-950">{county} County</h3>
+              <div class="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                {countyCities.map((city) => (
+                  builtServiceAreaCitySlugs.has(city.slug) ? (
+                    <a href={`/service-area/${city.slug}/`} class="border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold text-white hover:bg-[#141452]" style="color: #ffffff !important;">{city.name}</a>
+                  ) : (
+                    <span class="border border-slate-200 bg-slate-100 px-3 py-3 text-sm font-bold text-slate-600" aria-label={`${city.name} service area; dedicated city page not built yet`}>{city.name}</span>
+                  )
+                ))}
+              </div>
+            </section>
+          );
+        })}
       </div>
     </section>
 
