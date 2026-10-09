@@ -25,25 +25,91 @@ import { serviceAreas } from '../../data/serviceAreas';
 
     <section class="bg-slate-100 py-12 sm:py-16" aria-labelledby="service-area-map-heading">
       <div class="container">
-        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Explore the area</p>
-        <h2 id="service-area-map-heading" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">North Iowa service area map</h2>
-        <p class="mt-4 max-w-3xl leading-7 text-slate-700">Use the live Google Map to zoom in, zoom out, and move around North Iowa. The map shows the region, not a guaranteed service boundary. Check the city list below or call A-1 to confirm service for your address.</p>
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">A-1 service towns</p>
+        <h2 id="service-area-map-heading" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Map of A-1 Drain Cleaning's service area</h2>
+        <p class="mt-4 max-w-3xl leading-7 text-slate-700">The pins mark towns listed in A-1's current service-area list. Tap a pin to see the town name. This is a town map, not a list of other businesses or a guaranteed boundary for every job.</p>
         <div class="mt-7 overflow-hidden rounded-lg border border-slate-300 bg-white shadow-sm">
-          <iframe
-            title="Interactive Google Map of North Iowa near Mason City"
-            src="https://maps.google.com/maps?q=North%20Iowa%2C%20Iowa&t=&z=8&ie=UTF8&iwloc=&output=embed"
-            width="100%"
-            height="440"
-            style="border:0"
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            allowfullscreen
-            aria-label="Interactive map showing North Iowa"
-          ></iframe>
+          <div id="a1-service-area-map" class="h-[420px] w-full sm:h-[520px]" role="application" aria-label="Interactive map with pins for A-1 Drain Cleaning service towns"></div>
         </div>
-        <p class="mt-3 text-sm text-slate-600">Map provided by Google Maps. Availability depends on the location and job.</p>
+        <p class="mt-3 text-sm text-slate-600">Map tiles © OpenStreetMap contributors. Call A-1 to confirm service for your address.</p>
       </div>
     </section>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
+    <script is:inline type="module">
+      import L from 'https://esm.sh/leaflet@1.9.4';
+
+      const serviceTowns = [
+        { name: 'Mason City', coords: [43.1536, -93.2010] },
+        { name: 'Clear Lake', coords: [43.1380, -93.3790] },
+        { name: 'Ventura', coords: [43.1219, -93.4694] },
+        { name: 'Rockwell', coords: [42.9919, -93.1880] },
+        { name: 'Swaledale', coords: [42.9086, -93.3019] },
+        { name: 'Rock Falls', coords: [43.2019, -93.1121] },
+        { name: 'Plymouth', coords: [43.2425, -93.1005] },
+        { name: 'Nora Springs', coords: [43.1427, -93.0063] },
+        { name: 'Floyd', coords: [43.1264, -92.7360] },
+        { name: 'Charles City', coords: [43.0664, -92.6724] },
+        { name: 'Rudd', coords: [43.1344, -92.9074] },
+        { name: 'Greene', coords: [42.8958, -92.8021] },
+        { name: 'Osage', coords: [43.2847, -92.8113] },
+        { name: 'Mitchell', coords: [43.3130, -92.8577] },
+        { name: 'Orchard', coords: [43.2275, -92.7721] },
+        { name: 'St. Ansgar', coords: [43.3780, -92.9185] },
+        { name: 'Grafton', coords: [43.3280, -93.0674] },
+        { name: 'Manly', coords: [43.2872, -93.2021] },
+        { name: 'Hanlontown', coords: [43.3008, -93.3760] },
+        { name: 'Northwood', coords: [43.4441, -93.2210] },
+        { name: 'Joice', coords: [43.3619, -93.4558] },
+        { name: 'Lake Mills', coords: [43.4197, -93.5338] },
+        { name: 'Leland', coords: [43.3347, -93.6577] },
+        { name: 'Forest City', coords: [43.2625, -93.6377] },
+        { name: 'Fertile', coords: [43.2672, -93.4277] },
+        { name: 'Garner', coords: [43.1027, -93.6013] },
+        { name: 'Klemme', coords: [43.0064, -93.6005] },
+        { name: 'Goodell', coords: [42.9872, -93.6102] },
+        { name: 'Belmond', coords: [42.8458, -93.6144] },
+        { name: 'Alexander', coords: [42.8105, -93.5502] },
+        { name: 'Meservey', coords: [42.9186, -93.4780] },
+        { name: 'Thornton', coords: [42.9441, -93.3880] },
+        { name: 'Sheffield', coords: [42.8936, -93.2102] },
+        { name: 'Latimer', coords: [42.7625, -93.3663] },
+        { name: 'Hampton', coords: [42.7416, -93.2021] },
+        { name: 'Chapin', coords: [42.8347, -93.2116] },
+        { name: 'Dougherty', coords: [43.2875, -93.0466] },
+        { name: 'Carpenter', coords: [43.4141, -92.9974] },
+        { name: 'Buffalo Center', coords: [43.3869, -93.9477] },
+        { name: 'Corwith', coords: [42.9922, -93.9605] },
+        { name: 'Crystal Lake', coords: [43.2258, -93.7949] },
+        { name: 'Scarville', coords: [43.4669, -93.6355] },
+        { name: 'Woden', coords: [43.2330, -93.9266] },
+        { name: 'Thompson', coords: [43.3725, -93.7655] },
+        { name: 'Albert Lea, MN', coords: [43.6480, -93.3683] },
+        { name: 'Rockford', coords: [43.0519, -92.9485] },
+        { name: 'Britt', coords: [43.0977, -93.8019] }
+      ];
+
+      const mapElement = document.getElementById('a1-service-area-map');
+      if (mapElement) {
+        const map = L.map(mapElement, { scrollWheelZoom: false }).setView([43.16, -93.48], 8);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        const markers = [];
+        serviceTowns.forEach((town) => {
+          const marker = L.marker(town.coords).addTo(map);
+          marker.bindPopup('<strong>' + town.name + '</strong><br>A-1 Drain Cleaning service town');
+          marker.bindTooltip(town.name, { direction: 'top', offset: [0, -24] });
+          markers.push(marker);
+        });
+        if (markers.length) {
+          const group = L.featureGroup(markers);
+          map.fitBounds(group.getBounds().pad(0.12), { maxZoom: 8 });
+        }
+      }
+    </script>
 
     <section class="bg-white py-16 sm:py-20">
       <div class="container">
