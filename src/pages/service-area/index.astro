@@ -4,7 +4,6 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 import { uniqueServiceAreaCities } from '../../data/serviceAreaCities';
-import { serviceAreas } from '../../data/serviceAreas';
 ---
 
 <MainLayout
@@ -116,7 +115,6 @@ import { serviceAreas } from '../../data/serviceAreas';
         { name: "Parkersburg", coords: [42.575, -92.79] },
         { name: "Shell Rock", coords: [42.71, -92.58] },
         { name: "Chapin", coords: [42.8347, -93.2116] },
-        { name: "Albert Lea, MN", coords: [43.648, -93.3683] }
       ];
 
       const mapElement = document.getElementById('a1-service-area-map');
@@ -149,9 +147,6 @@ import { serviceAreas } from '../../data/serviceAreas';
         <div class="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {uniqueServiceAreaCities.map((city) => (
             <a href={`/service-area/${city.slug}/`} class="border border-slate-200 bg-slate-50 px-3 py-3 text-sm font-bold text-slate-950 hover:border-[#b4232b] hover:bg-white">{city.name}</a>
-          ))}
-          {serviceAreas.filter((city) => city === 'Albert Lea, MN').map((city) => (
-            <span class="border border-slate-200 bg-slate-50 px-3 py-3 text-sm font-bold text-slate-950">{city}</span>
           ))}
         </div>
       </div>
