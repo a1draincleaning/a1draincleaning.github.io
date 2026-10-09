@@ -48,9 +48,13 @@ Not appropriate: “Clear Lake homes have Orangeburg pipes,” “the city sewer
 ### Verified facts suitable for cautious page context
 - The City of Northwood's Public Works page says the Northwood Wastewater Treatment Facility was constructed in 2018 and uses an activated-sludge process.
 - This establishes a treatment-facility date and process. It does not establish the installation date, material, or condition of sewer mains or private laterals throughout Northwood.
+- Northwood's municipal code separately defines a building drain and a building sewer, and has a chapter specifically governing the sanitary sewer system. That supports the technical distinction between a home's internal drainage piping, its private building sewer, and the public system; it does not identify who is responsible for a particular blockage without checking applicable local rules and property details.
+- The code also addresses on-site wastewater systems where public sanitary sewer is unavailable. Do not imply every property within the wider Northwood area is connected to municipal sewer.
 
-### Primary source
+### Primary sources
 - City of Northwood Public Works: https://www.northwoodia.org/pview.aspx?catid=533&id=27340
+- Northwood Code of Ordinances, Chapter 95 (Sanitary Sewer System): https://www.northwoodia.org/docview.aspx?docid=46120
+- Northwood utility services: https://www.northwoodia.org/pview.aspx?catid=534&id=27348
 
 ### Research still required
 Find official city/county history, collection-system or sewer rehabilitation records, relevant flood/soil map context, and housing-age data before adding further local infrastructure claims.
@@ -61,10 +65,14 @@ Find official city/county history, collection-system or sewer rehabilitation rec
 - Garner's Public Works department identifies separate Streets/Storm Sewer and Water/Sewer units. This supports explaining that storm drainage and sanitary sewer service are distinct municipal functions, but it does not show that a specific property has cross-connected systems.
 - A city-hosted retrospective reports wastewater treatment plant/trunkline improvements totaling $5 million by the end of 2011. Treat this as a historical summary, not a current condition report.
 - The city advertises more than 140 new homes built since 1998. This indicates that the housing stock includes newer development as well as older properties; it does not establish the age or pipe material at a particular address.
+- Garner's stormwater-management ordinance describes runoff management for development and its relationship to the municipal storm-sewer collection system. This is relevant to the distinction between stormwater drainage and sanitary sewer piping, but it is not evidence that a specific home has a cross-connection or that rain caused a particular backup.
+- The city has also published guidance to contact its communications center for municipal issues after hours, including sewer backups. This is useful as a public-utility distinction: a homeowner can contact the city about a possible public-system issue, while a private building drain or sewer lateral may need a drain-cleaning professional.
 
 ### Primary sources
 - Garner Public Works: https://garneriowa.org/departments/public-works/
 - Garner community retrospective (PDF): https://www.garneriowa.org/vertical/sites/%7B6C000A23-F8A6-4C5C-8FC6-CCE607846EED%7D/uploads/10_years_of_accomplishments.PDF
+- Garner stormwater-management ordinance: https://www.garneriowa.org/vertical/sites/%7B6C000A23-F8A6-4C5C-8FC6-CCE607846EED%7D/uploads/Chapter_148_Strom_Water_Mgt.pdf
+- Garner after-hours sewer-backup contact notice: https://garneriowa.org/city-government/announcements-notices/reminder-emergency-and-non-emergency-contact-information/
 - Garner city home/residential development: https://garneriowa.org/
 
 ### Research still required
@@ -87,13 +95,18 @@ Obtain a City of Charles City public-works/wastewater source, clarify whether an
 ### Verified facts suitable for cautious page context
 - Forest City's official community information says the town was founded in 1855.
 - The city has publicly advertised a Water/Wastewater Operator responsible for water/wastewater treatment facilities and distribution/collection systems. This verifies municipal operation of these systems, not pipe age, material, or current condition.
+- The official city's 2024–2025 resolutions index records a wastewater treatment plant project and a Park Street sewer project, including contract awards and acceptance of plans/specifications. These establish recent public wastewater/sewer work, but project titles alone do not establish the exact pipe materials, project limits, or condition of private laterals.
+- The city's sanitary sewer service permit requires an inspection before backfilling and specifies a check valve for a new sanitary sewer service. This can support practical advice to use the city permit process for new service work; it should not be generalized into a claim that every existing home has or lacks a check valve.
 
 ### Primary sources
 - City of Forest City community information/history: https://www.forestcityia.com/community-info/
+- City of Forest City Water & Wastewater department: https://www.cityofforestcity.com/waterwastewater
+- City of Forest City 2024–2025 resolutions: https://www.cityofforestcity.com/index.asp?DE=7E2A6CBE-44E9-4EC2-B56E-25EA02EE79F8&SEC=87527048-E114-4037-A154-0AFDB522854C
+- City of Forest City sanitary sewer permit: https://www.cityofforestcity.com/vertical/sites/%7B9112E467-D3EE-44AF-B0AA-5001925A0B79%7D/uploads/Sewer_Permit_Application%281%29.pdf
 - City of Forest City water/wastewater operator posting: https://www.forestcityia.com/city-of-forest-city-now-hiring/
 
 ### Research still required
-Find official city wastewater collection/treatment history, housing-age records, and relevant soil/floodplain mapping. Do not use general founding history as a substitute for sewer-system research.
+Find official housing-age records and relevant soil/floodplain mapping, and inspect the wastewater project documents to identify scope and dates. Do not use general founding history as a substitute for sewer-system research.
 
 ## Status and next steps
 
