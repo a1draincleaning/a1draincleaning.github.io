@@ -2,7 +2,7 @@
 
 :root {
   font-family: Arial, Helvetica, sans-serif;
-  color: #0f172a;
+  color: #111827;
   background: #f8fafc;
 }
 
@@ -15,6 +15,9 @@ body {
   margin: 0;
   overflow-x: hidden;
   background: #f8fafc;
+  color: #111827;
+  font-size: 18px;
+  line-height: 1.65;
 }
 
 .container {
@@ -32,24 +35,19 @@ a {
   letter-spacing: -0.055em;
 }
 
-.bg-white .text-slate-600,
-.bg-slate-100 .text-slate-600 {
-  color: #334155 !important;
+:is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-gray-50, .bg-gray-100) .text-slate-400,
+:is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-gray-50, .bg-gray-100) .text-slate-500,
+:is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-gray-50, .bg-gray-100) .text-slate-600,
+:is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-gray-50, .bg-gray-100) .text-slate-700,
+:is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-gray-50, .bg-gray-100) .text-gray-500,
+:is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-gray-50, .bg-gray-100) .text-gray-600,
+:is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-gray-50, .bg-gray-100) .text-gray-700 {
+  color: #111827 !important;
 }
 
-.bg-white .text-slate-500,
-.bg-slate-100 .text-slate-500 {
-  color: #475569 !important;
-}
-
-.bg-white .text-slate-400,
-.bg-slate-100 .text-slate-400 {
-  color: #475569 !important;
-}
-
-/* Keep explicitly white text readable when it is placed on a light surface. */
-:is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-gray-50, .bg-gray-100) :is(h1, h2, h3, h4, h5, h6, p, li, span, label, small, figcaption, a).text-white:not(.call-button):not(.bg-\[\#1A1A68\] *):not(.bg-\[\#b4232b\] *) {
-  color: #0f172a !important;
+/* Prevent pale utility text from disappearing on white or light-gray sections. */
+:is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-gray-50, .bg-gray-100) :is(h1, h2, h3, h4, h5, h6, p, li, span, label, small, figcaption, a).text-white {
+  color: #111827 !important;
 }
 
 .call-button {
