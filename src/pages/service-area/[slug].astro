@@ -4,6 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 import { uniqueServiceAreaCities, type ServiceAreaCity } from '../../data/serviceAreaCities';
+import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
 import { services } from '../../data/services';
 
 export function getStaticPaths() {
@@ -160,11 +161,15 @@ const nearbyCities = uniqueServiceAreaCities
         <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">County service area</p>
         <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">{city.name} and nearby communities</h2>
         <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
-          A-1's service area includes communities throughout the counties listed for this location. These are the nearby communities currently represented in the site service-area plan.
+          A-1's service area includes communities throughout the counties listed for this location. A town is linked below only when it has a dedicated city page in the current build.
         </p>
         <div class="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {nearbyCities.map((nearby) => (
-            <a href={`/service-area/${nearby.slug}/`} class="border border-slate-200 bg-slate-50 px-3 py-3 text-sm font-bold text-slate-950 hover:border-[#b4232b] hover:bg-white">{nearby.name}</a>
+            builtServiceAreaCitySlugs.has(nearby.slug) ? (
+              <a href={`/service-area/${nearby.slug}/`} class="border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold text-white hover:bg-[#141452]">{nearby.name}</a>
+            ) : (
+              <span class="border border-slate-200 bg-slate-100 px-3 py-3 text-sm font-bold text-slate-600">{nearby.name}</span>
+            )
           ))}
         </div>
         <a href="/service-area/" class="mt-8 inline-block font-black text-[#b4232b] underline underline-offset-4">See the full North Iowa service area →</a>
