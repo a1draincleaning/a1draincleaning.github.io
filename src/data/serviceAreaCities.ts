@@ -11,9 +11,9 @@ const city = (name: string, counties: string[]): ServiceAreaCity => ({
 });
 
 /**
- * City/community pages for A-1's current nine-county North Iowa service-area plan.
- * County labels follow the Iowa incorporated-cities directory; communities outside
- * these counties are not added to this county-based page set without confirmation.
+ * City/community pages for A-1's current 12-county North Iowa service-area plan.
+ * County assignments are based on Iowa's incorporated-city directory and official
+ * local-government sources. Review the full county coverage before expanding it.
  */
 export const serviceAreaCities: ServiceAreaCity[] = [
   // Cerro Gordo County
