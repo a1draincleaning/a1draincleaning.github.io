@@ -17,7 +17,6 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Dougherty', ['Cerro Gordo']],
     ['Mason City', ['Cerro Gordo']],
     ['Meservey', ['Cerro Gordo']],
-    ['Nora Springs', ['Cerro Gordo', 'Floyd']],
     ['Plymouth', ['Cerro Gordo']],
     ['Rock Falls', ['Cerro Gordo']],
     ['Rockwell', ['Cerro Gordo']],
@@ -32,18 +31,18 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Colwell', ['Floyd']],
     ['Floyd', ['Floyd']],
     ['Marble Rock', ['Floyd']],
-    ['Nashua', ['Floyd', 'Chickasaw']],
-    ['Nora Springs', ['Floyd', 'Cerro Gordo']],
+    ['Nashua', ['Chickasaw']],
+    ['Nora Springs', ['Floyd']],
     ['Rockford', ['Floyd']],
     ['Rudd', ['Floyd']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
 
   // Franklin County
   ...[
-    ['Ackley', ['Franklin', 'Hardin']],
+    ['Ackley', ['Hardin']],
     ['Alexander', ['Franklin']],
     ['Coulter', ['Franklin']],
-    ['Dows', ['Franklin', 'Wright']],
+
     ['Geneva', ['Franklin']],
     ['Hampton', ['Franklin']],
     ['Hansell', ['Franklin']],
@@ -57,7 +56,6 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Britt', ['Hancock']],
     ['Corwith', ['Hancock']],
     ['Crystal Lake', ['Hancock']],
-    ['Forest City', ['Hancock', 'Winnebago']],
     ['Garner', ['Hancock']],
     ['Goodell', ['Hancock']],
     ['Kanawha', ['Hancock']],
@@ -72,7 +70,7 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Mitchell', ['Mitchell']],
     ['Orchard', ['Mitchell']],
     ['Osage', ['Mitchell']],
-    ['Riceville', ['Mitchell', 'Howard']],
+    ['Riceville', ['Howard']],
     ['St. Ansgar', ['Mitchell']],
     ['Stacyville', ['Mitchell']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
@@ -80,7 +78,7 @@ export const serviceAreaCities: ServiceAreaCity[] = [
   // Winnebago County
   ...[
     ['Buffalo Center', ['Winnebago']],
-    ['Forest City', ['Winnebago', 'Hancock']],
+    ['Forest City', ['Winnebago']],
     ['Lake Mills', ['Winnebago']],
     ['Leland', ['Winnebago']],
     ['Rake', ['Winnebago']],
@@ -93,7 +91,7 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Fertile', ['Worth']],
     ['Grafton', ['Worth']],
     ['Hanlontown', ['Worth']],
-    ['Joice', ['Worth', 'Winnebago']],
+    ['Joice', ['Worth']],
     ['Kensett', ['Worth']],
     ['Manly', ['Worth']],
     ['Northwood', ['Worth']]
@@ -103,7 +101,7 @@ export const serviceAreaCities: ServiceAreaCity[] = [
   ...[
     ['Belmond', ['Wright']],
     ['Clarion', ['Wright']],
-    ['Dows', ['Wright', 'Franklin']],
+    ['Dows', ['Wright']],
     ['Eagle Grove', ['Wright']],
     ['Galt', ['Wright']],
     ['Goldfield', ['Wright']],
