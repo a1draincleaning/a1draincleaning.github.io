@@ -42,6 +42,21 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Rudd', ['Floyd']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
 
+  // Hardin County (existing individually listed service community)
+  ...[
+    ['Ackley', ['Hardin']]
+  ].map(([name, counties]) => city(name as string, counties as string[])),
+
+  // Chickasaw County (existing individually listed service community)
+  ...[
+    ['Nashua', ['Chickasaw']]
+  ].map(([name, counties]) => city(name as string, counties as string[])),
+
+  // Howard County (existing individually listed service community)
+  ...[
+    ['Riceville', ['Howard']]
+  ].map(([name, counties]) => city(name as string, counties as string[])),
+
   // Franklin County
   ...[
     ['Alexander', ['Franklin']],
