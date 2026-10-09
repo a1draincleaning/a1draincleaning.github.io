@@ -4,6 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 import { uniqueServiceAreaCities } from '../../data/serviceAreaCities';
+import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
 ---
 
 <MainLayout
@@ -143,10 +144,18 @@ import { uniqueServiceAreaCities } from '../../data/serviceAreaCities';
       <div class="container">
         <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">North Iowa service area</p>
         <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Communities A-1 serves</h2>
-        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">The communities below are in the current service area. Availability can depend on the job and schedule.</p>
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">Towns with a dedicated city page are clickable. Other towns are still listed as service areas, but we do not present them as dedicated local landing pages until their page is built.</p>
+        <div class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold text-slate-700" aria-label="Service area link key">
+          <span><span class="mr-2 inline-block h-3 w-3 rounded-sm bg-[#1A1A68]" aria-hidden="true"></span>Dedicated city page</span>
+          <span><span class="mr-2 inline-block h-3 w-3 rounded-sm bg-slate-300" aria-hidden="true"></span>Service area only</span>
+        </div>
         <div class="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {uniqueServiceAreaCities.map((city) => (
-            <a href={`/service-area/${city.slug}/`} class="border border-slate-200 bg-slate-50 px-3 py-3 text-sm font-bold text-slate-950 hover:border-[#b4232b] hover:bg-white">{city.name}</a>
+            builtServiceAreaCitySlugs.has(city.slug) ? (
+              <a href={`/service-area/${city.slug}/`} class="border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold text-white hover:bg-[#141452]">{city.name}</a>
+            ) : (
+              <span class="border border-slate-200 bg-slate-100 px-3 py-3 text-sm font-bold text-slate-600" aria-label={`${city.name} service area; dedicated city page not built yet`}>{city.name}</span>
+            )
           ))}
         </div>
       </div>
