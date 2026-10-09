@@ -128,19 +128,6 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Woolstock', ['Wright']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
 
-  // Butler County
-  ...[
-    ['Allison', ['Butler']],
-    ['Aplington', ['Butler']],
-    ['Aredale', ['Butler']],
-    ['Bristow', ['Butler']],
-    ['Clarksville', ['Butler']],
-    ['Dumont', ['Butler']],
-    ['Greene', ['Butler']],
-    ['New Hartford', ['Butler']],
-    ['Parkersburg', ['Butler']],
-    ['Shell Rock', ['Butler']]
-  ].map(([name, counties]) => city(name as string, counties as string[]))
 ];
 
 // Merge repeated entries for towns that cross county lines rather than silently
