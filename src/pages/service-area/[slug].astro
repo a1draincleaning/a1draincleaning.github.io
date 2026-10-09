@@ -25,8 +25,16 @@ const priorityCityContent: Record<string, {
   floorDrain: string;
   faqQuestion: string;
   faqAnswer: string;
+  infrastructureNote?: string;
+  sourceLabel?: string;
+  sourceUrl?: string;
+  sourceLabel2?: string;
+  sourceUrl2?: string;
 }> = {
   'clear-lake': {
+    infrastructureNote: 'Clear Lake’s sanitary district has documented that stormwater entering sanitary sewers can reduce available capacity during wet weather. If a backup happens during heavy rain, that timing is worth mentioning when the drain problem is checked—but it does not prove rain caused the backup.',
+    sourceLabel: 'Clear Lake Sanitary District history',
+    sourceUrl: 'https://clearlakesd.org/history/',
     lead: 'A-1 Drain Cleaning travels from nearby Mason City to help Clear Lake homeowners with clogged drains, main-line blockages, and sewer backups.',
     localIntro: 'If one sink or tub is slow, the restriction may be close to that fixture. If several drains are affected together, or using one fixture makes another drain back up, the problem may be farther down the shared drain system.',
     floorDrain: 'For a Clear Lake home with wastewater coming up through a basement floor drain, stop running water in the house when possible and call. The floor drain may be where the backup shows up, even when the blockage is farther down the line.',
@@ -34,6 +42,9 @@ const priorityCityContent: Record<string, {
     faqAnswer: 'Yes. A-1 handles main drain and sewer-line blockages, including backups that show up at a floor drain, toilet, tub, or shower. The symptoms help determine where to start.'
   },
   'charles-city': {
+    infrastructureNote: 'Charles City warns that Orangeburg pipe was installed in many residential areas around 1950–1970. If a home dates from that period, its actual sewer-line material should be verified rather than guessed from the house’s age. The city’s guidance also distinguishes its public main from the homeowner’s private service line.',
+    sourceLabel: 'City of Charles City sewer-backup guidance',
+    sourceUrl: 'https://www.cityofcharlescity.org/212/Sewer-Backups',
     lead: 'A-1 Drain Cleaning serves Charles City for stopped drains, main drain cleaning, sewer-line restrictions, and wastewater backing up into the house.',
     localIntro: 'When a single fixture is affected, the clog may be in that fixture’s branch line. When a toilet, tub, and floor drain begin acting up together, tell us which fixtures are involved and what happens when water is used. That pattern helps narrow down the likely location.',
     floorDrain: 'If a Charles City basement floor drain starts filling when the washing machine empties, the washer may simply be sending water into a restricted shared line. Avoid running more water until the cause is checked.',
@@ -48,6 +59,11 @@ const priorityCityContent: Record<string, {
     faqAnswer: 'It can. A floor drain is low in many basements, so a restriction farther down the drain system may show up there first. The location and timing of the backup help identify what needs to be checked.'
   },
   'garner': {
+    infrastructureNote: 'Garner publishes a city contact procedure for reporting possible municipal sewer backups after hours. If more than one property appears affected, contacting the city can help determine whether the public system needs checking; a blockage inside a home or its private service line is a separate possibility.',
+    sourceLabel: 'City of Garner Public Works',
+    sourceUrl: 'https://garneriowa.org/departments/public-works/',
+    sourceLabel2: 'City of Garner sewer-backup contact notice',
+    sourceUrl2: 'https://garneriowa.org/city-government/announcements-notices/reminder-emergency-and-non-emergency-contact-information/',
     lead: 'A-1 Drain Cleaning serves Garner for clogged sinks and tubs, laundry-drain problems, main drain blockages, and sewer backups.',
     localIntro: 'Pay attention to whether the drain is just slow or whether wastewater comes back when another fixture is used. A problem that repeats after a drain has been cleared may need further investigation rather than another quick attempt at the same spot.',
     floorDrain: 'If laundry water comes up through a basement floor drain in Garner, do not assume the washing machine itself is at fault. A fast discharge can reveal a restriction farther down a shared drain line.',
@@ -115,10 +131,6 @@ const nearbyCities = uniqueServiceAreaCities
           <p class="mt-5 text-lg leading-8 text-slate-700">
             {localContent?.floorDrain ?? 'Floor drain backups are especially important when wastewater is coming up through the drain. A washing machine can expose a restriction because it sends a large amount of water into the line quickly. In a house without a basement, a completely stopped main line may instead send wastewater into a bathtub or shower.'}
           </p>
-          <p class="mt-5 text-lg leading-8 text-slate-700">
-            A-1 chooses the equipment based on the line and the actual problem. That can include drain-cleaning equipment with different cable sizes,
-            root-cutting equipment, sewer cameras, line locating equipment, and hydro jetting when appropriate.
-          </p>
         </article>
 
         <aside class="border border-slate-200 bg-[#1A1A68] p-7 text-white shadow-xl sm:p-8">
@@ -137,6 +149,16 @@ const nearbyCities = uniqueServiceAreaCities
           <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">{localContent.faqQuestion}</h2>
           <p class="mt-4 text-lg leading-8 text-slate-700">{localContent.faqAnswer}</p>
           <a href="tel:+16415302728" class="call-button mt-6 inline-block rounded-md bg-[#c52b34] px-6 py-4 text-center font-black text-white">CALL 641-530-2728</a>
+        </div>
+      </section>
+    )}
+
+    {localContent?.infrastructureNote && (
+      <section class="bg-white py-10 sm:py-12">
+        <div class="container max-w-4xl border-l-4 border-[#1A1A68] pl-5 sm:pl-7">
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Local sewer information</p>
+          <p class="mt-3 text-lg leading-8 text-slate-700">{localContent.infrastructureNote}</p>
+          {localContent.sourceUrl && localContent.sourceLabel && <p class="mt-3 text-sm leading-6 text-slate-600">Source: <a href={localContent.sourceUrl} target="_blank" rel="noopener noreferrer" class="font-bold text-[#1A1A68] underline underline-offset-4">{localContent.sourceLabel}</a>{localContent.sourceUrl2 && localContent.sourceLabel2 && <span>; <a href={localContent.sourceUrl2} target="_blank" rel="noopener noreferrer" class="font-bold text-[#1A1A68] underline underline-offset-4">{localContent.sourceLabel2}</a></span>}.</p>}
         </div>
       </section>
     )}
@@ -166,7 +188,7 @@ const nearbyCities = uniqueServiceAreaCities
         <div class="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {nearbyCities.map((nearby) => (
             builtServiceAreaCitySlugs.has(nearby.slug) ? (
-              <a href={`/service-area/${nearby.slug}/`} class="border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold text-white hover:bg-[#141452]">{nearby.name}</a>
+              <a href={`/service-area/${nearby.slug}/`} class="border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold text-white hover:bg-[#141452]" style="color: #ffffff !important;">{nearby.name}</a>
             ) : (
               <span class="border border-slate-200 bg-slate-100 px-3 py-3 text-sm font-bold text-slate-600">{nearby.name}</span>
             )
