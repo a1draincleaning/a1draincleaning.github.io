@@ -181,7 +181,7 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
         // Only show towns in the approved service-area directory. This also excludes
         // any stray pins outside the counties A-1 currently lists as served.
         const visibleTowns = serviceTowns.flatMap((town) => {
-          const slug = town.name.toLowerCase().replace(/\\./g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+          const slug = town.name.toLowerCase().replace(/\./g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
           const directoryCity = directoryBySlug.get(slug);
           if (!directoryCity || directoryCity.counties.includes('Hardin')) return [];
           return [{ ...town, slug, hasPage: builtCitySlugs.has(slug) }];
