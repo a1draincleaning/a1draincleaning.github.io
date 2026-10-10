@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+<title id="title">Basement floor drain backup cartoon illustration</title><desc id="desc">A basement floor drain with water bubbling up from a backed-up drain.</desc>
+<rect width="640" height="420" rx="18" fill="#f4f8fc"/><path d="M0 250H640V420H0Z" fill="#cbd5e1"/><path d="M0 250H640" stroke="#64748b" stroke-width="7"/>
+<path d="M60 70H580V250H60Z" fill="#e2e8f0" stroke="#94a3b8" stroke-width="5"/><path d="M85 95H555M85 135H555M85 175H555M85 215H555" stroke="#cbd5e1" stroke-width="3"/>
+<path d="M320 252V320Q320 344 345 344H470" fill="none" stroke="#475569" stroke-width="58" stroke-linejoin="round"/><path d="M320 252V320Q320 344 345 344H470" fill="none" stroke="#93c5fd" stroke-width="38" stroke-linejoin="round"/>
+<ellipse cx="320" cy="250" rx="72" ry="29" fill="#64748b" stroke="#334155" stroke-width="5"/><ellipse cx="320" cy="246" rx="57" ry="19" fill="#e2e8f0"/><path d="M273 244H367M282 234L290 258M303 229L311 263M325 229L333 263M346 234L354 258" stroke="#64748b" stroke-width="5" stroke-linecap="round"/>
+<path d="M320 219C300 201 307 184 320 176C334 188 339 204 320 219Z" fill="#38bdf8" stroke="#0284c7" stroke-width="4"/><path d="M280 218C264 204 267 191 280 183C292 194 294 207 280 218Z" fill="#7dd3fc"/><path d="M360 218C346 203 350 191 361 184C374 196 374 207 360 218Z" fill="#7dd3fc"/>
+<path d="M240 279Q220 265 208 283M400 280Q419 265 432 282" fill="none" stroke="#0284c7" stroke-width="5" stroke-linecap="round"/>
+<text x="30" y="383" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#1e3a8a">FLOOR DRAIN BACKUP</text>
+</svg>
