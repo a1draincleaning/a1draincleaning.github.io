@@ -61,7 +61,7 @@ a {
 }
 
 .call-button-pulse {
-  animation: phone-button-pulse 1.6s ease-in-out infinite;
+  animation: phone-button-pulse 2.8s ease-in-out infinite;
   transform-origin: center;
 }
 
