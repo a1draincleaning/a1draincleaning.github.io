@@ -18,19 +18,19 @@ const { showForm = false } = Astro.props;
     </div>
 
     {showForm && (
-      <form class="mt-10 grid gap-5 rounded-lg bg-white p-6 text-slate-950 shadow-xl sm:p-8" action="https://formsubmit.co/a1draincleaning@gmail.com" method="POST" toolname="contact_a1_drain_cleaning" tooldescription="Send A-1 Drain Cleaning a customer service request about a drain or sewer problem.">
+      <form class="mt-10 grid gap-5 rounded-lg bg-white p-6 text-slate-950 shadow-xl sm:p-8" action="https://formsubmit.co/a1draincleaning@gmail.com" method="POST">
         <input type="hidden" name="_subject" value="New A-1 Drain Cleaning website request" />
         <div>
           <label for="contact-address" class="block text-sm font-black">Address</label>
-          <input id="contact-address" name="address" type="text" autocomplete="street-address" required toolparamdescription="Customer street address where the drain or sewer problem is located." class="mt-2 w-full rounded-md border border-slate-300 px-4 py-3 text-base outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20" />
+          <input id="contact-address" name="address" type="text" autocomplete="street-address" required class="mt-2 w-full rounded-md border border-slate-300 px-4 py-3 text-base outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20" />
         </div>
         <div>
           <label for="contact-email" class="block text-sm font-black">Email</label>
-          <input id="contact-email" name="email" type="email" autocomplete="email" required toolparamdescription="Customer email address for a reply." class="mt-2 w-full rounded-md border border-slate-300 px-4 py-3 text-base outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20" />
+          <input id="contact-email" name="email" type="email" autocomplete="email" required class="mt-2 w-full rounded-md border border-slate-300 px-4 py-3 text-base outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20" />
         </div>
         <div>
           <label for="drain-problem" class="block text-sm font-black">What is the drain problem?</label>
-          <select id="drain-problem" name="drain_problem" required toolparamdescription="The type of drain or sewer problem the customer is reporting." class="mt-2 w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-base outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20">
+          <select id="drain-problem" name="drain_problem" required class="mt-2 w-full rounded-md border border-slate-300 bg-white px-4 py-3 text-base outline-none focus:border-[#2563eb] focus:ring-2 focus:ring-[#2563eb]/20">
             <option value="">Select a problem</option>
             <option>Clogged toilet</option>
             <option>Kitchen sink drain</option>
