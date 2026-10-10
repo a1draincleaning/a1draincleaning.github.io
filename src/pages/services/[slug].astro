@@ -21,6 +21,7 @@ const relatedServiceMap: Record<string, string[]> = {
   'washing-machine-basement-flooding': ['basement-floor-drains', 'laundry-drains', 'main-drain-cleaning'],
   'laundry-drains': ['washing-machine-basement-flooding', 'basement-floor-drains', 'main-drain-cleaning'],
   'sewer-backup-emergency': ['main-drain-cleaning', 'sewer-line-cleaning', 'basement-floor-drains'],
+  'sewer-backup-into-tub-shower': ['main-drain-cleaning', 'sewer-line-cleaning', 'basement-floor-drains', 'laundry-drains', 'sewer-backup-emergency'],
   'toilet-clogs': ['main-drain-cleaning', 'sewer-line-cleaning', 'basement-floor-drains'],
   'kitchen-bathroom-drains': ['main-drain-cleaning', 'toilet-clogs', 'laundry-drains'],
   'drain-repair': ['sewer-line-cleaning', 'tree-roots-in-sewer-line', 'hydro-jetting'],
@@ -33,7 +34,7 @@ const relatedServiceMap: Record<string, string[]> = {
 const relatedServices = (relatedServiceMap[service.slug] || [])
   .map((slug) => services.find((item) => item.slug === slug))
   .filter((item): item is typeof services[number] => Boolean(item));
-const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'washing-machine-basement-flooding', 'laundry-drains', 'sewer-backup-emergency'];
+const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'washing-machine-basement-flooding', 'laundry-drains', 'sewer-backup-emergency', 'sewer-backup-into-tub-shower'];
 ---
 
 <MainLayout title={title} description={description} path={`/services/${service.slug}/`} service={service}>
