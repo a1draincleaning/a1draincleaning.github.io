@@ -36,12 +36,13 @@ a {
   letter-spacing: -0.055em;
 }
 
-/* Keep muted utility text readable against light page backgrounds. */
+/* Keep body copy readable on white and light-gray sections without darkening text on navy sections. */
+:is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-gray-50, .bg-gray-100, .bg-zinc-50, .bg-zinc-100, .bg-neutral-50, .bg-neutral-100)
 :is(.text-slate-300, .text-slate-400, .text-slate-500, .text-slate-600, .text-slate-700,
     .text-gray-300, .text-gray-400, .text-gray-500, .text-gray-600, .text-gray-700,
     .text-zinc-300, .text-zinc-400, .text-zinc-500, .text-zinc-600, .text-zinc-700,
     .text-neutral-300, .text-neutral-400, .text-neutral-500, .text-neutral-600, .text-neutral-700) {
-  color: #111827 !important;
+  color: #1f2937 !important;
 }
 
 
