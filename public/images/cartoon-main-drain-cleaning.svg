@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+<title id="title">Main drain cleaning cartoon illustration</title><desc id="desc">Cutaway of a house drain connected to a large underground main drain pipe, with a drain-cleaning cable clearing a blockage.</desc>
+<rect width="640" height="420" rx="18" fill="#f4f8fc"/><path d="M0 245H640V420H0Z" fill="#d8c9ad"/><path d="M0 245H640" stroke="#8b7b62" stroke-width="5"/>
+<path d="M110 82L240 20 370 82V244H110Z" fill="#fff" stroke="#64748b" stroke-width="6" stroke-linejoin="round"/><path d="M80 86L240 8 400 86" fill="none" stroke="#1e3a8a" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+<rect x="145" y="115" width="72" height="80" rx="5" fill="#bfdbfe" stroke="#64748b" stroke-width="5"/><rect x="267" y="148" width="61" height="96" fill="#cbd5e1" stroke="#64748b" stroke-width="5"/>
+<path d="M297 148V268Q297 294 326 294H450" fill="none" stroke="#475569" stroke-width="42" stroke-linejoin="round"/><path d="M297 148V268Q297 294 326 294H450" fill="none" stroke="#dbeafe" stroke-width="26" stroke-linejoin="round"/>
+<path d="M420 294H548" stroke="#334155" stroke-width="54" stroke-linecap="round"/><path d="M420 294H548" stroke="#93c5fd" stroke-width="36" stroke-linecap="round"/>
+<path d="M462 277l14 14-10 13 19 10 10-15 18 4 8-15-18-9-7-13-17 5-3 16Z" fill="#8b5e3c" stroke="#6b4226" stroke-width="3"/>
+<path d="M364 294H463" stroke="#f97316" stroke-width="8" stroke-linecap="round"/><path d="M452 281l18 13-18 13" fill="none" stroke="#f97316" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="468" cy="294" r="17" fill="#fed7aa" stroke="#c2410c" stroke-width="4"/>
+<text x="30" y="383" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#1e3a8a">MAIN DRAIN CLEANING</text>
+</svg>
