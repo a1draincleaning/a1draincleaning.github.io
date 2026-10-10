@@ -1,6 +1,7 @@
 ---
 import { SEO } from 'astro-seo';
 import { Schema } from 'astro-seo-schema';
+import { services } from '../data/services';
 import '../styles/global.css';
 
 interface Props {
@@ -22,6 +23,8 @@ const business = {
   '@id': 'https://a1draincleaning.github.io/#business',
   name: 'A-1 Drain Cleaning',
   url: 'https://a1draincleaning.github.io/',
+  logo: 'https://a1draincleaning.github.io/a1-logo.svg',
+  image: 'https://a1draincleaning.github.io/images/a1-main-sewer-drain-cleaning-mason-city.webp',
   telephone: '+1-641-530-2728',
   address: {
     '@type': 'PostalAddress',
@@ -38,12 +41,23 @@ const business = {
       name: county + ' County, Iowa'
     }))
   ],
-  openingHoursSpecification: [{
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-    opens: '00:00',
-    closes: '23:59'
-  }]
+  founder: {
+    '@type': 'Person',
+    name: 'Josh Theilen'
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Drain Cleaning and Sewer Services',
+    itemListElement: services.map((item) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: item.title,
+        description: item.description,
+        url: `https://a1draincleaning.github.io/services/${item.slug}/`
+      }
+    }))
+  }
 };
 
 const graph = [
