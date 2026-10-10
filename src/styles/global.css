@@ -59,6 +59,28 @@ a {
   background: #ff6a1a !important;
 }
 
+.call-button-pulse {
+  animation: phone-button-pulse 1.6s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes phone-button-pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.82;
+    transform: scale(1.045);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .call-button-pulse {
+    animation: none;
+  }
+}
+
 .skip {
   position: absolute;
   left: -9999px;
