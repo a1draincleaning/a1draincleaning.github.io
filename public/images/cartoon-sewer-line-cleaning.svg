@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+<title id="title">Sewer line cleaning cartoon illustration</title><desc id="desc">A house connected to an underground sewer line with a technician's cleaning cable inside the pipe.</desc>
+<rect width="640" height="420" rx="18" fill="#f4f8fc"/><path d="M0 195H640V420H0Z" fill="#d8c9ad"/><path d="M0 195H640" stroke="#6b8e54" stroke-width="10"/>
+<path d="M55 96L155 36 255 96V194H55Z" fill="#fff" stroke="#64748b" stroke-width="5" stroke-linejoin="round"/><path d="M35 99L155 22 275 99" fill="none" stroke="#1e3a8a" stroke-width="12" stroke-linejoin="round"/><rect x="91" y="121" width="45" height="73" fill="#bfdbfe" stroke="#64748b" stroke-width="4"/><rect x="174" y="124" width="45" height="70" fill="#bfdbfe" stroke="#64748b" stroke-width="4"/>
+<path d="M155 194V266Q155 291 183 291H548" fill="none" stroke="#334155" stroke-width="58" stroke-linejoin="round"/><path d="M155 194V266Q155 291 183 291H548" fill="none" stroke="#94a3b8" stroke-width="38" stroke-linejoin="round"/>
+<path d="M215 291H495" stroke="#f97316" stroke-width="8" stroke-linecap="round"/><path d="M481 277L500 291 481 305" fill="none" stroke="#f97316" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M508 274l12 10-4 13 14 8 11-12 15 1 4-15-14-7-6-11-14 4-4 12Z" fill="#7c5a3b" stroke="#5b422c" stroke-width="3"/>
+<rect x="388" y="225" width="118" height="30" rx="7" fill="#1e3a8a"/><text x="447" y="245" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#fff">SEWER LINE</text>
+<text x="30" y="383" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#1e3a8a">SEWER LINE CLEANING</text>
+</svg>
