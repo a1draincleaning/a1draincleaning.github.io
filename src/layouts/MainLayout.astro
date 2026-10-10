@@ -48,7 +48,17 @@ const business = {
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Drain Cleaning and Sewer Services',
-    itemListElement: services.map((item) => ({
+    itemListElement: services.filter(({ slug }) => [
+      'main-drain-cleaning',
+      'sewer-line-cleaning',
+      'tree-roots-in-sewer-line',
+      'hydro-jetting',
+      'basement-floor-drains',
+      'kitchen-bathroom-drains',
+      'toilet-clogs',
+      'laundry-drains',
+      'sewer-backup-emergency'
+    ].includes(slug)).map((item) => ({
       '@type': 'Offer',
       itemOffered: {
         '@type': 'Service',
