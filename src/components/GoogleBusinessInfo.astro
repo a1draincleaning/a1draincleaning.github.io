@@ -22,46 +22,6 @@ const businessData = {
   serviceAreas: ["Mason City", "Clear Lake", "Forest City", "Charles City", "North Iowa"],
 };
 
-const schemaData = {
-  "@context": "https://schema.org",
-  "@type": "Plumber",
-  "@id": `${businessData.websiteUri}#organization`,
-  "name": businessData.name,
-  "url": businessData.websiteUri,
-  "telephone": businessData.phoneFormatted,
-  "priceRange": "$$",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": businessData.address.street,
-    "addressLocality": businessData.address.city,
-    "addressRegion": businessData.address.state,
-    "postalCode": businessData.address.zip,
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 43.1247397,
-    "longitude": -93.2057169
-  },
-  "areaServed": businessData.serviceAreas.map(area => ({
-    "@type": "City",
-    "name": area
-  })),
-  "founder": {
-    "@type": "Person",
-    "name": businessData.owner
-  },
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-    "opens": "00:00",
-    "closes": "23:59"
-  }
-};
----
-
-<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
-
 <section class="w-full bg-slate-50 py-12 text-slate-800" id="google-business">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 gap-8 lg:grid-cols-12">
