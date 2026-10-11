@@ -48,7 +48,7 @@ a {
 
 .call-button {
   color: #fff !important;
-  background: #ff5a00 !important;
+  background: #b4232b !important;
   border-radius: 0.65rem !important;
   font-family: 'Arial Black', Arial, Helvetica, sans-serif !important;
   font-weight: 900 !important;
@@ -56,7 +56,7 @@ a {
 }
 
 .call-button:hover {
-  background: #ff6a1a !important;
+  background: #951d24 !important;
 }
 
 .call-button-pulse {
