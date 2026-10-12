@@ -10,8 +10,16 @@ export function getStaticPaths() {
 }
 
 const { service } = Astro.props;
-const title = service.slug === 'laundry-drains' ? 'Laundry Drain Cleaning | A-1 Drain Cleaning' : `${service.title} | A-1 Drain Cleaning`;
-const description = `${service.description} A-1 Drain Cleaning serves Mason City and North Iowa. Call 641-530-2728.`;
+const title = service.slug === 'washing-machine-basement-flooding'
+  ? 'Washing Machine Drain Backup | A-1 Drain Cleaning'
+  : service.slug === 'laundry-drains'
+    ? 'Laundry Drain Cleaning | A-1 Drain Cleaning'
+    : `${service.title} | A-1 Drain Cleaning`;
+const description = service.slug === 'washing-machine-basement-flooding'
+  ? 'Washing machine draining and flooding the basement? A-1 Drain Cleaning clears backed-up drain lines in Mason City and North Iowa. Call 641-530-2728.'
+  : service.slug === 'laundry-drains'
+    ? 'Washing machine drain overflowing or laundry standpipe backing up? A-1 Drain Cleaning clears laundry drains in Mason City and North Iowa. Call 641-530-2728.'
+    : `${service.description} A-1 Drain Cleaning serves Mason City and North Iowa. Call 641-530-2728.`;
 const relatedServiceMap: Record<string, string[]> = {
   'main-drain-cleaning': ['sewer-line-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
   'sewer-line-cleaning': ['main-drain-cleaning', 'tree-roots-in-sewer-line', 'basement-floor-drains'],
