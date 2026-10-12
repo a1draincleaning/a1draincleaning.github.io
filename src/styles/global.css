@@ -29,30 +29,30 @@ a {
   color: inherit;
 }
 
-/* Site-wide blue clickable links and buttons with white lettering.
-   Preserve the A-1 brand/logo link, skip link, and red phone-call buttons. */
-a:not(.call-button):not(.skip):not([aria-label="A-1 Drain Cleaning home"]),
+/* Keep normal text links readable. Only style button-like links and controls. */
+a[class*="px-"][class*="py-"]:not(.call-button):not(.skip):not([aria-label="A-1 Drain Cleaning home"]),
+a[style*="background-color:#1A1A68"]:not(.call-button):not(.skip),
+nav a:not(.call-button):not(.skip),
 button:not(.call-button),
 [role="button"]:not(.call-button) {
   background-color: #1A1A68 !important;
   color: #fff !important;
   text-decoration: none;
-}
-
-a:not(.call-button):not(.skip):not([aria-label="A-1 Drain Cleaning home"]),
-button:not(.call-button),
-[role="button"]:not(.call-button) {
   border-radius: 0.3rem;
 }
 
-a:not(.call-button):not(.skip):not([aria-label="A-1 Drain Cleaning home"]):hover,
+a[class*="px-"][class*="py-"]:not(.call-button):not(.skip):not([aria-label="A-1 Drain Cleaning home"]):hover,
+a[style*="background-color:#1A1A68"]:not(.call-button):not(.skip):hover,
+nav a:not(.call-button):not(.skip):hover,
 button:not(.call-button):hover,
 [role="button"]:not(.call-button):hover {
   background-color: #142052 !important;
   color: #fff !important;
 }
 
-a:not(.call-button):not(.skip):not([aria-label="A-1 Drain Cleaning home"]):focus-visible,
+a[class*="px-"][class*="py-"]:not(.call-button):not(.skip):not([aria-label="A-1 Drain Cleaning home"]):focus-visible,
+a[style*="background-color:#1A1A68"]:not(.call-button):not(.skip):focus-visible,
+nav a:not(.call-button):not(.skip):focus-visible,
 button:not(.call-button):focus-visible,
 [role="button"]:not(.call-button):focus-visible {
   outline: 2px solid #1A1A68;
