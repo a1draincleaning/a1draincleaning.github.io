@@ -29,6 +29,27 @@ a {
   color: inherit;
 }
 
+/* Consistent blue links with white lettering throughout page content.
+   Preserve the logo, red phone CTA, and navigation's existing styling. */
+main a:not(.call-button) {
+  display: inline-block;
+  padding: 0.08em 0.35em;
+  border-radius: 0.25rem;
+  background-color: #1A1A68 !important;
+  color: #fff !important;
+  text-decoration: none;
+}
+
+main a:not(.call-button):hover {
+  background-color: #142052 !important;
+  color: #fff !important;
+}
+
+main a:not(.call-button):focus-visible {
+  outline: 2px solid #1A1A68;
+  outline-offset: 2px;
+}
+
 .brand-slab {
   font-family: 'Roboto Slab', Rockwell, 'Courier New', serif;
   font-weight: 900;
