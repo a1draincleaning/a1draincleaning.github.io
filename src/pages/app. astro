@@ -1,0 +1,82 @@
+---
+// src/pages/app.astro
+---
+
+<!DOCTYPE html>
+<html lang="en" class="dark h-full bg-[#121016] text-[#E2DCE8]">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Occult App UI</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="h-full pb-20 flex flex-col justify-between font-sans antialiased">
+
+  <!-- TOP HEADER -->
+  <header class="p-4 flex items-center justify-between border-b border-[#262030]">
+    <h1 class="text-xl font-bold tracking-wide">Astrology</h1>
+    <div class="flex gap-2">
+      <button class="bg-[#1D1826] px-3 py-1 rounded-full text-xs text-[#BFA8D8]">Today</button>
+      <button class="bg-[#121016] px-3 py-1 rounded-full text-xs text-[#8A7B9B]">Signs</button>
+      <button class="bg-[#121016] px-3 py-1 rounded-full text-xs text-[#8A7B9B]">Planets</button>
+    </div>
+  </header>
+
+  <!-- MAIN CARD SECTION -->
+  <main class="p-4 flex-1 overflow-y-auto space-y-4">
+    
+    <!-- MAIN HERO CARD -->
+    <div class="bg-[#1D182A] border border-[#2D253A] rounded-2xl p-6 text-center space-y-3 shadow-xl">
+      <p class="text-xs uppercase tracking-widest text-[#9C82B8]">Monday — Moon Day</p>
+      <div class="text-5xl text-[#E8A5C8] font-serif">♏</div>
+      <h2 class="text-2xl font-bold text-[#F3EAF8]">Moon in Scorpio</h2>
+      <p class="text-xs text-[#A092B0]">6° Into Scorpio</p>
+      <p class="text-xs text-[#6E617E]">Next: Moon enters Sagittarius</p>
+    </div>
+
+    <!-- SUN CARD -->
+    <div class="bg-[#1D182A] border border-[#2D253A] rounded-2xl p-4 space-y-2">
+      <span class="text-xs font-bold text-[#E8A5C8] uppercase tracking-wider">Sun</span>
+      <p class="text-sm text-[#D1C5DC]">The Sun is in Virgo — see the Signs tab for its full profile.</p>
+    </div>
+
+    <!-- PLANETARY DAY CARD -->
+    <div class="bg-[#1D182A] border border-[#2D253A] rounded-2xl p-4 space-y-2">
+      <span class="text-xs font-bold text-[#E8A5C8] uppercase tracking-wider">Planetary Day</span>
+      <p class="text-sm text-[#D1C5DC]">Today is Monday, ruled by Moon — a Moon day favours workings of dreams, intuition, and the ancestors.</p>
+    </div>
+
+  </main>
+
+  <!-- BOTTOM NAVIGATION BAR -->
+  <nav class="fixed bottom-0 left-0 right-0 bg-[#17131F] border-t border-[#262030] px-4 py-2 flex justify-around items-center">
+    
+    <a href="#home" class="flex flex-col items-center text-[#8A7B9B] hover:text-[#E8A5C8]">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 00-1-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+      <span class="text-[10px] mt-1">Home</span>
+    </a>
+
+    <a href="#tarot" class="flex flex-col items-center text-[#8A7B9B] hover:text-[#E8A5C8]">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+      <span class="text-[10px] mt-1">Tarot</span>
+    </a>
+
+    <a href="#astrology" class="flex flex-col items-center text-[#E8A5C8]">
+      <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6-6.3 4.6 2.3-7.1-6-4.5h7.6z"/></svg>
+      <span class="text-[10px] mt-1 font-bold">Astrology</span>
+    </a>
+
+    <a href="#spirits" class="flex flex-col items-center text-[#8A7B9B] hover:text-[#E8A5C8]">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      <span class="text-[10px] mt-1">Spirits</span>
+    </a>
+
+    <a href="#magic" class="flex flex-col items-center text-[#8A7B9B] hover:text-[#E8A5C8]">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+      <span class="text-[10px] mt-1">Magic</span>
+    </a>
+
+  </nav>
+
+</body>
+</html>
