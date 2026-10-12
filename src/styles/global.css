@@ -29,23 +29,32 @@ a {
   color: inherit;
 }
 
-/* Consistent blue links with white lettering throughout page content.
-   Preserve the logo, red phone CTA, and navigation's existing styling. */
-main a:not(.call-button) {
-  display: inline-block;
-  padding: 0.08em 0.35em;
-  border-radius: 0.25rem;
+/* Site-wide blue clickable links and buttons with white lettering.
+   Preserve the A-1 brand/logo link, skip link, and red phone-call buttons. */
+a:not(.call-button):not(.skip):not([aria-label="A-1 Drain Cleaning home"]),
+button:not(.call-button),
+[role="button"]:not(.call-button) {
   background-color: #1A1A68 !important;
   color: #fff !important;
   text-decoration: none;
 }
 
-main a:not(.call-button):hover {
+a:not(.call-button):not(.skip):not([aria-label="A-1 Drain Cleaning home"]),
+button:not(.call-button),
+[role="button"]:not(.call-button) {
+  border-radius: 0.3rem;
+}
+
+a:not(.call-button):not(.skip):not([aria-label="A-1 Drain Cleaning home"]):hover,
+button:not(.call-button):hover,
+[role="button"]:not(.call-button):hover {
   background-color: #142052 !important;
   color: #fff !important;
 }
 
-main a:not(.call-button):focus-visible {
+a:not(.call-button):not(.skip):not([aria-label="A-1 Drain Cleaning home"]):focus-visible,
+button:not(.call-button):focus-visible,
+[role="button"]:not(.call-button):focus-visible {
   outline: 2px solid #1A1A68;
   outline-offset: 2px;
 }
