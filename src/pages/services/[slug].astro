@@ -77,6 +77,7 @@ const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'w
               <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Main drain problems</p>
               <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">When the main drain is blocked, the whole house can be affected</h2>
               <p class="mt-6 text-lg leading-8 text-slate-700">The main drain carries wastewater from the house toward the city sewer or a septic system. When that line is restricted, water from toilets, sinks, tubs, showers, and the washing machine may not have a clear path out. Instead of showing up at one clogged fixture, the problem can appear at several drains or at the lowest drain in the house.</p>
+              <p class="mt-4 leading-8 text-slate-700">Residential main drains are commonly 3 or 4 inches in diameter, but the actual size depends on the home's plumbing layout and the pipe installed. Size alone does not identify the cause of a blockage; the affected fixtures, cleanout access, and condition of the line matter too.</p>
               <p class="mt-5 text-lg leading-8 text-slate-700">A-1 Drain Cleaning clears blocked main drains in Mason City and North Iowa. The first clues are what is backing up, which fixtures are affected, and what was happening when the problem started.</p>
 
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Signs your main drain may be blocked</h2>
@@ -130,6 +131,7 @@ const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'w
               <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Sewer line problems</p>
               <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">When wastewater cannot get out of the house</h2>
               <p class="mt-6 text-lg leading-8 text-slate-700">The sewer line carries wastewater from the home's drain system to the city sewer or septic connection. When that line is blocked or restricted, the problem can affect several fixtures at once. Water may come back through a basement floor drain, toilet, shower, or bathtub instead of leaving the house.</p>
+              <p class="mt-4 leading-8 text-slate-700">Many residential building sewer lines are 4 inches in diameter, though size and material vary by property and installation. A pipe's diameter does not show whether the problem is grease, roots, a foreign object, or damaged pipe; the line and symptoms have to be assessed.</p>
               <p class="mt-5 text-lg leading-8 text-slate-700">A-1 Drain Cleaning clears blocked sewer lines in Mason City and North Iowa. The location of the backup, which fixtures are affected, and when the problem happens help distinguish a sewer-line restriction from a clog at one sink or toilet.</p>
 
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Signs the sewer line may be blocked</h2>
@@ -264,6 +266,7 @@ const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'w
               <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Floor drain backup help</p>
               <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">When sewage or water comes up through the basement floor drain</h2>
               <p class="mt-6 text-lg leading-8 text-slate-700">A floor drain is often the first place a main drain blockage shows up because it sits low in the house. If wastewater rises through the floor drain when a toilet is flushed, a sink is used, or the washing machine empties, the blockage may be farther down a shared drain line. The floor drain is where you see the backup; it is not automatically where the blockage is.</p>
+              <p class="mt-4 leading-8 text-slate-700">Floor-drain connections and branch-pipe sizes vary by installation. The visible drain grate does not tell you the size or condition of the pipe farther downstream, so a backup should not automatically be treated as a clog right under the grate.</p>
               <p class="mt-5 text-lg leading-8 text-slate-700">A-1 Drain Cleaning clears floor-drain and main-drain blockages in Mason City and North Iowa. The important clues are when the water rises, which fixtures are being used, and whether other drains are affected too.</p>
 
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">What the floor drain is telling you</h2>
@@ -312,6 +315,18 @@ const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'w
               <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">About this drain problem</p>
               <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">What can cause this problem?</h2>
               <div class="mt-6 space-y-5">{service.details.map((paragraph) => (<p class="text-lg leading-8 text-slate-700">{paragraph}</p>))}</div>
+              {service.slug === 'kitchen-bathroom-drains' && (
+                <section class="mt-8 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="fixture-drain-sizes">
+                  <h2 id="fixture-drain-sizes" class="text-2xl font-black tracking-tight text-slate-950">Common sink, tub, and shower drain sizes</h2>
+                  <p class="mt-3 leading-7 text-slate-700">Kitchen sinks commonly connect to 1½- or 2-inch drain piping. Bathroom sinks often use 1¼- or 1½-inch piping, while tubs and showers commonly use 1½- or 2-inch drains. Actual sizes vary by fixture, age of the plumbing, and local installation. These are typical pipe sizes—not a diagnosis of where a clog is located.</p>
+                </section>
+              )}
+              {service.slug === 'toilet-clogs' && (
+                <section class="mt-8 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="toilet-drain-size">
+                  <h2 id="toilet-drain-size" class="text-2xl font-black tracking-tight text-slate-950">Typical toilet drain pipe size</h2>
+                  <p class="mt-3 leading-7 text-slate-700">Toilets commonly connect to a 3-inch drain, and some installations use 4-inch piping. A toilet that will not flush may have a clog in the toilet trap, the branch drain, or farther down the main drain. Pipe diameter alone does not identify the blockage location.</p>
+                </section>
+              )}
               {service.slug === 'basement-floor-drains' && (
                 <div class="mt-8 border-l-4 border-[#b4232b] bg-slate-50 p-6">
                   <h2 class="text-2xl font-black tracking-tight text-slate-950">Sewage Coming Up Through Your Basement Floor Drain?</h2>
