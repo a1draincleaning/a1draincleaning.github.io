@@ -215,6 +215,50 @@ const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'w
                 <p class="mt-2 leading-8 text-slate-700">No. The next step depends on the amount of blockage and the condition of the pipe. Cleaning may restore flow; repair decisions depend on whether the pipe is damaged and how severe that damage is.</p>
               </section>
             </>
+          ) : service.slug === 'hydro-jetting' ? (
+            <>
+              <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Hydro jetting for drains and sewer lines</p>
+              <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Cleaning buildup from inside the pipe</h2>
+              <p class="mt-6 text-lg leading-8 text-slate-700">Hydro jetting uses high-pressure water to remove suitable buildup from the inside of a drain or sewer line. It can help when grease, sludge, or accumulated debris is narrowing the passage and ordinary cable cleaning has not fully addressed the problem. It is not the right method for every clog or every pipe.</p>
+              <p class="mt-5 text-lg leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and North Iowa. The decision to use water jetting depends on the type of blockage, access to the line, and the pipe's condition—not simply on the fact that a drain is clogged.</p>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">When hydro jetting may help</h2>
+              <ul class="mt-5 grid gap-3 sm:grid-cols-2">
+                {service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}
+                <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">Grease or sludge has built up along the inside of the pipe.</li>
+                <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">The line has been opened, but residue may still be restricting flow.</li>
+              </ul>
+              <p class="mt-5 leading-8 text-slate-700">A single slow sink may have a local blockage that does not need jetting. If several fixtures back up together or wastewater comes up through a floor drain, the restriction may be farther down a shared drain or the main sewer line. Those symptoms help identify where to investigate; they do not automatically mean hydro jetting is needed.</p>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Hydro jetting compared with cable drain cleaning</h2>
+              <p class="mt-5 leading-8 text-slate-700">A drain cable is used to reach and break through or cut certain blockages. Hydro jetting uses pressurized water to clean material from the pipe's interior. The methods do different jobs, and the right choice depends on what is blocking the line and what condition the pipe is in. Hydro jetting should not be treated as an automatic upgrade for every drain call.</p>
+              <p class="mt-4 leading-8 text-slate-700">Tree roots may need to be cut out, while grease and other buildup may respond to water jetting when the pipe is suitable for it. A cracked, separated, or collapsed pipe is a different problem: cleaning does not repair structural damage.</p>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Check the pipe condition before choosing the method</h2>
+              <p class="mt-5 leading-8 text-slate-700">The condition and material of the line matter when deciding whether to use high-pressure water. If a pipe is damaged, its condition is uncertain, or the blockage keeps returning, further assessment may be needed before choosing the cleaning method. A sewer camera inspection can help show visible conditions inside an accessible line when that information would affect the next step.</p>
+              <p class="mt-4 leading-8 text-slate-700">If wastewater is actively backing up into the house, stop using water where possible and keep people and pets away from sewage. Tell A-1 which fixtures are affected, where water is coming up, and whether the line has been cleaned before.</p>
+
+              <section class="mt-10 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="hydro-jetting-next-step">
+                <h2 id="hydro-jetting-next-step" class="text-2xl font-black tracking-tight text-slate-950">Choosing the right drain-cleaning method</h2>
+                <p class="mt-3 leading-7 text-slate-700">The goal is to clear the restriction without using a method that does not fit the pipe or the blockage. A-1 Drain Cleaning assesses the symptoms and line conditions to determine the practical next step.</p>
+                <p class="mt-4 leading-7 text-slate-700">Related information: <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a>, <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a>, and <a href="/services/tree-roots-in-sewer-line/" class="font-bold text-[#b4232b] underline underline-offset-4">tree roots in sewer lines</a>.</p>
+              </section>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Hydro jetting in Mason City and North Iowa</h2>
+              <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and North Iowa. When you call, describe whether one drain or several are affected, whether the line has been cleaned before, and whether the problem returns after water begins flowing again. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a> to discuss the drain or sewer problem.</p>
+
+              <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="hydro-jetting-faqs">
+                <h2 id="hydro-jetting-faqs" class="text-3xl font-black tracking-tight text-slate-950">Hydro jetting FAQs</h2>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Does every clogged drain need hydro jetting?</h3>
+                <p class="mt-2 leading-8 text-slate-700">No. Many clogs can be cleared with other equipment. Jetting is considered when the blockage and pipe conditions make it a suitable option.</p>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Can hydro jetting remove tree roots?</h3>
+                <p class="mt-2 leading-8 text-slate-700">Roots may need to be cut with suitable root-cutting equipment. The best method depends on the root blockage and pipe condition; jetting is not a universal substitute for root cutting.</p>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Will hydro jetting repair a cracked or collapsed sewer pipe?</h3>
+                <p class="mt-2 leading-8 text-slate-700">No. Jetting is a cleaning method. A cracked, separated, or collapsed pipe may require repair rather than more cleaning.</p>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">When might a camera inspection help?</h3>
+                <p class="mt-2 leading-8 text-slate-700">It may help when the blockage repeatedly returns or the condition of the line is uncertain and that information would affect the cleaning approach.</p>
+              </section>
+            </>
           ) : (
             <>
               <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">About this drain problem</p>
