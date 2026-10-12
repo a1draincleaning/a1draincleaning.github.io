@@ -65,6 +65,15 @@ button:not(.call-button):focus-visible,
   letter-spacing: -0.055em;
 }
 
+/* Button text must stay white, including nested headings/spans that have their own Tailwind text colors. */
+a[class*="px-"][class*="py-"]:not(.call-button):not(.skip):not([aria-label="A-1 Drain Cleaning home"]) *,
+a[style*="background-color:#1A1A68"]:not(.call-button):not(.skip) *,
+header nav a:not(.call-button):not(.skip) *,
+button:not(.call-button) *,
+[role="button"]:not(.call-button) * {
+  color: #fff !important;
+}
+
 /* Keep body copy readable on white and light-gray sections without darkening text on navy sections. */
 :is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-gray-50, .bg-gray-100, .bg-zinc-50, .bg-zinc-100, .bg-neutral-50, .bg-neutral-100)
 :is(.text-slate-300, .text-slate-400, .text-slate-500, .text-slate-600, .text-slate-700,
