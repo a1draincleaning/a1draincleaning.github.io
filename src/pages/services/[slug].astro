@@ -10,7 +10,7 @@ export function getStaticPaths() {
 }
 
 const { service } = Astro.props;
-const title = `${service.title} | A-1 Drain Cleaning`;
+const title = service.slug === 'washing-machine-basement-flooding' ? 'Basement Flooding From Washer | A-1 Drain Cleaning' : `${service.title} | A-1 Drain Cleaning`;
 const description = `${service.description} A-1 Drain Cleaning serves Mason City and North Iowa. Call 641-530-2728.`;
 const relatedServiceMap: Record<string, string[]> = {
   'main-drain-cleaning': ['sewer-line-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
