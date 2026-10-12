@@ -170,7 +170,51 @@ const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'w
                 <p class="mt-2 leading-8 text-slate-700">Stop using water where possible, avoid contact with sewage, and keep people and pets away from the affected area until the backup is addressed.</p>
               </section>
             </>
-          ) : (
+          ) : service.slug === 'tree-roots-in-sewer-line' ? (
+            <>
+              <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Tree roots in sewer lines</p>
+              <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Roots can turn a small opening in a sewer pipe into a recurring blockage</h2>
+              <p class="mt-6 text-lg leading-8 text-slate-700">Tree roots usually get into a sewer line through an existing opening, such as a pipe joint, crack, or damaged section. They do not have to fill the pipe completely to cause trouble. As roots grow inside the line, they can catch toilet paper and other waste, narrow the passage, and slow wastewater leaving the house.</p>
+              <p class="mt-5 text-lg leading-8 text-slate-700">A-1 Drain Cleaning removes root blockages in sewer lines in Mason City and North Iowa. The important distinction is that cutting roots out can reopen the pipe, but it does not seal the entry point or repair damaged pipe.</p>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Signs tree roots may be blocking the sewer line</h2>
+              <ul class="mt-5 grid gap-3 sm:grid-cols-2">
+                {service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}
+                <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">Several fixtures drain slowly or back up around the same time.</li>
+                <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">Wastewater comes up through a basement floor drain or a bathtub or shower.</li>
+              </ul>
+              <p class="mt-5 leading-8 text-slate-700">These symptoms can also be caused by grease, accumulated waste, or a damaged pipe. Symptoms alone cannot prove that roots are the cause. When several fixtures are affected, the restriction may be in the main drain or sewer line rather than at an individual sink, tub, or toilet.</p>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">How roots get into sewer pipes</h2>
+              <p class="mt-5 leading-8 text-slate-700">Roots grow toward moisture in the soil. If a sewer pipe has an open joint or crack, moisture escaping there can attract root growth into the opening. Older underground lines may have joints or sections that have shifted or deteriorated over time, but the presence of a tree near a house does not by itself mean the sewer pipe is blocked.</p>
+              <p class="mt-4 leading-8 text-slate-700">Once roots enter the pipe, they can catch paper and waste. That material builds up around the roots and restricts flow. A line may drain after it is cleared, then clog again if roots remain or the damaged entry point is still open.</p>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">How A-1 Drain Cleaning clears roots</h2>
+              <p class="mt-5 leading-8 text-slate-700">A-1 uses drain-cleaning equipment to cut through roots that are blocking the line and restore a path for wastewater. The approach depends on access to the pipe, the blockage, and the condition of the line. Opening the pipe helps wastewater flow, but root removal is not the same as repairing a crack, separated joint, or collapsed section.</p>
+              <p class="mt-4 leading-8 text-slate-700">If the line has plugged repeatedly or the pipe condition is uncertain, a sewer camera inspection can help show whether roots are present and whether the pipe has visible damage. That information can help distinguish a blockage that needs cleaning from a pipe problem that may need repair.</p>
+              <p class="mt-4 leading-8 text-slate-700">When you call, explain how often the line has backed up, whether cleaning has been done before, and which drains are affected. If wastewater is currently coming up through a floor drain, tub, or shower, stop using water where possible and keep people and pets away from the affected area.</p>
+
+              <section class="mt-10 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="repeat-root-blockage">
+                <h2 id="repeat-root-blockage" class="text-2xl font-black tracking-tight text-slate-950">Does the sewer line keep plugging up?</h2>
+                <p class="mt-3 leading-7 text-slate-700">A repeat blockage is a reason to look beyond the immediate clog. Roots may be growing back through the same opening, or the pipe may have a joint or damaged section that is catching debris. Cleaning can restore flow, while inspection can help establish whether the pipe itself needs attention.</p>
+                <p class="mt-4 leading-7 text-slate-700">Learn about <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a>, <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a>, and <a href="/services/drain-repair/" class="font-bold text-[#b4232b] underline underline-offset-4">drain repair</a>.</p>
+              </section>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Tree roots in sewer lines in Mason City and North Iowa</h2>
+              <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning works on blocked sewer lines in Mason City and across North Iowa. If your sewer line has been cleared before and the same symptoms return, share that history when you call. It helps us assess whether the immediate job is to clear a root blockage, investigate a recurring restriction, or determine whether pipe damage may be involved.</p>
+
+              <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="tree-root-faqs">
+                <h2 id="tree-root-faqs" class="text-3xl font-black tracking-tight text-slate-950">Tree root sewer line FAQs</h2>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Can tree roots get into a sewer pipe that is still draining?</h3>
+                <p class="mt-2 leading-8 text-slate-700">Yes. Roots can narrow the opening and catch waste before the pipe becomes completely blocked. Early symptoms may include a recurring slow drain or repeated backups.</p>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Will cutting the roots stop them from coming back?</h3>
+                <p class="mt-2 leading-8 text-slate-700">Not necessarily. Cutting roots can reopen the line, but it does not close the joint or repair the crack where roots entered. A damaged entry point can allow another root blockage to develop.</p>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">How can I tell whether roots are the cause?</h3>
+                <p class="mt-2 leading-8 text-slate-700">Recurring blockages can raise suspicion, but symptoms alone do not confirm roots. A sewer camera inspection may help identify roots and show the visible condition of the pipe.</p>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Does a sewer line always need to be replaced if roots get in?</h3>
+                <p class="mt-2 leading-8 text-slate-700">No. The next step depends on the amount of blockage and the condition of the pipe. Cleaning may restore flow; repair decisions depend on whether the pipe is damaged and how severe that damage is.</p>
+              </section>
+            </>
             <>
               <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">About this drain problem</p>
               <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">What can cause this problem?</h2>
