@@ -259,6 +259,54 @@ const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'w
                 <p class="mt-2 leading-8 text-slate-700">It may help when the blockage repeatedly returns or the condition of the line is uncertain and that information would affect the cleaning approach.</p>
               </section>
             </>
+          ) : service.slug === 'basement-floor-drains' ? (
+            <>
+              <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Floor drain backup help</p>
+              <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">When sewage or water comes up through the basement floor drain</h2>
+              <p class="mt-6 text-lg leading-8 text-slate-700">A floor drain is often the first place a main drain blockage shows up because it sits low in the house. If wastewater rises through the floor drain when a toilet is flushed, a sink is used, or the washing machine empties, the blockage may be farther down a shared drain line. The floor drain is where you see the backup; it is not automatically where the blockage is.</p>
+              <p class="mt-5 text-lg leading-8 text-slate-700">A-1 Drain Cleaning clears floor-drain and main-drain blockages in Mason City and North Iowa. The important clues are when the water rises, which fixtures are being used, and whether other drains are affected too.</p>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">What the floor drain is telling you</h2>
+              <ul class="mt-5 grid gap-3 sm:grid-cols-2">
+                {service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}
+              </ul>
+              <h3 class="mt-8 text-2xl font-black tracking-tight text-slate-950">The floor drain rises when the washing machine drains</h3>
+              <p class="mt-3 leading-8 text-slate-700">A washing machine sends a large amount of water into the drain in a short time. If water comes up through the floor drain during the drain cycle, the washer may simply be exposing a restriction farther down the line. Do not keep running wash cycles to test it.</p>
+              <h3 class="mt-8 text-2xl font-black tracking-tight text-slate-950">The floor drain backs up when a toilet is flushed or a sink is used</h3>
+              <p class="mt-3 leading-8 text-slate-700">When one fixture sends water into a restricted shared line, the water can rise at a lower opening. Several affected fixtures can point to a main-drain or sewer-line problem even if the toilet is not bubbling or gurgling.</p>
+              <h3 class="mt-8 text-2xl font-black tracking-tight text-slate-950">The floor drain keeps backing up after it was cleared</h3>
+              <p class="mt-3 leading-8 text-slate-700">A repeat backup may mean the restriction is farther down the system, material is building up again, roots are entering the sewer line, or the pipe has a damaged section. Cleaning can open a blockage, but it does not repair a cracked, separated, or collapsed pipe. A camera inspection may help when the problem keeps returning and the pipe condition needs to be checked.</p>
+
+              <section class="mt-10 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="floor-drain-backup-steps">
+                <h2 id="floor-drain-backup-steps" class="text-2xl font-black tracking-tight text-slate-950">What to do during an active floor drain backup</h2>
+                <ul class="mt-4 list-disc space-y-2 pl-6 leading-7 text-slate-700">
+                  <li>Stop using water where possible. Do not run the washing machine, dishwasher, shower, or other fixtures while sewage is backing up.</li>
+                  <li>Keep children and pets away from wastewater and avoid direct contact with sewage.</li>
+                  <li>Do not enter standing water if electrical outlets, cords, or equipment may be affected.</li>
+                  <li>When calling, explain where the water is coming up, what was being used at the time, and whether other fixtures are affected.</li>
+                </ul>
+                <p class="mt-4 leading-7 text-slate-700">Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a> for A-1 Drain Cleaning. Avoid adding more water to a backed-up drain while arranging service.</p>
+              </section>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Homes without a basement can have the same sewer problem</h2>
+              <p class="mt-4 leading-8 text-slate-700">In a slab house or a home without a basement floor drain, wastewater may instead back up into a bathtub or shower when the main sewer line is badly restricted. The visible backup point changes, but the underlying blockage may still be in a shared drain or the sewer line leaving the house.</p>
+              <p class="mt-4 leading-8 text-slate-700">Related help: <a href="/services/sewer-backup-into-tub-shower/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer backup into a bathtub or shower</a>, <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a>, and <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a>.</p>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Floor drain backups in Mason City and North Iowa</h2>
+              <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and North Iowa. When you call, tell us whether the floor drain backs up during laundry, when another fixture is used, or even when no water is running. That information helps narrow down whether the problem may be local to the drain or farther down the main line.</p>
+
+              <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="floor-drain-faqs">
+                <h2 id="floor-drain-faqs" class="text-3xl font-black tracking-tight text-slate-950">Floor drain backup questions</h2>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Why does sewage come up through the floor drain first?</h3>
+                <p class="mt-2 leading-8 text-slate-700">The floor drain is low in the house. If a shared drain or main sewer line is blocked, wastewater can rise through that low opening rather than continue out of the house.</p>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Does a backed-up floor drain mean the floor drain itself is clogged?</h3>
+                <p class="mt-2 leading-8 text-slate-700">Not necessarily. The restriction can be in the floor-drain branch, a shared drain line, or the main sewer line. The timing and other affected fixtures help narrow down the likely location.</p>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Why does the backup happen when the washer drains?</h3>
+                <p class="mt-2 leading-8 text-slate-700">The washer releases a large volume of water quickly. A restricted line may handle smaller amounts but back up when the washer empties.</p>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">What if the floor drain backs up again after cleaning?</h3>
+                <p class="mt-2 leading-8 text-slate-700">A recurring backup may need further investigation to check for repeated buildup, roots, or pipe damage. Cleaning restores flow through a blockage but does not repair damaged pipe.</p>
+              </section>
+            </>
           ) : (
             <>
               <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">About this drain problem</p>
