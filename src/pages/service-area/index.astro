@@ -32,18 +32,9 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
           <span><span class="mr-2 inline-block h-3 w-3 rounded-sm bg-[#1A1A68]" aria-hidden="true"></span>Dedicated city page</span>
           <span><span class="mr-2 inline-block h-3 w-3 rounded-sm bg-slate-300" aria-hidden="true"></span>Service area only</span>
         </div>
-        {[
-          'Cerro Gordo',
-          'Floyd',
-          'Chickasaw',
-          'Franklin',
-          'Hancock',
-          'Mitchell',
-          'Winnebago',
-          'Worth',
-          'Wright',
-          'Butler'
-        ].map((county) => {
+        {Array.from(new Set(uniqueServiceAreaCities.flatMap((city) => city.counties)))
+          .sort((a, b) => a.localeCompare(b))
+          .map((county) => {
           const countyCities = uniqueServiceAreaCities
             .filter((city) => city.counties.includes(county))
             .sort((a, b) => a.name.localeCompare(b.name));
