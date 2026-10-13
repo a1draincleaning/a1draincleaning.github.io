@@ -36,6 +36,45 @@ const priorityCityContent: Record<string, {
   sourceLabel2?: string;
   sourceUrl2?: string;
 }> = {
+  'mason-city': {
+    lead: 'A-1 Drain Cleaning is based in Mason City and handles household drain stoppages, main drain backups, and sewer-line blockages for local homeowners and businesses.',
+    localIntro: 'Describe whether the problem is limited to one sink, tub, or toilet, or whether several fixtures are affected. A single slow fixture can point to a nearby branch drain; multiple fixtures backing up together can indicate a restriction farther down the system.',
+    floorDrain: 'If wastewater rises through a basement floor drain, stop running water in the house as much as practical. Note whether the backup follows a toilet flush, shower, or washing-machine discharge, and share that pattern when you call.',
+    faqQuestion: 'When should I call about a main drain backup in Mason City?',
+    faqAnswer: 'Call when wastewater comes up through a floor drain, tub, or shower, or when several fixtures stop draining at once. Avoid repeatedly flushing or running water to test a line that is already backing up.'
+  },
+  'hampton': {
+    lead: 'A-1 Drain Cleaning serves Hampton for clogged household drains, washing-machine drain problems, main drain cleaning, and sewer backups.',
+    localIntro: 'The timing of the blockage can help narrow down the problem. A sink that drains slowly by itself is different from several fixtures acting up together, or a floor drain that rises when the washer empties or a toilet is flushed.',
+    floorDrain: 'If a floor drain backs up during laundry, stop the washer and limit other water use until the line is checked. A large discharge of water can reveal a restriction farther along the drain system.',
+    faqQuestion: 'Why does a floor drain back up when the washing machine runs?',
+    faqAnswer: 'The washer releases a large volume of water in a short time. If the drain line cannot carry it away, water may come up through a floor drain or another low opening. If multiple fixtures are involved, mention that when you call.'
+  },
+  'nora-springs': {
+    lead: 'A-1 Drain Cleaning serves Nora Springs for stopped sinks and tubs, toilet drain problems, floor drain backups, and blocked main sewer lines.',
+    localIntro: 'Pay attention to whether the trouble stays at one fixture or shows up elsewhere. Gurgling, water rising in a tub when a toilet is flushed, or more than one drain slowing down can point to a shared line rather than a single fixture.',
+    floorDrain: 'When dirty water comes up through a floor drain, stop using plumbing fixtures as much as practical until the cause is checked. If the home has no basement, a main-line backup may show up in a tub or shower instead.',
+    faqQuestion: 'Can more than one slow drain point to a main-line problem?',
+    faqAnswer: 'Yes. When several fixtures slow down or one fixture causes water to rise at another, the restriction may be in a shared branch or the main drain. Describe which fixtures are affected and when the symptoms occur.'
+  },
+  'rockwell': {
+    lead: 'A-1 Drain Cleaning serves Rockwell for household drain clogs, laundry and floor drain backups, and main sewer-line blockages.',
+    localIntro: 'When reporting a drain problem, note whether it began suddenly, keeps returning, or appears only when another fixture is used. A recurring clog may need the line checked beyond the fixture itself, especially when more than one drain is affected.',
+    floorDrain: 'If wastewater rises through a floor drain or tub, avoid running more water to see whether it clears. Stop laundry and other water use as much as practical, then explain whether the backup happens during flushing, showering, or draining the washer.',
+    faqQuestion: 'What information helps diagnose a recurring drain clog?',
+    faqAnswer: 'Tell us which fixture is affected, how often the clog returns, whether other drains gurgle or back up, and whether the problem follows laundry or toilet use. Those details help distinguish a local fixture blockage from a larger drain-line restriction.'
+  },
+  lead: string;
+  localIntro: string;
+  floorDrain: string;
+  faqQuestion: string;
+  faqAnswer: string;
+  infrastructureNote?: string;
+  sourceLabel?: string;
+  sourceUrl?: string;
+  sourceLabel2?: string;
+  sourceUrl2?: string;
+}> = {
   'clear-lake': {
     infrastructureNote: 'Clear Lake’s sanitary district has documented that stormwater entering sanitary sewers can reduce available capacity during wet weather. If a backup happens during heavy rain, that timing is worth mentioning when the drain problem is checked—but it does not prove rain caused the backup.',
     sourceLabel: 'Clear Lake Sanitary District history',
