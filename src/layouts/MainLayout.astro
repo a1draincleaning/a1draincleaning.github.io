@@ -2,6 +2,7 @@
 import { SEO } from 'astro-seo';
 import { Schema } from 'astro-seo-schema';
 import { services } from '../data/services';
+import { uniqueServiceAreaCities } from '../data/serviceAreaCities';
 import '../styles/global.css';
 
 interface Props {
@@ -17,6 +18,22 @@ interface Props {
 
 const { title, description, path = '/', service } = Astro.props;
 const canonical = new URL(path, Astro.site ?? 'https://a1draincleaning.github.io').href;
+
+const serviceAreaAreas = [
+  { '@type': 'AdministrativeArea', name: 'North Iowa' },
+  ...['Cerro Gordo', 'Floyd', 'Chickasaw', 'Franklin', 'Hancock', 'Mitchell', 'Winnebago', 'Worth', 'Wright', 'Butler'].map((county) => ({
+    '@type': 'AdministrativeArea',
+    name: county + ' County, Iowa'
+  })),
+  ...uniqueServiceAreaCities.map((city) => ({
+    '@type': 'Place',
+    name: city.name + ', Iowa',
+    containedInPlace: city.counties.map((county) => ({
+      '@type': 'AdministrativeArea',
+      name: county + ' County, Iowa'
+    }))
+  }))
+];
 
 const business = {
   '@type': 'Plumber',
@@ -42,13 +59,7 @@ const business = {
     postalCode: '50401',
     addressCountry: 'US'
   },
-  areaServed: [
-    { '@type': 'AdministrativeArea', name: 'North Iowa' },
-    ...['Cerro Gordo', 'Floyd', 'Chickasaw', 'Franklin', 'Hancock', 'Mitchell', 'Winnebago', 'Worth', 'Wright', 'Butler'].map((county) => ({
-      '@type': 'AdministrativeArea',
-      name: county + ' County, Iowa'
-    }))
-  ],
+  areaServed: serviceAreaAreas,
   openingHoursSpecification: [{
     '@type': 'OpeningHoursSpecification',
     dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
@@ -87,7 +98,6 @@ const business = {
 
 const graph = [
   {
-    '@context': 'https://schema.org',
     ...business
   },
   {
@@ -114,13 +124,7 @@ const graph = [
     serviceType: service.title,
     description: service.description,
     provider: { '@id': 'https://a1draincleaning.github.io/#business' },
-    areaServed: [
-      { '@type': 'AdministrativeArea', name: 'North Iowa' },
-      ...['Cerro Gordo', 'Floyd', 'Chickasaw', 'Franklin', 'Hancock', 'Mitchell', 'Winnebago', 'Worth', 'Wright', 'Butler'].map((county) => ({
-        '@type': 'AdministrativeArea',
-        name: county + ' County, Iowa'
-      }))
-    ],
+    areaServed: serviceAreaAreas,
     url: canonical,
     availableChannel: {
       '@type': 'ServiceChannel',
