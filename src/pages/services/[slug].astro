@@ -4,6 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 import { services } from '../../data/services';
+import { uniqueServiceAreaCities } from '../../data/serviceAreaCities';
 
 export function getStaticPaths() {
   return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));
@@ -43,6 +44,8 @@ const relatedServices = (relatedServiceMap[service.slug] || [])
   .map((slug) => services.find((item) => item.slug === slug))
   .filter((item): item is typeof services[number] => Boolean(item));
 const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'washing-machine-basement-flooding', 'laundry-drains', 'sewer-backup-emergency', 'sewer-backup-into-tub-shower'];
+const featuredServiceCitySlugs = ['mason-city', 'clear-lake', 'charles-city', 'forest-city', 'garner', 'northwood', 'nora-springs', 'rockwell', 'hampton', 'greene'];
+const featuredServiceCities = uniqueServiceAreaCities.filter((city) => featuredServiceCitySlugs.includes(city.slug));
 ---
 
 <MainLayout title={title} description={description} path={`/services/${service.slug}/`} service={service}>
@@ -390,10 +393,15 @@ const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'w
 
     <section class="bg-slate-100 py-16 sm:py-20">
       <div class="container">
-        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">North Iowa</p>
-        <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Mason City and surrounding communities</h2>
-        <p class="mt-4 max-w-3xl leading-8 text-slate-700">A-1 Drain Cleaning is based in Mason City and serves North Iowa for drain cleaning and sewer work. Availability depends on the job and schedule.</p>
-        <a href="/service-area/" class="mt-5 inline-block font-black text-[#b4232b]">View service area →</a>
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Service towns</p>
+        <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Drain cleaning in Mason City and nearby Iowa communities</h2>
+        <p class="mt-4 max-w-3xl leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and communities across North Iowa. Choose a town below to read its local drain-cleaning and sewer-service information.</p>
+        <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
+          {featuredServiceCities.map((city) => (
+            <a href={`/service-area/${city.slug}/`} class="border border-slate-200 bg-white px-4 py-4 font-bold text-[#1A1A68] underline underline-offset-4 hover:border-[#b4232b] hover:text-[#b4232b]">{city.name}, Iowa</a>
+          ))}
+        </div>
+        <a href="/service-area/" class="mt-6 inline-block font-black text-[#b4232b] underline underline-offset-4">View all North Iowa service towns →</a>
       </div>
     </section>
     <ContactCTA />
