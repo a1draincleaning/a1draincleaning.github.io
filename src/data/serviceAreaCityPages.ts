@@ -1,10 +1,13 @@
-// City slugs that currently have a fully developed, city-specific service-area page.
-// Keep this list separate from the full service-area directory so towns can be served
-// without pretending every town already has a dedicated local landing page.
+// City slugs with dedicated service-area pages published by the current Astro build.
+// Add a slug here only when its page content is ready to publish.
 export const builtServiceAreaCitySlugs = new Set([
+  'mason-city',
   'clear-lake',
   'charles-city',
   'forest-city',
   'garner',
   'northwood',
+  'hampton',
+  'nora-springs',
+  'rockwell',
 ]);
