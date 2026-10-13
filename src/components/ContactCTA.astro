@@ -1,9 +1,12 @@
 ---
+import ServiceAreaCityLinks from './ServiceAreaCityLinks.astro';
+
 interface Props {
   showForm?: boolean;
 }
 
 const { showForm = false } = Astro.props;
+const showServiceCities = Astro.url.pathname.startsWith('/services/');
 ---
 
 <section class="bg-[#b4232b] py-14 text-white sm:py-16">
@@ -45,3 +48,5 @@ const { showForm = false } = Astro.props;
     )}
   </div>
 </section>
+
+{showServiceCities && <ServiceAreaCityLinks />}
