@@ -8,10 +8,15 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
 import { services } from '../../data/services';
 
 export function getStaticPaths() {
-  return uniqueServiceAreaCities.map((city) => ({
-    params: { slug: city.slug },
-    props: { city }
-  }));
+  // Only publish the city pages with researched, city-specific content.
+  // The remaining towns stay listed in the service-area directory until their
+  // own pages are ready, rather than receiving thin, template-only landing pages.
+  return uniqueServiceAreaCities
+    .filter((city) => builtServiceAreaCitySlugs.has(city.slug))
+    .map((city) => ({
+      params: { slug: city.slug },
+      props: { city }
+    }));
 }
 
 const { city } = Astro.props as { city: ServiceAreaCity };
@@ -52,8 +57,13 @@ const priorityCityContent: Record<string, {
     faqAnswer: 'Several affected fixtures can point to a restriction in a branch line or the main drain. Describe which fixtures are affected and whether the backup happens during flushing, showering, or laundry.'
   },
   'forest-city': {
+    infrastructureNote: 'Forest City’s sewer rules distinguish sanitary wastewater from stormwater and restrict roof, surface-water, groundwater, and sump-pump discharges to the sanitary sewer. That distinction matters when a property has water in a basement: clear groundwater or sump-pump discharge is not the same problem as wastewater backing up through a floor drain.',
+    sourceLabel: 'City of Forest City Water & Wastewater',
+    sourceUrl: 'https://www.cityofforestcity.com/waterwastewater',
+    sourceLabel2: 'Forest City sanitary sewer ordinance',
+    sourceUrl2: 'https://codelibrary.amlegal.com/codes/forestcity/latest/forestcity_ia/0-0-0-3119',
     lead: 'A-1 Drain Cleaning serves Forest City for drain cleaning and sewer problems, from an individual stopped drain to a main-line backup affecting multiple fixtures.',
-    localIntro: 'The first useful distinction is whether the problem stays at one fixture or shows up in other places too. A kitchen sink that will not drain may need different work than a floor drain that rises when the toilet is flushed.',
+    localIntro: 'The first useful distinction is whether the problem stays at one fixture or shows up in other places too. A kitchen sink that will not drain may need different work than a floor drain that rises when the toilet is flushed. If the issue is water entering a basement, note whether it is wastewater from a drain or groundwater/sump-pump water.',
     floorDrain: 'If wastewater comes up through a floor drain in Forest City, avoid using sinks, toilets, the shower, or the washing machine until the backup is assessed. More water can add to the amount coming back into the house.',
     faqQuestion: 'Can a floor drain backup mean the main sewer line is blocked?',
     faqAnswer: 'It can. A floor drain is low in many basements, so a restriction farther down the drain system may show up there first. The location and timing of the backup help identify what needs to be checked.'
@@ -71,8 +81,13 @@ const priorityCityContent: Record<string, {
     faqAnswer: 'The washing machine sends a large amount of water into the drain in a short time. If a line downstream is restricted, that water may back up through a floor drain or another low opening.'
   },
   'northwood': {
+    infrastructureNote: 'Northwood lists wastewater treatment and sewer service through its Public Works department. For a suspected sewer backup, the practical first step is to note whether the problem appears inside one property or whether nearby properties are reporting similar symptoms; that helps separate a private drain-line problem from a possible public-system issue.',
+    sourceLabel: 'City of Northwood Public Works',
+    sourceUrl: 'https://www.northwoodia.org/pview.aspx?catid=533&id=27340',
+    sourceLabel2: 'City of Northwood sewer ordinance',
+    sourceUrl2: 'https://www.northwoodia.org/docview.aspx?docid=46120',
     lead: 'A-1 Drain Cleaning serves Northwood for household drain problems, floor drain backups, main drain cleaning, and sewer-line blockages.',
-    localIntro: 'Tell us whether one fixture is affected or several, and whether the problem appears after flushing a toilet, draining a tub, or running the washing machine. These details help distinguish a local fixture clog from a larger drain-line restriction.',
+    localIntro: 'Tell us whether one fixture is affected or several, and whether the problem appears after flushing a toilet, draining a tub, or running the washing machine. These details help distinguish a local fixture clog from a larger drain-line restriction. If neighbors report the same problem, mention that too.',
     floorDrain: 'When a Northwood floor drain backs up with dirty water, stop using water in the house as much as practical and call. If the house has no basement, a main-line blockage may instead send wastewater into a tub or shower.',
     faqQuestion: 'What should I do first when sewage comes up a floor drain?',
     faqAnswer: 'Stop running water in the house if possible, keep people and pets away from the wastewater, and call A-1 Drain Cleaning. Avoid chemical drain cleaners when the line is already backed up.'
