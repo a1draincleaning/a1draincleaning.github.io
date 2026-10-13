@@ -122,7 +122,9 @@ const priorityCityContent: Record<string, {
   }
 };
 const localContent = priorityCityContent[city.slug];
-const title = `Drain Cleaning in ${city.name}, Iowa | A-1 Drain Cleaning`;
+const title = city.slug === 'mason-city'
+  ? 'Mason City Drain & Sewer Services | A-1 Drain Cleaning'
+  : `Drain Cleaning in ${city.name}, Iowa | A-1 Drain Cleaning`;
 const description = localContent
   ? `A-1 Drain Cleaning serves ${city.name}, Iowa for clogged drains, floor drain backups, main drain cleaning and sewer-line blockages. Call 641-530-2728.`
   : `A-1 Drain Cleaning serves ${city.name}, Iowa for drain cleaning, main drain and sewer line cleaning, floor drain backups, sewer backups and related drain problems. Call 641-530-2728.`;
