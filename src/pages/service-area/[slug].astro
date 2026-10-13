@@ -99,7 +99,7 @@ const nearbyCities = uniqueServiceAreaCities
   .slice(0, 12);
 ---
 
-<MainLayout title={title} description={description} path={`/service-area/${city.slug}/`}>
+<MainLayout title={title} description={description} path={`/service-area/${city.slug}/`} city={city}>
   <Header />
   <main id="main">
     <section class="bg-[#1A1A68] py-14 text-white sm:py-20 lg:py-24">
