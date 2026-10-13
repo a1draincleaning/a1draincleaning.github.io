@@ -14,9 +14,13 @@ interface Props {
     title: string;
     description: string;
   };
+  city?: {
+    name: string;
+    counties: string[];
+  };
 }
 
-const { title, description, path = '/', service } = Astro.props;
+const { title, description, path = '/', service, city } = Astro.props;
 const canonical = new URL(path, Astro.site ?? 'https://a1draincleaning.github.io').href;
 
 const serviceAreaAreas = [
@@ -114,9 +118,24 @@ const graph = [
     description,
     url: canonical,
     isPartOf: { '@id': 'https://a1draincleaning.github.io/#website' },
-    about: { '@id': 'https://a1draincleaning.github.io/#business' },
+    about: [
+      { '@id': 'https://a1draincleaning.github.io/#business' },
+      ...(city ? [{ '@id': canonical + '#place' }] : [])
+    ],
     publisher: { '@id': 'https://a1draincleaning.github.io/#business' }
   },
+  ...(city ? [{
+    '@type': 'Place',
+    '@id': canonical + '#place',
+    name: city.name + ', Iowa',
+    containedInPlace: [
+      ...city.counties.map((county) => ({
+        '@type': 'AdministrativeArea',
+        name: county + ' County, Iowa'
+      })),
+      { '@type': 'AdministrativeArea', name: 'Iowa' }
+    ]
+  }] : []),
   ...(service ? [{
     '@type': 'Service',
     '@id': canonical + '#service',
