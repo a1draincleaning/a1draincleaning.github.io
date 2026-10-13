@@ -1,21 +1,39 @@
 ---
 import { uniqueServiceAreaCities } from '../data/serviceAreaCities';
+
+const featuredCitySlugs = [
+  'mason-city',
+  'clear-lake',
+  'charles-city',
+  'forest-city',
+  'garner',
+  'northwood',
+  'nora-springs',
+  'rockwell',
+  'hampton',
+  'greene'
+];
+
+const featuredCities = featuredCitySlugs
+  .map((slug) => uniqueServiceAreaCities.find((city) => city.slug === slug))
+  .filter((city): city is typeof uniqueServiceAreaCities[number] => Boolean(city));
 ---
 
 <section class="bg-white py-16 sm:py-20" aria-labelledby="service-area-cities">
   <div class="container">
-    <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Service area</p>
+    <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">North Iowa service cities</p>
     <h2 id="service-area-cities" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Cities A-1 Drain Cleaning serves</h2>
-    <p class="mt-4 max-w-3xl leading-8 text-slate-700">A-1 Drain Cleaning serves customers throughout the North Iowa communities listed below. Select your city to see the local service-area page.</p>
-    <nav aria-label="A-1 Drain Cleaning service-area cities" class="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-      {uniqueServiceAreaCities.map((city) => (
+    <p class="mt-4 max-w-3xl leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and surrounding North Iowa communities. These are actual service-area cities; select a city to see its local page.</p>
+    <nav aria-label="A-1 Drain Cleaning featured service-area cities" class="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
+      {featuredCities.map((city) => (
         <a
           href={`/service-area/${city.slug}/`}
           class="inline-flex min-h-12 items-center border border-slate-200 bg-slate-50 px-4 py-3 font-bold text-slate-950 hover:border-[#b4232b] hover:bg-white hover:underline"
         >
-          {city.name}
+          {city.name}, Iowa
         </a>
       ))}
     </nav>
+    <a href="/service-area/" class="mt-6 inline-block font-black text-[#b4232b] underline underline-offset-4">See all North Iowa service towns →</a>
   </div>
 </section>
