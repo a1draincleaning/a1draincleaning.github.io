@@ -22,6 +22,6 @@ User-agent: SemrushBot
 Allow: /
 
 User-agent: DotBot
-Allow: /
+Disallow: /
 
 Sitemap: https://a1draincleaning.github.io/sitemap-index.xml
