@@ -18,6 +18,6 @@ npm run build
 
 The site is configured for GitHub Pages at `https://a1draincleaning.github.io`.
 
-## Important
+## Contact
 
-The contact form is intentionally not included because no real form endpoint was supplied. The primary contact path is the business phone: 641-530-2728.
+The site uses the business phone, 641-530-2728, as the primary contact path. The homepage also includes a contact form that submits through FormSubmit to the business email address.
