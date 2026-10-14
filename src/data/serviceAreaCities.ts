@@ -125,7 +125,6 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Woolstock', ['Wright']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
 
-
   // Butler County
   ...[
     ['Allison', ['Butler']],
@@ -134,7 +133,6 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Bristow', ['Butler']],
     ['Clarksville', ['Butler']],
     ['Dumont', ['Butler']],
-    ['Greene', ['Butler']],
     ['New Hartford', ['Butler']],
     ['Parkersburg', ['Butler']],
     ['Shell Rock', ['Butler']]
