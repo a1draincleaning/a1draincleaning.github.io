@@ -9,7 +9,7 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
 
 <MainLayout
   title="Drain Cleaning Service Area | A-1 Drain Cleaning"
-  description="Find the North Iowa communities served by A-1 Drain Cleaning for drain cleaning, main drain blockages, floor drain backups and sewer-line problems."
+  description="Find the North Iowa communities and Albert Lea, Minnesota served by A-1 Drain Cleaning for drain cleaning, main drain blockages, floor drain backups and sewer-line problems."
   path="/service-area/"
 >
   <Header />
@@ -17,8 +17,8 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
     <section class="bg-[#1A1A68] py-14 text-white sm:py-20">
       <div class="container">
         <p class="text-sm font-black uppercase tracking-[0.2em] text-red-300">Areas We Serve</p>
-        <h1 class="mt-4 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">Drain Cleaning in Mason City and North Iowa</h1>
-        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">A-1 Drain Cleaning is based in Mason City and travels for drain cleaning and sewer work in surrounding North Iowa communities.</p>
+        <h1 class="mt-4 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">Drain Cleaning in Mason City, North Iowa and Albert Lea, Minnesota</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">A-1 Drain Cleaning is based in Mason City and travels for drain cleaning and sewer work in surrounding North Iowa communities and Albert Lea, Minnesota.</p>
         <a href="tel:+16415302728" class="call-button mt-8 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-center text-lg font-black text-white shadow-lg hover:bg-[#a82129]">CALL</a>
       </div>
     </section>
@@ -53,6 +53,13 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
             </section>
           );
         })}
+
+        <section class="mt-8" aria-labelledby="minnesota-service-area">
+          <h3 id="minnesota-service-area" class="border-b-2 border-[#1A1A68] pb-2 text-2xl font-black text-slate-950">Minnesota</h3>
+          <div class="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+            <a href="/service-area/albert-lea-mn/" class="border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold text-white hover:bg-[#141452]" style="color: #ffffff !important;">Albert Lea</a>
+          </div>
+        </section>
       </div>
     </section>
 
@@ -155,6 +162,7 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
         { name: "Lawler", coords: [43.0720974, -92.1533099] },
         { name: "New Hampton", coords: [43.0563379, -92.3152536] },
         { name: "North Washington", coords: [43.1171314, -92.41511] },
+        { name: "Albert Lea", coords: [43.648, -93.368] },
       ];
 
       const mapElement = document.getElementById('a1-service-area-map');
@@ -169,11 +177,12 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
         const builtCitySlugs = new Set(JSON.parse(mapElement.dataset.builtCitySlugs || '[]'));
         const directoryBySlug = new Map(serviceCityDirectory.map((city) => [city.slug, city]));
 
-        // Only show towns in the approved service-area directory. This also excludes
-        // any stray pins outside the counties A-1 currently lists as served.
         const visibleTowns = serviceTowns.flatMap((town) => {
           const slug = town.name.toLowerCase().replace(/\./g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
           const directoryCity = directoryBySlug.get(slug);
+          if (town.name === 'Albert Lea') {
+            return [{ ...town, slug: 'albert-lea-mn', hasPage: true }];
+          }
           if (!directoryCity || directoryCity.counties.includes('Hardin')) return [];
           return [{ ...town, slug, hasPage: builtCitySlugs.has(slug) }];
         });
