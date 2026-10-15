@@ -1,6 +1,5 @@
 ---
 import { SEO } from 'astro-seo';
-import { Schema } from 'astro-seo-schema';
 import { services } from '../data/services';
 import { uniqueServiceAreaCities } from '../data/serviceAreaCities';
 import '../styles/global.css';
@@ -247,7 +246,7 @@ const schema = {
       description
     }}
   />
-  <Schema item={schema as any} />
+  <script type="application/ld+json" set:html={JSON.stringify(schema)}></script>
   <link rel="sitemap" href="/sitemap-index.xml">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <!-- Google Tag Manager -->
