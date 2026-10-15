@@ -1,0 +1,27 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import InteractiveHouseDiagnostic from '../components/InteractiveHouseDiagnostic.astro';
+
+const title = 'Drain Backup Troubleshooter | A-1 Drain Cleaning | Mason City, Iowa';
+const description = 'Interactive house drain backup troubleshooter from A-1 Drain Cleaning in Mason City, Iowa. See where common drain and sewer backup symptoms may be occurring.';
+---
+
+<MainLayout title={title} description={description} path="/house-diagnostic/">
+  <Header />
+  <main id="main" class="bg-slate-100 py-10 sm:py-14">
+    <section class="container">
+      <nav aria-label="Breadcrumb" class="mb-6 text-sm font-bold text-slate-600">
+        <a href="/" class="hover:text-[#b4232b]">Home</a>
+        <span class="mx-2" aria-hidden="true">/</span>
+        <span>Drain Backup Troubleshooter</span>
+      </nav>
+      <InteractiveHouseDiagnostic />
+      <p class="mx-auto mt-5 max-w-3xl text-center text-sm leading-6 text-slate-600">
+        This visual is a symptom guide, not a plumbing diagnosis. If wastewater is backing up or multiple fixtures are affected, call A-1 Drain Cleaning at 641-530-2728.
+      </p>
+    </section>
+  </main>
+  <Footer />
+</MainLayout>
