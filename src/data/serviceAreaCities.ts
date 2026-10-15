@@ -60,8 +60,7 @@ export const serviceAreaCities: ServiceAreaCity[] = [
   ['Albert Lea', ['Freeborn']].map(([name, counties]) => city(name as string, counties as string[]))[0]
 ];
 
-// Merge repeated entries for towns that cross county lines rather than silently
-dropping the second county when the same town appears in more than one group.
+// Merge repeated entries for towns that cross county lines rather than silently dropping the second county when the same town appears in more than one group.
 export const uniqueServiceAreaCities = Array.from(
   serviceAreaCities.reduce((bySlug, item) => {
     const existing = bySlug.get(item.slug);
