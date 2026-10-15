@@ -24,6 +24,7 @@ const canonical = new URL(path, Astro.site ?? 'https://a1draincleaning.github.io
 
 const serviceAreaAreas = [
   { '@type': 'AdministrativeArea', name: 'North Iowa' },
+  { '@type': 'Place', name: 'Albert Lea, Minnesota', containedInPlace: [{ '@type': 'AdministrativeArea', name: 'Freeborn County, Minnesota' }, { '@type': 'AdministrativeArea', name: 'Minnesota' }] },
   ...Array.from(new Set(uniqueServiceAreaCities.flatMap((city) => city.counties))).map((county) => ({
     '@type': 'AdministrativeArea',
     name: county + ' County, Iowa'
