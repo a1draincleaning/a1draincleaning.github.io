@@ -1,1 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="10" fill="#1A1A68"/><text x="32" y="42" text-anchor="middle" font-family="Arial" font-weight="700" font-size="30" fill="white">A-1</text></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">A-1 Drain Cleaning</title>
+  <desc id="desc">A-1 Drain Cleaning favicon</desc>
+  <circle cx="32" cy="32" r="30" fill="#1A1A68"/>
+  <path fill="#fff" d="M14 45 27.5 18h9L50 45h-8l-2.7-6H25l-2.8 6H14Zm14-12h8l-4-9-4 9Zm14-15h7v27h-7V18Z"/>
+</svg>
