@@ -33,6 +33,9 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
+      - name: Remove retired duplicate routes
+        run: node scripts/prune-retired-routes.mjs
+
       - name: Setup Pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
 
@@ -44,11 +47,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
