@@ -26,6 +26,18 @@
 - [Sewer Backup Emergency Service](https://a1draincleaning.github.io/services/sewer-backup-emergency/)
 - [Smoke Testing](https://a1draincleaning.github.io/services/smoke-testing/)
 
+## Priority Service Areas
+
+- [Mason City, Iowa](https://a1draincleaning.github.io/service-area/mason-city/)
+- [Clear Lake, Iowa](https://a1draincleaning.github.io/service-area/clear-lake/)
+- [Charles City, Iowa](https://a1draincleaning.github.io/service-area/charles-city/)
+- [Forest City, Iowa](https://a1draincleaning.github.io/service-area/forest-city/)
+- [Garner, Iowa](https://a1draincleaning.github.io/service-area/garner/)
+- [Northwood, Iowa](https://a1draincleaning.github.io/service-area/northwood/)
+- [Hampton, Iowa](https://a1draincleaning.github.io/service-area/hampton/)
+- [Nora Springs, Iowa](https://a1draincleaning.github.io/service-area/nora-springs/)
+- [Rockwell, Iowa](https://a1draincleaning.github.io/service-area/rockwell/)
+
 ## Drain and Sewer Problems
 
 - Floor drain backing up
