@@ -17,13 +17,22 @@ import GoogleBusinessInfo from '../components/GoogleBusinessInfo.astro';
   <main id="main">
     <Hero />
 
+    <section class="border-b border-slate-200 bg-white" aria-label="A-1 Drain Cleaning service highlights">
+      <div class="container grid gap-px bg-slate-200 sm:grid-cols-3">
+        <p class="bg-white px-5 py-5 text-center text-sm font-black text-slate-950 sm:text-left"><span class="text-[#b4232b]">Local:</span> Mason City based</p>
+        <p class="bg-white px-5 py-5 text-center text-sm font-black text-slate-950 sm:text-left"><span class="text-[#b4232b]">Pricing:</span> Current rate discussed before work</p>
+        <p class="bg-white px-5 py-5 text-center text-sm font-black text-slate-950 sm:text-left"><span class="text-[#b4232b]">Equipment:</span> Cable machines, root cutters &amp; jetting when appropriate</p>
+      </div>
+    </section>
+
     <ServicesGrid />
 
     <section class="bg-slate-100 py-16 sm:py-20">
       <div class="container grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-start">
         <div>
-          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Equipment & methods</p>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Equipment &amp; methods</p>
           <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">The right tool depends on the line.</h2>
+          <p class="mt-4 max-w-xl leading-7 text-slate-700">A-1 uses the equipment that fits the blockage, access, and condition of the pipe. A cable machine may be right for one line; roots, heavy buildup, or a recurring problem may call for another method.</p>
         </div>
         <div class="grid gap-4 sm:grid-cols-2">
           <article class="border border-slate-200 bg-white p-5"><h3 class="font-black">Drain machines</h3><p class="mt-2 text-sm leading-6 text-slate-600">Different cable sizes and root-cutting equipment help clear drain and sewer blockages when suited to the line and the problem.</p></article>
@@ -39,7 +48,7 @@ import GoogleBusinessInfo from '../components/GoogleBusinessInfo.astro';
         <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">North Iowa</p>
         <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Mason City and North Iowa</h2>
         <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-600">A-1 Drain Cleaning is based in Mason City, Iowa and serves Mason City and surrounding North Iowa communities for drain cleaning and sewer work.</p>
-        <a href="/service-area/" class="mt-7 inline-block font-black text-[#b4232b]">See the full service area →</a>
+        <a href="/service-area/" class="mt-7 inline-flex min-h-12 items-center font-black text-[#b4232b]">See the full service area →</a>
       </div>
     </section>
 
