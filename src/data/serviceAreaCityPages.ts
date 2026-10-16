@@ -1,6 +1,7 @@
 // City slugs with dedicated service-area pages published by the current Astro build.
-// Add a slug here only when its page content is ready to publish.
+// These entries must correspond to researched, city-specific content in [slug].astro.
 export const builtServiceAreaCitySlugs = new Set([
+  'mason-city',
   'clear-lake',
   'charles-city',
   'forest-city',
