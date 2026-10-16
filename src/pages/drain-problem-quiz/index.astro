@@ -3,52 +3,131 @@ import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-const title = "Drain Problem Troubleshooter: What's Wrong With My Drain? | A-1 Drain Cleaning";
-const description = "A quick drain problem troubleshooter for slow drains, backups, gurgling, multiple fixtures, and sewer-line symptoms. See what the pattern may mean and when to call A-1 Drain Cleaning.";
+const title = "Drain Problem Troubleshooter | A-1 Drain Cleaning";
+const description = "Tell A-1 Drain Cleaning what your drain or sewer is doing. Get a quick symptom-based result and know when it is time to call 641-530-2728.";
 ---
 
 <MainLayout title={title} description={description} canonical="https://a1draincleaning.github.io/drain-problem-quiz/">
   <Header />
-  <main class="tool-shell">
-    <section class="tool-hero" aria-labelledby="tool-title">
-      <div class="hero-copy">
-        <p class="eyebrow">A-1 Drain Cleaning • Available 24/7</p>
-        <h1 id="tool-title">Drain Problem Troubleshooter</h1>
-        <p class="lede">Answer a few quick questions about what is happening in the house. The pattern can help show whether the problem looks limited to one fixture or may involve a shared drain or sewer line.</p>
+
+  <main class="troubleshooter">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow">A-1 Drain Cleaning · Mason City, Iowa</p>
+          <h1 id="page-title">What is your drain doing?</h1>
+          <p class="hero-lede">Pick what you are seeing in the house. We will narrow down the kind of drain problem you may be dealing with and tell you when it is time to call.</p>
+          <a class="hero-phone" href="tel:+16415302728"><span>Need service now?</span> 641-530-2728</a>
+        </div>
+        <div class="hero-problem" aria-hidden="true">
+          <div class="pipe pipe-one"></div>
+          <div class="pipe pipe-two"></div>
+          <div class="floor-drain"><span></span></div>
+          <div class="water water-one"></div>
+          <div class="water water-two"></div>
+          <strong>BACKUP?</strong>
+        </div>
       </div>
-      <aside class="call-box" aria-label="A-1 Drain Cleaning phone number"><strong>Drain or sewer backup?</strong><a href="tel:+16415302728">CALL A-1<br /><span>641-530-2728</span></a></aside>
     </section>
 
-    <section class="tool-card" aria-labelledby="questionTitle">
-      <header class="progress-head">
-        <div><span id="stepLabel">Question 1 of 5</span><h2 id="questionTitle">Let's start with what you are seeing.</h2></div>
-        <div class="meter-wrap"><div class="meter-label"><span>Pattern</span><strong id="severityText">Low</strong></div><div class="meter" role="progressbar" aria-label="Problem severity pattern" aria-valuemin="0" aria-valuemax="100" aria-valuenow="15"><span id="meterFill"></span></div><div class="scale"><span>LOW</span><span>MODERATE</span><span>SEVERE</span></div></div>
-      </header>
+    <section class="tool" aria-labelledby="questionTitle">
+      <div class="tool-top">
+        <div>
+          <p class="step" id="stepLabel">1 / 5</p>
+          <h2 id="questionTitle">Where is the trouble?</h2>
+        </div>
+        <div class="progress" aria-hidden="true"><span id="progressFill"></span></div>
+      </div>
+
       <div id="questionArea" class="question-area"></div>
-      <div class="controls"><button type="button" id="backBtn" class="back" hidden>Back</button><button type="button" id="nextBtn" class="next" disabled>Choose an answer</button></div>
-      <div id="result" class="result" hidden aria-live="polite"><div class="result-mark" aria-hidden="true">!</div><div><p class="result-kicker">What the pattern suggests</p><h2 id="resultTitle"></h2><p id="resultText"></p><p class="note">This is a symptom-pattern guide, not a diagnosis. If wastewater is backing up, stop using fixtures that feed the affected line and call A-1.</p><a class="result-call" href="tel:+16415302728">Call A-1 Drain Cleaning <small>641-530-2728 • 24/7</small></a></div></div>
+
+      <div class="controls">
+        <button type="button" id="backBtn" class="back" hidden>Back</button>
+        <button type="button" id="nextBtn" class="next" disabled>Pick an answer</button>
+      </div>
+
+      <div id="result" class="result" hidden aria-live="polite">
+        <p class="result-label">HERE'S WHAT THAT PATTERN TELLS US</p>
+        <h2 id="resultTitle"></h2>
+        <p id="resultText"></p>
+        <div class="result-action">
+          <div><strong>Need A-1 Drain Cleaning?</strong><span>Available 24/7 · Mason City & North Iowa</span></div>
+          <a href="tel:+16415302728">641-530-2728</a>
+        </div>
+      </div>
     </section>
 
-    <section class="guide" aria-labelledby="guideTitle"><p class="eyebrow">Quick pattern guide</p><h2 id="guideTitle">The pattern matters more than one slow drain.</h2><div class="guide-grid"><article><span>01</span><h3>One fixture</h3><p>A single sink, tub, or shower draining slowly can point to a restriction near that fixture.</p></article><article><span>02</span><h3>Several fixtures</h3><p>Multiple drains slowing together can indicate a restriction farther downstream in a shared line.</p></article><article><span>03</span><h3>Backup or wastewater</h3><p>A floor drain, shower, or toilet receiving wastewater from another fixture is a stronger reason to call promptly.</p></article></div></section>
+    <section class="bottom" aria-labelledby="bottomTitle">
+      <p class="eyebrow">Know the warning signs</p>
+      <h2 id="bottomTitle">Water coming up through the basement floor drain?</h2>
+      <p>That is not something to keep testing. Stop adding water to the line and call A-1 Drain Cleaning at 641-530-2728.</p>
+      <a href="tel:+16415302728">Call A-1 Drain Cleaning</a>
+    </section>
   </main>
+
   <Footer />
 
   <style>
-    :global(html){scroll-behavior:smooth}:global(body){margin:0;background:#f4f5f7;color:#17172b}.tool-shell{max-width:1180px;margin:0 auto;padding:28px 18px 72px;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}.tool-hero{display:grid;grid-template-columns:minmax(0,1fr) 320px;gap:22px;margin-bottom:22px}.hero-copy{background:#17134c;color:#fff;border-radius:24px;padding:40px clamp(24px,5vw,58px);box-shadow:0 18px 45px rgba(18,15,63,.18)}.eyebrow{margin:0 0 12px;text-transform:uppercase;letter-spacing:.11em;font-size:.78rem;font-weight:900}.hero-copy h1{font-size:clamp(2.2rem,5vw,4.35rem);line-height:.98;letter-spacing:-.045em;margin:0 0 18px}.lede{max-width:760px;margin:0;color:#ececff;font-size:clamp(1rem,1.7vw,1.18rem);line-height:1.65}.call-box{background:#b7282e;color:#fff;border-radius:24px;padding:30px;display:flex;flex-direction:column;justify-content:center;box-shadow:0 18px 45px rgba(183,40,46,.2)}.call-box strong{font-size:1.05rem}.call-box a{color:#fff;text-decoration:none;font-size:1.3rem;font-weight:900;margin-top:10px}.call-box a span{font-size:1.7rem}.tool-card{background:#fff;border:1px solid #e2e3e9;border-radius:26px;padding:clamp(20px,4vw,38px);box-shadow:0 18px 50px rgba(22,20,55,.1)}.progress-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,360px);gap:28px;align-items:end;border-bottom:1px solid #e7e7ec;padding-bottom:24px}#stepLabel{font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;font-weight:900;color:#77778b}.progress-head h2{font-size:clamp(1.4rem,3vw,2.05rem);margin:8px 0 0;line-height:1.15}.meter-label{display:flex;justify-content:space-between;font-size:.8rem;text-transform:uppercase;letter-spacing:.08em;font-weight:900}.meter-label strong{color:#b7282e}.meter{height:13px;background:#e9eaf0;border-radius:99px;overflow:hidden;margin:9px 0 6px}.meter span{display:block;height:100%;width:15%;border-radius:99px;background:#42b96b;transition:width .35s ease,background .35s ease}.scale{display:flex;justify-content:space-between;color:#88899a;font-size:.64rem;font-weight:900;letter-spacing:.08em}.question-area{padding:28px 0 20px;min-height:245px}.prompt{font-size:1.15rem;font-weight:800;margin:0 0 18px}.answers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.answer{position:relative;border:2px solid #e2e3ea;background:#fafafd;border-radius:18px;padding:18px;text-align:left;cursor:pointer;min-height:106px;display:flex;gap:14px;align-items:center;transition:.16s}.answer:hover,.answer.selected{border-color:#b7282e;background:#fff5f5;box-shadow:0 8px 22px rgba(34,26,96,.1)}.answer-num{width:46px;height:46px;flex:0 0 46px;border-radius:14px;background:#211960;color:#fff;display:grid;place-items:center;font-size:.8rem;font-weight:900}.answer.selected .answer-num{background:#b7282e}.answer strong{display:block;font-size:1rem;line-height:1.25;margin-bottom:4px}.answer small{display:block;color:#666779;font-size:.86rem;line-height:1.35}.controls{display:flex;justify-content:space-between;gap:12px;border-top:1px solid #e7e7ec;padding-top:20px}.back,.next{border:0;border-radius:13px;padding:14px 20px;font-weight:900;font-size:.95rem;cursor:pointer}.back{background:#ececf2;color:#26263b}.next{background:#211960;color:#fff;min-width:210px}.next:disabled{opacity:.48;cursor:not-allowed}.result{margin-top:20px;padding:24px;border-radius:20px;background:#17134c;color:#fff;display:grid;grid-template-columns:auto 1fr;gap:18px}.result-mark{width:54px;height:54px;border-radius:16px;background:#b7282e;display:grid;place-items:center;font-size:1.4rem;font-weight:1000}.result-kicker{margin:0;text-transform:uppercase;letter-spacing:.1em;font-size:.72rem;font-weight:900;color:#c7c4e8}.result h2{margin:5px 0 8px;font-size:1.7rem}.result p{line-height:1.55}.note{font-size:.88rem;color:#d8d6ea}.result-call{display:inline-flex;flex-direction:column;background:#b7282e;color:#fff;text-decoration:none;padding:14px 17px;border-radius:14px;margin-top:8px;font-weight:900}.result-call small{margin-top:2px;opacity:.9}.guide{padding:58px 0 0}.guide>h2{font-size:clamp(1.7rem,4vw,2.6rem);line-height:1.05;margin:0 0 22px;letter-spacing:-.03em}.guide-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.guide-grid article{background:#fff;border:1px solid #e3e4ea;border-radius:20px;padding:22px}.guide-grid article>span{display:inline-grid;place-items:center;width:42px;height:42px;border-radius:12px;background:#211960;color:#fff;font-size:.72rem;font-weight:900}.guide-grid h3{margin:15px 0 7px;font-size:1.15rem}.guide-grid p{margin:0;color:#626274;line-height:1.55}@media(max-width:800px){.tool-hero,.progress-head{grid-template-columns:1fr}.answers,.guide-grid{grid-template-columns:1fr}.question-area{min-height:0}.controls{position:sticky;bottom:0;background:#fff;padding-bottom:4px;z-index:5}.next{flex:1}}@media(max-width:520px){.tool-shell{padding-inline:12px}.hero-copy{padding:28px 21px}.call-box{padding:22px}.tool-card{border-radius:20px;padding:18px}.answer{min-height:94px;padding:14px}.answer-num{width:40px;height:40px;flex-basis:40px}.result{grid-template-columns:1fr}.back{padding-inline:15px}}
+    :global(html){scroll-behavior:smooth}
+    :global(body){margin:0;background:#f5f5f2;color:#172033}
+    .troubleshooter{font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    .hero{background:#071f49;color:#fff;border-bottom:7px solid #d42c32}
+    .hero-inner{max-width:1180px;margin:0 auto;padding:48px 20px 52px;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:40px;align-items:center}
+    .eyebrow{margin:0 0 13px;font-size:.75rem;font-weight:900;letter-spacing:.12em;text-transform:uppercase}
+    .hero-copy h1{max-width:760px;margin:0;font-size:clamp(3rem,7vw,6.5rem);line-height:.9;letter-spacing:-.065em}
+    .hero-lede{max-width:650px;margin:24px 0 25px;color:#e5ebf5;font-size:clamp(1.05rem,2vw,1.3rem);line-height:1.55}
+    .hero-phone{display:inline-flex;align-items:center;gap:10px;background:#d42c32;color:#fff;text-decoration:none;border-radius:5px;padding:14px 18px;font-weight:900;font-size:1.05rem;box-shadow:0 5px 0 #9f1d24}
+    .hero-phone span{font-weight:700}
+    .hero-problem{position:relative;min-height:310px;border:3px solid rgba(255,255,255,.25);background:#0d2d5d;overflow:hidden;border-radius:4px;box-shadow:inset 0 0 0 8px rgba(255,255,255,.03)}
+    .hero-problem:before{content:"";position:absolute;left:0;right:0;bottom:0;height:35%;background:#5c4a3d}
+    .hero-problem:after{content:"BASEMENT";position:absolute;left:18px;bottom:14px;color:rgba(255,255,255,.7);font-size:.72rem;font-weight:900;letter-spacing:.14em}
+    .pipe{position:absolute;background:#b8bec6;border:5px solid #737c87;box-shadow:inset 0 0 0 3px #dce0e3}
+    .pipe-one{width:230px;height:38px;right:45px;top:72px;transform:rotate(90deg)}
+    .pipe-two{width:190px;height:38px;right:35px;top:164px;transform:rotate(90deg)}
+    .floor-drain{position:absolute;left:47%;bottom:35%;width:78px;height:78px;border-radius:50%;background:#303942;border:7px solid #858e95;box-shadow:inset 0 0 0 5px #151b21}
+    .floor-drain span{position:absolute;inset:18px;border-radius:50%;background:#080b0e}
+    .water{position:absolute;background:#2e9bd1;border-radius:50%;opacity:.9}
+    .water-one{width:95px;height:25px;left:35%;bottom:32%;transform:rotate(-8deg)}
+    .water-two{width:125px;height:22px;left:44%;bottom:27%;transform:rotate(7deg)}
+    .hero-problem strong{position:absolute;right:24px;bottom:24px;color:#fff;background:#d42c32;padding:10px 14px;font-size:1.4rem;letter-spacing:.04em}
+    .tool{max-width:980px;margin:34px auto 0;padding:0 20px}
+    .tool-top{display:flex;align-items:end;justify-content:space-between;gap:25px;padding:0 0 18px;border-bottom:4px solid #172033}
+    .step{margin:0 0 7px;color:#d42c32;font-size:.8rem;font-weight:900;letter-spacing:.12em}
+    .tool-top h2{margin:0;font-size:clamp(1.8rem,4vw,3rem);line-height:1;letter-spacing:-.04em}
+    .progress{width:280px;height:10px;background:#d7d9d8;border-radius:0;overflow:hidden}
+    .progress span{display:block;height:100%;width:20%;background:#d42c32;transition:width .2s ease}
+    .question-area{padding:30px 0 26px}
+    .prompt{margin:0 0 17px;font-size:1rem;font-weight:800;color:#5a6270}
+    .answers{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+    .answer{min-height:100px;padding:20px;background:#fff;border:2px solid #d5d8da;border-radius:4px;text-align:left;color:#172033;display:flex;align-items:center;gap:16px;cursor:pointer;box-shadow:0 2px 0 rgba(0,0,0,.04);transition:border-color .15s,transform .15s,box-shadow .15s}
+    .answer:hover,.answer.selected{border-color:#d42c32;transform:translateY(-2px);box-shadow:0 8px 20px rgba(23,32,51,.1)}
+    .answer-number{display:grid;place-items:center;width:44px;height:44px;flex:0 0 44px;background:#071f49;color:#fff;border-radius:50%;font-size:.78rem;font-weight:900}
+    .answer.selected .answer-number{background:#d42c32}
+    .answer strong{display:block;font-size:1.05rem;line-height:1.2}
+    .answer small{display:block;margin-top:5px;color:#69717d;line-height:1.35}
+    .controls{display:flex;justify-content:space-between;gap:12px;padding:0 0 30px}
+    .back,.next{border:0;border-radius:4px;padding:15px 24px;font-size:1rem;font-weight:900;cursor:pointer}
+    .back{background:#dfe2e4;color:#172033}.next{background:#d42c32;color:#fff;min-width:210px}.next:disabled{opacity:.45;cursor:not-allowed}
+    .result{margin:0 0 40px;background:#071f49;color:#fff;padding:30px;border-left:9px solid #d42c32}
+    .result-label{margin:0 0 7px;color:#aebdd2;font-size:.72rem;font-weight:900;letter-spacing:.12em}.result h2{margin:0 0 10px;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1}.result>p:not(.result-label){max-width:720px;color:#e1e7ef;line-height:1.6}
+    .result-action{margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.18);display:flex;align-items:center;justify-content:space-between;gap:20px}.result-action strong,.result-action span{display:block}.result-action span{margin-top:4px;color:#b9c5d5;font-size:.9rem}.result-action a{background:#d42c32;color:#fff;text-decoration:none;padding:13px 17px;font-weight:900;white-space:nowrap;border-radius:4px}
+    .bottom{max-width:980px;margin:0 auto;padding:38px 20px 72px;border-top:1px solid #d2d5d4}.bottom h2{max-width:760px;margin:0 0 10px;font-size:clamp(1.9rem,4vw,3.1rem);line-height:1.02;letter-spacing:-.04em}.bottom>p:not(.eyebrow){max-width:700px;color:#5c6570;line-height:1.6}.bottom>a{display:inline-block;margin-top:10px;background:#071f49;color:#fff;text-decoration:none;padding:14px 20px;border-radius:4px;font-weight:900}
+    @media(max-width:800px){.hero-inner{grid-template-columns:1fr;padding-top:34px}.hero-problem{min-height:220px}.answers{grid-template-columns:1fr}.progress{width:180px}.result-action{align-items:flex-start;flex-direction:column}.result-action a{width:100%;text-align:center;box-sizing:border-box}}
+    @media(max-width:520px){.hero-copy h1{font-size:3.35rem}.hero-inner{padding-inline:15px}.tool,.bottom{padding-inline:15px}.hero-phone{width:100%;box-sizing:border-box;justify-content:center}.hero-problem{min-height:190px}.tool-top{align-items:flex-start;flex-direction:column;gap:14px}.progress{width:100%}.answer{min-height:88px;padding:16px}.controls{position:sticky;bottom:0;background:#f5f5f2;padding:12px 0;z-index:4}.next{flex:1}.result{padding:23px 19px}}
   </style>
 
   <script>
     const questions=[
-      {prompt:'What is the main thing happening?',answers:[['01','One sink, tub, or shower is slow','Only one fixture is affected.'],['02','Several drains are slow','Two or more fixtures are acting up.'],['03','A drain is backing up','Water or wastewater is coming back up.'],['04','Toilet or floor drain is involved','The problem is tied to a toilet or floor drain.']]},
-      {prompt:'When did you first notice it?',answers:[['01','It just started','This is new or sudden.'],['02','It has been getting slower','The problem has been building.'],['03','It keeps coming back','It clears and returns later.'],['04','It is happening right now','The problem is active and not clearing.']]},
-      {prompt:'What happens when another fixture runs?',answers:[['01','Nothing unusual','The other fixture drains normally.'],['02','The slow drain gets worse','Flow from another fixture changes it.'],['03','Water rises in another drain','A tub, shower, sink, or floor drain rises.'],['04','Wastewater comes back up','There is visible wastewater or sewage.']]},
-      {prompt:'Where are you seeing the problem?',answers:[['01','One bathroom fixture','Sink, tub, or shower in one bathroom.'],['02','Kitchen or laundry','Kitchen sink, dishwasher area, or laundry drain.'],['03','Multiple rooms','Fixtures in separate rooms are affected.'],['04','Basement or floor drain','A basement or floor drain is involved.']]},
-      {prompt:'What best describes the severity right now?',answers:[['01','Still draining, just slow','Water is moving and nothing is backing up.'],['02','Barely draining','Flow is very restricted.'],['03','Backing up','Water is returning through a fixture or drain.'],['04','Wastewater or sewage is present','There is a sanitation or property-damage concern.']]}
+      {prompt:'Pick the closest match.',answers:[['01','One sink, tub, or shower is slow','Only one fixture is giving you trouble.'],['02','Several drains are slow','More than one fixture is affected.'],['03','A drain is backing up','Water is coming back where it should not.'],['04','A toilet or floor drain is involved','The basement drain or toilet is part of the problem.']]},
+      {prompt:'How long has this been going on?',answers:[['01','Just started','This came on suddenly.'],['02','Getting worse','It has been slowing down over time.'],['03','Keeps coming back','It clears up and returns later.'],['04','Happening right now','The problem is active right now.']]},
+      {prompt:'What happens when another fixture runs?',answers:[['01','Nothing unusual','The other fixture works normally.'],['02','The slow drain gets worse','Running water changes the slow drain.'],['03','Water rises somewhere else','Another tub, sink, shower, or floor drain rises.'],['04','Wastewater comes back up','You can see wastewater or sewage.']]},
+      {prompt:'Where is the problem showing up?',answers:[['01','One bathroom','One sink, tub, shower, or toilet.'],['02','Kitchen or laundry','Kitchen or washing-machine drain.'],['03','More than one room','Fixtures in separate rooms are affected.'],['04','Basement or floor drain','The basement floor drain is involved.']]},
+      {prompt:'What is happening right now?',answers:[['01','Still draining, just slow','Water is moving and not backing up.'],['02','Barely draining','The flow is very restricted.'],['03','Backing up','Water is returning through a fixture or drain.'],['04','Wastewater or sewage is present','There is wastewater in the house.']]}
     ];
     const state={index:0,answers:Array(questions.length).fill(null)};
-    const area=document.querySelector('#questionArea'),next=document.querySelector('#nextBtn'),back=document.querySelector('#backBtn'),step=document.querySelector('#stepLabel'),titleEl=document.querySelector('#questionTitle'),fill=document.querySelector('#meterFill'),severity=document.querySelector('#severityText'),result=document.querySelector('#result');
-    function render(){const q=questions[state.index];step.textContent=`Question ${state.index+1} of ${questions.length}`;titleEl.textContent=q.prompt;area.innerHTML=`<p class="prompt">Choose the answer that best matches the situation.</p><div class="answers" role="radiogroup" aria-label="Answers">${q.answers.map((a,i)=>`<button type="button" class="answer ${state.answers[state.index]===i?'selected':''}" data-index="${i}" role="radio" aria-checked="${state.answers[state.index]===i}"><span class="answer-num">${a[0]}</span><span><strong>${a[1]}</strong><small>${a[2]}</small></span></button>`).join('')}</div>`;area.querySelectorAll('.answer').forEach(btn=>btn.addEventListener('click',()=>{state.answers[state.index]=Number(btn.dataset.index);render()}));next.disabled=state.answers[state.index]===null;next.textContent=state.index===questions.length-1?'See result':'Next question';back.hidden=state.index===0;const score=state.answers.reduce((sum,a)=>sum+(a===null?0:a),0),pct=Math.min(100,15+score*5);fill.style.width=`${pct}%`;const label=pct>=70?'Severe':pct>=45?'Moderate':'Low';severity.textContent=label;fill.style.background=pct>=70?'#b7282e':pct>=45?'#d58a26':'#42b96b'}
-    function showResult(){const a=state.answers,severe=a.some(v=>v===3),shared=a[0]===1||a[0]===3||a[2]>=2||a[3]>=2;let heading='A single-fixture problem may be involved.',text='If only one fixture is slow and nothing else changes when water is used, the restriction may be close to that fixture. If it does not clear or keeps returning, call A-1 for service.';if(severe||a[2]===3){heading='This pattern needs prompt attention.';text='Visible wastewater or sewage coming back through a drain is a strong reason to stop adding water and call A-1 Drain Cleaning. Repeated testing can make the backup worse.'}else if(shared){heading='A shared drain or main line may be involved.';text='Several fixtures acting up together can point to a restriction farther downstream. Tell A-1 which fixtures are affected and what happens when another fixture runs.'}document.querySelector('#resultTitle').textContent=heading;document.querySelector('#resultText').textContent=text;result.hidden=false;result.scrollIntoView({behavior:'smooth',block:'start'})}
-    next.addEventListener('click',()=>{if(state.index<questions.length-1){state.index++;render()}else showResult()});back.addEventListener('click',()=>{if(state.index>0){state.index--;render()}});render();
+    const area=document.querySelector('#questionArea'),next=document.querySelector('#nextBtn'),back=document.querySelector('#backBtn'),step=document.querySelector('#stepLabel'),titleEl=document.querySelector('#questionTitle'),progress=document.querySelector('#progressFill'),result=document.querySelector('#result');
+    function render(){const q=questions[state.index];step.textContent=`${state.index+1} / ${questions.length}`;titleEl.textContent=q.prompt;progress.style.width=`${((state.index+1)/questions.length)*100}%`;area.innerHTML=`<p class="prompt">Choose one.</p><div class="answers" role="radiogroup" aria-label="Answers">${q.answers.map((a,i)=>`<button type="button" class="answer ${state.answers[state.index]===i?'selected':''}" data-index="${i}" role="radio" aria-checked="${state.answers[state.index]===i}"><span class="answer-number">${a[0]}</span><span><strong>${a[1]}</strong><small>${a[2]}</small></span></button>`).join('')}</div>`;area.querySelectorAll('.answer').forEach(btn=>btn.addEventListener('click',()=>{state.answers[state.index]=Number(btn.dataset.index);render()}));next.disabled=state.answers[state.index]===null;next.textContent=state.index===questions.length-1?'Show my result':'Next';back.hidden=state.index===0}
+    function showResult(){const a=state.answers;const emergency=a.some(v=>v===3)||a[2]===3||a[3]===3;const shared=a[0]>=1||a[2]>=2||a[3]>=2;let heading='It looks limited to one fixture.';let text='One slow sink, tub, shower, or toilet can be a problem close to that fixture. If it keeps returning or will not clear, call A-1 Drain Cleaning.';if(shared){heading='The problem may be farther down the drain line.';text='Several fixtures changing together can point to a shared drain or main line. Tell A-1 which fixtures are affected and what happens when water is used.'}if(emergency){heading='You have a backup problem that needs attention.';text='If wastewater is coming up through a floor drain, tub, shower, or toilet, stop adding water to the line and call A-1 Drain Cleaning at 641-530-2728.'}document.querySelector('#resultTitle').textContent=heading;document.querySelector('#resultText').textContent=text;result.hidden=false;result.scrollIntoView({behavior:'smooth',block:'start'})}
+    next.addEventListener('click',()=>{if(state.index<questions.length-1){state.index++;render()}else showResult()});back.addEventListener('click',()=>{state.index--;render()});render();
   </script>
 </MainLayout>
