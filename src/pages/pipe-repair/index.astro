@@ -1,0 +1,135 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import GoogleBusinessInfo from '../../components/GoogleBusinessInfo.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'Drain & Pipe Repair | A-1 Drain Cleaning';
+const description = 'Drain and pipe repair in Mason City and North Iowa when cleaning is not enough. A-1 Drain Cleaning can identify damaged drain lines and discuss the next step. Call 641-530-2728.';
+---
+
+<MainLayout title={title} description={description} path="/pipe-repair/">
+  <Header />
+  <main id="main">
+    <section class="bg-[#1A1A68] text-white">
+      <div class="container grid gap-10 py-14 sm:py-18 lg:grid-cols-[1.15fr_.85fr] lg:items-center lg:py-20">
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-red-300">A-1 Drain Cleaning • Mason City, Iowa</p>
+          <h1 class="mt-4 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">Drain &amp; Pipe Repair</h1>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">Sometimes opening the drain is only the first step. If the same line keeps failing, a damaged or failing pipe may be part of the problem.</p>
+          <p class="mt-4 max-w-2xl leading-7 text-slate-200">A-1 Drain Cleaning serves Mason City and nearby North Iowa communities. We can help determine when repeated drain problems need more investigation instead of another round of cleaning.</p>
+          <a href="tel:+16415302728" class="mt-8 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-center text-lg font-black text-white hover:bg-[#a82129]">CALL 641-530-2728</a>
+        </div>
+        <aside class="border border-white/15 bg-white/10 p-6 sm:p-8">
+          <p class="text-sm font-black uppercase tracking-[0.18em] text-red-200">When repair may be the issue</p>
+          <h2 class="mt-3 text-3xl font-black leading-tight">The line keeps failing after it has been cleared.</h2>
+          <ul class="mt-6 space-y-4 text-slate-200">
+            <li class="border-b border-white/10 pb-4"><strong class="text-white">Recurring blockage:</strong> the same drain or sewer line plugs again after cleaning.</li>
+            <li class="border-b border-white/10 pb-4"><strong class="text-white">Short-lived results:</strong> the line opens but does not stay open.</li>
+            <li><strong class="text-white">Suspected pipe damage:</strong> there are signs the underground drain line may be cracked, separated, collapsed, or badly deteriorated.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="bg-white py-14 sm:py-18">
+      <div class="container grid gap-10 lg:grid-cols-[1.1fr_.9fr] lg:items-start">
+        <article>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Cleaning is not the same as repair</p>
+          <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">A cable can open a blockage without fixing a damaged pipe.</h2>
+          <p class="mt-5 text-lg leading-8 text-slate-700">Drain cleaning removes a restriction and restores a path for wastewater. It does not automatically repair a pipe that is cracked, separated, collapsed, shifted, or badly deteriorated.</p>
+          <p class="mt-4 leading-8 text-slate-700">If a line repeatedly plugs in the same area, the recurring problem is useful information. Roots may be entering through a damaged joint, the pipe may have a structural problem, or material may be collecting because the line is no longer functioning normally.</p>
+          <p class="mt-4 leading-8 text-slate-700">The actual cause has to be determined from the symptoms and, when appropriate, an inspection of the line. A-1 Drain Cleaning does not treat every recurring clog as proof of a broken pipe.</p>
+        </article>
+
+        <aside class="border border-slate-200 bg-slate-50 p-6 sm:p-8">
+          <h2 class="text-2xl font-black text-slate-950">Common signs</h2>
+          <ul class="mt-5 space-y-3 leading-7 text-slate-700">
+            <li class="border-b border-slate-200 pb-3">The same sewer line keeps clogging.</li>
+            <li class="border-b border-slate-200 pb-3">The line works after cleaning, then loses flow again.</li>
+            <li class="border-b border-slate-200 pb-3">Roots keep returning to the same section.</li>
+            <li>There are signs of a damaged underground drain line.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section class="bg-slate-100 py-14 sm:py-18">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Inspection when it makes sense</p>
+        <h2 class="mt-2 max-w-4xl text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">A sewer camera can show what is happening inside the line.</h2>
+        <div class="mt-6 grid gap-6 lg:grid-cols-2">
+          <article class="bg-white p-6 sm:p-8">
+            <h3 class="text-2xl font-black text-slate-950">What a camera can help show</h3>
+            <p class="mt-4 leading-8 text-slate-700">A sewer camera inspection can help identify conditions inside an accessible drain or sewer line, including recurring obstructions and visible pipe problems. It gives useful information when cleaning alone does not explain why a line keeps failing.</p>
+          </article>
+          <article class="bg-white p-6 sm:p-8">
+            <h3 class="text-2xl font-black text-slate-950">It is not automatically needed</h3>
+            <p class="mt-4 leading-8 text-slate-700">A camera inspection is an additional service, not a requirement for every clogged drain. The symptoms, access, pipe condition, and history of the problem determine whether looking inside the line is worthwhile.</p>
+          </article>
+        </div>
+        <p class="mt-6 max-w-4xl leading-8 text-slate-700">If cleaning opens the line and it stays open, repair may not be necessary. If the same line keeps failing, further investigation can help separate a recurring blockage from a pipe-condition problem.</p>
+      </div>
+    </section>
+
+    <section class="bg-white py-14 sm:py-18">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Related service</p>
+        <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Start with the actual drain problem.</h2>
+        <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <a href="/services/drain-repair/" class="border border-slate-200 bg-white p-6 hover:border-[#b4232b]">
+            <h3 class="text-xl font-black text-slate-950">Drain Repair</h3>
+            <p class="mt-3 leading-7 text-slate-700">Service information for recurring or damaged drain-line problems.</p>
+          </a>
+          <a href="/services/sewer-line-cleaning/" class="border border-slate-200 bg-white p-6 hover:border-[#b4232b]">
+            <h3 class="text-xl font-black text-slate-950">Sewer Line Cleaning</h3>
+            <p class="mt-3 leading-7 text-slate-700">For sewer-line blockages that need to be cleared.</p>
+          </a>
+          <a href="/services/tree-roots-in-sewer-line/" class="border border-slate-200 bg-white p-6 hover:border-[#b4232b]">
+            <h3 class="text-xl font-black text-slate-950">Tree Roots in Sewer Lines</h3>
+            <p class="mt-3 leading-7 text-slate-700">For recurring sewer blockages where roots may be restricting the line.</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-[#1A1A68] py-14 text-white sm:py-18">
+      <div class="container">
+        <h2 class="text-3xl font-black sm:text-4xl">Drain and pipe repair in Mason City and North Iowa</h2>
+        <p class="mt-4 max-w-3xl leading-8 text-slate-200">A-1 Drain Cleaning is based at 206 29th St SW in Mason City, Iowa. We serve Mason City and nearby North Iowa communities. Call 641-530-2728 and describe what the drain is doing, how often it happens, and whether the line has already been cleaned.</p>
+        <address class="mt-6 not-italic text-slate-200">A-1 Drain Cleaning<br />206 29th St SW<br />Mason City, IA 50401</address>
+        <a href="tel:+16415302728" class="mt-7 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-lg font-black text-white hover:bg-[#a82129]">CALL 641-530-2728</a>
+      </div>
+    </section>
+
+    <section class="bg-white py-14 sm:py-18" aria-labelledby="pipe-repair-faq">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Common questions</p>
+        <h2 id="pipe-repair-faq" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Drain and pipe repair questions</h2>
+        <div class="mt-8 space-y-3">
+          <details class="border border-slate-300 bg-white p-5 sm:p-6">
+            <summary class="cursor-pointer text-lg font-black text-slate-950">Does cleaning a drain repair the pipe?</summary>
+            <p class="mt-3 leading-7 text-slate-700">No. Cleaning can remove a blockage, but it does not repair a cracked, separated, collapsed, or badly deteriorated pipe.</p>
+          </details>
+          <details class="border border-slate-300 bg-white p-5 sm:p-6">
+            <summary class="cursor-pointer text-lg font-black text-slate-950">When should a recurring clog be investigated?</summary>
+            <p class="mt-3 leading-7 text-slate-700">If the same line repeatedly plugs up after it has been cleaned, the history of the problem is a reason to consider further investigation rather than assuming another clog is the whole problem.</p>
+          </details>
+          <details class="border border-slate-300 bg-white p-5 sm:p-6">
+            <summary class="cursor-pointer text-lg font-black text-slate-950">Can a sewer camera find a broken pipe?</summary>
+            <p class="mt-3 leading-7 text-slate-700">A camera can show visible conditions inside an accessible line and can provide useful information about recurring blockages or pipe damage. It does not replace a full evaluation of the property and pipe system.</p>
+          </details>
+          <details class="border border-slate-300 bg-white p-5 sm:p-6">
+            <summary class="cursor-pointer text-lg font-black text-slate-950">Do you repair every sewer line problem?</summary>
+            <p class="mt-3 leading-7 text-slate-700">The first step is identifying what is actually happening. Some problems are blockages that need cleaning; others may require additional investigation or a different repair approach.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <ContactCTA showForm={true} />
+    <GoogleBusinessInfo />
+  </main>
+  <Footer />
+</MainLayout>
