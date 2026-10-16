@@ -1,0 +1,273 @@
+---
+import { SEO } from 'astro-seo';
+import { Schema } from 'astro-seo-schema';
+import { services } from '../data/services';
+import { uniqueServiceAreaCities } from '../data/serviceAreaCities';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  path?: string;
+  schemaType?: string;
+  service?: {
+    title: string;
+    description: string;
+  };
+  city?: {
+    name: string;
+    counties: string[];
+  };
+}
+
+const { title, description, path = '/', service, city } = Astro.props;
+const canonical = new URL(path, Astro.site ?? 'https://a1draincleaning.github.io').href;
+
+const serviceAreaAreas = [
+  { '@type': 'AdministrativeArea', name: 'North Iowa' },
+  ...Array.from(new Set(uniqueServiceAreaCities.flatMap((city) => city.counties))).map((county) => ({
+    '@type': 'AdministrativeArea',
+    name: county + ' County, Iowa'
+  })),
+  ...uniqueServiceAreaCities.map((city) => ({
+    '@type': 'Place',
+    name: city.name + ', Iowa',
+    containedInPlace: city.counties.map((county) => ({
+      '@type': 'AdministrativeArea',
+      name: county + ' County, Iowa'
+    }))
+  }))
+];
+
+const business = {
+  '@type': 'Plumber',
+  '@id': 'https://a1draincleaning.github.io/#business',
+  name: 'A-1 Drain Cleaning',
+  url: 'https://a1draincleaning.github.io/',
+  sameAs: [
+    'https://a1draincleaning.github.io/iowa-drain-cleaning/',
+    'https://www.brownbook.net/business/43888974/a-1-drain-cleaning',
+    'https://www.manta.com/c/mt4dd28/a-1-drain-cleaning',
+    'https://www.showmelocal.com/profile.aspx?bid=12546518',
+    'https://scanmylocalbusiness.com/biz/a-1-drain-cleaning-m09y',
+    'https://www.myzipplumbers.com/default.asp?f=disp_pg&filename=view_plumbers_profile.asp&id=1193719&company=A-1%20Drain%20Cleaning&city=Mason%20City'
+  ],
+  logo: 'https://a1draincleaning.github.io/a1-logo.svg',
+  image: 'https://a1draincleaning.github.io/images/a1-main-sewer-drain-cleaning-mason-city.webp',
+  telephone: '+1-641-530-2728',
+  priceRange: '$$',
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 43.1536,
+    longitude: -93.2013
+  },
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '206 29th St SW',
+    addressLocality: 'Mason City',
+    addressRegion: 'IA',
+    postalCode: '50401',
+    addressCountry: 'US'
+  },
+  areaServed: serviceAreaAreas,
+  openingHoursSpecification: [{
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+    opens: '00:00',
+    closes: '23:59'
+  }],
+  founder: {
+    '@type': 'Person',
+    name: 'Josh Theilen'
+  },
+  hasOfferCatalog: {
+    '@type': 'OfferCatalog',
+    name: 'Drain Cleaning and Sewer Services',
+    itemListElement: services.filter(({ slug }) => [
+      'main-drain-cleaning',
+      'sewer-line-cleaning',
+      'tree-roots-in-sewer-line',
+      'hydro-jetting',
+      'basement-floor-drains',
+      'kitchen-bathroom-drains',
+      'toilet-clogs',
+      'laundry-drains',
+      'sewer-backup-emergency',
+      'sewer-backup-into-tub-shower'
+    ].includes(slug)).map((item) => ({
+      '@type': 'Offer',
+      itemOffered: {
+        '@type': 'Service',
+        name: item.title,
+        description: item.description,
+        url: `https://a1draincleaning.github.io/services/${item.slug}/`
+      }
+    }))
+  }
+};
+
+const graph = [
+  {
+    ...business
+  },
+  {
+    '@type': 'WebSite',
+    '@id': 'https://a1draincleaning.github.io/#website',
+    name: 'A-1 Drain Cleaning',
+    url: 'https://a1draincleaning.github.io/',
+    publisher: { '@id': 'https://a1draincleaning.github.io/#business' }
+  },
+  {
+    '@type': 'WebPage',
+    '@id': canonical + '#webpage',
+    name: title,
+    description,
+    url: canonical,
+    isPartOf: { '@id': 'https://a1draincleaning.github.io/#website' },
+    about: [
+      { '@id': 'https://a1draincleaning.github.io/#business' },
+      ...(city ? [{ '@id': canonical + '#place' }] : [])
+    ],
+    publisher: { '@id': 'https://a1draincleaning.github.io/#business' }
+  },
+  ...(city ? [{
+    '@type': 'Place',
+    '@id': canonical + '#place',
+    name: city.name + ', Iowa',
+    containedInPlace: [
+      ...city.counties.map((county) => ({
+        '@type': 'AdministrativeArea',
+        name: county + ' County, Iowa'
+      })),
+      { '@type': 'AdministrativeArea', name: 'Iowa' }
+    ]
+  }] : []),
+  ...(service ? [{
+    '@type': 'Service',
+    '@id': canonical + '#service',
+    name: service.title,
+    serviceType: service.title,
+    description: service.description,
+    provider: { '@id': 'https://a1draincleaning.github.io/#business' },
+    areaServed: serviceAreaAreas,
+    url: canonical,
+    availableChannel: {
+      '@type': 'ServiceChannel',
+      servicePhone: {
+        '@type': 'ContactPoint',
+        telephone: '+1-641-530-2728',
+        contactType: 'customer service'
+      }
+    }
+  }] : []),
+  ...(path !== '/' ? [{
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: 'https://a1draincleaning.github.io/'
+      },
+      ...(path.startsWith('/services/') ? [
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Services',
+          item: 'https://a1draincleaning.github.io/services/'
+        },
+        ...(service ? [{
+          '@type': 'ListItem',
+          position: 3,
+          name: service.title,
+          item: canonical
+        }] : path === '/services/' ? [] : [{
+          '@type': 'ListItem',
+          position: 3,
+          name: title.replace(' | A-1 Drain Cleaning', ''),
+          item: canonical
+        }])
+      ] : path.startsWith('/service-area/') && path !== '/service-area/' ? [
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Areas We Serve',
+          item: 'https://a1draincleaning.github.io/service-area/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: title.replace(' | A-1 Drain Cleaning', ''),
+          item: canonical
+        }
+      ] : [{
+        '@type': 'ListItem',
+        position: 2,
+        name: path === '/service-area/' ? 'Areas We Serve' : title.replace(' | A-1 Drain Cleaning', ''),
+        item: canonical
+      }])
+    ]
+  }] : [])
+];
+
+const schema = {
+  '@context': 'https://schema.org' as const,
+  '@graph': graph
+};
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0f172a">
+  <meta name="msvalidate.01" content="963F3EADCED4173B9A7FC77E3B84FADB">
+  <SEO
+    title={title}
+    description={description}
+    canonical={canonical}
+    openGraph={{
+      basic: {
+        title,
+        type: 'website',
+        url: canonical,
+        image: new URL('/images/a1-main-sewer-drain-cleaning-mason-city.webp', canonical).href
+      },
+      optional: {
+        description,
+        siteName: 'A-1 Drain Cleaning',
+        locale: 'en_US'
+      }
+    }}
+    twitter={{
+      card: 'summary',
+      title,
+      description
+    }}
+  />
+  <Schema item={schema as any} />
+  <link rel="sitemap" href="/sitemap-index.xml">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <!-- Google Tag Manager -->
+  <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-W9D7WZ6J');</script>
+  <!-- End Google Tag Manager -->
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9D7WZ6J"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager -->
+  <a class="skip" href="#main">Skip to content</a>
+  <slot />
+  <div class="fixed bottom-0 left-0 right-0 z-50 border-t border-slate-300 bg-white p-3 md:hidden">
+    <a class="call-button block rounded-md bg-[#b4232b] px-4 py-3 text-center font-black text-white" href="tel:+16415302728">
+      CALL 641-530-2728
+    </a>
+  </div>
+</body>
+</html>

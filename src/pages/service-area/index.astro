@@ -1,0 +1,229 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { uniqueServiceAreaCities } from '../../data/serviceAreaCities';
+import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
+---
+
+<MainLayout
+  title="Drain Cleaning Service Area | A-1 Drain Cleaning"
+  description="Find the North Iowa communities served by A-1 Drain Cleaning for drain cleaning, main drain blockages, floor drain backups and sewer-line problems."
+  path="/service-area/"
+>
+  <Header />
+  <main id="main">
+    <section class="bg-[#1A1A68] py-14 text-white sm:py-20">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-red-300">Areas We Serve</p>
+        <h1 class="mt-4 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">Drain Cleaning in Mason City and North Iowa</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">A-1 Drain Cleaning is based in Mason City and travels for drain cleaning and sewer work in surrounding North Iowa communities.</p>
+        <a href="tel:+16415302728" class="call-button mt-8 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-center text-lg font-black text-white shadow-lg hover:bg-[#a82129]">CALL</a>
+      </div>
+    </section>
+
+    <section class="bg-white py-16 sm:py-20">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Areas We Serve</p>
+        <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Communities A-1 Drain Cleaning serves</h2>
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">Towns with a dedicated city page are clickable. Other towns are still listed as service areas, but we do not present them as dedicated local landing pages until their page is built.</p>
+        <div class="mt-5 flex flex-wrap gap-x-6 gap-y-2 text-sm font-bold text-slate-700" aria-label="Service area link key">
+          <span><span class="mr-2 inline-block h-3 w-3 rounded-sm bg-[#1A1A68]" aria-hidden="true"></span>Dedicated city page</span>
+          <span><span class="mr-2 inline-block h-3 w-3 rounded-sm bg-slate-300" aria-hidden="true"></span>Service area only</span>
+        </div>
+        {Array.from(new Set(uniqueServiceAreaCities.flatMap((city) => city.counties)))
+          .sort((a, b) => a.localeCompare(b))
+          .map((county) => {
+          const countyCities = uniqueServiceAreaCities
+            .filter((city) => city.counties.includes(county))
+            .sort((a, b) => a.name.localeCompare(b.name));
+          return (
+            <section class="mt-8 first:mt-8" aria-labelledby={`county-${county.toLowerCase().replaceAll(' ', '-')}`}>
+              <h3 id={`county-${county.toLowerCase().replaceAll(' ', '-')}`} class="border-b-2 border-[#1A1A68] pb-2 text-2xl font-black text-slate-950">{county} County</h3>
+              <div class="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+                {countyCities.map((city) => (
+                  builtServiceAreaCitySlugs.has(city.slug) ? (
+                    <a href={`/service-area/${city.slug}/`} class="border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold text-white hover:bg-[#141452]" style="color: #ffffff !important;">{city.name}</a>
+                  ) : (
+                    <span class="border border-slate-200 bg-slate-100 px-3 py-3 text-sm font-bold text-slate-600" aria-label={`${city.name} service area; dedicated city page not built yet`}>{city.name}</span>
+                  )
+                ))}
+              </div>
+            </section>
+          );
+        })}
+      </div>
+    </section>
+
+    <section class="bg-slate-100 py-12 sm:py-16" aria-labelledby="service-area-map-heading">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">A-1 Drain Cleaning service towns</p>
+        <h2 id="service-area-map-heading" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Map of A-1 Drain Cleaning's service area</h2>
+        <p class="mt-4 max-w-3xl leading-7 text-slate-700">The pins mark towns listed in A-1 Drain Cleaning's current service-area list. Tap a pin to see the town name. This is a town map, not a list of other businesses or a guaranteed boundary for every job.</p>
+        <div class="mt-7 overflow-hidden rounded-lg border border-slate-300 bg-white shadow-sm">
+          <div id="a1-service-area-map" class="h-[420px] w-full sm:h-[520px]" role="application" aria-label="Interactive map with pins for A-1 Drain Cleaning service towns" data-service-cities={JSON.stringify(uniqueServiceAreaCities.map((city) => ({ name: city.name, slug: city.slug, counties: city.counties })))} data-built-city-slugs={JSON.stringify([...builtServiceAreaCitySlugs])}></div>
+        </div>
+        <p class="mt-3 text-sm text-slate-600">Map tiles © OpenStreetMap contributors. Call A-1 Drain Cleaning to confirm service for your address.</p>
+      </div>
+    </section>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
+    <script is:inline type="module">
+      import L from 'https://esm.sh/leaflet@1.9.4';
+
+      const serviceTowns = [
+        { name: "Mason City", coords: [43.1536, -93.201] },
+        { name: "Clear Lake", coords: [43.138, -93.379] },
+        { name: "Dougherty", coords: [43.2875, -93.0466] },
+        { name: "Meservey", coords: [42.9186, -93.478] },
+        { name: "Nora Springs", coords: [43.1427, -93.0063] },
+        { name: "Plymouth", coords: [43.2425, -93.1005] },
+        { name: "Rock Falls", coords: [43.2019, -93.1121] },
+        { name: "Rockwell", coords: [42.9919, -93.188] },
+        { name: "Swaledale", coords: [42.9086, -93.3019] },
+        { name: "Thornton", coords: [42.9441, -93.388] },
+        { name: "Ventura", coords: [43.1219, -93.4694] },
+        { name: "Charles City", coords: [43.0664, -92.6724] },
+        { name: "Colwell", coords: [43.16, -92.59] },
+        { name: "Floyd", coords: [43.1264, -92.736] },
+        { name: "Marble Rock", coords: [42.97, -92.87] },
+        { name: "Nashua", coords: [42.95, -92.54] },
+        { name: "Rockford", coords: [43.052, -92.948] },
+        { name: "Rudd", coords: [43.1344, -92.9074] },
+        { name: "Alexander", coords: [42.8105, -93.5502] },
+        { name: "Coulter", coords: [42.737, -93.37] },
+        { name: "Dows", coords: [42.6564, -93.5027] },
+        { name: "Geneva", coords: [42.661, -93.12] },
+        { name: "Hampton", coords: [42.7416, -93.2021] },
+        { name: "Hansell", coords: [42.769, -93.01] },
+        { name: "Latimer", coords: [42.7625, -93.3663] },
+        { name: "Popejoy", coords: [42.604, -93.41] },
+        { name: "Sheffield", coords: [42.8936, -93.2102] },
+        { name: "Britt", coords: [43.0977, -93.8019] },
+        { name: "Corwith", coords: [42.9922, -93.9605] },
+        { name: "Crystal Lake", coords: [43.2258, -93.7949] },
+        { name: "Forest City", coords: [43.2625, -93.6377] },
+        { name: "Garner", coords: [43.1027, -93.6013] },
+        { name: "Goodell", coords: [42.9872, -93.6102] },
+        { name: "Kanawha", coords: [42.93, -93.79] },
+        { name: "Klemme", coords: [43.0064, -93.6005] },
+        { name: "Woden", coords: [43.233, -93.9266] },
+        { name: "Carpenter", coords: [43.4141, -92.9974] },
+        { name: "McIntire", coords: [43.45, -92.6] },
+        { name: "Mitchell", coords: [43.313, -92.8577] },
+        { name: "Orchard", coords: [43.2275, -92.7721] },
+        { name: "Osage", coords: [43.2847, -92.8113] },
+        { name: "Riceville", coords: [43.363, -92.555] },
+        { name: "St. Ansgar", coords: [43.378, -92.9185] },
+        { name: "Stacyville", coords: [43.44, -92.78] },
+        { name: "Buffalo Center", coords: [43.3869, -93.9477] },
+        { name: "Lake Mills", coords: [43.4197, -93.5338] },
+        { name: "Leland", coords: [43.3347, -93.6577] },
+        { name: "Rake", coords: [43.47, -93.93] },
+        { name: "Scarville", coords: [43.4669, -93.6355] },
+        { name: "Thompson", coords: [43.3725, -93.7655] },
+        { name: "Fertile", coords: [43.2672, -93.4277] },
+        { name: "Grafton", coords: [43.328, -93.0674] },
+        { name: "Hanlontown", coords: [43.3008, -93.376] },
+        { name: "Joice", coords: [43.3619, -93.4558] },
+        { name: "Kensett", coords: [43.36, -93.2] },
+        { name: "Manly", coords: [43.2872, -93.2021] },
+        { name: "Northwood", coords: [43.4441, -93.221] },
+        { name: "Belmond", coords: [42.8458, -93.6144] },
+        { name: "Clarion", coords: [42.731, -93.732] },
+        { name: "Eagle Grove", coords: [42.665, -93.904] },
+        { name: "Galt", coords: [42.67, -93.61] },
+        { name: "Goldfield", coords: [42.734, -93.92] },
+        { name: "Rowan", coords: [42.75, -93.57] },
+        { name: "Woolstock", coords: [42.58, -93.8] },
+        { name: "Allison", coords: [42.75, -92.795] },
+        { name: "Aplington", coords: [42.583, -92.883] },
+        { name: "Aredale", coords: [42.84, -92.94] },
+        { name: "Bristow", coords: [42.78, -92.91] },
+        { name: "Clarksville", coords: [42.783, -92.668] },
+        { name: "Dumont", coords: [42.75, -92.97] },
+        { name: "Greene", coords: [42.8958, -92.8021] },
+        { name: "New Hartford", coords: [42.56, -92.62] },
+        { name: "Parkersburg", coords: [42.575, -92.79] },
+        { name: "Shell Rock", coords: [42.71, -92.58] },
+        { name: "Chapin", coords: [42.8347, -93.2116] },
+        { name: "Alta Vista", coords: [43.1966789, -92.416938] },
+        { name: "Bassett", coords: [43.0615928, -92.5152561] },
+        { name: "Fredericksburg", coords: [42.9647769, -92.1964955] },
+        { name: "Ionia", coords: [43.035879, -92.4584023] },
+        { name: "Lawler", coords: [43.0720974, -92.1533099] },
+        { name: "New Hampton", coords: [43.0563379, -92.3152536] },
+        { name: "North Washington", coords: [43.1171314, -92.41511] },
+      ];
+
+      const mapElement = document.getElementById('a1-service-area-map');
+      if (mapElement) {
+        const map = L.map(mapElement, { scrollWheelZoom: false, dragging: !L.Browser.touch }).setView([43.16, -93.48], 8);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          maxZoom: 18,
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        const serviceCityDirectory = JSON.parse(mapElement.dataset.serviceCities || '[]');
+        const builtCitySlugs = new Set(JSON.parse(mapElement.dataset.builtCitySlugs || '[]'));
+        const directoryBySlug = new Map(serviceCityDirectory.map((city) => [city.slug, city]));
+
+        // Only show towns in the approved service-area directory. This also excludes
+        // any stray pins outside the counties A-1 currently lists as served.
+        const visibleTowns = serviceTowns.flatMap((town) => {
+          const slug = town.name.toLowerCase().replace(/\./g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+          const directoryCity = directoryBySlug.get(slug);
+          if (!directoryCity || directoryCity.counties.includes('Hardin')) return [];
+          return [{ ...town, slug, hasPage: builtCitySlugs.has(slug) }];
+        });
+
+        const markers = [];
+        visibleTowns.forEach((town) => {
+          const hasPage = town.hasPage;
+          const marker = L.circleMarker(town.coords, {
+            radius: hasPage ? 10 : 5,
+            color: hasPage ? '#a82129' : '#1A1A68',
+            weight: hasPage ? 3 : 1.5,
+            fillColor: hasPage ? '#c52b34' : '#1A1A68',
+            fillOpacity: 1
+          }).addTo(map);
+          const popupContent = hasPage
+            ? '<strong>' + town.name + '</strong><br><a href="/service-area/' + town.slug + '/" style="color:#c52b34;font-weight:800;text-decoration:underline">Open ' + town.name + ' service page</a>'
+            : '<strong>' + town.name + '</strong><br>A-1 Drain Cleaning service town';
+          marker.bindPopup(popupContent);
+          marker.bindTooltip(town.name + (hasPage ? ' — open city page' : ''), { direction: 'top' });
+          if (hasPage) {
+            marker.on('click', () => {
+              window.location.href = '/service-area/' + town.slug + '/';
+            });
+          }
+          markers.push(marker);
+        });
+        if (markers.length) {
+          const group = L.featureGroup(markers);
+          map.fitBounds(group.getBounds().pad(0.12), { maxZoom: 8 });
+        }
+      }
+    </script>
+
+    <section class="bg-slate-100 py-16 sm:py-20">
+      <div class="container grid gap-8 lg:grid-cols-2">
+        <article class="bg-white p-7 sm:p-8">
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Common calls</p>
+          <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950">What A-1 Drain Cleaning comes out for</h2>
+          <p class="mt-4 leading-8 text-slate-700">Clogged sinks, showers, tubs and toilets. Basement floor drains. Washing machine drains. Main drain and sewer line blockages. Sewer backups. Tree roots. Drain repairs. Storm sewers. Smoke testing sewers.</p>
+        </article>
+        <article class="bg-[#1A1A68] p-7 text-white sm:p-8">
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-red-300">Not sure what you need?</p>
+          <h2 class="mt-2 text-3xl font-black">Tell us what the water is doing.</h2>
+          <p class="mt-4 leading-8 text-white">You do not need to know the name of the problem before calling. Tell A-1 Drain Cleaning which fixture is affected and whether other drains back up.</p>
+          <a href="tel:+16415302728" class="call-button mt-6 inline-block rounded-md bg-[#c52b34] px-6 py-4 font-black text-white">CALL</a>
+        </article>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </main>
+  <Footer />
+</MainLayout>

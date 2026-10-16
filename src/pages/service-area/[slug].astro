@@ -1,0 +1,249 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { uniqueServiceAreaCities, type ServiceAreaCity } from '../../data/serviceAreaCities';
+import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
+import { services } from '../../data/services';
+
+export function getStaticPaths() {
+  // Only publish the city pages with researched, city-specific content.
+  // The remaining towns stay listed in the service-area directory until their
+  // own pages are ready, rather than receiving thin, template-only landing pages.
+  return uniqueServiceAreaCities
+    .filter((city) => builtServiceAreaCitySlugs.has(city.slug))
+    .map((city) => ({
+      params: { slug: city.slug },
+      props: { city }
+    }));
+}
+
+const { city } = Astro.props as { city: ServiceAreaCity };
+const countyLabel = city.counties.map((county) => `${county} County`).join(' and ');
+
+// Priority-city copy is intentionally specific about customer problems and service
+// decisions, without inventing local landmarks, plumbing conditions, or job history.
+const priorityCityContent: Record<string, {
+  lead: string;
+  localIntro: string;
+  floorDrain: string;
+  faqQuestion: string;
+  faqAnswer: string;
+  infrastructureNote?: string;
+  sourceLabel?: string;
+  sourceUrl?: string;
+  sourceLabel2?: string;
+  sourceUrl2?: string;
+}> = {
+  'mason-city': {
+    lead: 'A-1 Drain Cleaning is based in Mason City and handles household drain stoppages, main drain backups, and sewer-line blockages for local homeowners and businesses.',
+    localIntro: 'Describe whether the problem is limited to one sink, tub, or toilet, or whether several fixtures are affected. A single slow fixture can point to a nearby branch drain; multiple fixtures backing up together can indicate a restriction farther down the system.',
+    floorDrain: 'If wastewater rises through a basement floor drain, stop running water in the house as much as practical. Note whether the backup follows a toilet flush, shower, or washing-machine discharge, and share that pattern when you call.',
+    faqQuestion: 'When should I call about a main drain backup in Mason City?',
+    faqAnswer: 'Call when wastewater comes up through a floor drain, tub, or shower, or when several fixtures stop draining at once. Avoid repeatedly flushing or running water to test a line that is already backing up.'
+  },
+  'hampton': {
+    lead: 'A-1 Drain Cleaning serves Hampton for clogged household drains, washing-machine drain problems, main drain cleaning, and sewer backups.',
+    localIntro: 'The timing of the blockage can help narrow down the problem. A sink that drains slowly by itself is different from several fixtures acting up together, or a floor drain that rises when the washer empties or a toilet is flushed.',
+    floorDrain: 'If a floor drain backs up during laundry, stop the washer and limit other water use until the line is checked. A large discharge of water can reveal a restriction farther along the drain system.',
+    faqQuestion: 'Why does a floor drain back up when the washing machine runs?',
+    faqAnswer: 'The washer releases a large volume of water in a short time. If the drain line cannot carry it away, water may come up through a floor drain or another low opening. If multiple fixtures are involved, mention that when you call.'
+  },
+  'nora-springs': {
+    lead: 'A-1 Drain Cleaning serves Nora Springs for stopped sinks and tubs, toilet drain problems, floor drain backups, and blocked main sewer lines.',
+    localIntro: 'Pay attention to whether the trouble stays at one fixture or shows up elsewhere. Gurgling, water rising in a tub when a toilet is flushed, or more than one drain slowing down can point to a shared line rather than a single fixture.',
+    floorDrain: 'When dirty water comes up through a floor drain, stop using plumbing fixtures as much as practical until the cause is checked. If the home has no basement, a main-line backup may show up in a tub or shower instead.',
+    faqQuestion: 'Can more than one slow drain point to a main-line problem?',
+    faqAnswer: 'Yes. When several fixtures slow down or one fixture causes water to rise at another, the restriction may be in a shared branch or the main drain. Describe which fixtures are affected and when the symptoms occur.'
+  },
+  'rockwell': {
+    lead: 'A-1 Drain Cleaning serves Rockwell for household drain clogs, laundry and floor drain backups, and main sewer-line blockages.',
+    localIntro: 'When reporting a drain problem, note whether it began suddenly, keeps returning, or appears only when another fixture is used. A recurring clog may need the line checked beyond the fixture itself, especially when more than one drain is affected.',
+    floorDrain: 'If wastewater rises through a floor drain or tub, avoid running more water to see whether it clears. Stop laundry and other water use as much as practical, then explain whether the backup happens during flushing, showering, or draining the washer.',
+    faqQuestion: 'What information helps diagnose a recurring drain clog?',
+    faqAnswer: 'Tell us which fixture is affected, how often the clog returns, whether other drains gurgle or back up, and whether the problem follows laundry or toilet use. Those details help distinguish a local fixture blockage from a larger drain-line restriction.'
+  },
+  'clear-lake': {
+    infrastructureNote: 'Clear Lake’s sanitary district has documented that stormwater entering sanitary sewers can reduce available capacity during wet weather. If a backup happens during heavy rain, that timing is worth mentioning when the drain problem is checked—but it does not prove rain caused the backup.',
+    sourceLabel: 'Clear Lake Sanitary District history',
+    sourceUrl: 'https://clearlakesd.org/history/',
+    lead: 'A-1 Drain Cleaning serves Clear Lake from Mason City, handling backed-up main drains, stopped household drains, and sewer problems that send wastewater back into the home.',
+    localIntro: 'Start with the pattern: one slow kitchen or bathroom fixture often points to a local branch, while several fixtures slowing down together can indicate a restriction farther along the shared drain line. Tell us whether the trouble started suddenly, affects multiple fixtures, or returns after the drain seemed to clear.',
+    floorDrain: 'Clear Lake residents should mention if a backup appeared during or just after heavy rain. Wet-weather timing is useful context, but it does not by itself identify the cause. If wastewater is rising through a basement floor drain, limit water use in the house and call A-1 Drain Cleaning.',
+    faqQuestion: 'Do you handle main drain backups in Clear Lake?',
+    faqAnswer: 'Yes. A-1 Drain Cleaning handles main drain cleaning and sewer-line blockages. Tell us whether the backup is at a floor drain, toilet, tub, or shower and whether other fixtures are affected too.'
+  },
+  'charles-city': {
+    infrastructureNote: 'Charles City warns that Orangeburg pipe was installed in many residential areas around 1950–1970. Older private sewer laterals can also be cast iron, clay tile, or a combination of materials, so a home’s age alone does not identify the pipe. The city’s guidance distinguishes its public main from the homeowner’s private service line.',
+    sourceLabel: 'City of Charles City sewer-backup guidance',
+    sourceUrl: 'https://www.cityofcharlescity.org/212/Sewer-Backups',
+    lead: 'For Charles City homes with a slow drain, repeated clog, or wastewater coming back into the house, A-1 Drain Cleaning can clear household drains and main sewer lines.',
+    localIntro: 'A key detail in Charles City is whether the trouble is isolated to one fixture or appears at several points in the house. If flushing a toilet makes a tub or floor drain gurgle or rise, stop testing the line with more water and describe exactly what happened when you call.',
+    floorDrain: 'If the basement floor drain rises when the washer empties or a toilet is flushed, treat it as a possible shared-line backup rather than just a washing-machine problem. Pause water use until the line can be checked.',
+    faqQuestion: 'What if more than one drain is backing up in Charles City?',
+    faqAnswer: 'It may indicate a restriction in a shared branch or the main drain. Tell us which fixtures are involved and whether the symptoms occur during toilet flushing, showering, or laundry. If wastewater is coming up, avoid adding more water until the cause is checked.'
+  },
+  'forest-city': {
+    infrastructureNote: 'Forest City’s sewer rules distinguish sanitary wastewater from stormwater and restrict roof, surface-water, groundwater, and sump-pump discharges to the sanitary sewer. That distinction matters when a property has water in a basement: clear groundwater or sump-pump discharge is not the same problem as wastewater backing up through a floor drain.',
+    sourceLabel: 'City of Forest City Water & Wastewater',
+    sourceUrl: 'https://www.cityofforestcity.com/waterwastewater',
+    sourceLabel2: 'Forest City sanitary sewer ordinance',
+    sourceUrl2: 'https://codelibrary.amlegal.com/codes/forestcity/latest/forestcity_ia/0-0-0-3119',
+    lead: 'A-1 Drain Cleaning helps Forest City property owners with individual clogged drains, main-line restrictions, and sewer backups affecting more than one fixture.',
+    localIntro: 'In Forest City, be specific about what kind of water you are seeing. Wastewater rising through a floor drain is different from groundwater entering a basement or water discharged by a sump pump. For a drain problem, note whether it affects one fixture or whether flushing, laundry, or another fixture makes water rise somewhere else.',
+    floorDrain: 'If dirty wastewater comes up through a floor drain, stop using toilets, sinks, showers, and laundry appliances as much as practical. Forest City distinguishes sanitary sewage from stormwater and sump-pump discharge; identifying where the water is coming from helps point to the right next step.',
+    faqQuestion: 'Can a floor drain backup mean the main sewer line is blocked?',
+    faqAnswer: 'Yes. A floor drain is often one of the lowest openings in a basement, so wastewater may appear there when a downstream line is restricted. If the water is clear or appears to come from a sump pump instead, describe that difference when seeking help.'
+  },
+  'garner': {
+    infrastructureNote: 'Garner publishes a city contact procedure for reporting possible municipal sewer backups after hours. If more than one property appears affected, contacting the city can help determine whether the public system needs checking; a blockage inside a home or its private service line is a separate possibility.',
+    sourceLabel: 'City of Garner Public Works',
+    sourceUrl: 'https://garneriowa.org/departments/public-works/',
+    sourceLabel2: 'City of Garner sewer-backup contact notice',
+    sourceUrl2: 'https://garneriowa.org/city-government/announcements-notices/reminder-emergency-and-non-emergency-contact-information/',
+    lead: 'Garner homeowners can call A-1 Drain Cleaning for a sink or tub that will not drain, laundry-line trouble, a blocked main drain, or wastewater backing up inside the house.',
+    localIntro: 'For a Garner drain problem, note whether it is a slow fixture, a complete stoppage, or a backup that appears when another fixture runs. If a clog returns soon after clearing, mention that history; a recurring problem may need a different approach from a one-time blockage.',
+    floorDrain: 'If the floor drain rises when the washing machine pumps out, stop the next load and limit other water use until the line is checked. The washer may be exposing a restriction downstream rather than causing the blockage itself. If nearby properties also report sewer trouble, contact the city about a possible public-system issue as well.',
+    faqQuestion: 'Why does the floor drain back up when the washer drains?',
+    faqAnswer: 'A washer pumps out a large volume quickly. If the shared drain line cannot carry that flow away, water may spill back through a floor drain or another low opening. Stop using the washer until the restriction is checked.'
+  },
+  'northwood': {
+    infrastructureNote: 'Northwood lists wastewater treatment and sewer service through its Public Works department. For a suspected sewer backup, the practical first step is to note whether the problem appears inside one property or whether nearby properties are reporting similar symptoms; that helps separate a private drain-line problem from a possible public-system issue.',
+    sourceLabel: 'City of Northwood Public Works',
+    sourceUrl: 'https://www.northwoodia.org/pview.aspx?catid=533&id=27340',
+    sourceLabel2: 'City of Northwood sewer ordinance',
+    sourceUrl2: 'https://www.northwoodia.org/docview.aspx?docid=46120',
+    lead: 'A-1 Drain Cleaning serves Northwood with household drain cleaning, main-drain clearing, and help when a sewer-line blockage sends wastewater back into the home.',
+    localIntro: 'In Northwood, the first useful clues are how many fixtures are affected and what triggers the backup. A single slow sink is different from a toilet flush that makes a tub or floor drain rise. Also mention if a neighbor is experiencing a similar issue, since that can be useful when checking whether the problem is limited to one property.',
+    floorDrain: 'If dirty water comes up through a Northwood floor drain, reduce water use and keep people and pets away from the wastewater. In a home without a basement floor drain, a main-line blockage may show up as wastewater in a tub or shower instead.',
+    faqQuestion: 'What should I do first when sewage comes up a floor drain?',
+    faqAnswer: 'Limit water use, keep children and pets away from contaminated water, and call A-1 Drain Cleaning. Do not pour chemical drain cleaner into a line that is already backed up.'
+  }
+};
+const localContent = priorityCityContent[city.slug];
+const title = city.slug === 'mason-city'
+  ? 'Mason City Drain & Sewer Services | A-1 Drain Cleaning'
+  : `Drain Cleaning in ${city.name}, Iowa | A-1 Drain Cleaning`;
+const description = localContent
+  ? `A-1 Drain Cleaning serves ${city.name}, Iowa for clogged drains, floor drain backups, main drain cleaning and sewer-line blockages. Call 641-530-2728.`
+  : `A-1 Drain Cleaning serves ${city.name}, Iowa for drain cleaning, main drain and sewer line cleaning, floor drain backups, sewer backups and related drain problems. Call 641-530-2728.`;
+const coreServices = services.filter((service) => [
+  'main-drain-cleaning',
+  'sewer-line-cleaning',
+  'tree-roots-in-sewer-line',
+  'basement-floor-drains',
+  'kitchen-bathroom-drains',
+  'toilet-clogs',
+  'laundry-drains',
+  'sewer-backup-emergency',
+  'hydro-jetting'
+].includes(service.slug));
+const nearbyCities = uniqueServiceAreaCities
+  .filter((item) => item.slug !== city.slug && item.counties.some((county) => city.counties.includes(county)))
+  .slice(0, 12);
+---
+
+<MainLayout title={title} description={description} path={`/service-area/${city.slug}/`} city={city}>
+  <Header />
+  <main id="main">
+    <section class="bg-[#1A1A68] py-14 text-white sm:py-20 lg:py-24">
+      <div class="container">
+        <nav aria-label="Breadcrumb" class="text-sm font-bold text-slate-300">
+          <a href="/" class="hover:text-white">Home</a>
+          <span class="mx-2" aria-hidden="true">/</span>
+          <a href="/service-area/" class="hover:text-white">Areas We Serve</a>
+          <span class="mx-2" aria-hidden="true">/</span>
+          <span class="text-white">{city.name}</span>
+        </nav>
+        <p class="mt-5 text-sm font-black uppercase tracking-[0.2em] text-red-300">{countyLabel}</p>
+        <h1 class="mt-3 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">Drain Cleaning in {city.name}, Iowa</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">
+          {localContent?.lead ?? `A-1 Drain Cleaning is based in Mason City and serves ${city.name} for drain cleaning and sewer work. If a drain is stopped, a floor drain is backing up, or wastewater is coming back into the house, tell us what the water is doing.`}
+        </p>
+        <a href="tel:+16415302728" class="call-button mt-8 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-center text-lg font-black text-white shadow-lg hover:bg-[#a82129]">CALL 641-530-2728</a>
+      </div>
+    </section>
+
+    <section class="bg-white py-16 sm:py-20">
+      <div class="container grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
+        <article>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">A-1 Drain Cleaning in {city.name}</p>
+          <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Drain and sewer problems around {city.name}</h2>
+          <p class="mt-6 text-lg leading-8 text-slate-700">
+            {localContent?.localIntro ?? `A-1 Drain Cleaning handles the drain problems that can shut down a house: clogged sinks, showers, tubs and toilets, basement floor drains, washing machine drains, main drain blockages and sewer line backups. When several fixtures are affected at once, the restriction may be farther down the drain system.`}
+          </p>
+          <p class="mt-5 text-lg leading-8 text-slate-700">
+            {localContent?.floorDrain ?? 'Floor drain backups are especially important when wastewater is coming up through the drain. A washing machine can expose a restriction because it sends a large amount of water into the line quickly. In a house without a basement, a completely stopped main line may instead send wastewater into a bathtub or shower.'}
+          </p>
+        </article>
+
+        <aside class="border border-slate-200 bg-[#1A1A68] p-7 text-white shadow-xl sm:p-8">
+          <p class="text-sm font-black uppercase tracking-[0.18em] text-red-300">Need the line opened?</p>
+          <h2 class="mt-2 text-3xl font-black">Tell us what the water is doing.</h2>
+          <p class="mt-4 leading-7 text-white">Tell A-1 Drain Cleaning which fixture is affected, whether it is slow or stopped, and whether another drain backs up when water is used.</p>
+          <a href="tel:+16415302728" class="call-button mt-6 block rounded-md bg-[#c52b34] px-5 py-4 text-center font-black text-white">CALL 641-530-2728</a>
+        </aside>
+      </div>
+    </section>
+
+    {localContent && (
+      <section class="bg-slate-100 py-12 sm:py-16">
+        <div class="container max-w-4xl">
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Drain backup questions</p>
+          <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">{localContent.faqQuestion}</h2>
+          <p class="mt-4 text-lg leading-8 text-slate-700">{localContent.faqAnswer}</p>
+          <a href="tel:+16415302728" class="call-button mt-6 inline-block rounded-md bg-[#c52b34] px-6 py-4 text-center font-black text-white">CALL 641-530-2728</a>
+        </div>
+      </section>
+    )}
+
+    {localContent?.infrastructureNote && (
+      <section class="bg-white py-10 sm:py-12">
+        <div class="container max-w-4xl border-l-4 border-[#1A1A68] pl-5 sm:pl-7">
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Local sewer information</p>
+          <p class="mt-3 text-lg leading-8 text-slate-700">{localContent.infrastructureNote}</p>
+          {localContent.sourceUrl && localContent.sourceLabel && <p class="mt-3 text-sm leading-6 text-slate-600">Source: <a href={localContent.sourceUrl} target="_blank" rel="noopener noreferrer" class="font-bold text-[#1A1A68] underline underline-offset-4">{localContent.sourceLabel}</a>{localContent.sourceUrl2 && localContent.sourceLabel2 && <span>; <a href={localContent.sourceUrl2} target="_blank" rel="noopener noreferrer" class="font-bold text-[#1A1A68] underline underline-offset-4">{localContent.sourceLabel2}</a></span>}.</p>}
+        </div>
+      </section>
+    )}
+
+    <section class="bg-slate-100 py-16 sm:py-20">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">{city.name} service</p>
+        <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Drain cleaning and sewer services</h2>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {coreServices.map((service) => (
+            <a href={`/services/${service.slug}/`} class="border border-slate-200 bg-white p-6 hover:border-[#b4232b]">
+              <h3 class="text-xl font-black text-slate-950">{service.title}</h3>
+              <p class="mt-2 leading-7 text-slate-700">{service.description}</p>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-16 sm:py-20">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">County service area</p>
+        <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">{city.name} and nearby communities</h2>
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">
+          A-1 Drain Cleaning's service area includes communities throughout the counties listed for this location. A town is linked below only when it has a dedicated city page in the current build.
+        </p>
+        <div class="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
+          {nearbyCities.map((nearby) => (
+            builtServiceAreaCitySlugs.has(nearby.slug) ? (
+              <a href={`/service-area/${nearby.slug}/`} class="border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold text-white hover:bg-[#141452]" style="color: #ffffff !important;">{nearby.name}</a>
+            ) : (
+              <span class="border border-slate-200 bg-slate-100 px-3 py-3 text-sm font-bold text-slate-600">{nearby.name}</span>
+            )
+          ))}
+        </div>
+        <a href="/service-area/" class="mt-8 inline-block font-black text-[#b4232b] underline underline-offset-4">See the full North Iowa service area →</a>
+      </div>
+    </section>
+
+    <ContactCTA />
+  </main>
+  <Footer />
+</MainLayout>
