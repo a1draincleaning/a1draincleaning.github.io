@@ -5,7 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   site: 'https://a1draincleaning.github.io',
   output: 'static',
-  // Trigger a fresh GitHub Pages build so the generated sitemap is republished.
+  trailingSlash: 'always',
+  // Keep generated canonical URLs and sitemap entries aligned with GitHub Pages directory routes.
   integrations: [sitemap()],
   vite: { plugins: [tailwindcss()] }
 });
