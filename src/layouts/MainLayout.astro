@@ -127,6 +127,11 @@ const graph = [
       { '@id': 'https://a1draincleaning.github.io/#business' },
       ...(city ? [{ '@id': canonical + '#place' }] : [])
     ],
+    mainEntity: service
+      ? { '@id': canonical + '#service' }
+      : city
+        ? { '@id': canonical + '#place' }
+        : { '@id': 'https://a1draincleaning.github.io/#business' },
     publisher: { '@id': 'https://a1draincleaning.github.io/#business' }
   },
   ...(city ? [{
