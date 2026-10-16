@@ -1,10 +1,10 @@
-import { existsSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const dist = join(process.cwd(), 'dist');
 
 const retiredRoutes = [
-  { from: '/service-area/mason-city/', to: '/mason-city-drain-cleaning/' },
+  { from: '/service-area/mason_city/', to: '/mason-city-drain-cleaning/' },
   { from: '/services/drain-repair/', to: '/pipe-repair/' },
   { from: '/services/washing-machine-basement-flooding/', to: '/services/laundry-drains/' }
 ];
@@ -13,7 +13,7 @@ function routeDir(route) {
   return join(dist, route.replace(/^\//, '').replace(/\/$/, ''));
 }
 
-function redirectHtml(from, to) {
+function redirectHtml(to) {
   const destination = `https://a1draincleaning.github.io${to}`;
   return `<!doctype html>
 <html lang="en">
@@ -37,9 +37,8 @@ function redirectHtml(from, to) {
 for (const { from, to } of retiredRoutes) {
   const directory = routeDir(from);
   if (existsSync(directory)) rmSync(directory, { recursive: true, force: true });
-  const targetDir = routeDir(from);
-  // GitHub Pages serves directory/index.html for these trailing-slash URLs.
-  writeFileSync(join(targetDir, 'index.html'), redirectHtml(from, to));
+  mkdirSync(directory, { recursive: true });
+  writeFileSync(join(directory, 'index.html'), redirectHtml(to));
 }
 
 function xmlFiles(dir) {
