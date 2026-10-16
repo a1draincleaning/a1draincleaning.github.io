@@ -1,0 +1,66 @@
+import { existsSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+const dist = join(process.cwd(), 'dist');
+
+const retiredRoutes = [
+  { from: '/service-area/mason-city/', to: '/mason-city-drain-cleaning/' },
+  { from: '/services/drain-repair/', to: '/pipe-repair/' },
+  { from: '/services/washing-machine-basement-flooding/', to: '/services/laundry-drains/' }
+];
+
+function routeDir(route) {
+  return join(dist, route.replace(/^\//, '').replace(/\/$/, ''));
+}
+
+function redirectHtml(from, to) {
+  const destination = `https://a1draincleaning.github.io${to}`;
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,follow">
+  <meta http-equiv="refresh" content="0;url=${destination}">
+  <link rel="canonical" href="${destination}">
+  <title>Page Moved | A-1 Drain Cleaning</title>
+</head>
+<body>
+  <main>
+    <p>This page has moved. <a href="${to}">Go to the current A-1 Drain Cleaning page.</a></p>
+  </main>
+</body>
+</html>
+`;
+}
+
+for (const { from, to } of retiredRoutes) {
+  const directory = routeDir(from);
+  if (existsSync(directory)) rmSync(directory, { recursive: true, force: true });
+  const targetDir = routeDir(from);
+  // GitHub Pages serves directory/index.html for these trailing-slash URLs.
+  writeFileSync(join(targetDir, 'index.html'), redirectHtml(from, to));
+}
+
+function xmlFiles(dir) {
+  if (!existsSync(dir)) return [];
+  const results = [];
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) results.push(...xmlFiles(path));
+    else if (entry.name.endsWith('.xml')) results.push(path);
+  }
+  return results;
+}
+
+for (const file of xmlFiles(dist)) {
+  let xml = readFileSync(file, 'utf8');
+  for (const { from } of retiredRoutes) {
+    const url = `https://a1draincleaning.github.io${from}`;
+    const escaped = url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    xml = xml.replace(new RegExp(`\\s*<url>\\s*<loc>${escaped}</loc>[\\s\\S]*?</url>`, 'g'), '');
+  }
+  writeFileSync(file, xml);
+}
+
+console.log(`Pruned ${retiredRoutes.length} retired routes and removed them from generated XML sitemaps.`);
