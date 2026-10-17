@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-labelledby="title desc">
+  <title id="title">Trusted Local Service</title>
+  <desc id="desc">Trusted local service badge for A-1 Drain Cleaning.</desc>
+  <circle cx="120" cy="120" r="112" fill="#fff" stroke="#1A1A68" stroke-width="8"/>
+  <circle cx="120" cy="120" r="94" fill="#f8fafc" stroke="#b4232b" stroke-width="5"/>
+  <path d="M120 38l12 8 14-2 8 12 14 5 2 14 12 9-4 14 8 12-8 12 4 14-12 9-2 14-14 5-8 12-14-2-12 8-12-8-14 2-8-12-14-5-2-14-12-9 4-14-8-12 8-12-4-14 12-9 2-14 14-5 8-12 14 2z" fill="#1A1A68" opacity=".08"/>
+  <text x="120" y="92" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="18" font-weight="800" fill="#1A1A68" letter-spacing="2">TRUSTED</text>
+  <text x="120" y="116" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="16" font-weight="800" fill="#b4232b" letter-spacing="1.5">LOCAL</text>
+  <text x="120" y="140" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="15" font-weight="800" fill="#1A1A68" letter-spacing="1.2">SERVICE</text>
+  <path d="M120 157l6 12 13 2-9 9 2 13-12-6-12 6 2-13-9-9 13-2z" fill="#b4232b"/>
+  <text x="120" y="211" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="9" font-weight="700" fill="#334155" letter-spacing="1">A-1 DRAIN CLEANING</text>
+</svg>
