@@ -29,72 +29,28 @@ a {
   color: inherit;
 }
 
-/* Keep normal text links readable. Only style button-like links and controls. */
-a[class*="px-"][class*="py-"]:not(.call-button):not(.skip):not([aria-label="A-1 Drain Cleaning home"]),
-a[style*="background-color:#1A1A68"]:not(.call-button):not(.skip),
-header nav a:not(.call-button):not(.skip),
-button:not(.call-button),
-[role="button"]:not(.call-button) {
-  background-color: #1A1A68 !important;
-  color: #fff !important;
-  text-decoration: none;
-  border-radius: 0.3rem;
-}
-
-a[class*="px-"][class*="py-"]:not(.call-button):not(.skip):not([aria-label="A-1 Drain Cleaning home"]):hover,
-a[style*="background-color:#1A1A68"]:not(.call-button):not(.skip):hover,
-header nav a:not(.call-button):not(.skip):hover,
-button:not(.call-button):hover,
-[role="button"]:not(.call-button):hover {
-  background-color: #142052 !important;
-  color: #fff !important;
-}
-
-a[class*="px-"][class*="py-"]:not(.call-button):not(.skip):not([aria-label="A-1 Drain Cleaning home"]):focus-visible,
-a[style*="background-color:#1A1A68"]:not(.call-button):not(.skip):focus-visible,
-header nav a:not(.call-button):not(.skip):focus-visible,
-button:not(.call-button):focus-visible,
-[role="button"]:not(.call-button):focus-visible {
-  outline: 2px solid #1A1A68;
-  outline-offset: 2px;
-}
-
 .brand-slab {
   font-family: 'Roboto Slab', Rockwell, 'Courier New', serif;
   font-weight: 900;
   letter-spacing: -0.055em;
 }
 
-/* Button text must stay white, including nested headings/spans that have their own Tailwind text colors. */
-a[class*="px-"][class*="py-"]:not(.call-button):not(.skip):not([aria-label="A-1 Drain Cleaning home"]) *,
-a[style*="background-color:#1A1A68"]:not(.call-button):not(.skip) *,
-header nav a:not(.call-button):not(.skip) *,
-button:not(.call-button) *,
-[role="button"]:not(.call-button) * {
-  color: #fff !important;
-}
-
-/* Keep body copy readable on white and light-gray sections without darkening text on navy sections. */
-:is(.bg-white, .bg-slate-50, .bg-slate-100, .bg-gray-50, .bg-gray-100, .bg-zinc-50, .bg-zinc-100, .bg-neutral-50, .bg-neutral-100)
-:is(.text-slate-300, .text-slate-400, .text-slate-500, .text-slate-600, .text-slate-700,
-    .text-gray-300, .text-gray-400, .text-gray-500, .text-gray-600, .text-gray-700,
-    .text-zinc-300, .text-zinc-400, .text-zinc-500, .text-zinc-600, .text-zinc-700,
-    .text-neutral-300, .text-neutral-400, .text-neutral-500, .text-neutral-600, .text-neutral-700) {
-  color: #1f2937 !important;
-}
-
-
 .call-button {
-  color: #fff !important;
-  background: #b4232b !important;
-  border-radius: 0.65rem !important;
-  font-family: 'Arial Black', Arial, Helvetica, sans-serif !important;
-  font-weight: 900 !important;
-  box-shadow: none !important;
+  color: #fff;
+  background: #b4232b;
+  border-radius: 0.65rem;
+  font-family: 'Arial Black', Arial, Helvetica, sans-serif;
+  font-weight: 900;
+  box-shadow: none;
 }
 
 .call-button:hover {
-  background: #951d24 !important;
+  background: #951d24;
+}
+
+.call-button:focus-visible {
+  outline: 2px solid #b4232b;
+  outline-offset: 2px;
 }
 
 .call-button-pulse {
@@ -103,10 +59,12 @@ button:not(.call-button) *,
 }
 
 @keyframes phone-button-pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
     transform: scale(1);
   }
+
   50% {
     opacity: 0.82;
     transform: scale(1.045);
@@ -114,6 +72,10 @@ button:not(.call-button) *,
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .call-button-pulse {
     animation: none;
   }
@@ -131,10 +93,4 @@ button:not(.call-button) *,
 
 .skip:focus {
   left: 8px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
 }
