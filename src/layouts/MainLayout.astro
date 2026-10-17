@@ -3,6 +3,7 @@ import { SEO } from 'astro-seo';
 import { Schema } from 'astro-seo-schema';
 import { services } from '../data/services';
 import { uniqueServiceAreaCities } from '../data/serviceAreaCities';
+import { business } from '../data/business';
 import '../styles/global.css';
 
 interface Props {
@@ -15,7 +16,9 @@ interface Props {
 }
 
 const { title, description, path = '/', service, city } = Astro.props;
-const canonical = new URL(path, Astro.site ?? 'https://a1draincleaning.github.io').href;
+const canonical = new URL(path, Astro.site ?? business.website).href;
+const businessId = `${business.website}#business`;
+const websiteId = `${business.website}#website`;
 
 const serviceAreaAreas = [
   { '@type': 'AdministrativeArea', name: 'North Iowa' },
@@ -33,33 +36,27 @@ const serviceAreaAreas = [
   }))
 ];
 
-const business = {
+const businessSchema = {
   '@type': 'Plumber',
-  '@id': 'https://a1draincleaning.github.io/#business',
-  name: 'A-1 Drain Cleaning',
-  url: 'https://a1draincleaning.github.io/',
-  sameAs: [
-    'https://www.brownbook.net/business/43888974/a-1-drain-cleaning',
-    'https://www.manta.com/c/mt4dd28/a-1-drain-cleaning',
-    'https://www.showmelocal.com/profile.aspx?bid=12546518',
-    'https://scanmylocalbusiness.com/biz/a-1-drain-cleaning-m09y',
-    'https://www.myzipplumbers.com/default.asp?f=disp_pg&filename=view_plumbers_profile.asp&id=1193719&company=A-1%20Drain%20Cleaning&city=Mason%20City'
-  ],
-  logo: 'https://a1draincleaning.github.io/a1-logo.svg',
-  image: 'https://a1draincleaning.github.io/images/a1-main-sewer-drain-cleaning-mason-city.webp',
-  telephone: '+1-641-530-2728',
+  '@id': businessId,
+  name: business.name,
+  url: business.website,
+  sameAs: business.sameAs,
+  logo: business.logo,
+  image: business.image,
+  telephone: business.phone.tel,
   geo: {
     '@type': 'GeoCoordinates',
-    latitude: 43.1235,
-    longitude: -93.2274
+    latitude: business.geo.latitude,
+    longitude: business.geo.longitude
   },
   address: {
     '@type': 'PostalAddress',
-    streetAddress: '206 29th St SW',
-    addressLocality: 'Mason City',
-    addressRegion: 'IA',
-    postalCode: '50401',
-    addressCountry: 'US'
+    streetAddress: business.address.street,
+    addressLocality: business.address.city,
+    addressRegion: business.address.state,
+    postalCode: business.address.postalCode,
+    addressCountry: business.address.country
   },
   areaServed: serviceAreaAreas,
   openingHoursSpecification: [{
@@ -68,7 +65,7 @@ const business = {
     opens: '00:00',
     closes: '23:59'
   }],
-  founder: { '@type': 'Person', name: 'Josh Theilen' },
+  founder: { '@type': 'Person', name: business.owner },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Drain Cleaning and Sewer Services',
@@ -82,20 +79,20 @@ const business = {
         '@type': 'Service',
         name: item.title,
         description: item.description,
-        url: `https://a1draincleaning.github.io/services/${item.slug}/`
+        url: `${business.website}services/${item.slug}/`
       }
     }))
   }
 };
 
 const graph = [
-  business,
+  businessSchema,
   {
     '@type': 'WebSite',
-    '@id': 'https://a1draincleaning.github.io/#website',
-    name: 'A-1 Drain Cleaning',
-    url: 'https://a1draincleaning.github.io/',
-    publisher: { '@id': 'https://a1draincleaning.github.io/#business' }
+    '@id': websiteId,
+    name: business.name,
+    url: business.website,
+    publisher: { '@id': businessId }
   },
   {
     '@type': 'WebPage',
@@ -103,12 +100,12 @@ const graph = [
     name: title,
     description,
     url: canonical,
-    isPartOf: { '@id': 'https://a1draincleaning.github.io/#website' },
+    isPartOf: { '@id': websiteId },
     about: [
-      { '@id': 'https://a1draincleaning.github.io/#business' },
+      { '@id': businessId },
       ...(city ? [{ '@id': `${canonical}#place` }] : [])
     ],
-    publisher: { '@id': 'https://a1draincleaning.github.io/#business' }
+    publisher: { '@id': businessId }
   },
   ...(city ? [{
     '@type': 'Place',
@@ -125,23 +122,23 @@ const graph = [
     name: service.title,
     serviceType: service.title,
     description: service.description,
-    provider: { '@id': 'https://a1draincleaning.github.io/#business' },
+    provider: { '@id': businessId },
     areaServed: serviceAreaAreas,
     url: canonical,
     availableChannel: {
       '@type': 'ServiceChannel',
-      servicePhone: { '@type': 'ContactPoint', telephone: '+1-641-530-2728', contactType: 'customer service' }
+      servicePhone: { '@type': 'ContactPoint', telephone: business.phone.tel, contactType: 'customer service' }
     }
   }] : []),
   ...(path !== '/' ? [{
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://a1draincleaning.github.io/' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: business.website },
       ...(path.startsWith('/services/') ? [
-        { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://a1draincleaning.github.io/services/' },
+        { '@type': 'ListItem', position: 2, name: 'Services', item: `${business.website}services/` },
         ...(service ? [{ '@type': 'ListItem', position: 3, name: service.title, item: canonical }] : path === '/services/' ? [] : [{ '@type': 'ListItem', position: 3, name: title.replace(' | A-1 Drain Cleaning', ''), item: canonical }])
       ] : path.startsWith('/service-area/') && path !== '/service-area/' ? [
-        { '@type': 'ListItem', position: 2, name: 'Areas We Serve', item: 'https://a1draincleaning.github.io/service-area/' },
+        { '@type': 'ListItem', position: 2, name: 'Areas We Serve', item: `${business.website}service-area/` },
         { '@type': 'ListItem', position: 3, name: title.replace(' | A-1 Drain Cleaning', ''), item: canonical }
       ] : [{
         '@type': 'ListItem', position: 2,
@@ -166,7 +163,7 @@ const schema = { '@context': 'https://schema.org' as const, '@graph': graph };
     title={title}
     description={description}
     canonical={canonical}
-    openGraph={{ basic: { title, type: 'website', url: canonical, image: new URL('/images/a1-main-sewer-drain-cleaning-mason-city.webp', canonical).href }, optional: { description, siteName: 'A-1 Drain Cleaning', locale: 'en_US' } }}
+    openGraph={{ basic: { title, type: 'website', url: canonical, image: new URL('/images/a1-main-sewer-drain-cleaning-mason-city.webp', canonical).href }, optional: { description, siteName: business.name, locale: 'en_US' } }}
     twitter={{ card: 'summary', title, description }}
   />
   <Schema item={schema as any} />
@@ -179,7 +176,7 @@ const schema = { '@context': 'https://schema.org' as const, '@graph': graph };
   <a class="skip" href="#main">Skip to content</a>
   <slot />
   <div class="fixed bottom-0 left-0 right-0 z-50 border-t border-slate-300 bg-white p-3 md:hidden">
-    <a class="call-button block min-h-12 rounded-md bg-[#b4232b] px-4 py-3 text-center font-black text-white" href="tel:+16415302728">CALL 641-530-2728</a>
+    <a class="call-button block min-h-12 rounded-md bg-[#b4232b] px-4 py-3 text-center font-black text-white" href={`tel:${business.phone.tel}`}>CALL {business.phone.formatted}</a>
   </div>
 </body>
 </html>
