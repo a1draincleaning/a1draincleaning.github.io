@@ -1,0 +1,66 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'Terms of Use | A-1 Drain Cleaning';
+const description = 'Terms of Use for the A-1 Drain Cleaning website in Mason City, Iowa.';
+---
+
+<MainLayout title={title} description={description} path="/terms/">
+  <Header />
+  <main id="main">
+    <article class="bg-white py-14 sm:py-20">
+      <div class="container max-w-4xl">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">A-1 Drain Cleaning</p>
+        <h1 class="mt-3 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Terms of Use</h1>
+        <p class="mt-4 text-slate-600">Last updated: October 18, 2026</p>
+
+        <section class="mt-10 space-y-5 text-lg leading-8 text-slate-700">
+          <p>This website is provided by A-1 Drain Cleaning for general information about drain cleaning and sewer services in Mason City and surrounding North Iowa communities.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-black text-slate-950">Website information</h2>
+          <p class="mt-3 text-lg leading-8 text-slate-700">Website information is general information about services and common drain and sewer problems. Site content is not a substitute for an on-site inspection or a specific service diagnosis.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-black text-slate-950">Service requests</h2>
+          <p class="mt-3 text-lg leading-8 text-slate-700">Contacting A-1 Drain Cleaning through the website or by phone does not by itself create a service contract. Service availability, scope, scheduling, pricing, and work performed are determined between A-1 Drain Cleaning and the customer for the particular job.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-black text-slate-950">Emergency and backup situations</h2>
+          <p class="mt-3 text-lg leading-8 text-slate-700">If sewage or wastewater is backing up, stop using fixtures that may add water to the affected drain system when practical and contact A-1 Drain Cleaning. Availability depends on the job, location, conditions, and schedule.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-black text-slate-950">Website use</h2>
+          <p class="mt-3 text-lg leading-8 text-slate-700">Do not use this website to submit passwords, payment card numbers, Social Security numbers, or other sensitive personal information. Do not attempt to interfere with the operation or security of the website, its hosting service, or its supporting systems.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-black text-slate-950">Third-party services and links</h2>
+          <p class="mt-3 text-lg leading-8 text-slate-700">This website may use or link to services operated by third parties. Their websites and services are governed by their own terms and privacy policies.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-black text-slate-950">Changes</h2>
+          <p class="mt-3 text-lg leading-8 text-slate-700">A-1 Drain Cleaning may update these terms when the website or its practices change. The date at the top of this page identifies the latest revision.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-black text-slate-950">Contact</h2>
+          <address class="mt-3 not-italic text-lg leading-8 text-slate-700">
+            A-1 Drain Cleaning<br>
+            206 29th St SW<br>
+            Mason City, Iowa 50401<br>
+            <a class="font-black text-[#b4232b] underline" href="tel:+16415302728">641-530-2728</a>
+          </address>
+        </section>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</MainLayout>
