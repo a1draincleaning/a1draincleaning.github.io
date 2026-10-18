@@ -1,0 +1,62 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import ContactCTA from '../../../components/ContactCTA.astro';
+
+const title = 'Bathroom & Shower Drain Cleaning in Mason City, Iowa | A-1 Drain Cleaning';
+const description = 'Bathroom, shower, and bathtub drain cleaning for slow and clogged drains in Mason City and North Iowa. Call A-1 Drain Cleaning at 641-530-2728.';
+---
+
+<MainLayout title={title} description={description} path="/services/bathroom-shower-drains/">
+  <Header />
+  <main id="main">
+    <section class="bg-[#1A1A68] text-white">
+      <div class="container py-14 sm:py-18 lg:py-24">
+        <nav aria-label="Breadcrumb" class="text-sm font-bold text-slate-300">
+          <a href="/" class="hover:text-white">Home</a><span class="mx-2" aria-hidden="true">/</span>
+          <a href="/services/" class="hover:text-white">Services</a><span class="mx-2" aria-hidden="true">/</span>
+          <span class="text-white">Bathroom &amp; Shower Drains</span>
+        </nav>
+        <p class="mt-5 text-sm font-black uppercase tracking-[0.2em] text-red-300">Bathroom &amp; shower drains • Mason City • North Iowa</p>
+        <h1 class="mt-3 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">Bathroom &amp; Shower Drain Cleaning</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">Hair, soap residue, and other material can slow a shower, tub, or bathroom sink. A-1 Drain Cleaning clears bathroom drain blockages in Mason City and surrounding North Iowa communities.</p>
+        <a href="tel:+16415302728" class="call-button mt-8 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-center text-lg font-black text-white shadow-lg hover:bg-[#a82129]">CALL 641-530-2728</a>
+      </div>
+    </section>
+
+    <section class="bg-white py-16 sm:py-20">
+      <div class="container grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
+        <article>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Bathroom drains</p>
+          <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Slow shower or tub drain?</h2>
+          <p class="mt-6 text-lg leading-8 text-slate-700">Bathroom drains commonly collect hair, soap residue, and personal-care products. A slow drain can narrow gradually before water stops moving.</p>
+          <ul class="mt-6 grid gap-3 sm:grid-cols-2">
+            <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">Shower drains slowly</li>
+            <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">Bathtub drain is slow or stopped</li>
+            <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">Bathroom sink drains slowly</li>
+            <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">Standing water around the shower drain</li>
+          </ul>
+
+          <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">One bathroom fixture or a larger drain problem?</h2>
+          <p class="mt-5 leading-8 text-slate-700">If one shower, tub, or sink is slow while the rest of the house drains normally, the restriction may be close to that fixture or its branch drain. If several fixtures are backing up together, the problem may be farther down a shared drain or main line.</p>
+          <p class="mt-4 leading-8 text-slate-700">If wastewater rises in a bathtub or shower when a toilet is flushed or another fixture is used, stop adding water. That pattern can indicate a larger drain or sewer-line restriction rather than an isolated shower clog.</p>
+
+          <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Bathroom drain cleaning in Mason City and North Iowa</h2>
+          <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and surrounding North Iowa communities. When you call, tell us whether the shower, tub, or sink is slow or completely stopped and whether any other fixture changes when water is used.</p>
+        </article>
+
+        <aside class="lg:sticky lg:top-6">
+          <div class="border border-slate-200 bg-slate-50 p-6 shadow-sm">
+            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Bathroom drain problem?</p>
+            <h2 class="mt-2 text-2xl font-black tracking-tight text-slate-950">Call A-1 Drain Cleaning</h2>
+            <p class="mt-3 leading-7 text-slate-700">Slow shower, tub, or bathroom sink? Call 641-530-2728.</p>
+            <a href="tel:+16415302728" class="call-button mt-5 block rounded-md bg-[#c52b34] px-6 py-4 text-center font-black text-white hover:bg-[#a82129]">Call 641-530-2728</a>
+          </div>
+        </aside>
+      </div>
+    </section>
+    <ContactCTA />
+  </main>
+  <Footer />
+</MainLayout>
