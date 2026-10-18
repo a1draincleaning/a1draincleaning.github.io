@@ -41,18 +41,29 @@ for (const { from, to } of retiredRoutes) {
   writeFileSync(join(directory, 'index.html'), redirectHtml(to));
 }
 
-function xmlFiles(dir) {
+function filesUnder(dir, predicate) {
   if (!existsSync(dir)) return [];
   const results = [];
   for (const entry of readdirSync(dir, { withFileTypes: true })) {
     const path = join(dir, entry.name);
-    if (entry.isDirectory()) results.push(...xmlFiles(path));
-    else if (entry.name.endsWith('.xml')) results.push(path);
+    if (entry.isDirectory()) results.push(...filesUnder(path, predicate));
+    else if (predicate(entry.name)) results.push(path);
   }
   return results;
 }
 
-for (const file of xmlFiles(dist)) {
+// Replace links to retired routes in generated HTML so live pages point directly
+// to the current canonical destinations instead of making visitors and crawlers
+// follow an unnecessary redirect.
+for (const file of filesUnder(dist, (name) => name.endsWith('.html'))) {
+  let html = readFileSync(file, 'utf8');
+  for (const { from, to } of retiredRoutes) {
+    html = html.split(from).join(to);
+  }
+  writeFileSync(file, html);
+}
+
+for (const file of filesUnder(dist, (name) => name.endsWith('.xml'))) {
   let xml = readFileSync(file, 'utf8');
   for (const { from } of retiredRoutes) {
     const url = `https://a1draincleaning.github.io${from}`;
@@ -62,4 +73,4 @@ for (const file of xmlFiles(dist)) {
   writeFileSync(file, xml);
 }
 
-console.log(`Pruned ${retiredRoutes.length} retired routes and removed them from generated XML sitemaps.`);
+console.log(`Pruned ${retiredRoutes.length} retired routes, replaced their internal HTML links, and removed them from generated XML sitemaps.`);
