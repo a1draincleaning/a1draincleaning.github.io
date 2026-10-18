@@ -36,8 +36,8 @@ a {
 }
 
 .call-button {
-  color: #fff;
-  background: #b4232b;
+  color: #fff !important;
+  background: #1A1A68 !important;
   border-radius: 0.65rem;
   font-family: 'Arial Black', Arial, Helvetica, sans-serif;
   font-weight: 900;
@@ -45,11 +45,13 @@ a {
 }
 
 .call-button:hover {
-  background: #951d24;
+  color: #fff !important;
+  background: #141451 !important;
 }
 
 .call-button:focus-visible {
-  outline: 2px solid #b4232b;
+  color: #fff !important;
+  outline: 2px solid #1A1A68;
   outline-offset: 2px;
 }
 
