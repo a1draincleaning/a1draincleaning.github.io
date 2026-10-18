@@ -29,6 +29,11 @@ a {
   color: inherit;
 }
 
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .brand-slab {
   font-family: 'Roboto Slab', Rockwell, 'Courier New', serif;
   font-weight: 900;
