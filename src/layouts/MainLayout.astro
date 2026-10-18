@@ -176,6 +176,13 @@ const schema = { '@context': 'https://schema.org' as const, '@graph': graph };
     <a class="bottom-call-cta call-button block min-h-12 rounded-md bg-[#b4232b] px-4 py-3 text-center font-black text-white" href={`tel:${business.phone.tel}`}>CALL {business.phone.formatted}</a>
   </div>
   <style>
+    .bottom-call-cta,
+    .bottom-call-cta:hover,
+    .bottom-call-cta:focus-visible {
+      color: #fff !important;
+      background-color: #b4232b !important;
+    }
+
     .bottom-call-cta {
       border-top: 1px solid #ffffff;
       border-bottom: 1px solid #ffffff;
