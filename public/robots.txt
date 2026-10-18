@@ -20,9 +20,9 @@ Allow: /
 User-agent: Applebot-Extended
 Allow: /
 
-# Block aggressive, non-commercial scraping tools
+# Permit Common Crawl for AI/search dataset discovery
 User-agent: CCBot
-Disallow: /
+Allow: /
 
 User-agent: SemrushBot
 Allow: /
