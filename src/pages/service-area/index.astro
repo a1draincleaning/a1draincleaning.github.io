@@ -33,8 +33,8 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
           {['Mason City', 'Clear Lake', 'Forest City', 'Charles City', 'Nora Springs', 'Garner'].map((name) => {
             const city = uniqueServiceAreaCities.find((item) => item.name === name);
             return city ? (
-              <a href={`/service-area/${city.slug}/`} class="flex min-h-12 items-center justify-between border border-[#1A1A68] bg-[#1A1A68] px-5 py-4 font-black text-white hover:bg-[#141452]">
-                <span>{city.name}, Iowa</span><span aria-hidden="true">→</span>
+              <a href={`/service-area/${city.slug}/`} class="flex min-h-12 items-center justify-between border border-[#1A1A68] bg-[#1A1A68] px-5 py-4 font-black !text-white hover:bg-[#141452] hover:!text-white">
+                <span class="!text-white">{city.name}, Iowa</span><span aria-hidden="true" class="!text-white">→</span>
               </a>
             ) : null;
           })}
@@ -54,7 +54,7 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
                     {countyCities.map((city) => (
                       <li>
                         {builtServiceAreaCitySlugs.has(city.slug) ? (
-                          <a href={`/service-area/${city.slug}/`} class="flex min-h-12 items-center border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold text-white hover:bg-[#141452]">{city.name}</a>
+                          <a href={`/service-area/${city.slug}/`} class="flex min-h-12 items-center border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold !text-white hover:bg-[#141452] hover:!text-white">{city.name}</a>
                         ) : (
                           <span class="flex min-h-12 items-center border border-slate-200 bg-slate-100 px-3 py-3 text-sm font-bold text-slate-600">{city.name}</span>
                         )}
