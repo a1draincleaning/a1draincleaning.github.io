@@ -1,71 +1,54 @@
 ---
-import { services } from '../data/services';
-import { featuredServiceSlugs } from '../data/serviceGroups';
-
-const featured = services.filter(({ slug }) => featuredServiceSlugs.includes(slug as typeof featuredServiceSlugs[number]));
-
-const serviceImages: Record<string, { src: string; alt: string }> = {
-  'main-drain-cleaning': {
-    src: '/images/a1-main-sewer-drain-cleaning-mason-city.webp',
-    alt: 'A-1 Drain Cleaning main sewer drain cleaning in Mason City, Iowa',
-  },
-  'sewer-line-cleaning': {
-    src: '/images/sewer-drain-mason-city-iowa.jpg',
-    alt: 'Sewer drain cleaning in Mason City, Iowa',
-  },
-  'tree-roots-in-sewer-line': {
-    src: '/images/tree-root-removal-mason-city-iowa.jpg',
-    alt: 'Tree root removal from a sewer line in Mason City, Iowa',
-  },
-  'sewer-backup-emergency': {
-    src: '/images/iowa-drain-cleaning-a1-drain-cleaning.png',
-    alt: 'A-1 Drain Cleaning serving Iowa homes with drain and sewer problems',
-  },
+const imageBySlug: Record<string, string> = {
+  'main-drain-cleaning': '/images/a1-main-sewer-drain-cleaning-mason-city.webp',
+  'sewer-line-cleaning': '/images/sewer-drain-mason-city-iowa.jpg',
+  'tree-roots-in-sewer-line': '/images/tree-root-removal-mason-city-iowa.jpg',
+  'sewer-backup-emergency': '/images/iowa-drain-cleaning-a1-drain-cleaning.png',
 };
+
+const imageAltBySlug: Record<string, string> = {
+  'main-drain-cleaning': 'A-1 Drain Cleaning main sewer drain cleaning in Mason City, Iowa',
+  'sewer-line-cleaning': 'A-1 Drain Cleaning sewer line cleaning in Mason City, Iowa',
+  'tree-roots-in-sewer-line': 'A-1 Drain Cleaning tree root removal from a sewer line in Mason City, Iowa',
+  'sewer-backup-emergency': 'A-1 Drain Cleaning sewer backup emergency service in Iowa',
+};
+
+const services = [
+  { slug: 'main-drain-cleaning', name: 'Main Drain Cleaning' },
+  { slug: 'sewer-line-cleaning', name: 'Sewer Line Cleaning' },
+  { slug: 'tree-roots-in-sewer-line', name: 'Tree Roots in Sewer Line' },
+  { slug: 'basement-floor-drains', name: 'Basement Floor Drains' },
+  { slug: 'kitchen-drains', name: 'Kitchen Drains' },
+  { slug: 'bathroom-shower-drains', name: 'Bathroom & Shower Drains' },
+  { slug: 'toilet-clogs', name: 'Toilet Clogs' },
+  { slug: 'laundry-drains', name: 'Laundry Drains' },
+  { slug: 'sewer-backup-emergency', name: 'Sewer Backup Emergency' },
+];
 ---
 
-<section id="services" class="bg-slate-100 py-16 sm:py-20">
+<section aria-labelledby="services-heading" class="bg-white py-12 sm:py-16">
   <div class="container">
-    <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Drain &amp; sewer work</p>
-    <h2 class="mt-2 max-w-3xl text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">What A-1 Drain Cleaning clears</h2>
-    <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">Most drain problems start with a restriction. The equipment and time needed depend on where the blockage is, what is in the pipe, access to the line, and what the pipe is doing.</p>
-
-    <div class="mt-6 border-l-4 border-[#b4232b] bg-white p-5 sm:p-6">
-      <h3 class="text-xl font-black text-slate-950">Pricing is based on the actual job</h3>
-      <p class="mt-2 max-w-3xl leading-7 text-slate-700">A simple fixture clog and a blocked main sewer line are different jobs. A-1 discusses the current rate before work begins rather than publishing an outdated flat price that may not fit the blockage.</p>
+    <h2 id="services-heading" class="text-3xl font-black tracking-tight text-[#1A1A68] sm:text-4xl">Drain &amp; Sewer Services</h2>
+    <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {services.map((service) => (
+        <a href={`/services/${service.slug}/`} class="block overflow-hidden rounded-lg border border-slate-200 bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+          {imageBySlug[service.slug] ? (
+            <img
+              src={imageBySlug[service.slug]}
+              alt={imageAltBySlug[service.slug]}
+              width="800"
+              height="600"
+              loading="lazy"
+              decoding="async"
+              class="block aspect-[4/3] w-full object-cover"
+            />
+          ) : null}
+          <div class="p-5">
+            <h3 class="text-xl font-black text-[#1A1A68]">{service.name}</h3>
+            <span class="mt-3 inline-block font-black text-[#1A1A68]">View service →</span>
+          </div>
+        </a>
+      ))}
     </div>
-
-    <div class="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-      {featured.map((service, index) => {
-        const image = serviceImages[service.slug];
-        return (
-          <article class="group relative flex h-full flex-col overflow-hidden border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
-            {image && (
-              <a href={`/services/${service.slug}/`} class="block overflow-hidden" aria-label={`View ${service.title}`}>
-                <img
-                  src={image.src}
-                  alt={image.alt}
-                  width="1200"
-                  height="675"
-                  loading="lazy"
-                  decoding="async"
-                  class="block aspect-video h-auto w-full object-cover transition-transform duration-300 group-hover:scale-[1.02]"
-                />
-              </a>
-            )}
-            <div class="flex flex-1 flex-col p-6">
-              <span class="text-xs font-black uppercase tracking-[0.18em] text-slate-400">0{index + 1}</span>
-              <h3 class="mt-3 text-2xl font-black tracking-tight text-slate-950">
-                <a href={`/services/${service.slug}/`}>{service.title}</a>
-              </h3>
-              <p class="mt-3 flex-1 leading-7 text-slate-600">{service.description}</p>
-              <a href={`/services/${service.slug}/`} class="relative mt-5 inline-flex min-h-12 w-fit items-center font-black text-[#b4232b] underline decoration-2 underline-offset-4 hover:text-[#8f1b22]">Read service details →</a>
-            </div>
-          </article>
-        );
-      })}
-    </div>
-
-    <a href="/services/" class="mt-8 inline-flex min-h-12 items-center rounded-md bg-[#1A1A68] px-6 py-3 font-black text-white hover:bg-[#142052]">See all drain &amp; sewer services</a>
   </div>
 </section>
