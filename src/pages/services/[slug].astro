@@ -46,6 +46,35 @@ const relatedServices = (relatedServiceMap[service.slug] || [])
 const floorDrainClusterSlugs = ['main-drain-cleaning', 'sewer-line-cleaning', 'washing-machine-basement-flooding', 'laundry-drains', 'sewer-backup-emergency', 'sewer-backup-into-tub-shower'];
 const featuredServiceCitySlugs = ['mason-city', 'clear-lake', 'charles-city', 'forest-city', 'garner', 'northwood', 'nora-springs', 'rockwell', 'hampton', 'greene'];
 const featuredServiceCities = uniqueServiceAreaCities.filter((city) => featuredServiceCitySlugs.includes(city.slug));
+
+const servicePageImages: Record<string, { src: string; alt: string; caption: string }> = {
+  'main-drain-cleaning': {
+    src: '/images/a1-main-sewer-drain-cleaning-mason-city.webp',
+    alt: 'A-1 Drain Cleaning main sewer drain cleaning in Mason City, Iowa',
+    caption: 'A-1 Drain Cleaning main sewer drain cleaning in Mason City, Iowa.'
+  },
+  'sewer-line-cleaning': {
+    src: '/images/sewer-drain-mason-city-iowa.jpg',
+    alt: 'Sewer drain cleaning in Mason City, Iowa',
+    caption: 'Sewer drain cleaning in Mason City, Iowa.'
+  },
+  'tree-roots-in-sewer-line': {
+    src: '/images/tree-root-removal-mason-city-iowa.jpg',
+    alt: 'Tree roots removed from a sewer line in Mason City, Iowa',
+    caption: 'Tree roots removed from a sewer line in Mason City, Iowa.'
+  },
+  'basement-floor-drains': {
+    src: '/images/floor-drain-backing-up-iowa.jpg',
+    alt: 'Basement floor drain backing up in Iowa',
+    caption: 'Basement floor drain backup in Iowa.'
+  },
+  'sewer-backup-emergency': {
+    src: '/images/iowa-drain-cleaning-a1-drain-cleaning.png',
+    alt: 'A-1 Drain Cleaning sewer backup emergency service in Iowa',
+    caption: 'A-1 Drain Cleaning sewer backup emergency service in Iowa.'
+  }
+};
+const servicePageImage = servicePageImages[service.slug];
 ---
 
 <MainLayout title={title} description={description} path={`/services/${service.slug}/`} service={service}>
@@ -61,20 +90,15 @@ const featuredServiceCities = uniqueServiceAreaCities.filter((city) => featuredS
       </div>
     </section>
 
-    {service.slug === 'main-drain-cleaning' && (
-      <figure class="bg-white py-8 sm:py-10">
-        <div class="container">
-          <div class="mx-auto w-full max-w-[260px] sm:max-w-xs overflow-hidden rounded-lg shadow-lg">
-            <img src="/images/sewer-drain-mason-city-iowa.jpg" alt="Josh Theilen operating a sewer drain cleaning machine" width="663" height="1142" loading="eager" decoding="async" class="block w-full object-cover" />
-          </div>
-          <figcaption class="mx-auto mt-3 max-w-[260px] sm:max-w-xs text-sm leading-6 text-slate-600">A-1 Drain Cleaning owner Josh Theilen working on a main sewer drain in Mason City, Iowa.</figcaption>
-        </div>
-      </figure>
-    )}
-
     <section class="bg-white py-16 sm:py-20">
       <div class="container grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
         <article>
+          {servicePageImage && (
+            <figure class="mb-10 overflow-hidden rounded-lg border border-slate-200 bg-slate-50 shadow-md">
+              <img src={servicePageImage.src} alt={servicePageImage.alt} loading="eager" decoding="async" class="block h-auto w-full" />
+              <figcaption class="px-5 py-4 text-sm leading-6 text-slate-600">{servicePageImage.caption}</figcaption>
+            </figure>
+          )}
           {service.slug === 'main-drain-cleaning' ? (
             <>
               <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Main drain problems</p>
@@ -83,52 +107,16 @@ const featuredServiceCities = uniqueServiceAreaCities.filter((city) => featuredS
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Older sewer pipes: Orangeburg and clay tile</h2>
               <p class="mt-4 leading-8 text-slate-700">Residential main drains are commonly 3 or 4 inches in diameter. Older properties may have 6-inch clay tile sewer lines or 4-inch Orangeburg pipe. Orangeburg is a bitumen-impregnated fiber pipe, not clay tile, and age or soil pressure can cause it to deform or collapse. The actual pipe size and material depend on the property, and size alone does not identify the cause of a blockage.</p>
               <p class="mt-5 text-lg leading-8 text-slate-700">A-1 Drain Cleaning clears blocked main drains in Mason City and North Iowa. The first clues are what is backing up, which fixtures are affected, and what was happening when the problem started.</p>
-
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Signs your main drain may be blocked</h2>
-              <ul class="mt-5 grid gap-3 sm:grid-cols-2">
-                {service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}
-              </ul>
+              <ul class="mt-5 grid gap-3 sm:grid-cols-2">{service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}</ul>
               <p class="mt-5 leading-8 text-slate-700">One slow sink is often a local fixture or branch-drain problem. When several fixtures act up together, or wastewater comes up through a floor drain or tub, the restriction may be farther down the shared drain system. A toilet does not have to bubble or gurgle for a main-line blockage to be present.</p>
-
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">What causes a main drain blockage?</h2>
               <p class="mt-5 leading-8 text-slate-700">Grease and waste can collect inside a pipe and catch paper or other material. Tree roots can enter through pipe joints or damaged sections, then catch debris and reduce the opening. A damaged, shifted, or collapsed pipe can also restrict flow. The symptoms can look similar, but the right fix depends on what is actually blocking the line and the condition of the pipe.</p>
               <p class="mt-4 leading-8 text-slate-700">If the same line keeps plugging up after it has been cleared, that is useful information. The blockage may be returning, roots may be growing back into the pipe, or the line may have a condition that cleaning alone will not repair.</p>
-
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">How A-1 Drain Cleaning clears the main drain</h2>
               <p class="mt-5 leading-8 text-slate-700">We use drain-cleaning equipment to reach the restriction and open a path for wastewater to flow. The equipment and approach depend on the blockage, the pipe, and access to the line. Grease and accumulated waste, tree roots, and a damaged pipe are different problems; opening the line does not automatically repair damage in the pipe itself.</p>
               <p class="mt-4 leading-8 text-slate-700">If a blockage keeps returning or the condition of the underground line needs to be checked, a sewer camera inspection may help identify what is happening inside the pipe. It is not automatically needed for every drain cleaning.</p>
               <p class="mt-4 leading-8 text-slate-700">When you call, tell us which drains are affected, whether water is coming up anywhere, and whether the problem starts when a toilet is flushed or the washing machine drains. Those details help narrow down where the restriction may be.</p>
-
-              <section class="mt-10 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="floor-drain-warning">
-                <h2 id="floor-drain-warning" class="text-2xl font-black tracking-tight text-slate-950">Sewage coming up through a floor drain?</h2>
-                <p class="mt-3 leading-7 text-slate-700">A basement floor drain is often where a main-line backup first becomes visible because it is low in the house. The blockage may be farther down a shared drain or the main sewer line—not necessarily in the floor drain itself. In a home without a basement, wastewater may back up into a bathtub or shower instead.</p>
-                <h3 class="mt-5 text-xl font-black tracking-tight text-slate-950">What to do now</h3>
-                <ul class="mt-3 list-disc space-y-2 pl-6 leading-7 text-slate-700">
-                  <li>Stop running water where possible. Do not run the washing machine, dishwasher, shower, or other fixtures while the backup is active.</li>
-                  <li>Keep children and pets away from sewage and avoid direct contact with wastewater.</li>
-                  <li>Do not enter standing water if electrical outlets or equipment may be affected.</li>
-                  <li>When you call, explain where the water is coming up and which fixtures were being used.</li>
-                </ul>
-                <p class="mt-4 leading-7 text-slate-700">Read more about <a href="/services/basement-floor-drains/" class="font-bold text-[#b4232b] underline underline-offset-4">basement floor drain backups</a> or <a href="/services/sewer-backup-into-tub-shower/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer backups into a bathtub or shower</a>.</p>
-              </section>
-
-              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Main drain cleaning or sewer line cleaning?</h2>
-              <p class="mt-5 leading-8 text-slate-700">These terms often overlap because the main drain carries wastewater out of the house and into the sewer or septic connection. The important question is where the restriction is and whether the pipe itself is in good condition. Cleaning can open a blockage; a cracked or collapsed pipe may need repair. Learn more about <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a> and <a href="/services/tree-roots-in-sewer-line/" class="font-bold text-[#b4232b] underline underline-offset-4">tree roots in sewer lines</a>.</p>
-
-              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Main drain cleaning in Mason City and North Iowa</h2>
-              <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning is based at 206 29th St SW in Mason City, Iowa, and serves Mason City and nearby North Iowa communities, including Clear Lake, Forest City, Charles City, and Nora Springs. Drain and sewer problems do not always wait for business hours; call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a> for service information.</p>
-
-              <section class="mt-10" aria-labelledby="main-drain-faq">
-                <h2 id="main-drain-faq" class="text-3xl font-black tracking-tight text-slate-950">Main drain cleaning questions</h2>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Why does water come up through the basement floor drain?</h3>
-                <p class="mt-2 leading-8 text-slate-700">A restriction farther down a shared drain or main sewer line can stop wastewater from leaving the house. The low floor drain may become the place where it comes back up.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Can a washing machine reveal a main drain blockage?</h3>
-                <p class="mt-2 leading-8 text-slate-700">Yes. A washer releases a large amount of water in a short time. If the line cannot carry it away, water may rise in a standpipe or another connected drain.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Does clearing the drain fix a damaged sewer pipe?</h3>
-                <p class="mt-2 leading-8 text-slate-700">No. Cleaning can remove a blockage, including roots or accumulated material, but it does not repair a cracked, separated, or collapsed pipe. A recurring problem may need further investigation.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Should I keep using water while the drain is backing up?</h3>
-                <p class="mt-2 leading-8 text-slate-700">No. Stop using water where possible until the backup has been assessed. Additional water can send more wastewater toward the blockage and worsen the overflow.</p>
-              </section>
             </>
           ) : service.slug === 'sewer-line-cleaning' ? (
             <>
@@ -138,182 +126,68 @@ const featuredServiceCities = uniqueServiceAreaCities.filter((city) => featuredS
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Older sewer line materials and pipe sizes</h2>
               <p class="mt-4 leading-8 text-slate-700">Many residential building sewer lines are 4 inches in diameter. Older properties may have 6-inch clay tile sewer lines or 4-inch Orangeburg pipe. Orangeburg is made from bitumen-impregnated fiber and can deform or collapse as it ages; it is a different material from clay tile. Actual size and material vary by property, and a pipe's diameter does not show whether the problem is grease, roots, a foreign object, or pipe damage.</p>
               <p class="mt-5 text-lg leading-8 text-slate-700">A-1 Drain Cleaning clears blocked sewer lines in Mason City and North Iowa. The location of the backup, which fixtures are affected, and when the problem happens help distinguish a sewer-line restriction from a clog at one sink or toilet.</p>
-
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Signs the sewer line may be blocked</h2>
-              <ul class="mt-5 grid gap-3 sm:grid-cols-2">
-                {service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}
-              </ul>
-              <p class="mt-5 leading-8 text-slate-700">One fixture draining slowly often points to a local clog. When several fixtures back up together, or the lowest drain fills when water is used elsewhere, the restriction may be in a shared line or the sewer line leaving the house. A toilet does not have to gurgle for a sewer-line blockage to exist.</p>
-
+              <ul class="mt-5 grid gap-3 sm:grid-cols-2">{service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}</ul>
+              <p class="mt-5 leading-8 text-slate-700">One fixture draining slowly often points to a local clog. When several fixtures back up together, or the lowest drain fills when water is used elsewhere, the restriction may be in a shared line or the sewer line leaving the house.</p>
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">What can block a sewer line?</h2>
               <p class="mt-5 leading-8 text-slate-700">Grease, waste, and other material can build up inside a pipe and catch more debris. Tree roots can enter through joints or damaged sections and narrow the opening. A shifted, cracked, or collapsed section can also restrict flow. These problems may cause similar symptoms, but they do not all have the same solution.</p>
               <p class="mt-4 leading-8 text-slate-700">If the line has been cleared before and backs up again, tell us how soon the problem returned. A repeat blockage can mean material is building up again, roots are entering the pipe, or the pipe needs closer inspection.</p>
-
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">How A-1 Drain Cleaning handles a sewer-line blockage</h2>
               <p class="mt-5 leading-8 text-slate-700">We use drain-cleaning equipment to reach and clear the restriction. The approach depends on where the blockage is, the type and condition of the pipe, and access to the line. Clearing the line restores a path for wastewater, but it does not repair a broken or collapsed pipe.</p>
-              <p class="mt-4 leading-8 text-slate-700">A sewer camera inspection can help when a blockage keeps returning or the pipe's condition needs to be checked. It is not automatically required for every cleaning. The next step should depend on the symptoms and what is found—not on assuming every sewer line has the same problem.</p>
-
-              <section class="mt-10 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="sewer-backup-steps">
-                <h2 id="sewer-backup-steps" class="text-2xl font-black tracking-tight text-slate-950">If sewage is backing up into the house</h2>
-                <p class="mt-3 leading-7 text-slate-700">Stop using water where possible. Running a washing machine, dishwasher, shower, or toilet can send more wastewater toward the blockage. Keep children and pets away from sewage and avoid contact with contaminated water. Do not enter standing water if electrical equipment or outlets may be affected.</p>
-                <p class="mt-3 leading-7 text-slate-700">In a house with a basement, the floor drain may be the first place the backup appears. In a house without a basement, wastewater may rise through a bathtub or shower. Read about <a href="/services/basement-floor-drains/" class="font-bold text-[#b4232b] underline underline-offset-4">floor drain backups</a> or <a href="/services/sewer-backup-into-tub-shower/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer backups into a tub or shower</a>.</p>
-              </section>
-
-              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Sewer line cleaning or drain repair?</h2>
-              <p class="mt-5 leading-8 text-slate-700">Cleaning removes a blockage and opens the line. Repair addresses physical damage such as a cracked, separated, or collapsed pipe. If a line repeatedly blocks or will not stay open, further inspection may be needed to determine whether cleaning alone is enough. See <a href="/services/tree-roots-in-sewer-line/" class="font-bold text-[#b4232b] underline underline-offset-4">tree roots in sewer lines</a> and <a href="/services/drain-repair/" class="font-bold text-[#b4232b] underline underline-offset-4">drain repair</a>.</p>
-
-              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Sewer line cleaning in Mason City and North Iowa</h2>
-              <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning is based at 206 29th St SW in Mason City, Iowa, and serves Mason City and North Iowa. When you call, tell us which fixtures are backing up, whether wastewater is coming up through a floor drain or tub, and whether the line has clogged before. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a>.</p>
-
-              <section class="mt-10" aria-labelledby="sewer-line-faq">
-                <h2 id="sewer-line-faq" class="text-3xl font-black tracking-tight text-slate-950">Sewer line cleaning questions</h2>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">How can I tell if the sewer line is blocked?</h3>
-                <p class="mt-2 leading-8 text-slate-700">Several fixtures backing up together, or wastewater rising at a low drain when water is used elsewhere, can point to a shared line or sewer-line restriction.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Will cleaning repair a damaged sewer pipe?</h3>
-                <p class="mt-2 leading-8 text-slate-700">No. Cleaning can remove material blocking the pipe, but a cracked, separated, or collapsed section may need repair.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Do I need a camera inspection every time?</h3>
-                <p class="mt-2 leading-8 text-slate-700">No. A camera can be useful when the blockage returns or the pipe's condition is uncertain. It is not automatically needed for every cleaning.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">What should I do while sewage is backing up?</h3>
-                <p class="mt-2 leading-8 text-slate-700">Stop using water where possible, avoid contact with sewage, and keep people and pets away from the affected area until the backup is addressed.</p>
-              </section>
+              <p class="mt-4 leading-8 text-slate-700">A sewer camera inspection can help when a blockage keeps returning or the pipe's condition needs to be checked. It is not automatically required for every cleaning.</p>
             </>
           ) : service.slug === 'tree-roots-in-sewer-line' ? (
             <>
               <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Tree roots in sewer lines</p>
               <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Roots can turn a small opening in a sewer pipe into a recurring blockage</h2>
-              <p class="mt-6 text-lg leading-8 text-slate-700">Tree roots usually get into a sewer line through an existing opening, such as a pipe joint, crack, or damaged section. They do not have to fill the pipe completely to cause trouble. As roots grow inside the line, they can catch toilet paper and other waste, narrow the passage, and slow wastewater leaving the house.</p>
-              <p class="mt-5 text-lg leading-8 text-slate-700">A-1 Drain Cleaning removes root blockages in sewer lines in Mason City and North Iowa. The important distinction is that cutting roots out can reopen the pipe, but it does not seal the entry point or repair damaged pipe.</p>
-
+              <p class="mt-6 text-lg leading-8 text-slate-700">Tree roots usually get into a sewer line through an existing opening, such as a pipe joint, crack, or damaged section. They can catch toilet paper and other waste, narrow the passage, and slow wastewater leaving the house.</p>
+              <p class="mt-5 text-lg leading-8 text-slate-700">A-1 Drain Cleaning removes root blockages in sewer lines in Mason City and North Iowa. Cutting roots out can reopen the pipe, but it does not seal the entry point or repair damaged pipe.</p>
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Signs tree roots may be blocking the sewer line</h2>
-              <ul class="mt-5 grid gap-3 sm:grid-cols-2">
-                {service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}
-                <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">Several fixtures drain slowly or back up around the same time.</li>
-                <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">Wastewater comes up through a basement floor drain or a bathtub or shower.</li>
-              </ul>
-              <p class="mt-5 leading-8 text-slate-700">These symptoms can also be caused by grease, accumulated waste, or a damaged pipe. Symptoms alone cannot prove that roots are the cause. When several fixtures are affected, the restriction may be in the main drain or sewer line rather than at an individual sink, tub, or toilet.</p>
-
+              <ul class="mt-5 grid gap-3 sm:grid-cols-2">{service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}</ul>
+              <p class="mt-5 leading-8 text-slate-700">Symptoms can also be caused by grease, accumulated waste, or a damaged pipe. Symptoms alone cannot prove that roots are the cause.</p>
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">How roots get into sewer pipes</h2>
-              <p class="mt-5 leading-8 text-slate-700">Roots grow toward moisture in the soil. If a sewer pipe has an open joint or crack, moisture escaping there can attract root growth into the opening. Older underground lines may have joints or sections that have shifted or deteriorated over time, but the presence of a tree near a house does not by itself mean the sewer pipe is blocked.</p>
-              <p class="mt-4 leading-8 text-slate-700">Once roots enter the pipe, they can catch paper and waste. That material builds up around the roots and restricts flow. A line may drain after it is cleared, then clog again if roots remain or the damaged entry point is still open.</p>
-
+              <p class="mt-5 leading-8 text-slate-700">Roots grow toward moisture in the soil. If a sewer pipe has an open joint or crack, moisture escaping there can attract root growth into the opening. Once roots enter the pipe, they can catch paper and waste and restrict flow.</p>
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">How A-1 Drain Cleaning clears roots</h2>
-              <p class="mt-5 leading-8 text-slate-700">A-1 uses drain-cleaning equipment to cut through roots that are blocking the line and restore a path for wastewater. The approach depends on access to the pipe, the blockage, and the condition of the line. Opening the pipe helps wastewater flow, but root removal is not the same as repairing a crack, separated joint, or collapsed section.</p>
-              <p class="mt-4 leading-8 text-slate-700">If the line has plugged repeatedly or the pipe condition is uncertain, a sewer camera inspection can help show whether roots are present and whether the pipe has visible damage. That information can help distinguish a blockage that needs cleaning from a pipe problem that may need repair.</p>
-              <p class="mt-4 leading-8 text-slate-700">When you call, explain how often the line has backed up, whether cleaning has been done before, and which drains are affected. If wastewater is currently coming up through a floor drain, tub, or shower, stop using water where possible and keep people and pets away from the affected area.</p>
-
-              <section class="mt-10 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="repeat-root-blockage">
-                <h2 id="repeat-root-blockage" class="text-2xl font-black tracking-tight text-slate-950">Does the sewer line keep plugging up?</h2>
-                <p class="mt-3 leading-7 text-slate-700">A repeat blockage is a reason to look beyond the immediate clog. Roots may be growing back through the same opening, or the pipe may have a joint or damaged section that is catching debris. Cleaning can restore flow, while inspection can help establish whether the pipe itself needs attention.</p>
-                <p class="mt-4 leading-7 text-slate-700">Learn about <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a>, <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a>, and <a href="/services/drain-repair/" class="font-bold text-[#b4232b] underline underline-offset-4">drain repair</a>.</p>
-              </section>
-
-              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Tree roots in sewer lines in Mason City and North Iowa</h2>
-              <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning works on blocked sewer lines in Mason City and across North Iowa. If your sewer line has been cleared before and the same symptoms return, share that history when you call. It helps us assess whether the immediate job is to clear a root blockage, investigate a recurring restriction, or determine whether pipe damage may be involved.</p>
-
-              <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="tree-root-faqs">
-                <h2 id="tree-root-faqs" class="text-3xl font-black tracking-tight text-slate-950">Tree root sewer line FAQs</h2>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Can tree roots get into a sewer pipe that is still draining?</h3>
-                <p class="mt-2 leading-8 text-slate-700">Yes. Roots can narrow the opening and catch waste before the pipe becomes completely blocked. Early symptoms may include a recurring slow drain or repeated backups.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Will cutting the roots stop them from coming back?</h3>
-                <p class="mt-2 leading-8 text-slate-700">Not necessarily. Cutting roots can reopen the line, but it does not close the joint or repair the crack where roots entered. A damaged entry point can allow another root blockage to develop.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">How can I tell whether roots are the cause?</h3>
-                <p class="mt-2 leading-8 text-slate-700">Recurring blockages can raise suspicion, but symptoms alone do not confirm roots. A sewer camera inspection may help identify roots and show the visible condition of the pipe.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Does a sewer line always need to be replaced if roots get in?</h3>
-                <p class="mt-2 leading-8 text-slate-700">No. The next step depends on the amount of blockage and the condition of the pipe. Cleaning may restore flow; repair decisions depend on whether the pipe is damaged and how severe that damage is.</p>
-              </section>
+              <p class="mt-5 leading-8 text-slate-700">A-1 uses drain-cleaning equipment to cut through roots that are blocking the line and restore a path for wastewater. Opening the pipe helps wastewater flow, but root removal is not the same as repairing a crack, separated joint, or collapsed section.</p>
+              <p class="mt-4 leading-8 text-slate-700">If the line has plugged repeatedly or the pipe condition is uncertain, a sewer camera inspection can help show whether roots are present and whether the pipe has visible damage.</p>
             </>
           ) : service.slug === 'hydro-jetting' ? (
             <>
               <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Hydro jetting for drains and sewer lines</p>
               <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Cleaning buildup from inside the pipe</h2>
               <p class="mt-6 text-lg leading-8 text-slate-700">Hydro jetting uses high-pressure water to remove suitable buildup from the inside of a drain or sewer line. It can help when grease, sludge, or accumulated debris is narrowing the passage and ordinary cable cleaning has not fully addressed the problem. It is not the right method for every clog or every pipe.</p>
-              <p class="mt-5 text-lg leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and North Iowa. The decision to use water jetting depends on the type of blockage, access to the line, and the pipe's condition—not simply on the fact that a drain is clogged.</p>
-
+              <p class="mt-5 text-lg leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and North Iowa. The decision to use water jetting depends on the type of blockage, access to the line, and the pipe's condition.</p>
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">When hydro jetting may help</h2>
-              <ul class="mt-5 grid gap-3 sm:grid-cols-2">
-                {service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}
-                <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">Grease or sludge has built up along the inside of the pipe.</li>
-                <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">The line has been opened, but residue may still be restricting flow.</li>
-              </ul>
-              <p class="mt-5 leading-8 text-slate-700">A single slow sink may have a local blockage that does not need jetting. If several fixtures back up together or wastewater comes up through a floor drain, the restriction may be farther down a shared drain or the main sewer line. Those symptoms help identify where to investigate; they do not automatically mean hydro jetting is needed.</p>
-
+              <ul class="mt-5 grid gap-3 sm:grid-cols-2">{service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}</ul>
+              <p class="mt-5 leading-8 text-slate-700">A single slow sink may have a local blockage that does not need jetting. If several fixtures back up together or wastewater comes up through a floor drain, the restriction may be farther down a shared drain or the main sewer line.</p>
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Hydro jetting compared with cable drain cleaning</h2>
-              <p class="mt-5 leading-8 text-slate-700">A drain cable is used to reach and break through or cut certain blockages. Hydro jetting uses pressurized water to clean material from the pipe's interior. The methods do different jobs, and the right choice depends on what is blocking the line and what condition the pipe is in. Hydro jetting should not be treated as an automatic upgrade for every drain call.</p>
-              <p class="mt-4 leading-8 text-slate-700">Tree roots may need to be cut out, while grease and other buildup may respond to water jetting when the pipe is suitable for it. A cracked, separated, or collapsed pipe is a different problem: cleaning does not repair structural damage.</p>
-
-              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Check the pipe condition before choosing the method</h2>
-              <p class="mt-5 leading-8 text-slate-700">The condition and material of the line matter when deciding whether to use high-pressure water. If a pipe is damaged, its condition is uncertain, or the blockage keeps returning, further assessment may be needed before choosing the cleaning method. A sewer camera inspection can help show visible conditions inside an accessible line when that information would affect the next step.</p>
-              <p class="mt-4 leading-8 text-slate-700">If wastewater is actively backing up into the house, stop using water where possible and keep people and pets away from sewage. Tell A-1 which fixtures are affected, where water is coming up, and whether the line has been cleaned before.</p>
-
-              <section class="mt-10 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="hydro-jetting-next-step">
-                <h2 id="hydro-jetting-next-step" class="text-2xl font-black tracking-tight text-slate-950">Choosing the right drain-cleaning method</h2>
-                <p class="mt-3 leading-7 text-slate-700">The goal is to clear the restriction without using a method that does not fit the pipe or the blockage. A-1 Drain Cleaning assesses the symptoms and line conditions to determine the practical next step.</p>
-                <p class="mt-4 leading-7 text-slate-700">Related information: <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a>, <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a>, and <a href="/services/tree-roots-in-sewer-line/" class="font-bold text-[#b4232b] underline underline-offset-4">tree roots in sewer lines</a>.</p>
-              </section>
-
-              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Hydro jetting in Mason City and North Iowa</h2>
-              <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and North Iowa. When you call, describe whether one drain or several are affected, whether the line has been cleaned before, and whether the problem returns after water begins flowing again. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a> to discuss the drain or sewer problem.</p>
-
-              <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="hydro-jetting-faqs">
-                <h2 id="hydro-jetting-faqs" class="text-3xl font-black tracking-tight text-slate-950">Hydro jetting FAQs</h2>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Does every clogged drain need hydro jetting?</h3>
-                <p class="mt-2 leading-8 text-slate-700">No. Many clogs can be cleared with other equipment. Jetting is considered when the blockage and pipe conditions make it a suitable option.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Can hydro jetting remove tree roots?</h3>
-                <p class="mt-2 leading-8 text-slate-700">Roots may need to be cut with suitable root-cutting equipment. The best method depends on the root blockage and pipe condition; jetting is not a universal substitute for root cutting.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Will hydro jetting repair a cracked or collapsed sewer pipe?</h3>
-                <p class="mt-2 leading-8 text-slate-700">No. Jetting is a cleaning method. A cracked, separated, or collapsed pipe may require repair rather than more cleaning.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">When might a camera inspection help?</h3>
-                <p class="mt-2 leading-8 text-slate-700">It may help when the blockage repeatedly returns or the condition of the line is uncertain and that information would affect the cleaning approach.</p>
-              </section>
+              <p class="mt-5 leading-8 text-slate-700">A drain cable is used to reach and break through or cut certain blockages. Hydro jetting uses pressurized water to clean material from the pipe's interior. The methods do different jobs, and the right choice depends on what is blocking the line and what condition the pipe is in.</p>
             </>
           ) : service.slug === 'basement-floor-drains' ? (
             <>
               <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Floor drain backup help</p>
               <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">When sewage or water comes up through the basement floor drain</h2>
               <p class="mt-6 text-lg leading-8 text-slate-700">A floor drain is often the first place a main drain blockage shows up because it sits low in the house. If wastewater rises through the floor drain when a toilet is flushed, a sink is used, or the washing machine empties, the blockage may be farther down a shared drain line. The floor drain is where you see the backup; it is not automatically where the blockage is.</p>
-              <p class="mt-4 leading-8 text-slate-700">Floor-drain connections and branch-pipe sizes vary by installation. The visible drain grate does not tell you the size or condition of the pipe farther downstream, so a backup should not automatically be treated as a clog right under the grate.</p>
+              <p class="mt-4 leading-8 text-slate-700">Floor-drain connections and branch-pipe sizes vary by installation. The visible drain grate does not tell you the size or condition of the pipe farther downstream.</p>
               <p class="mt-5 text-lg leading-8 text-slate-700">A-1 Drain Cleaning clears floor-drain and main-drain blockages in Mason City and North Iowa. The important clues are when the water rises, which fixtures are being used, and whether other drains are affected too.</p>
-
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">What the floor drain is telling you</h2>
-              <ul class="mt-5 grid gap-3 sm:grid-cols-2">
-                {service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}
-              </ul>
+              <ul class="mt-5 grid gap-3 sm:grid-cols-2">{service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}</ul>
               <h3 class="mt-8 text-2xl font-black tracking-tight text-slate-950">The floor drain rises when the washing machine drains</h3>
-              <p class="mt-3 leading-8 text-slate-700">A washing machine sends a large amount of water into the drain in a short time. If water comes up through the floor drain during the drain cycle, the washer may simply be exposing a restriction farther down the line. Do not keep running wash cycles to test it.</p>
+              <p class="mt-3 leading-8 text-slate-700">A washing machine sends a large amount of water into the drain in a short time. If water comes up through the floor drain during the drain cycle, the washer may simply be exposing a restriction farther down the line.</p>
               <h3 class="mt-8 text-2xl font-black tracking-tight text-slate-950">The floor drain backs up when a toilet is flushed or a sink is used</h3>
-              <p class="mt-3 leading-8 text-slate-700">When one fixture sends water into a restricted shared line, the water can rise at a lower opening. Several affected fixtures can point to a main-drain or sewer-line problem even if the toilet is not bubbling or gurgling.</p>
-              <h3 class="mt-8 text-2xl font-black tracking-tight text-slate-950">The floor drain keeps backing up after it was cleared</h3>
-              <p class="mt-3 leading-8 text-slate-700">A repeat backup may mean the restriction is farther down the system, material is building up again, roots are entering the sewer line, or the pipe has a damaged section. Cleaning can open a blockage, but it does not repair a cracked, separated, or collapsed pipe. A camera inspection may help when the problem keeps returning and the pipe condition needs to be checked.</p>
-
+              <p class="mt-3 leading-8 text-slate-700">When one fixture sends water into a restricted shared line, the water can rise at a lower opening.</p>
               <section class="mt-10 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="floor-drain-backup-steps">
                 <h2 id="floor-drain-backup-steps" class="text-2xl font-black tracking-tight text-slate-950">What to do during an active floor drain backup</h2>
                 <ul class="mt-4 list-disc space-y-2 pl-6 leading-7 text-slate-700">
-                  <li>Stop using water where possible. Do not run the washing machine, dishwasher, shower, or other fixtures while sewage is backing up.</li>
-                  <li>Keep children and pets away from wastewater and avoid direct contact with sewage.</li>
-                  <li>Do not enter standing water if electrical outlets, cords, or equipment may be affected.</li>
-                  <li>When calling, explain where the water is coming up, what was being used at the time, and whether other fixtures are affected.</li>
+                  <li>Stop using water where possible.</li>
+                  <li>Keep children and pets away from wastewater.</li>
+                  <li>Do not enter standing water if electrical equipment may be affected.</li>
+                  <li>Tell us where the water is coming up and what fixtures were being used.</li>
                 </ul>
-                <p class="mt-4 leading-7 text-slate-700">Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a> for A-1 Drain Cleaning. Avoid adding more water to a backed-up drain while arranging service.</p>
+                <p class="mt-4 leading-7 text-slate-700">Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a> for A-1 Drain Cleaning.</p>
               </section>
-
-              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Homes without a basement can have the same sewer problem</h2>
-              <p class="mt-4 leading-8 text-slate-700">In a slab house or a home without a basement floor drain, wastewater may instead back up into a bathtub or shower when the main sewer line is badly restricted. The visible backup point changes, but the underlying blockage may still be in a shared drain or the sewer line leaving the house.</p>
-              <p class="mt-4 leading-8 text-slate-700">Related help: <a href="/services/sewer-backup-into-tub-shower/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer backup into a bathtub or shower</a>, <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a>, and <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a>.</p>
-
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Floor drain backups in Mason City and North Iowa</h2>
-              <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and North Iowa. When you call, tell us whether the floor drain backs up during laundry, when another fixture is used, or even when no water is running. That information helps narrow down whether the problem may be local to the drain or farther down the main line.</p>
-
-              <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="floor-drain-faqs">
-                <h2 id="floor-drain-faqs" class="text-3xl font-black tracking-tight text-slate-950">Floor drain backup questions</h2>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Why does sewage come up through the floor drain first?</h3>
-                <p class="mt-2 leading-8 text-slate-700">The floor drain is low in the house. If a shared drain or main sewer line is blocked, wastewater can rise through that low opening rather than continue out of the house.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Does a backed-up floor drain mean the floor drain itself is clogged?</h3>
-                <p class="mt-2 leading-8 text-slate-700">Not necessarily. The restriction can be in the floor-drain branch, a shared drain line, or the main sewer line. The timing and other affected fixtures help narrow down the likely location.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Why does the backup happen when the washer drains?</h3>
-                <p class="mt-2 leading-8 text-slate-700">The washer releases a large volume of water quickly. A restricted line may handle smaller amounts but back up when the washer empties.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">What if the floor drain backs up again after cleaning?</h3>
-                <p class="mt-2 leading-8 text-slate-700">A recurring backup may need further investigation to check for repeated buildup, roots, or pipe damage. Cleaning restores flow through a blockage but does not repair damaged pipe.</p>
-              </section>
+              <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and North Iowa. When you call, tell us whether the floor drain backs up during laundry, when another fixture is used, or even when no water is running.</p>
             </>
           ) : (
             <>
@@ -323,33 +197,14 @@ const featuredServiceCities = uniqueServiceAreaCities.filter((city) => featuredS
               {service.slug === 'kitchen-bathroom-drains' && (
                 <section class="mt-8 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="fixture-drain-sizes">
                   <h2 id="fixture-drain-sizes" class="text-2xl font-black tracking-tight text-slate-950">Common sink, tub, and shower drain sizes</h2>
-                  <p class="mt-3 leading-7 text-slate-700">Kitchen sinks commonly connect to 1½- or 2-inch drain piping. Bathroom sinks often use 1¼- or 1½-inch piping, while tubs and showers commonly use 1½- or 2-inch drains. Actual sizes vary by fixture, age of the plumbing, and local installation. These are typical pipe sizes—not a diagnosis of where a clog is located.</p>
+                  <p class="mt-3 leading-7 text-slate-700">Kitchen sinks commonly connect to 1½- or 2-inch drain piping. Bathroom sinks often use 1¼- or 1½-inch piping, while tubs and showers commonly use 1½- or 2-inch drains. Actual sizes vary by fixture, age of the plumbing, and local installation.</p>
                 </section>
               )}
               {service.slug === 'toilet-clogs' && (
                 <section class="mt-8 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="toilet-drain-size">
                   <h2 id="toilet-drain-size" class="text-2xl font-black tracking-tight text-slate-950">Typical toilet drain pipe size</h2>
-                  <p class="mt-3 leading-7 text-slate-700">Toilets commonly connect to a 3-inch drain, and some installations use 4-inch piping. A toilet that will not flush may have a clog in the toilet trap, the branch drain, or farther down the main drain. Pipe diameter alone does not identify the blockage location.</p>
+                  <p class="mt-3 leading-7 text-slate-700">Toilets commonly connect to a 3-inch drain, and some installations use 4-inch piping. A toilet that will not flush may have a clog in the toilet trap, the branch drain, or farther down the main drain.</p>
                 </section>
-              )}
-              {service.slug === 'basement-floor-drains' && (
-                <div class="mt-8 border-l-4 border-[#b4232b] bg-slate-50 p-6">
-                  <h2 class="text-2xl font-black tracking-tight text-slate-950">Sewage Coming Up Through Your Basement Floor Drain?</h2>
-                  <p class="mt-3 leading-7 text-slate-700">If water or sewage is coming up through a basement floor drain, the blockage may be farther down the drain system. The floor drain is often where you first see the problem, not necessarily where the blockage is located.</p>
-                  <p class="mt-3 leading-7 text-slate-700">Pay attention to what happens when water is used elsewhere in the house. If the floor drain rises when the washing machine drains, a toilet is flushed, or a sink or tub is used, the restriction may be in a shared drain line or the main sewer line.</p>
-                  <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">What to Do When a Floor Drain Backs Up</h3>
-                  <ul class="mt-3 list-disc space-y-2 pl-6 leading-7 text-slate-700">
-                    <li>Stop using water where possible. Avoid running washing machines, dishwashers, showers, and other fixtures that could add more water to the drain system.</li>
-                    <li>Keep people and pets away from sewage. Wastewater can contain harmful contaminants. Avoid direct contact.</li>
-                    <li>Stay away from electrical equipment in wet areas. Do not enter standing water if electrical equipment or outlets may be affected.</li>
-                    <li>Call A-1 Drain Cleaning. Explain where the water is coming up, what fixtures were being used, and whether more than one drain is affected.</li>
-                  </ul>
-                  <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">What Can Cause a Floor Drain to Back Up?</h3>
-                  <p class="mt-3 leading-7 text-slate-700">The restriction may be in the floor-drain branch, a shared drain line, or the main sewer line leaving the house. The location of the backup and what was happening when it started can help narrow down the cause.</p>
-                  <p class="mt-3 leading-7 text-slate-700">If the washing machine triggers the backup, see <a href="/services/washing-machine-basement-flooding/" class="font-bold text-[#b4232b] underline underline-offset-4">basement flooding when using the washing machine</a>.</p>
-                  <p class="mt-3 leading-7 text-slate-700">If your home does not have a basement and wastewater is backing up into a bathtub or shower, see <a href="/services/sewer-backup-into-tub-shower/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer backups into bathtubs and showers</a>.</p>
-                  <p class="mt-4 leading-7 text-slate-700">A-1 Drain Cleaning serves Mason City and North Iowa. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a> for drain and sewer backup service.</p>
-                </div>
               )}
               {floorDrainClusterSlugs.includes(service.slug) && (
                 <div class="mt-8 border-l-4 border-[#b4232b] bg-slate-50 p-6">
