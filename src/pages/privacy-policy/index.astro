@@ -1,0 +1,77 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'Privacy Policy | A-1 Drain Cleaning';
+const description = 'Privacy Policy for A-1 Drain Cleaning in Mason City, Iowa, covering website information, contact information and third-party website services.';
+---
+
+<MainLayout title={title} description={description} path="/privacy-policy/">
+  <Header />
+  <main id="main">
+    <article class="bg-white py-14 sm:py-20">
+      <div class="container max-w-4xl">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">A-1 Drain Cleaning</p>
+        <h1 class="mt-3 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Privacy Policy</h1>
+        <p class="mt-4 text-slate-600">Last updated: October 18, 2026</p>
+
+        <section class="mt-10 space-y-5 text-lg leading-8 text-slate-700">
+          <p>A-1 Drain Cleaning operates this website for customers looking for drain cleaning and sewer services in Mason City and surrounding North Iowa communities. This policy explains the information that may be handled when you use this website or contact A-1 Drain Cleaning.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-black text-slate-950">Information you provide</h2>
+          <p class="mt-3 text-lg leading-8 text-slate-700">The website currently does not use an online customer account or payment form. If you contact A-1 Drain Cleaning by phone, you may choose to provide information such as your name, phone number, service address, and details about the drain or sewer problem. That information is used to respond to your request and arrange or discuss service.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-black text-slate-950">Website and technical information</h2>
+          <p class="mt-3 text-lg leading-8 text-slate-700">A-1 Drain Cleaning's website is hosted as a static site on GitHub Pages. Web hosting and connected services can process technical information such as IP addresses, browser information, device information, requested pages, and timestamps as part of operating and securing the service.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-black text-slate-950">Google Tag Manager</h2>
+          <p class="mt-3 text-lg leading-8 text-slate-700">This website currently loads Google Tag Manager. Tag Manager is used to manage website tags. Depending on the tags configured in the container, those tags may send website or technical information to third-party services. A-1 Drain Cleaning does not use this policy to claim that no analytics or other third-party tags operate; the information collected depends on the tags actually configured.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-black text-slate-950">How information is used</h2>
+          <ul class="mt-3 list-disc space-y-2 pl-6 text-lg leading-8 text-slate-700">
+            <li>To respond to service inquiries and phone calls.</li>
+            <li>To arrange, discuss, or provide drain and sewer service.</li>
+            <li>To operate, maintain, measure, and secure the website.</li>
+            <li>To comply with legal obligations when required.</li>
+          </ul>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-black text-slate-950">Information sharing</h2>
+          <p class="mt-3 text-lg leading-8 text-slate-700">A-1 Drain Cleaning does not sell customer contact information. Information may be provided to service providers or third parties when they are needed to operate the website, provide a requested service, process or measure website activity, or comply with law. A-1 Drain Cleaning does not ask customers to submit payment card numbers, Social Security numbers, passwords, or other highly sensitive information through this website.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-black text-slate-950">Third-party websites and services</h2>
+          <p class="mt-3 text-lg leading-8 text-slate-700">The website may link to or embed services operated by other companies. Those companies may have their own privacy policies and terms. Their handling of information is governed by their own policies, not this one.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-black text-slate-950">Data security</h2>
+          <p class="mt-3 text-lg leading-8 text-slate-700">The website is served over HTTPS. A-1 Drain Cleaning also limits the information requested through the website to what is needed for the site and service inquiry process. No website can be promised to be completely secure, so do not send passwords, payment card numbers, Social Security numbers, or other sensitive information through a website contact channel.</p>
+        </section>
+
+        <section class="mt-10">
+          <h2 class="text-2xl font-black text-slate-950">Contact</h2>
+          <address class="mt-3 not-italic text-lg leading-8 text-slate-700">
+            A-1 Drain Cleaning<br>
+            206 29th St SW<br>
+            Mason City, Iowa 50401<br>
+            <a class="font-black text-[#b4232b] underline" href="tel:+16415302728">641-530-2728</a>
+          </address>
+          <p class="mt-4 text-lg leading-8 text-slate-700">Questions about this policy can be directed to A-1 Drain Cleaning by phone.</p>
+        </section>
+      </div>
+    </article>
+  </main>
+  <Footer />
+</MainLayout>
