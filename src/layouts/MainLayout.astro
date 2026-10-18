@@ -173,7 +173,14 @@ const schema = { '@context': 'https://schema.org' as const, '@graph': graph };
   <a class="skip" href="#main">Skip to content</a>
   <slot />
   <div class="fixed bottom-0 left-0 right-0 z-50 border-t border-slate-300 bg-white p-3 md:hidden">
-    <a class="call-button block min-h-12 rounded-md bg-[#b4232b] px-4 py-3 text-center font-black text-white" href={`tel:${business.phone.tel}`}>CALL {business.phone.formatted}</a>
+    <a class="bottom-call-cta call-button block min-h-12 rounded-md bg-[#b4232b] px-4 py-3 text-center font-black text-white" href={`tel:${business.phone.tel}`}>CALL {business.phone.formatted}</a>
   </div>
+  <style>
+    .bottom-call-cta {
+      border-top: 1px solid #ffffff;
+      border-bottom: 1px solid #ffffff;
+      box-shadow: 0 -2px 0 #1A1A68, 0 2px 0 #1A1A68, 0 1px 4px rgba(0, 0, 0, 0.08);
+    }
+  </style>
 </body>
 </html>
