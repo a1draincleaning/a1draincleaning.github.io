@@ -11,6 +11,7 @@ const assets = [
   { source: join(dist, 'images', 'floor-drain-backing-up-iowa.jpg'), publicUrl: '/images/floor-drain-backing-up-iowa.jpg', output: join(optimizedDir, 'floor-drain-backing-up-iowa.webp'), optimizedUrl: '/images/optimized/floor-drain-backing-up-iowa.webp' },
   { source: join(dist, 'images', 'iowa-drain-cleaning-a1-drain-cleaning.png'), publicUrl: '/images/iowa-drain-cleaning-a1-drain-cleaning.png', output: join(optimizedDir, 'iowa-drain-cleaning-a1-drain-cleaning.webp'), optimizedUrl: '/images/optimized/iowa-drain-cleaning-a1-drain-cleaning.webp' },
   { source: join(dist, 'images', 'tree-root-removal-mason-city-iowa.jpg'), publicUrl: '/images/tree-root-removal-mason-city-iowa.jpg', output: join(optimizedDir, 'tree-root-removal-mason-city-iowa.webp'), optimizedUrl: '/images/optimized/tree-root-removal-mason-city-iowa.webp' },
+  { source: join(dist, 'images', 'trusted-local-service-iowa.png'), publicUrl: '/images/trusted-local-service-iowa.png', output: join(optimizedDir, 'trusted-local-service-iowa.webp'), optimizedUrl: '/images/optimized/trusted-local-service-iowa.webp' },
 ];
 
 function htmlFiles(dir) {
