@@ -94,3 +94,10 @@ a {
 .skip:focus {
   left: 8px;
 }
+
+/* A-1 blue UI blocks always use white lettering. */
+[class~="bg-[#1A1A68]"],
+[class~="bg-[#1A1A68]"]:hover,
+[class~="bg-[#1A1A68]"]:focus-visible {
+  color: #fff !important;
+}
