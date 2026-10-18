@@ -35,9 +35,10 @@ a {
   letter-spacing: -0.055em;
 }
 
+/* All phone-call CTAs are red sitewide. */
 .call-button {
   color: #fff !important;
-  background: #1A1A68 !important;
+  background: #b4232b !important;
   border-radius: 0.65rem;
   font-family: 'Arial Black', Arial, Helvetica, sans-serif;
   font-weight: 900;
@@ -46,11 +47,12 @@ a {
 
 .call-button:hover {
   color: #fff !important;
-  background: #141451 !important;
+  background: #951d24 !important;
 }
 
 .call-button:focus-visible {
   color: #fff !important;
+  background: #b4232b !important;
   outline: 2px solid #1A1A68;
   outline-offset: 2px;
 }
