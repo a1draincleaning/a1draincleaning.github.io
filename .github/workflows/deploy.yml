@@ -30,8 +30,14 @@ jobs:
       - name: Install dependencies
         run: npm install --ignore-scripts --no-audit --no-fund
 
+      - name: Install image optimizer
+        run: npm install sharp --no-save --ignore-scripts --no-audit --no-fund
+
       - name: Build Astro site
         run: npm run build
+
+      - name: Optimize oversized deployed images
+        run: node scripts/optimize-deployed-images.mjs
 
       - name: Remove retired duplicate routes
         run: node scripts/prune-retired-routes.mjs
