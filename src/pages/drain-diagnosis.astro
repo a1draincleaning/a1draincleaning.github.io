@@ -1,20 +1,12 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
 const title = "What's Causing Your Drain Problem? | A-1 Drain Cleaning, Mason City";
 const description = "Answer a few questions about a basement floor drain backing up, a sewer backup in the basement, or a slow drain. A-1 Drain Cleaning in Mason City, Iowa helps you see what those symptoms usually point toward.";
 ---
 <MainLayout title={title} description={description} path="/drain-diagnosis/">
+  <Header compact />
   <a href="#quiz" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-30 focus:bg-card focus:px-4 focus:py-2 focus:text-navy">Skip to the quiz</a>
-  <header class="sticky top-0 z-20 border-b-2 border-[#1A1A68] bg-white">
-    <div class="mx-auto flex max-w-5xl items-center justify-between gap-4 px-4 py-2">
-      <a href="/" class="flex min-h-10 shrink-0 flex-col items-center leading-none text-[#1A1A68]" aria-label="A-1 Drain Cleaning home">
-        <img src="/a1-logo.svg" alt="A-1 Drain Cleaning" width="768" height="256" fetchpriority="high" loading="eager" decoding="async" class="block h-auto w-[8.5rem] sm:w-[10rem]" />
-        <span class="brand-slab mt-1 block text-center text-xl font-black uppercase tracking-[-0.05em] text-[#1A1A68] sm:text-2xl">DRAIN CLEANING</span>
-        <span class="brand-slab mt-1 block text-center text-xs font-black uppercase tracking-[-0.03em] text-[#1A1A68] sm:text-sm">MASON CITY, IOWA</span>
-      </a>
-      <a href="tel:+16415302728" class="header-call-cta flex min-h-10 shrink-0 items-center justify-center rounded-md bg-[#b4232b] px-4 py-2 text-sm font-black text-white shadow-sm sm:px-5 sm:text-base" aria-label="CALL 641-530-2728">CALL 641-530-2728</a>
-    </div>
-  </header>
   <main>
     <div class="mx-auto grid max-w-5xl gap-8 px-4 py-8 sm:py-12 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-12">
       <div class="lg:sticky lg:top-28 lg:self-start">
