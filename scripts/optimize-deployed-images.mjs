@@ -6,7 +6,6 @@ const dist = join(process.cwd(), 'dist');
 const optimizedDir = join(dist, 'images', 'optimized');
 
 const assets = [
-  { source: join(dist, 'local-drain-cleaning-iowa.png'), publicUrl: '/local-drain-cleaning-iowa.png', output: join(optimizedDir, 'local-drain-cleaning-iowa.webp'), optimizedUrl: '/images/optimized/local-drain-cleaning-iowa.webp' },
   { source: join(dist, 'images', 'a1-main-sewer-drain-cleaning-mason-city.webp'), publicUrl: '/images/a1-main-sewer-drain-cleaning-mason-city.webp', output: join(optimizedDir, 'a1-main-sewer-drain-cleaning-mason-city.webp'), optimizedUrl: '/images/optimized/a1-main-sewer-drain-cleaning-mason-city.webp', fallback: join(dist, 'images', 'sewer-drain-mason-city-iowa.jpg'), forceFallback: true },
   { source: join(dist, 'images', 'floor-drain-backing-up-iowa.jpg'), publicUrl: '/images/floor-drain-backing-up-iowa.jpg', output: join(optimizedDir, 'floor-drain-backing-up-iowa.webp'), optimizedUrl: '/images/optimized/floor-drain-backing-up-iowa.webp' },
   { source: join(dist, 'images', 'iowa-drain-cleaning-a1-drain-cleaning.png'), publicUrl: '/images/iowa-drain-cleaning-a1-drain-cleaning.png', output: join(optimizedDir, 'iowa-drain-cleaning-a1-drain-cleaning.webp'), optimizedUrl: '/images/optimized/iowa-drain-cleaning-a1-drain-cleaning.webp' },
