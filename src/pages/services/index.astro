@@ -5,6 +5,7 @@ import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 import { services } from '../../data/services';
 import { featuredServiceSlugs } from '../../data/serviceGroups';
+import '../../data/servicePageConfig';
 
 const featured = services.filter(({ slug }) => featuredServiceSlugs.includes(slug as typeof featuredServiceSlugs[number]));
 const additional = services.filter(({ slug }) => !featured.some((service) => service.slug === slug));
@@ -12,7 +13,7 @@ const symptomGuides = [
   { title: 'Sewage or water coming up through a basement floor drain', explanation: 'The floor drain may be where a blockage farther down the shared drain or main sewer line becomes visible. Stop using water while it is backing up.', service: 'basement-floor-drains', link: 'Floor drain backup help' },
   { title: 'Bathtub or shower backing up in a home without a basement', explanation: 'A blocked main drain or sewer line can force wastewater into a low fixture such as a tub or shower. Avoid flushing or running water until the backup is addressed.', service: 'sewer-backup-into-tub-shower', link: 'Bathtub and shower sewer backups' },
   { title: 'Several fixtures are slow or backing up together', explanation: 'When sinks, toilets, tubs, or floor drains are affected at the same time, the restriction may be in a shared branch or the main drain rather than one fixture.', service: 'main-drain-cleaning', link: 'Main drain cleaning' },
-  { title: 'Washing machine drains and water spills onto the floor', explanation: 'The washer releases water quickly, which can expose a restriction in the laundry drain or a shared line farther downstream.', service: 'washing-machine-basement-flooding', link: 'Washing machine drain backups' },
+  { title: 'Washing machine drains and water spills onto the floor', explanation: 'The washer releases water quickly, which can expose a restriction in the laundry drain or a shared line farther downstream.', service: 'laundry-drains', link: 'Laundry and washing machine drain help' },
   { title: 'One sink, tub, or shower drains slowly', explanation: 'A single slow fixture often points to buildup close to that drain. If several fixtures are affected, the problem may be farther down the system.', service: 'kitchen-bathroom-drains', link: 'Kitchen and bathroom drains' },
   { title: 'The same sewer line keeps plugging up', explanation: 'Repeated blockages can be caused by roots, buildup, or a damaged pipe. Clearing the line opens the path, but recurring problems may need further investigation.', service: 'tree-roots-in-sewer-line', link: 'Tree roots in sewer lines' }
 ];
