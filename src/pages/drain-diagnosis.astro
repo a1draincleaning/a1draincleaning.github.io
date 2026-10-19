@@ -1,1 +1,46 @@
-PLACEHOLDER
+---
+import MainLayout from '../layouts/MainLayout.astro';
+const title = "What's Causing Your Drain Problem? | A-1 Drain Cleaning, Mason City";
+const description = "Answer a few questions about a basement floor drain backing up, a sewer backup in the basement, or a slow drain. A-1 Drain Cleaning in Mason City, Iowa helps you see what those symptoms usually point toward.";
+---
+<MainLayout title={title} description={description} path="/drain-diagnosis/">
+  <a href="#quiz" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-30 focus:bg-card focus:px-4 focus:py-2 focus:text-navy">Skip to the quiz</a>
+  <header class="sticky top-0 z-20 border-b border-navy-deep bg-navy text-inverse">
+    <div class="mx-auto flex max-w-5xl items-center justify-between gap-3 px-4 py-3">
+      <div><p class="font-display text-3xl leading-none tracking-wide">A-1</p><p class="font-display text-sm leading-none tracking-[0.16em] text-inverse/80">DRAIN CLEANING</p><p class="mt-1 text-xs text-inverse/75">Mason City, Iowa</p></div>
+      <a href="tel:+16415302728" class="inline-flex min-h-12 shrink-0 items-center gap-2 bg-accent px-3 text-base font-semibold text-inverse no-underline hover:bg-accent-dark sm:px-4">641-530-2728</a>
+    </div>
+  </header>
+  <main>
+    <div class="mx-auto grid max-w-5xl gap-8 px-4 py-8 sm:py-12 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-12">
+      <div class="lg:sticky lg:top-28 lg:self-start">
+        <p class="text-sm font-semibold tracking-wide text-navy uppercase">Drain &amp; sewer symptoms · North Iowa</p>
+        <h1 class="mt-2 font-display text-5xl leading-none tracking-wide text-navy uppercase sm:text-6xl">What’s Causing Your Drain Problem?</h1>
+        <p class="mt-4 text-lg leading-relaxed text-ink">Answer a few questions about what you’re seeing. We’ll narrow down the most likely cause and tell you what to check next.</p>
+        <p class="mt-3 text-base leading-relaxed text-muted">Nine questions. No typing. You can go back and change an answer. This will not price the job or promise a repair.</p>
+        <p class="mt-5 border-l-4 border-accent py-1 pl-4 text-base leading-relaxed text-ink">If sewage is already coming up through a basement floor drain, stop using water and call <a class="font-semibold text-navy underline" href="tel:+16415302728">641-530-2728</a>.</p>
+      </div>
+      <section id="quiz" class="scroll-mt-24 rounded-card bg-card shadow-card" aria-labelledby="question-title">
+        <div class="border-b border-line px-4 py-4 sm:px-6"><p id="quiz-progress" class="text-sm font-semibold tracking-wide text-navy uppercase">Question 1 of 9</p><div class="mt-3 h-1.5 bg-line" role="progressbar" aria-valuemin="1" aria-valuemax="9" aria-valuenow="1" aria-labelledby="quiz-progress"><div id="quiz-bar" class="h-full bg-navy" style="width:11.1111%"></div></div></div>
+        <div id="quiz-content" class="px-4 py-5 sm:px-6 sm:py-6"></div>
+      </section>
+    </div>
+    <section class="border-t border-line bg-card" aria-labelledby="symptoms-heading">
+      <div class="mx-auto grid max-w-5xl gap-8 px-4 py-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,.9fr)] lg:items-start">
+        <div>
+          <h2 id="symptoms-heading" class="font-display text-4xl tracking-wide text-navy uppercase">What homeowners in Mason City usually notice</h2>
+          <div class="mt-6 grid gap-6 text-base leading-relaxed text-ink">
+            <article><h3 class="text-xl font-semibold text-navy">Basement floor drain backing up</h3><p class="mt-2">A basement floor drain backing up is one of the more common sewer calls in Mason City and the towns around it. That drain sits at the low point of the house. When the main line will not take water, this is often where it shows — sometimes only when the washer runs, sometimes as water coming up from the basement floor along with a toilet that will not flush.</p></article>
+            <article><h3 class="text-xl font-semibold text-navy">Sewer backup in the basement</h3><p class="mt-2">A sewer backup in the basement is not a slow sink you can wait on. Dirty water on the floor means the line is already full. Stop using water so you are not sending more into it. An emergency sewer backup — sewage coming up right now — is the situation to treat as urgent and call about, not to keep testing with another load of laundry.</p></article>
+            <article><h3 class="text-xl font-semibold text-navy">Main sewer drain clogged</h3><p class="mt-2">A main sewer drain clogged usually shows up in more than one fixture. The tub gurgles when the washer drains. The basement floor drain and a toilet act up together. A single bathroom sink that drains slowly, with everything else fine, is often just that sink. Sewer line cleaning is for the line that serves the house, not for every clogged lavatory.</p></article>
+            <article><h3 class="text-xl font-semibold text-navy">Tree roots in the sewer line</h3><p class="mt-2">Tree roots in a sewer line are a regular find where the pipes and the trees are both old. Roots enter at a joint, catch paper and grease, and the backup returns after a basic cabling. That is when root cutting and a camera inspection tell you more than another quick pass with a cable. A slow basement floor drain that gets worse every few months is worth looking at before it becomes a full backup.</p></article>
+            <p>Drain cleaning in Mason City, Iowa covers both of those jobs: the one fixture, and the main line. A-1 Drain Cleaning does this work for houses in Mason City and surrounding North Iowa. The quiz above uses the same kind of questions a technician asks first. It is not a camera, and it is not a quote.</p>
+          </div>
+        </div>
+        <figure class="lg:sticky lg:top-28"><img src="/images/floor-drain.jpg" alt="Basement floor drain in a concrete floor, with a small amount of water around the grate and a laundry sink behind it." width="1400" height="933" loading="lazy" class="w-full bg-paper object-cover outline outline-1 -outline-offset-1 outline-navy/15" /><figcaption class="mt-3 text-sm leading-relaxed text-muted">A basement floor drain is often the first place a main-line backup shows up, because it is the lowest opening in the house.</figcaption></figure>
+      </div>
+    </section>
+  </main>
+  <footer class="bg-navy-deep text-inverse"><div class="mx-auto grid max-w-5xl gap-6 px-4 py-10 sm:grid-cols-2"><div><p class="font-display text-4xl leading-none tracking-wide">A-1</p><p class="font-display text-lg tracking-[0.14em]">DRAIN CLEANING</p><p class="mt-3 text-base leading-relaxed text-inverse/85">Mason City, Iowa<br />206 29th St SW<br />Mason City, IA 50401</p></div><div class="sm:text-right"><a class="text-2xl font-semibold text-inverse underline" href="tel:+16415302728">641-530-2728</a><p class="mt-3 text-base leading-relaxed text-inverse/85">Serving Mason City and surrounding North Iowa — Clear Lake, Charles City, Forest City, Garner, and nearby towns.</p></div></div></footer>
+  <script src="/drain-diagnosis.js"></script>
+</MainLayout>
