@@ -8,6 +8,11 @@ interface Props {
 const { showForm = false } = Astro.props;
 const showServiceCities = Astro.url.pathname.startsWith('/services/');
 const servicePageImages: Record<string, { src: string; alt: string; caption: string }> = {
+  '/services/bathroom-shower-drains/': {
+    src: '/images/clogged-bathtub-drain-mason-city-iowa.webp',
+    alt: 'Clogged bathtub drain in Mason City, Iowa',
+    caption: 'Clogged bathtub drain in Mason City, Iowa.'
+  },
   '/services/tree-roots-in-sewer-line/': {
     src: '/images/tree-root-removal-mason-city-iowa.jpg',
     alt: 'Tree roots removed from a sewer line in Mason City, Iowa',
