@@ -86,7 +86,7 @@ const serviceDetailAdditions: Record<string, string[]> = {
     'A main drain problem can show up as a main sewer pipe clogged, a house drain line backup, or all drains backing up in the house. If the sink, toilet, and tub are backed up together, the restriction is more likely to be in a shared drain or main line than in one fixture. A sewer clean out can provide access to the line, but its location and condition vary by property.',
   ],
   'sewer-line-cleaning': [
-    'A sewer line overflow can look like a basement drain backing up, a sewer backup in the house, or several fixtures losing drainage at once. When a main sewer pipe is clogged, wastewater may return through the lowest available fixture. The affected fixtures and timing help narrow the problem, while the actual blockage location depends on the property's drain layout.',
+    'A sewer line overflow can look like a basement drain backing up, a sewer backup in the house, or several fixtures losing drainage at once. When a main sewer pipe is clogged, wastewater may return through the lowest available fixture. The affected fixtures and timing help narrow the problem, while the actual blockage location depends on the property’s drain layout.',
   ],
   'laundry-drains': [
     'A washing machine drain backing up can send water into the kitchen sink, bathtub, shower, toilet, standpipe, or basement floor drain depending on how the house is piped. If water comes up the sink when the washing machine is on, or the washer backs up into another fixture, the washer may be exposing a restriction in a shared or downstream drain line rather than having a problem with the appliance itself.',
