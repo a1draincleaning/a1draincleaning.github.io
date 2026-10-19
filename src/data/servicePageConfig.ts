@@ -78,6 +78,38 @@ export const serviceKeywordPhrases: Record<string, string[]> = {
   ],
 };
 
+const serviceDetailAdditions: Record<string, string[]> = {
+  'basement-floor-drains': [
+    'People describe this problem in different ways: a basement floor drain clogged, a basement floor drain backing up, water coming up through the basement floor drain, or sewage coming up the basement drain. The important clue is what else happens when water is used. If the floor drain overflows when the washer drains, the washer may be exposing a restriction farther down the line rather than causing the blockage itself.',
+  ],
+  'main-drain-cleaning': [
+    'A main drain problem can show up as a main sewer pipe clogged, a house drain line backup, or all drains backing up in the house. If the sink, toilet, and tub are backed up together, the restriction is more likely to be in a shared drain or main line than in one fixture. A sewer clean out can provide access to the line, but its location and condition vary by property.',
+  ],
+  'sewer-line-cleaning': [
+    'A sewer line overflow can look like a basement drain backing up, a sewer backup in the house, or several fixtures losing drainage at once. When a main sewer pipe is clogged, wastewater may return through the lowest available fixture. The affected fixtures and timing help narrow the problem, while the actual blockage location depends on the property's drain layout.',
+  ],
+  'laundry-drains': [
+    'A washing machine drain backing up can send water into the kitchen sink, bathtub, shower, toilet, standpipe, or basement floor drain depending on how the house is piped. If water comes up the sink when the washing machine is on, or the washer backs up into another fixture, the washer may be exposing a restriction in a shared or downstream drain line rather than having a problem with the appliance itself.',
+  ],
+  'kitchen-bathroom-drains': [
+    'Kitchen and bathroom drain problems can start with a slow sink and progress to a complete backup. If a kitchen sink will not drain, the kitchen drain line may have a local restriction. A bathroom sink that is backing up, a shower that will not drain, or a shower drain that is backing up can also point to a branch-drain problem. When the tub backs up when the washing machine drains, the problem may be farther down a shared line.',
+  ],
+};
+
+for (const [slug, phrases] of Object.entries(serviceKeywordPhrases)) {
+  const service = services.find((item) => item.slug === slug);
+  if (service) {
+    service.problems = [...new Set([...service.problems, ...phrases])];
+  }
+}
+
+for (const [slug, additions] of Object.entries(serviceDetailAdditions)) {
+  const service = services.find((item) => item.slug === slug);
+  if (service) {
+    service.details = [...service.details, ...additions.filter((detail) => !service.details.includes(detail))];
+  }
+}
+
 export const relatedServiceSlugs: Record<string, string[]> = {
   'main-drain-cleaning': ['sewer-line-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
   'sewer-line-cleaning': ['main-drain-cleaning', 'tree-roots-in-sewer-line', 'basement-floor-drains'],
