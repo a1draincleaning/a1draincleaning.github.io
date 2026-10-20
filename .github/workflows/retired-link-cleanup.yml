@@ -1,4 +1,4 @@
-name: One-Time Retired Link Cleanup
+name: One-Time Canonical Architecture Cleanup
 
 on:
   push:
@@ -6,7 +6,6 @@ on:
 
 permissions:
   contents: write
-  actions: write
 
 jobs:
   cleanup:
@@ -16,33 +15,114 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Replace retired internal links
+      - name: Correct canonical schema and internal links
         run: |
           python - <<'PY'
           from pathlib import Path
+          import re
 
-          service = Path('src/pages/services/[slug].astro')
-          text = service.read_text()
-          text = text.replace('/services/drain-repair/', '/pipe-repair/')
-          text = text.replace('/services/washing-machine-basement-flooding/', '/services/laundry-drains/')
-          text = text.replace('basement flooding when using the washing machine', 'laundry and washing machine drain problems')
-          service.write_text(text)
+          def replace_once(path, old, new):
+              p = Path(path)
+              text = p.read_text()
+              if old not in text:
+                  raise SystemExit(f'Missing expected text in {path}: {old!r}')
+              p.write_text(text.replace(old, new, 1))
 
-          iowa = Path('src/pages/iowa-drain-cleaning/index.astro')
-          text = iowa.read_text().replace('/service-area/mason-city/', '/mason-city-drain-cleaning/')
-          iowa.write_text(text)
+          # MainLayout: make the JSON-LD breadcrumb label match the visible breadcrumb.
+          p = Path('src/layouts/MainLayout.astro')
+          text = p.read_text()
+          text = text.replace(
+              "  city?: { name: string; counties: string[] };\n",
+              "  city?: { name: string; counties: string[] };\n  breadcrumbLabel?: string;\n",
+              1,
+          )
+          text = text.replace(
+              "const { title, description, path = '/', service, city } = Astro.props;",
+              "const { title, description, path = '/', service, city, breadcrumbLabel } = Astro.props;",
+              1,
+          )
+          text = text.replace(
+              "...(service ? [{ '@type': 'ListItem', position: 3, name: service.title, item: canonical }] : path === '/services/' ? [] : [{ '@type': 'ListItem', position: 3, name: title.replace(' | A-1 Drain Cleaning', ''), item: canonical }])",
+              "...(service ? [{ '@type': 'ListItem', position: 3, name: service.title, item: canonical }] : path === '/services/' ? [] : [{ '@type': 'ListItem', position: 3, name: breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''), item: canonical }])",
+              1,
+          )
+          text = text.replace(
+              "{ '@type': 'ListItem', position: 3, name: title.replace(' | A-1 Drain Cleaning', ''), item: canonical }\n      ] : [{\n        '@type': 'ListItem', position: 2,\n        name: path === '/service-area/' ? 'Areas We Serve' : title.replace(' | A-1 Drain Cleaning', ''),\n        item: canonical",
+              "{ '@type': 'ListItem', position: 3, name: breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''), item: canonical }\n      ] : [{\n        '@type': 'ListItem', position: 2,\n        name: path === '/service-area/' ? 'Areas We Serve' : breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''),\n        item: canonical",
+              1,
+          )
+          p.write_text(text)
+
+          # Canonical kitchen/bathroom pages must participate in the same Service schema architecture.
+          kitchen = Path('src/pages/services/kitchen-drains/index.astro')
+          text = kitchen.read_text()
+          replace_old = '<MainLayout title={title} description={description} path="/services/kitchen-drains/">'
+          replace_new = '<MainLayout title={title} description={description} path="/services/kitchen-drains/" breadcrumbLabel="Kitchen Drains" service={{ title: \'Kitchen Drain Cleaning & Garbage Disposal Service\', description }}>'
+          if replace_old not in text:
+              raise SystemExit('Kitchen MainLayout call not found')
+          kitchen.write_text(text.replace(replace_old, replace_new, 1))
+
+          bathroom = Path('src/pages/services/bathroom-shower-drains/index.astro')
+          text = bathroom.read_text()
+          replace_old = '<MainLayout title={title} description={description} path="/services/bathroom-shower-drains/">'
+          replace_new = '<MainLayout title={title} description={description} path="/services/bathroom-shower-drains/" breadcrumbLabel="Bathroom & Shower Drains" service={{ title: \'Bathroom & Shower Drain Cleaning\', description }}>'
+          if replace_old not in text:
+              raise SystemExit('Bathroom MainLayout call not found')
+          bathroom.write_text(text.replace(replace_old, replace_new, 1))
+
+          # City pages: schema breadcrumb must match the visible city breadcrumb.
+          city = Path('src/pages/service-area/[slug].astro')
+          text = city.read_text()
+          text = text.replace(
+              "  'kitchen-bathroom-drains',",
+              "  'bathroom-shower-drains',",
+          )
+          old = '<MainLayout title={title} description={description} path={`/service-area/${city.slug}/`} city={city}>'
+          new = '<MainLayout title={title} description={description} path={`/service-area/${city.slug}/`} city={city} breadcrumbLabel={city.name}>'
+          if old not in text:
+              raise SystemExit('Service-area MainLayout call not found')
+          city.write_text(text.replace(old, new, 1))
+
+          # The dynamic service generator must never generate retired canonical routes.
+          service_page = Path('src/pages/services/[slug].astro')
+          text = service_page.read_text()
+          old = "export function getStaticPaths() {\n  return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));\n}"
+          new = "const retiredServiceSlugs = new Set([\n  'drain-repair',\n  'washing-machine-basement-flooding',\n  'kitchen-bathroom-drains',\n]);\n\nexport function getStaticPaths() {\n  return services\n    .filter((service) => !retiredServiceSlugs.has(service.slug))\n    .map((service) => ({ params: { slug: service.slug }, props: { service } }));\n}"
+          if old not in text:
+              raise SystemExit('Dynamic service getStaticPaths block not found')
+          text = text.replace(old, new, 1)
+          text = text.replace("service.slug === 'kitchen-bathroom-drains'", "service.slug === 'bathroom-shower-drains'")
+          service_page.write_text(text)
+
+          # Service configuration: stop treating the retired combined kitchen/bathroom record as the canonical bathroom page.
+          config = Path('src/data/servicePageConfig.ts')
+          text = config.read_text()
+          text, removed = re.subn(
+              r"\nconst bathroomDrainService = services\.find\(\(service\) => service\.slug === 'kitchen-bathroom-drains'\);\nif \(bathroomDrainService\) \{.*?\n\}\n",
+              "\n",
+              text,
+              count=1,
+              flags=re.S,
+          )
+          if removed != 1:
+              raise SystemExit('Retired bathroom compatibility block not found')
+          text = text.replace("'kitchen-bathroom-drains'", "'bathroom-shower-drains'")
+          config.write_text(text)
+
+          # Existing one-time workflow is no longer needed after this source correction.
+          Path('.github/workflows/retired-link-cleanup.yml').unlink()
           PY
 
-      - name: Commit source cleanup and remove temporary workflow
+      - name: Validate changed source
+        run: |
+          grep -R "kitchen-bathroom-drains" src/data/servicePageConfig.ts src/pages/services/[slug].astro src/pages/service-area/[slug].astro && exit 1 || true
+          grep -R "breadcrumbLabel" src/layouts/MainLayout.astro src/pages/services/kitchen-drains/index.astro src/pages/services/bathroom-shower-drains/index.astro src/pages/service-area/[slug].astro
+
+      - name: Commit source correction and remove temporary workflow
         run: |
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add -- 'src/pages/services/[slug].astro' 'src/pages/iowa-drain-cleaning/index.astro' '.github/workflows/retired-link-cleanup.yml'
+          git add -- 'src/layouts/MainLayout.astro' 'src/data/servicePageConfig.ts' 'src/pages/services/[slug].astro' 'src/pages/services/kitchen-drains/index.astro' 'src/pages/services/bathroom-shower-drains/index.astro' 'src/pages/service-area/[slug].astro' '.github/workflows/retired-link-cleanup.yml'
           git diff --cached --quiet && exit 0
-          git commit -m 'Remove retired internal links'
+          git commit -m 'Fix canonical schema and internal links'
           git push
-
-      - name: Deploy corrected source
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh workflow run deploy.yml --ref main
