@@ -32,9 +32,13 @@ const title =
 const description =
   servicePageDescriptions[service.slug] ??
   `${service.description} A-1 Drain Cleaning serves Mason City and North Iowa. Call 641-530-2728.`;
+const canonicalServiceLinks = new Map([
+  ['kitchen-drains', { slug: 'kitchen-drains', title: 'Kitchen Drains' }],
+  ['bathroom-shower-drains', { slug: 'bathroom-shower-drains', title: 'Bathroom & Shower Drains' }],
+]);
 const relatedServices = (relatedServiceSlugs[service.slug] || [])
-  .map((slug) => services.find((item) => item.slug === slug))
-  .filter((item): item is typeof services[number] => Boolean(item));
+  .map((slug) => services.find((item) => item.slug === slug) ?? canonicalServiceLinks.get(slug))
+  .filter((item): item is { slug: string; title: string } => Boolean(item));
 const featuredServiceCities = uniqueServiceAreaCities.filter((city) => featuredServiceCitySlugs.includes(city.slug));
 ---
 

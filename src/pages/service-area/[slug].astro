@@ -128,17 +128,24 @@ const title = city.slug === 'mason-city'
 const description = localContent
   ? `A-1 Drain Cleaning serves ${city.name}, Iowa for clogged drains, floor drain backups, main drain cleaning and sewer-line blockages. Call 641-530-2728.`
   : `A-1 Drain Cleaning serves ${city.name}, Iowa for drain cleaning, main drain and sewer line cleaning, floor drain backups, sewer backups and related drain problems. Call 641-530-2728.`;
-const coreServices = services.filter((service) => [
+const coreServiceSlugs = [
   'main-drain-cleaning',
   'sewer-line-cleaning',
   'tree-roots-in-sewer-line',
   'basement-floor-drains',
-  'bathroom-shower-drains',
   'toilet-clogs',
   'laundry-drains',
   'sewer-backup-emergency',
   'hydro-jetting'
-].includes(service.slug));
+];
+const coreServices = [
+  ...services.filter((service) => coreServiceSlugs.includes(service.slug)),
+  {
+    slug: 'bathroom-shower-drains',
+    title: 'Bathroom & Shower Drains',
+    description: 'Bathroom sink, shower, and bathtub drain cleaning for slow, clogged, or backing-up drains.'
+  }
+];
 const nearbyCities = uniqueServiceAreaCities
   .filter((item) => item.slug !== city.slug && item.counties.some((county) => city.counties.includes(county)))
   .slice(0, 12);
