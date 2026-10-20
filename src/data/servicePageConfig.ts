@@ -34,7 +34,7 @@ export const servicePageTitles: Record<string, string> = {
 
 export const servicePageDescriptions: Record<string, string> = {
   'basement-floor-drains': 'Basement floor drain backing up or sewage coming up through the drain? A-1 Drain Cleaning clears floor and main drain blockages in North Iowa.',
-  'main-drain-cleaning': 'Main drain clogged or several drains backing up? A-1 Drain Cleaning clears main drain blockages in Mason City and North Iowa.',
+  'main-drain-cleaning': 'Main drain line clogged or several drains backing up? A-1 Drain Cleaning clears house main drain blockages in Mason City and North Iowa.',
   'sewer-line-cleaning': 'Main sewer pipe clogged or several fixtures backing up? A-1 Drain Cleaning clears residential sewer line blockages in North Iowa.',
   'laundry-drains': 'Washing machine drain backing up or water flooding the basement? A-1 Drain Cleaning clears laundry and washer drain lines in North Iowa.',
   'bathroom-shower-drains': 'Bathroom sink, shower, or bathtub drain clogged, slow, or backing up? A-1 Drain Cleaning clears bathroom drain problems in Mason City and North Iowa.',
@@ -62,15 +62,16 @@ export const serviceKeywordPhrases: Record<string, string[]> = {
     'roots in basement floor drain',
   ],
   'main-drain-cleaning': [
-    'main sewer pipe clogged',
-    'main drain line',
-    'house drain line',
+    'main drain line clogged',
+    'house drain line clogged',
     'all drains backing up in house',
+    'multiple drains backing up',
     'sink toilet and tub backed up',
-    'sewer clean out drain',
+    'main drain cleanout',
     'drain line backup',
   ],
   'sewer-line-cleaning': [
+    'main sewer pipe clogged',
     'main sewer pipe',
     'sewer line overflow',
     'sewer is backing up in the house',
@@ -103,7 +104,7 @@ const serviceDetailAdditions: Record<string, string[]> = {
     'People describe this problem in different ways: a basement floor drain clogged, a basement floor drain backing up, water coming up through the basement floor drain, or sewage coming up the basement drain. The important clue is what else happens when water is used. If the floor drain overflows when the washer drains, the washer may be exposing a restriction farther down the line rather than causing the blockage itself.',
   ],
   'main-drain-cleaning': [
-    'A main drain problem can show up as a main sewer pipe clogged, a house drain line backup, or all drains backing up in the house. If the sink, toilet, and tub are backed up together, the restriction is more likely to be in a shared drain or main line than in one fixture. A sewer clean out can provide access to the line, but its location and condition vary by property.',
+    'A main drain problem can show up as a house drain line backup or all drains backing up in the house. If the sink, toilet, and tub are backed up together, the restriction is more likely to be in a shared drain or main line than in one fixture. A main drain cleanout can provide access to the line, but its location and condition vary by property.',
   ],
   'sewer-line-cleaning': [
     'A sewer line overflow can look like a basement drain backing up, a sewer backup in the house, or several fixtures losing drainage at once. When a main sewer pipe is clogged, wastewater may return through the lowest available fixture. The affected fixtures and timing help narrow the problem, while the actual blockage location depends on the property drain layout.',
