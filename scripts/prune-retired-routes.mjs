@@ -3,6 +3,8 @@ import { join } from 'node:path';
 
 const dist = join(process.cwd(), 'dist');
 
+// Retired URLs remain explicit redirects for old external references, while
+// source generation prevents them from becoming current canonical pages.
 const retiredRoutes = [
   { from: '/service-area/mason-city/', to: '/mason-city-drain-cleaning/' },
   { from: '/services/drain-repair/', to: '/pipe-repair/' },
