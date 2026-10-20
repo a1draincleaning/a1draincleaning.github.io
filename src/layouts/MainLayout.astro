@@ -55,6 +55,13 @@ const businessSchema = {
     postalCode: business.address.postalCode,
     addressCountry: business.address.country
   },
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: business.reviews.rating,
+    reviewCount: business.reviews.count,
+    bestRating: 5,
+    worstRating: 1
+  },
   areaServed: serviceAreaAreas,
   founder: { '@type': 'Person', name: business.owner },
   hasOfferCatalog: {
