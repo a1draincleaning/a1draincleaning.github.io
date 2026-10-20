@@ -38,20 +38,14 @@ const serviceAreaAreas = [
 ];
 
 const businessSchema = {
-  '@type': ['Organization', 'LocalBusiness', 'Plumber'],
+  '@type': 'Plumber',
   '@id': businessId,
   name: business.name,
   description: 'A-1 Drain Cleaning provides drain cleaning and sewer service in Mason City, Iowa and surrounding North Iowa communities.',
   url: business.website,
-  sameAs: business.sameAs,
   logo: business.logo,
   image: business.image,
   telephone: business.phone.tel,
-  geo: {
-    '@type': 'GeoCoordinates',
-    latitude: business.geo.latitude,
-    longitude: business.geo.longitude
-  },
   address: {
     '@type': 'PostalAddress',
     streetAddress: business.address.street,
