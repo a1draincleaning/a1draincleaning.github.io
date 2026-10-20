@@ -6,7 +6,7 @@ const dist = join(process.cwd(), 'dist');
 // Retired URLs remain explicit redirects for old external references, while
 // source generation prevents them from becoming current canonical pages.
 const retiredRoutes = [
-  { from: '/service-area/mason-city/', to: '/mason-city-drain-cleaning/' },
+  { from: '/service-area/mason_city/', to: '/mason-city-drain-cleaning/' },
   { from: '/services/drain-repair/', to: '/pipe-repair/' },
   { from: '/services/washing-machine-basement-flooding/', to: '/services/laundry-drains/' },
   { from: '/services/kitchen-bathroom-drains/', to: '/services/bathroom-shower-drains/' }
@@ -72,6 +72,12 @@ for (const file of filesUnder(dist, (name) => name.endsWith('.xml'))) {
     const url = `https://a1draincleaning.github.io${from}`;
     const escaped = url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     xml = xml.replace(new RegExp(`\\s*<url>\\s*<loc>${escaped}</loc>[\\s\\S]*?</url>`, 'g'), '');
+  }
+  for (const { from } of retiredRoutes) {
+    const url = `https://a1draincleaning.github.io${from}`;
+    if (xml.includes(url)) {
+      throw new Error(`Retired URL remained in generated XML sitemap: ${url}`);
+    }
   }
   writeFileSync(file, xml);
 }
