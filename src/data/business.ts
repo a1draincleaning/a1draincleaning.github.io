@@ -21,11 +21,6 @@ export const business = {
   image:
     'https://a1draincleaning.github.io/images/a1-main-sewer-drain-cleaning-mason-city.webp',
 
-  geo: {
-    latitude: 43.1235,
-    longitude: -93.2274,
-  },
-
   sameAs: [
     'https://www.brownbook.net/business/43888974/a-1-drain-cleaning',
     'https://www.manta.com/c/mt4dd28/a-1-drain-cleaning',
