@@ -13,13 +13,13 @@ import {
   featuredServiceCitySlugs,
 } from '../../data/servicePageConfig';
 
-const retiredServiceSlugs = new Set([
-  'drain-repair',
-  'washing-machine-basement-flooding',
-  'kitchen-bathroom-drains',
-]);
-
 export function getStaticPaths() {
+  const retiredServiceSlugs = new Set([
+    'drain-repair',
+    'washing-machine-basement-flooding',
+    'kitchen-bathroom-drains',
+  ]);
+
   return services
     .filter((service) => !retiredServiceSlugs.has(service.slug))
     .map((service) => ({ params: { slug: service.slug }, props: { service } }));
