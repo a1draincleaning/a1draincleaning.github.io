@@ -14,9 +14,10 @@ interface Props {
   schemaType?: string;
   service?: { title: string; description: string };
   city?: { name: string; counties: string[] };
+  breadcrumbLabel?: string;
 }
 
-const { title, description, path = '/', service, city } = Astro.props;
+const { title, description, path = '/', service, city, breadcrumbLabel } = Astro.props;
 const canonical = new URL(path, Astro.site ?? business.website).href;
 const businessId = `${business.website}#business`;
 const websiteId = `${business.website}#website`;
@@ -122,13 +123,13 @@ const graph = [
       { '@type': 'ListItem', position: 1, name: 'Home', item: business.website },
       ...(path.startsWith('/services/') ? [
         { '@type': 'ListItem', position: 2, name: 'Services', item: `${business.website}services/` },
-        ...(service ? [{ '@type': 'ListItem', position: 3, name: service.title, item: canonical }] : path === '/services/' ? [] : [{ '@type': 'ListItem', position: 3, name: title.replace(' | A-1 Drain Cleaning', ''), item: canonical }])
+        ...(service ? [{ '@type': 'ListItem', position: 3, name: service.title, item: canonical }] : path === '/services/' ? [] : [{ '@type': 'ListItem', position: 3, name: breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''), item: canonical }])
       ] : (path.startsWith('/service-area/') && path !== '/service-area/') || path === '/mason-city-drain-cleaning/' ? [
         { '@type': 'ListItem', position: 2, name: 'Areas We Serve', item: `${business.website}service-area/` },
-        { '@type': 'ListItem', position: 3, name: title.replace(' | A-1 Drain Cleaning', ''), item: canonical }
+        { '@type': 'ListItem', position: 3, name: breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''), item: canonical }
       ] : [{
         '@type': 'ListItem', position: 2,
-        name: path === '/service-area/' ? 'Areas We Serve' : title.replace(' | A-1 Drain Cleaning', ''),
+        name: path === '/service-area/' ? 'Areas We Serve' : breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''),
         item: canonical
       }])
     ]

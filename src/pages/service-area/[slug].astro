@@ -133,7 +133,7 @@ const coreServices = services.filter((service) => [
   'sewer-line-cleaning',
   'tree-roots-in-sewer-line',
   'basement-floor-drains',
-  'kitchen-bathroom-drains',
+  'bathroom-shower-drains',
   'toilet-clogs',
   'laundry-drains',
   'sewer-backup-emergency',
@@ -144,7 +144,7 @@ const nearbyCities = uniqueServiceAreaCities
   .slice(0, 12);
 ---
 
-<MainLayout title={title} description={description} path={`/service-area/${city.slug}/`} city={city}>
+<MainLayout title={title} description={description} path={`/service-area/${city.slug}/`} city={city} breadcrumbLabel={city.name}>
   <Header />
   <main id="main">
     <section class="bg-[#1A1A68] py-14 text-white sm:py-20 lg:py-24">
