@@ -4,7 +4,7 @@
  * **Location:** Mason City, Iowa
 ## About A-1 Drain Cleaning
 A-1 Drain Cleaning is a locally owned and operated drain and sewer business based in Mason City, Iowa. When you call, you speak directly with Josh who understands North Iowa drain systems, sewer lines, common root intrusion problems, and seasonal drain backup issues.
-There are no corporate call centers, middle management, or pushy salespeople trying to sell you unnecessary pipe replacements. The goal is simple: accurately diagnose the blockage, clear your line using professional-grade machinery, and get your home's drainage running freely again.
+You deal directly with Josh rather than a sales layer or a large corporate operation. The goal is simple: accurately diagnose the blockage, clear your line using professional-grade machinery, and get your home's drainage running freely again.
 ## Website Purpose
 This repository contains the official website for A-1 Drain Cleaning, a local drain cleaning and sewer service company based in Mason City, Iowa.
 The website provides information about drain cleaning services, sewer line cleaning, common drain problems, service areas, and how local customers can contact A-1 Drain Cleaning.
