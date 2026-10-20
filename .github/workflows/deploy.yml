@@ -36,6 +36,9 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
+      - name: Remove generated keyword-list blocks
+        run: node scripts/remove-keyword-stuffing-blocks.mjs
+
       - name: Optimize oversized deployed images
         run: node scripts/optimize-deployed-images.mjs
 
