@@ -7,8 +7,13 @@ import { services } from '../../data/services';
 import { featuredServiceSlugs } from '../../data/serviceGroups';
 import '../../data/servicePageConfig';
 
+const retiredServiceSlugs = new Set([
+  'drain-repair',
+  'washing-machine-basement-flooding',
+  'kitchen-bathroom-drains',
+]);
 const featured = services.filter(({ slug }) => featuredServiceSlugs.includes(slug as typeof featuredServiceSlugs[number]));
-const additional = services.filter(({ slug }) => !featured.some((service) => service.slug === slug));
+const additional = services.filter(({ slug }) => !retiredServiceSlugs.has(slug) && !featured.some((service) => service.slug === slug));
 const symptomGuides = [
   { title: 'Sewage or water coming up through a basement floor drain', explanation: 'The floor drain may be where a blockage farther down the shared drain or main sewer line becomes visible. Stop using water while it is backing up.', service: 'basement-floor-drains', link: 'Floor drain backup help' },
   { title: 'Bathtub or shower backing up in a home without a basement', explanation: 'A blocked main drain or sewer line can force wastewater into a low fixture such as a tub or shower. Avoid flushing or running water until the backup is addressed.', service: 'sewer-backup-into-tub-shower', link: 'Bathtub and shower sewer backups' },
