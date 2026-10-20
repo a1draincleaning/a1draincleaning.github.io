@@ -73,6 +73,7 @@ for (const file of filesUnder(dist, (name) => name.endsWith('.xml'))) {
     const escaped = url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     xml = xml.replace(new RegExp(`\\s*<url>\\s*<loc>${escaped}</loc>[\\s\\S]*?</url>`, 'g'), '');
   }
+  // Fail the build if a retired canonical URL survives sitemap pruning.
   for (const { from } of retiredRoutes) {
     const url = `https://a1draincleaning.github.io${from}`;
     if (xml.includes(url)) {
