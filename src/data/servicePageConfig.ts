@@ -12,12 +12,20 @@ if (washingMachineService && laundryService) {
   services.splice(services.indexOf(washingMachineService), 1);
 }
 
+const bathroomDrainService = services.find((service) => service.slug === 'kitchen-bathroom-drains');
+if (bathroomDrainService) {
+  bathroomDrainService.title = 'Bathroom, Shower & Tub Drains';
+  bathroomDrainService.description = 'Bathroom sink, shower, and bathtub drains that are slow, clogged, or backing up. A-1 Drain Cleaning clears bathroom drain problems in Mason City and North Iowa.';
+  bathroomDrainService.problems = bathroomDrainService.problems.filter((problem) => !problem.toLowerCase().includes('kitchen'));
+  bathroomDrainService.details = bathroomDrainService.details.filter((detail) => !detail.startsWith('Kitchen drains commonly') && !detail.startsWith('A-1 Drain Cleaning clears kitchen and bathroom drain blockages'));
+}
+
 export const servicePageTitles: Record<string, string> = {
   'basement-floor-drains': 'Basement Floor Drain Backups | A-1 Drain Cleaning',
   'main-drain-cleaning': 'Main Drain Cleaning | A-1 Drain Cleaning',
   'sewer-line-cleaning': 'Sewer Line Cleaning | A-1 Drain Cleaning',
   'laundry-drains': 'Laundry & Washing Machine Drains | A-1 Drain Cleaning',
-  'kitchen-bathroom-drains': 'Kitchen & Bathroom Drain Cleaning | A-1 Drain Cleaning',
+  'kitchen-bathroom-drains': 'Bathroom, Shower & Tub Drain Cleaning | A-1 Drain Cleaning',
   'tree-roots-in-sewer-line': 'Tree Roots in Sewer Lines | A-1 Drain Cleaning',
   'hydro-jetting': 'Hydro Jetting | A-1 Drain Cleaning',
   'toilet-clogs': 'Toilet Clogs & Drain Problems | A-1 Drain Cleaning',
@@ -36,7 +44,7 @@ export const servicePageDescriptions: Record<string, string> = {
   'main-drain-cleaning': 'Main drain clogged or several drains backing up? A-1 Drain Cleaning clears main drain blockages in Mason City and North Iowa.',
   'sewer-line-cleaning': 'Main sewer pipe clogged or several fixtures backing up? A-1 Drain Cleaning clears residential sewer line blockages in North Iowa.',
   'laundry-drains': 'Washing machine drain backing up or water flooding the basement? A-1 Drain Cleaning clears laundry and washer drain lines in North Iowa.',
-  'kitchen-bathroom-drains': 'Kitchen sink will not drain, bathroom sink is slow, or a tub or shower backs up? A-1 Drain Cleaning clears drain problems in North Iowa.',
+  'kitchen-bathroom-drains': 'Bathroom sink, shower, or bathtub drain clogged, slow, or backing up? A-1 Drain Cleaning clears bathroom drain problems in Mason City and North Iowa.',
   'tree-roots-in-sewer-line': 'Tree roots blocking a sewer pipe or causing repeat backups? A-1 Drain Cleaning cuts roots from sewer lines in Mason City and North Iowa.',
   'hydro-jetting': 'Need hydro jetting for buildup or a recurring sewer restriction? A-1 Drain Cleaning uses water jetting when the pipe and blockage are suitable.',
   'toilet-clogs': 'Toilet clogged, backing up, or bubbling when flushed? A-1 Drain Cleaning clears toilet and connected drain problems in Mason City and North Iowa.',
@@ -88,15 +96,12 @@ export const serviceKeywordPhrases: Record<string, string[]> = {
     'laundry drain blocked',
   ],
   'kitchen-bathroom-drains': [
-    'kitchen drain line',
-    'cleaning the kitchen drain',
-    'my kitchen sink will not drain',
-    'kitchen sink drain is clogged',
     'bathroom sink is backing up',
     'bathroom sink is slow to drain',
     'my shower will not drain',
     'my shower drain is backing up',
-    'tub backs up when washing machine drains',
+    'bathtub drain clogged',
+    'tub drain backing up',
   ],
 };
 
@@ -114,7 +119,7 @@ const serviceDetailAdditions: Record<string, string[]> = {
     'A washing machine drain backing up can send water into the kitchen sink, bathtub, shower, toilet, standpipe, or basement floor drain depending on how the house is piped. If water comes up the sink when the washing machine is on, or the washer backs up into another fixture, the washer may be exposing a restriction in a shared or downstream drain line rather than having a problem with the appliance itself.',
   ],
   'kitchen-bathroom-drains': [
-    'Kitchen and bathroom drain problems can start with a slow sink and progress to a complete backup. If a kitchen sink will not drain, the kitchen drain line may have a local restriction. A bathroom sink that is backing up, a shower that will not drain, or a shower drain that is backing up can also point to a branch-drain problem. When the tub backs up when the washing machine drains, the problem may be farther down a shared line.',
+    'Bathroom drain problems can start with a slow sink and progress to a complete backup. A bathroom sink that is backing up, a shower that will not drain, or a shower drain that is backing up can point to a branch-drain problem. When a bathtub backs up while another fixture drains, the problem may be farther down a shared line.',
   ],
 };
 
