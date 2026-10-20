@@ -55,12 +55,6 @@ const businessSchema = {
     addressCountry: business.address.country
   },
   areaServed: serviceAreaAreas,
-  openingHoursSpecification: [{
-    '@type': 'OpeningHoursSpecification',
-    dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-    opens: '00:00',
-    closes: '23:59'
-  }],
   founder: { '@type': 'Person', name: business.owner },
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
