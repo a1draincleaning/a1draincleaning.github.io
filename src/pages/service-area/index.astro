@@ -30,14 +30,14 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
         <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">Mason City is the home base. The directory below shows the current North Iowa service-area plan. Only communities with researched local content are linked to dedicated city pages.</p>
 
         <div class="mt-7 grid gap-4 sm:grid-cols-3" aria-label="Primary service-area communities">
-          {['Mason City', 'Clear Lake', 'Forest City', 'Charles City', 'Nora Springs', 'Garner'].map((name) => {
-            const city = uniqueServiceAreaCities.find((item) => item.name === name);
-            return city ? (
+          {uniqueServiceAreaCities
+            .filter((city) => builtServiceAreaCitySlugs.has(city.slug))
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((city) => (
               <a href={`/service-area/${city.slug}/`} class="flex min-h-12 items-center justify-between border border-[#1A1A68] bg-[#1A1A68] px-5 py-4 font-black !text-white hover:bg-[#141452] hover:!text-white">
                 <span class="!text-white">{city.name}, Iowa</span><span aria-hidden="true" class="!text-white">→</span>
               </a>
-            ) : null;
-          })}
+            ))}
         </div>
 
         <div class="mt-10 space-y-8">
