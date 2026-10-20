@@ -27,6 +27,17 @@
 - [Sewer Backup Emergency Service](https://a1draincleaning.github.io/services/sewer-backup-emergency/)
 - [Smoke Testing](https://a1draincleaning.github.io/services/smoke-testing/)
 
+## Service Intent
+
+- Main Drain Cleaning: problems affecting the main drain inside the property, especially when several fixtures back up together.
+- Sewer Line Cleaning: blockages or restrictions in the sewer line carrying wastewater away from the house toward the city sewer or septic system.
+- Floor Drain Backups & Basement Drains: wastewater or water rising through a basement floor drain, including backups triggered by laundry or another fixture.
+- Laundry & Washing Machine Drains: washer standpipe or laundry drain backups and cases where washer discharge exposes a restriction farther downstream.
+- Sewer Backup Emergency Service: active wastewater backups requiring immediate drain and sewer service, including floor-drain, tub, shower, or toilet backups.
+- Kitchen Drains: kitchen sink and kitchen drain problems, including slow or blocked sink drains and related disposal or dishwasher drainage issues.
+- Bathroom & Shower Drains: bathroom sink, shower, and bathtub drain problems when the affected fixture is the primary symptom.
+- Toilet Clogs & Toilet Problems: toilet-specific clogs and toilet drainage symptoms, with larger-line problems considered when multiple fixtures are affected.
+
 ## Priority Service Areas
 
 - [Mason City, Iowa](https://a1draincleaning.github.io/mason-city-drain-cleaning/)
