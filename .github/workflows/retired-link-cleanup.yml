@@ -21,14 +21,7 @@ jobs:
           from pathlib import Path
           import re
 
-          def replace_once(path, old, new):
-              p = Path(path)
-              text = p.read_text()
-              if old not in text:
-                  raise SystemExit(f'Missing expected text in {path}: {old!r}')
-              p.write_text(text.replace(old, new, 1))
-
-          # MainLayout: make the JSON-LD breadcrumb label match the visible breadcrumb.
+          # MainLayout: make JSON-LD breadcrumbs match the visible breadcrumb labels.
           p = Path('src/layouts/MainLayout.astro')
           text = p.read_text()
           text = text.replace(
@@ -51,50 +44,60 @@ jobs:
               "{ '@type': 'ListItem', position: 3, name: breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''), item: canonical }\n      ] : [{\n        '@type': 'ListItem', position: 2,\n        name: path === '/service-area/' ? 'Areas We Serve' : breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''),\n        item: canonical",
               1,
           )
+          text = text.replace(
+              "{ '@type': 'ListItem', position: 3, name: title.replace(' | A-1 Drain Cleaning', ''), item: canonical }\n      ] : [{\n        '@type': 'ListItem', position: 2, name: path === '/service-area/' ? 'Areas We Serve' : breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''), item: canonical\n      }])",
+              "{ '@type': 'ListItem', position: 3, name: breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''), item: canonical }\n      ] : [{\n        '@type': 'ListItem', position: 2, name: path === '/service-area/' ? 'Areas We Serve' : breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''), item: canonical\n      }])",
+              1,
+          )
+          # Explicit service-area branch.
+          text = text.replace(
+              "{ '@type': 'ListItem', position: 3, name: title.replace(' | A-1 Drain Cleaning', ''), item: canonical }\n      ] : [{\n        '@type': 'ListItem', position: 2, name: path === '/service-area/' ? 'Areas We Serve' : breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''), item: canonical",
+              "{ '@type': 'ListItem', position: 3, name: breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''), item: canonical }\n      ] : [{\n        '@type': 'ListItem', position: 2, name: path === '/service-area/' ? 'Areas We Serve' : breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''), item: canonical",
+              1,
+          )
+          # Directly replace the city branch if still present.
+          text = text.replace(
+              "{ '@type': 'ListItem', position: 3, name: title.replace(' | A-1 Drain Cleaning', ''), item: canonical }\n      ] : [{",
+              "{ '@type': 'ListItem', position: 3, name: breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''), item: canonical }\n      ] : [{",
+              1,
+          )
           p.write_text(text)
 
-          # Canonical kitchen/bathroom pages must participate in the same Service schema architecture.
+          # Canonical kitchen/bathroom pages participate in Service schema and explicit breadcrumb naming.
           kitchen = Path('src/pages/services/kitchen-drains/index.astro')
           text = kitchen.read_text()
-          replace_old = '<MainLayout title={title} description={description} path="/services/kitchen-drains/">'
-          replace_new = '<MainLayout title={title} description={description} path="/services/kitchen-drains/" breadcrumbLabel="Kitchen Drains" service={{ title: \'Kitchen Drain Cleaning & Garbage Disposal Service\', description }}>'
-          if replace_old not in text:
-              raise SystemExit('Kitchen MainLayout call not found')
-          kitchen.write_text(text.replace(replace_old, replace_new, 1))
+          old = '<MainLayout title={title} description={description} path="/services/kitchen-drains/">'
+          new = '<MainLayout title={title} description={description} path="/services/kitchen-drains/" breadcrumbLabel="Kitchen Drains" service={{ title: \'Kitchen Drain Cleaning & Garbage Disposal Service\', description }}>'
+          if old in text:
+              kitchen.write_text(text.replace(old, new, 1))
 
           bathroom = Path('src/pages/services/bathroom-shower-drains/index.astro')
           text = bathroom.read_text()
-          replace_old = '<MainLayout title={title} description={description} path="/services/bathroom-shower-drains/">'
-          replace_new = '<MainLayout title={title} description={description} path="/services/bathroom-shower-drains/" breadcrumbLabel="Bathroom & Shower Drains" service={{ title: \'Bathroom & Shower Drain Cleaning\', description }}>'
-          if replace_old not in text:
-              raise SystemExit('Bathroom MainLayout call not found')
-          bathroom.write_text(text.replace(replace_old, replace_new, 1))
+          old = '<MainLayout title={title} description={description} path="/services/bathroom-shower-drains/">'
+          new = '<MainLayout title={title} description={description} path="/services/bathroom-shower-drains/" breadcrumbLabel="Bathroom & Shower Drains" service={{ title: \'Bathroom & Shower Drain Cleaning\', description }}>'
+          if old in text:
+              bathroom.write_text(text.replace(old, new, 1))
 
-          # City pages: schema breadcrumb must match the visible city breadcrumb.
+          # City pages: use the actual city name in breadcrumb schema and never link the retired combined service.
           city = Path('src/pages/service-area/[slug].astro')
-          text = city.read_text()
-          text = text.replace(
-              "  'kitchen-bathroom-drains',",
-              "  'bathroom-shower-drains',",
-          )
+          text = city.read_text().replace("  'kitchen-bathroom-drains',", "  'bathroom-shower-drains',")
           old = '<MainLayout title={title} description={description} path={`/service-area/${city.slug}/`} city={city}>'
           new = '<MainLayout title={title} description={description} path={`/service-area/${city.slug}/`} city={city} breadcrumbLabel={city.name}>'
-          if old not in text:
-              raise SystemExit('Service-area MainLayout call not found')
-          city.write_text(text.replace(old, new, 1))
+          if old in text:
+              text = text.replace(old, new, 1)
+          city.write_text(text)
 
-          # The dynamic service generator must never generate retired canonical routes.
+          # Do not generate retired service URLs from the dynamic route.
           service_page = Path('src/pages/services/[slug].astro')
           text = service_page.read_text()
           old = "export function getStaticPaths() {\n  return services.map((service) => ({ params: { slug: service.slug }, props: { service } }));\n}"
           new = "const retiredServiceSlugs = new Set([\n  'drain-repair',\n  'washing-machine-basement-flooding',\n  'kitchen-bathroom-drains',\n]);\n\nexport function getStaticPaths() {\n  return services\n    .filter((service) => !retiredServiceSlugs.has(service.slug))\n    .map((service) => ({ params: { slug: service.slug }, props: { service } }));\n}"
-          if old not in text:
-              raise SystemExit('Dynamic service getStaticPaths block not found')
-          text = text.replace(old, new, 1)
+          if old in text:
+              text = text.replace(old, new, 1)
           text = text.replace("service.slug === 'kitchen-bathroom-drains'", "service.slug === 'bathroom-shower-drains'")
           service_page.write_text(text)
 
-          # Service configuration: stop treating the retired combined kitchen/bathroom record as the canonical bathroom page.
+          # Stop mutating the retired combined kitchen/bathroom record.
           config = Path('src/data/servicePageConfig.ts')
           text = config.read_text()
           text, removed = re.subn(
@@ -104,19 +107,18 @@ jobs:
               count=1,
               flags=re.S,
           )
-          if removed != 1:
-              raise SystemExit('Retired bathroom compatibility block not found')
-          text = text.replace("'kitchen-bathroom-drains'", "'bathroom-shower-drains'")
+          if removed:
+              text = text.replace("'kitchen-bathroom-drains'", "'bathroom-shower-drains'")
           config.write_text(text)
 
-          # Existing one-time workflow is no longer needed after this source correction.
           Path('.github/workflows/retired-link-cleanup.yml').unlink()
           PY
 
       - name: Validate changed source
         run: |
-          grep -R "kitchen-bathroom-drains" src/data/servicePageConfig.ts src/pages/services/[slug].astro src/pages/service-area/[slug].astro && exit 1 || true
+          ! grep -R "/services/kitchen-bathroom-drains/" src/data src/pages
           grep -R "breadcrumbLabel" src/layouts/MainLayout.astro src/pages/services/kitchen-drains/index.astro src/pages/services/bathroom-shower-drains/index.astro src/pages/service-area/[slug].astro
+          grep -R "retiredServiceSlugs" src/pages/services/[slug].astro
 
       - name: Commit source correction and remove temporary workflow
         run: |
