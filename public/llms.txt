@@ -28,7 +28,7 @@
 
 ## Priority Service Areas
 
-- [Mason City, Iowa](https://a1draincleaning.github.io/service-area/mason-city/)
+- [Mason City, Iowa](https://a1draincleaning.github.io/mason-city-drain-cleaning/)
 - [Clear Lake, Iowa](https://a1draincleaning.github.io/service-area/clear-lake/)
 - [Charles City, Iowa](https://a1draincleaning.github.io/service-area/charles-city/)
 - [Forest City, Iowa](https://a1draincleaning.github.io/service-area/forest-city/)
