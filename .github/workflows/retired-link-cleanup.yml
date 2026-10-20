@@ -1,0 +1,48 @@
+name: One-Time Retired Link Cleanup
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  actions: write
+
+jobs:
+  cleanup:
+    if: ${{ github.actor != 'github-actions[bot]' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Replace retired internal links
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          service = Path('src/pages/services/[slug].astro')
+          text = service.read_text()
+          text = text.replace('/services/drain-repair/', '/pipe-repair/')
+          text = text.replace('/services/washing-machine-basement-flooding/', '/services/laundry-drains/')
+          text = text.replace('basement flooding when using the washing machine', 'laundry and washing machine drain problems')
+          service.write_text(text)
+
+          iowa = Path('src/pages/iowa-drain-cleaning/index.astro')
+          text = iowa.read_text().replace('/service-area/mason-city/', '/mason-city-drain-cleaning/')
+          iowa.write_text(text)
+          PY
+
+      - name: Commit source cleanup and remove temporary workflow
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- 'src/pages/services/[slug].astro' 'src/pages/iowa-drain-cleaning/index.astro' '.github/workflows/retired-link-cleanup.yml'
+          git diff --cached --quiet && exit 0
+          git commit -m 'Remove retired internal links'
+          git push
+
+      - name: Deploy corrected source
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: gh workflow run deploy.yml --ref main
