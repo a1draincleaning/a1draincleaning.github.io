@@ -4,26 +4,34 @@ interface Props {
 }
 
 const { showForm = false } = Astro.props;
-const servicePageImages: Record<string, { src: string; alt: string; caption: string }> = {
+const servicePageImages: Record<string, { src: string; alt: string; caption: string; width: number; height: number }> = {
   '/services/bathroom-shower-drains/': {
     src: '/images/clogged-bathtub-drain-mason-city-iowa.webp',
     alt: 'Clogged bathtub drain in Mason City, Iowa',
-    caption: 'Clogged bathtub drain in Mason City, Iowa.'
+    caption: 'Clogged bathtub drain in Mason City, Iowa.',
+    width: 598,
+    height: 1000
   },
   '/services/tree-roots-in-sewer-line/': {
     src: '/images/tree-root-removal-mason-city-iowa.jpg',
     alt: 'Tree roots removed from a sewer line in Mason City, Iowa',
-    caption: 'Tree roots removed from a sewer line in Mason City, Iowa.'
+    caption: 'Tree roots removed from a sewer line in Mason City, Iowa.',
+    width: 1952,
+    height: 3264
   },
   '/services/basement-floor-drains/': {
     src: '/images/floor-drain-backing-up-iowa.jpg',
     alt: 'Basement floor drain backing up in Iowa',
-    caption: 'Basement floor drain backup in Iowa.'
+    caption: 'Basement floor drain backup in Iowa.',
+    width: 1952,
+    height: 3264
   },
   '/services/sewer-backup-emergency/': {
     src: '/images/iowa-drain-cleaning-a1-drain-cleaning.png',
     alt: 'A-1 Drain Cleaning sewer backup emergency service in Iowa',
-    caption: 'A-1 Drain Cleaning sewer backup emergency service in Iowa.'
+    caption: 'A-1 Drain Cleaning sewer backup emergency service in Iowa.',
+    width: 1632,
+    height: 976
   }
 };
 const servicePageImage = servicePageImages[Astro.url.pathname];
@@ -33,7 +41,7 @@ const servicePageImage = servicePageImages[Astro.url.pathname];
   <figure class="bg-white py-10 sm:py-14">
     <div class="container">
       <div class="mx-auto max-w-4xl overflow-hidden rounded-lg shadow-lg">
-        <img src={servicePageImage.src} alt={servicePageImage.alt} loading="lazy" decoding="async" class="block h-auto w-full" />
+        <img src={servicePageImage.src} alt={servicePageImage.alt} width={servicePageImage.width} height={servicePageImage.height} loading="lazy" decoding="async" class="block h-auto w-full" />
       </div>
       <figcaption class="mx-auto mt-3 max-w-4xl text-sm leading-6 text-slate-600">{servicePageImage.caption}</figcaption>
     </div>
