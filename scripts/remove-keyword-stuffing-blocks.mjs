@@ -14,7 +14,10 @@ function htmlFiles(dir) {
   return files;
 }
 
-const keywordBlock = /<div class="mt-8 flex flex-wrap gap-2">[\s\S]*?<\/div>/g;
+// Remove only the generated visible keyword inventory. Do not use a generic
+// class-based <div> match because the same utility classes can appear in
+// legitimate content elsewhere on the site.
+const keywordBlock = /<p class="text-sm font-black uppercase tracking-\[0\.2em\] text-\[#b4232b\]">Related problems<\/p>\s*<h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">What else can be connected\?<\/h2>\s*<div class="mt-8 flex flex-wrap gap-2">[\s\S]*?<\/div>/g;
 let changed = 0;
 
 for (const file of htmlFiles(dist)) {
@@ -26,4 +29,4 @@ for (const file of htmlFiles(dist)) {
   }
 }
 
-console.log(`Removed keyword-list blocks from ${changed} generated HTML files.`);
+console.log(`Removed intended generated keyword-list blocks from ${changed} HTML files.`);
