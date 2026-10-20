@@ -113,8 +113,8 @@ for (const [slug, additions] of Object.entries(serviceDetailAdditions)) {
 export const relatedServiceSlugs: Record<string, string[]> = {
   'main-drain-cleaning': ['sewer-line-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
   'sewer-line-cleaning': ['main-drain-cleaning', 'tree-roots-in-sewer-line', 'basement-floor-drains'],
-  'tree-roots-in-sewer-line': ['sewer-line-cleaning', 'main-drain-cleaning', 'drain-repair'],
-  'hydro-jetting': ['main-drain-cleaning', 'sewer-line-cleaning', 'drain-repair'],
+  'tree-roots-in-sewer-line': ['sewer-line-cleaning', 'main-drain-cleaning'],
+  'hydro-jetting': ['main-drain-cleaning', 'sewer-line-cleaning'],
   'basement-floor-drains': ['main-drain-cleaning', 'sewer-line-cleaning', 'laundry-drains', 'sewer-backup-emergency'],
   'laundry-drains': ['basement-floor-drains', 'main-drain-cleaning', 'sewer-line-cleaning'],
   'sewer-backup-emergency': ['main-drain-cleaning', 'sewer-line-cleaning', 'basement-floor-drains'],
@@ -124,7 +124,7 @@ export const relatedServiceSlugs: Record<string, string[]> = {
   'drain-repair': ['sewer-line-cleaning', 'tree-roots-in-sewer-line', 'hydro-jetting'],
   'septic-lines': ['main-drain-cleaning', 'sewer-line-cleaning', 'sewer-backup-emergency'],
   'roof-vent-drains': ['kitchen-bathroom-drains', 'toilet-clogs', 'main-drain-cleaning'],
-  'garbage-disposal': ['kitchen-bathroom-drains', 'drain-repair', 'main-drain-cleaning'],
+  'garbage-disposal': ['kitchen-bathroom-drains', 'main-drain-cleaning'],
   'dishwasher-drain': ['kitchen-bathroom-drains', 'garbage-disposal', 'main-drain-cleaning'],
   'sump-pumps': ['sewer-backup-emergency', 'basement-floor-drains'],
 };
