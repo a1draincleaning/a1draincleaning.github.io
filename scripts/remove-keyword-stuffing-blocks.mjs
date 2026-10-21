@@ -23,7 +23,7 @@ let schemaFilesFixed = 0;
 
 for (const file of htmlFiles(dist)) {
   const html = readFileSync(file, 'utf8');
-  let cleaned = html.replace(keywordBlock, (match) => {
+  let cleaned = html.replace(keywordBlock, () => {
     keywordBlocksRemoved += 1;
     return '';
   });
