@@ -12,7 +12,6 @@ if (washingMachineService && laundryService) {
   services.splice(services.indexOf(washingMachineService), 1);
 }
 
-
 export const servicePageTitles: Record<string, string> = {
   'basement-floor-drains': 'Basement Floor Drain Backups | A-1 Drain Cleaning',
   'main-drain-cleaning': 'Main Drain Cleaning | A-1 Drain Cleaning',
@@ -51,54 +50,6 @@ export const servicePageDescriptions: Record<string, string> = {
   'septic-lines': 'House drain line to a septic system backing up? A-1 Drain Cleaning clears blocked septic-side drain lines in Mason City and North Iowa.',
 };
 
-export const serviceKeywordPhrases: Record<string, string[]> = {
-  'basement-floor-drains': [
-    'basement floor drain clogged',
-    'basement floor drain backing up',
-    'water coming up through basement floor drain',
-    'sewage coming up basement drain',
-    'water coming up through drain in basement',
-    'floor drain overflows when washer drains',
-    'roots in basement floor drain',
-  ],
-  'main-drain-cleaning': [
-    'main drain line clogged',
-    'house drain line clogged',
-    'all drains backing up in house',
-    'multiple drains backing up',
-    'sink toilet and tub backed up',
-    'main drain cleanout',
-    'drain line backup',
-  ],
-  'sewer-line-cleaning': [
-    'main sewer pipe clogged',
-    'main sewer pipe',
-    'sewer line overflow',
-    'sewer is backing up in the house',
-    'blockage in sewer pipe',
-    'residential sewer line',
-    'wastewater line',
-    'sewer and drain backup',
-  ],
-  'laundry-drains': [
-    'washing machine drain backing up',
-    'washing machine water coming up kitchen sink',
-    'washer backing up into kitchen sink',
-    'water coming up sink when washing machine on',
-    'washing machine water backing up into shower',
-    'washing machine backing up into toilet',
-    'laundry drain blocked',
-  ],
-  'bathroom-shower-drains': [
-    'bathroom sink is backing up',
-    'bathroom sink is slow to drain',
-    'my shower will not drain',
-    'my shower drain is backing up',
-    'bathtub drain clogged',
-    'tub drain backing up',
-  ],
-};
-
 const serviceDetailAdditions: Record<string, string[]> = {
   'basement-floor-drains': [
     'People describe this problem in different ways: a basement floor drain clogged, a basement floor drain backing up, water coming up through the basement floor drain, or sewage coming up the basement drain. The important clue is what else happens when water is used. If the floor drain overflows when the washer drains, the washer may be exposing a restriction farther down the line rather than causing the blockage itself.',
@@ -116,13 +67,6 @@ const serviceDetailAdditions: Record<string, string[]> = {
     'Bathroom drain problems can start with a slow sink and progress to a complete backup. A bathroom sink that is backing up, a shower that will not drain, or a shower drain that is backing up can point to a branch-drain problem. When a bathtub backs up while another fixture drains, the problem may be farther down a shared line.',
   ],
 };
-
-for (const [slug, phrases] of Object.entries(serviceKeywordPhrases)) {
-  const service = services.find((item) => item.slug === slug);
-  if (service) {
-    service.problems = [...new Set([...service.problems, ...phrases])];
-  }
-}
 
 for (const [slug, additions] of Object.entries(serviceDetailAdditions)) {
   const service = services.find((item) => item.slug === slug);
