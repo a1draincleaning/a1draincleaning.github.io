@@ -94,13 +94,9 @@ export const relatedServiceSlugs: Record<string, string[]> = {
   'sump-pumps': ['sewer-backup-emergency', 'basement-floor-drains'],
 };
 
-export const floorDrainClusterSlugs = [
-  'main-drain-cleaning',
-  'sewer-line-cleaning',
-  'laundry-drains',
-  'sewer-backup-emergency',
-  'sewer-backup-into-tub-shower',
-];
+// Floor-drain content belongs on the dedicated floor-drain page and the specialized service sections.
+// Do not inject a repeated floor-drain block into unrelated service pages.
+export const floorDrainClusterSlugs: string[] = [];
 
 export const featuredServiceCitySlugs = [
   'mason-city',
