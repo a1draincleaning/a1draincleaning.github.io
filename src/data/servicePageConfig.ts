@@ -100,7 +100,7 @@ export const floorDrainClusterSlugs = [
   'laundry-drains',
   'sewer-backup-emergency',
   'sewer-backup-into-tub-shower',
-] as const;
+];
 
 export const featuredServiceCitySlugs = [
   'mason-city',
@@ -112,4 +112,4 @@ export const featuredServiceCitySlugs = [
   'nora-springs',
   'rockwell',
   'hampton',
-] as const;
+];
