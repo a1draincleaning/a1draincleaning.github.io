@@ -3,7 +3,7 @@
 :root {
   font-family: Arial, Helvetica, sans-serif;
   color: #111827;
-  background: #f8fafc;
+  background: #f1f5f9;
 }
 
 html {
@@ -14,10 +14,15 @@ html {
 body {
   margin: 0;
   overflow-x: hidden;
-  background: #f8fafc;
+  background: #f1f5f9;
   color: #111827;
   font-size: 18px;
   line-height: 1.65;
+}
+
+/* Keep previously white sections slightly softened instead of stark white. */
+.bg-white {
+  background-color: #f8fafc !important;
 }
 
 .container {
