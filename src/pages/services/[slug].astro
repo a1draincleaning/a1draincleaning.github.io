@@ -19,9 +19,14 @@ export function getStaticPaths() {
     'washing-machine-basement-flooding',
     'kitchen-bathroom-drains',
   ]);
+  const staticServiceSlugs = new Set([
+    'drain-cleaning',
+    'kitchen-drains',
+    'bathroom-shower-drains',
+  ]);
 
   return services
-    .filter((service) => !retiredServiceSlugs.has(service.slug))
+    .filter((service) => !retiredServiceSlugs.has(service.slug) && !staticServiceSlugs.has(service.slug))
     .map((service) => ({ params: { slug: service.slug }, props: { service } }));
 }
 
