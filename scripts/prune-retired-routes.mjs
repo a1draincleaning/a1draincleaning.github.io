@@ -1,4 +1,4 @@
-import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const dist = join(process.cwd(), 'dist');
@@ -83,4 +83,18 @@ for (const file of filesUnder(dist, (name) => name.endsWith('.xml'))) {
   writeFileSync(file, xml);
 }
 
-console.log(`Pruned ${retiredRoutes.length} retired routes, replaced their internal HTML links, and removed them from generated XML sitemaps.`);
+// Publish a conventional /sitemap.xml alongside Astro's generated sitemap files.
+// This gives crawlers a stable direct sitemap endpoint even if the generated
+// sitemap-index/child endpoint is not being served correctly by the Pages CDN.
+const generatedSitemap = join(dist, 'sitemap-0.xml');
+const directSitemap = join(dist, 'sitemap.xml');
+const sitemapIndex = join(dist, 'sitemap-index.xml');
+if (existsSync(generatedSitemap)) {
+  copyFileSync(generatedSitemap, directSitemap);
+  writeFileSync(
+    sitemapIndex,
+    '<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://a1draincleaning.github.io/sitemap.xml</loc></sitemap></sitemapindex>'
+  );
+}
+
+console.log(`Pruned ${retiredRoutes.length} retired routes, replaced their internal HTML links, removed them from generated XML sitemaps, and published a direct sitemap.xml endpoint.`);
