@@ -1,9 +1,8 @@
 ---
-import { SEO } from 'astro-seo';
-import { Schema } from 'astro-seo-schema';
-import { services } from '../data/services';
+import SEO from 'astro-seo';
+import Schema from 'astro-seo-schema';
+import { services, featuredServiceSlugs } from '../data/services';
 import { uniqueServiceAreaCities } from '../data/serviceAreaCities';
-import { featuredServiceSlugs } from '../data/serviceGroups';
 import { business } from '../data/business';
 import '../styles/global.css';
 
@@ -11,181 +10,83 @@ interface Props {
   title: string;
   description: string;
   path?: string;
-  schemaType?: string;
-  service?: { title: string; description: string };
-  city?: { name: string; counties: string[] };
-  breadcrumbLabel?: string;
+  city?: { name: string; slug: string };
+  service?: { name: string; slug: string; description?: string };
 }
 
-const { title, description, path = '/', service, city, breadcrumbLabel } = Astro.props;
-const canonical = new URL(path, Astro.site ?? business.website).href;
-const businessId = `${business.website}#business`;
-const websiteId = `${business.website}#website`;
-
+const { title, description, path = '/', city, service } = Astro.props;
+const canonical = new URL(path, Astro.site).toString();
 const serviceAreaAreas = [
-  { '@type': 'AdministrativeArea', name: 'North Iowa' },
-  ...Array.from(new Set(uniqueServiceAreaCities.flatMap((item) => item.counties))).map((county) => ({
-    '@type': 'AdministrativeArea',
-    name: `${county} County, Iowa`
-  })),
-  ...uniqueServiceAreaCities.map((item) => ({
-    '@type': 'Place',
-    name: `${item.name}, Iowa`,
-    containedInPlace: item.counties.map((county) => ({
-      '@type': 'AdministrativeArea',
-      name: `${county} County, Iowa`
-    }))
-  }))
+  { '@type': 'Place', name: 'North Iowa' },
+  ...uniqueServiceAreaCities.map((entry) => ({ '@type': 'City', name: entry.name, containedInPlace: { '@type': 'State', name: 'Iowa' } })),
 ];
 
 const businessSchema = {
   '@type': 'Plumber',
-  '@id': businessId,
+  '@id': `${business.website}#business`,
   name: business.name,
-  description: 'A-1 Drain Cleaning provides drain cleaning and sewer service in Mason City, Iowa and surrounding North Iowa communities.',
   url: business.website,
-  logo: business.logo,
-  image: business.image,
   telephone: business.phone.tel,
+  image: business.image,
+  logo: business.logo,
   address: {
     '@type': 'PostalAddress',
     streetAddress: business.address.street,
     addressLocality: business.address.city,
     addressRegion: business.address.state,
     postalCode: business.address.postalCode,
-    addressCountry: business.address.country
+    addressCountry: business.address.country,
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: business.reviews.rating,
-    reviewCount: business.reviews.count,
-    bestRating: 5,
-    worstRating: 1
-  },
-  areaServed: serviceAreaAreas,
   founder: { '@type': 'Person', name: business.owner },
+  areaServed: serviceAreaAreas,
+  sameAs: business.sameAs,
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
-    name: 'Drain Cleaning and Sewer Services',
-    itemListElement: services.filter(({ slug }) => featuredServiceSlugs.includes(slug as typeof featuredServiceSlugs[number])).map((item) => ({
-      '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: item.title,
-        description: item.description,
-        url: `${business.website}services/${item.slug}/`
-      }
-    }))
-  }
+    name: 'Drain Cleaning Services',
+    itemListElement: featuredServiceSlugs.map((slug) => {
+      const item = services.find((entry) => entry.slug === slug);
+      return item ? { '@type': 'Offer', itemOffered: { '@type': 'Service', name: item.name } } : null;
+    }).filter(Boolean),
+  },
 };
 
-const graph = [
-  businessSchema,
-  {
-    '@type': 'WebSite',
-    '@id': websiteId,
-    name: business.name,
-    url: business.website,
-    publisher: { '@id': businessId }
-  },
-  {
-    '@type': 'WebPage',
-    '@id': `${canonical}#webpage`,
-    name: title,
-    description,
-    url: canonical,
-    isPartOf: { '@id': websiteId },
-    about: [
-      { '@id': businessId },
-      ...(city ? [{ '@id': `${canonical}#place` }] : [])
-    ],
-    publisher: { '@id': businessId }
-  },
-  ...(city ? [{
-    '@type': 'Place',
-    '@id': `${canonical}#place`,
-    name: `${city.name}, Iowa`,
-    containedInPlace: [
-      ...city.counties.map((county) => ({ '@type': 'AdministrativeArea', name: `${county} County, Iowa` })),
-      { '@type': 'AdministrativeArea', name: 'Iowa' }
-    ]
-  }] : []),
-  ...(service ? [{
-    '@type': 'Service',
-    '@id': `${canonical}#service`,
-    name: service.title,
-    serviceType: service.title,
-    description: service.description,
-    provider: { '@id': businessId },
-    areaServed: serviceAreaAreas,
-    url: canonical,
-    availableChannel: {
-      '@type': 'ServiceChannel',
-      servicePhone: { '@type': 'ContactPoint', telephone: business.phone.tel, contactType: 'customer service' }
-    }
-  }] : []),
-  ...(path !== '/' ? [{
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: business.website },
-      ...(path.startsWith('/services/') ? [
-        { '@type': 'ListItem', position: 2, name: 'Services', item: `${business.website}services/` },
-        ...(service ? [{ '@type': 'ListItem', position: 3, name: service.title, item: canonical }] : path === '/services/' ? [] : [{ '@type': 'ListItem', position: 3, name: breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''), item: canonical }])
-      ] : (path.startsWith('/service-area/') && path !== '/service-area/') || path === '/mason-city-drain-cleaning/' ? [
-        { '@type': 'ListItem', position: 2, name: 'Areas We Serve', item: `${business.website}service-area/` },
-        { '@type': 'ListItem', position: 3, name: breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''), item: canonical }
-      ] : [{
-        '@type': 'ListItem', position: 2,
-        name: path === '/service-area/' ? 'Areas We Serve' : breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''),
-        item: canonical
-      }])
-    ]
-  }] : [])
-];
+const pageSchema = {
+  '@type': 'WebPage',
+  '@id': canonical,
+  url: canonical,
+  name: title,
+  description,
+  isPartOf: { '@id': `${business.website}#website` },
+  about: { '@id': `${business.website}#business` },
+};
 
-const schema = { '@context': 'https://schema.org' as const, '@graph': graph };
+const graph = [businessSchema, pageSchema];
 ---
 
-<!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#0f172a">
-  <meta name="msvalidate.01" content="963F3EADCED4173B9A7FC77E3B84FADB">
-  <SEO
-    title={title}
-    description={description}
-    canonical={canonical}
-    openGraph={{ basic: { title, type: 'website', url: canonical, image: new URL('/images/a1-main-sewer-drain-cleaning-mason-city.webp', canonical).href }, optional: { description, siteName: business.name, locale: 'en_US' } }}
-    twitter={{ card: 'summary', title, description }}
-  />
-  <Schema item={schema as any} />
-  <link rel="sitemap" href="/sitemap-index.xml">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W9D7WZ6J');</script>
-</head>
-<body>
-  <script is:inline src="https://learntok-backend-2026-24c204fe508e.herokuapp.com/leadpulse/embed.js" data-key="lp_83827ecbd5692cf9f4176805" async></script>
-  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9D7WZ6J" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <a class="skip" href="#main">Skip to content</a>
-  <slot />
-  <div class="fixed bottom-0 left-0 right-0 z-50 border-t border-slate-300 bg-white p-3 md:hidden">
-    <a class="bottom-call-cta call-button block min-h-12 rounded-md bg-[#b4232b] px-4 py-3 text-center font-black text-white" href={`tel:${business.phone.tel}`}>CALL {business.phone.formatted}</a>
-  </div>
-  <style>
-    .bottom-call-cta,
-    .bottom-call-cta:hover,
-    .bottom-call-cta:focus-visible {
-      color: #fff !important;
-      background-color: #b4232b !important;
-    }
-
-    .bottom-call-cta {
-      border-top: 1px solid #ffffff;
-      border-bottom: 1px solid #ffffff;
-      box-shadow: 0 -2px 0 #1A1A68, 0 2px 0 #1A1A68, 0 1px 4px rgba(0, 0, 0, 0.08);
-    }
-  </style>
-</body>
+  <head>
+    <SEO
+      title={title}
+      description={description}
+      canonical={canonical}
+      openGraph={{
+        basic: {
+          title,
+          type: 'website',
+          image: business.image,
+          url: canonical,
+        },
+      }}
+    />
+    <Schema schema={{ '@context': 'https://schema.org', '@graph': graph }} />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W9D7WZ6J');</script>
+  </head>
+  <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9D7WZ6J" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <a class="skip" href="#main">Skip to content</a>
+    <slot />
+    <script is:inline src="https://learntok-backend-2026-24c204fe508e.herokuapp.com/leadpulse/embed.js" data-key="lp_83827ecbd5692cf9f4176805" async></script>
+  </body>
 </html>
