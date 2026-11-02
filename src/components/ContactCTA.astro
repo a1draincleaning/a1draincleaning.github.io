@@ -35,15 +35,16 @@ const servicePageImages: Record<string, { src: string; alt: string; caption: str
   }
 };
 const servicePageImage = servicePageImages[Astro.url.pathname];
+const isTreeRootImage = Astro.url.pathname === '/services/tree-roots-in-sewer-line/';
 ---
 
 {servicePageImage && (
   <figure class="bg-white py-10 sm:py-14">
     <div class="container">
-      <div class="mx-auto max-w-4xl overflow-hidden rounded-lg shadow-lg">
-        <img src={servicePageImage.src} alt={servicePageImage.alt} width={servicePageImage.width} height={servicePageImage.height} loading="lazy" decoding="async" class="block h-auto w-full" />
+      <div class:list={["mx-auto overflow-hidden rounded-lg shadow-lg", isTreeRootImage ? "max-w-md" : "max-w-4xl"]}>
+        <img src={servicePageImage.src} alt={servicePageImage.alt} width={servicePageImage.width} height={servicePageImage.height} loading="lazy" decoding="async" class:list={["block h-auto w-full", isTreeRootImage && "max-h-[600px] w-auto mx-auto object-contain"]} />
       </div>
-      <figcaption class="mx-auto mt-3 max-w-4xl text-sm leading-6 text-slate-600">{servicePageImage.caption}</figcaption>
+      <figcaption class:list={["mx-auto mt-3 text-sm leading-6 text-slate-600", isTreeRootImage ? "max-w-md" : "max-w-4xl"]}>{servicePageImage.caption}</figcaption>
     </div>
   </figure>
 )}
