@@ -89,12 +89,40 @@ for (const file of filesUnder(dist, (name) => name.endsWith('.xml'))) {
 const generatedSitemap = join(dist, 'sitemap-0.xml');
 const directSitemap = join(dist, 'sitemap.xml');
 const sitemapIndex = join(dist, 'sitemap-index.xml');
-if (existsSync(generatedSitemap)) {
-  copyFileSync(generatedSitemap, directSitemap);
-  writeFileSync(
-    sitemapIndex,
-    '<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://a1draincleaning.github.io/sitemap.xml</loc></sitemap></sitemapindex>'
-  );
+if (!existsSync(generatedSitemap)) {
+  throw new Error('Astro did not generate dist/sitemap-0.xml; refusing to deploy without a source sitemap.');
 }
 
-console.log(`Pruned ${retiredRoutes.length} retired routes, replaced their internal HTML links, removed them from generated XML sitemaps, and published a direct sitemap.xml endpoint.`);
+const generatedXml = readFileSync(generatedSitemap, 'utf8');
+if (!generatedXml.includes('<urlset')) {
+  throw new Error('Generated sitemap-0.xml is not a valid URL-set sitemap.');
+}
+
+const sitemapUrls = [...generatedXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+if (sitemapUrls.length === 0) {
+  throw new Error('Generated sitemap-0.xml contains no URLs.');
+}
+
+for (const sitemapUrl of sitemapUrls) {
+  const parsed = new URL(sitemapUrl);
+  if (parsed.origin !== 'https://a1draincleaning.github.io' || !parsed.pathname.endsWith('/')) {
+    throw new Error('Non-canonical URL found in sitemap: ' + sitemapUrl);
+  }
+  const relativePath = decodeURIComponent(parsed.pathname).replace(/^\/+|\/+$/g, '');
+  const htmlPath = relativePath ? join(dist, relativePath, 'index.html') : join(dist, 'index.html');
+  if (!existsSync(htmlPath)) {
+    throw new Error('Sitemap URL has no generated HTML page: ' + sitemapUrl + ' (expected ' + htmlPath + ')');
+  }
+}
+
+copyFileSync(generatedSitemap, directSitemap);
+writeFileSync(
+  sitemapIndex,
+  '<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://a1draincleaning.github.io/sitemap.xml</loc></sitemap></sitemapindex>'
+);
+
+if (!existsSync(directSitemap) || !readFileSync(sitemapIndex, 'utf8').includes('https://a1draincleaning.github.io/sitemap.xml')) {
+  throw new Error('Direct sitemap or sitemap index was not published correctly.');
+}
+
+console.log('Pruned ' + retiredRoutes.length + ' retired routes, validated ' + sitemapUrls.length + ' canonical sitemap URLs against generated HTML pages, and published sitemap.xml plus sitemap-index.xml.');
