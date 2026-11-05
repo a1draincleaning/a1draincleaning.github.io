@@ -42,17 +42,6 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Rudd', ['Floyd']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
 
-  // Chickasaw County (existing individually listed service community)
-  ...[
-    ['Alta Vista', ['Chickasaw']],
-    ['Bassett', ['Chickasaw']],
-    ['Fredericksburg', ['Chickasaw']],
-    ['Ionia', ['Chickasaw']],
-    ['Lawler', ['Chickasaw']],
-    ['Nashua', ['Chickasaw']],
-    ['New Hampton', ['Chickasaw']],
-    ['North Washington', ['Chickasaw']]
-  ].map(([name, counties]) => city(name as string, counties as string[])),
 
   // Franklin County
   ...[
