@@ -127,7 +127,6 @@ The 10 counties currently shown on the service-area page are:
 
 - **Cerro Gordo County:** Clear Lake, Dougherty, Mason City, Meservey, Plymouth, Rock Falls, Rockwell, Swaledale, Thornton, Ventura.
 - **Floyd County:** Charles City, Colwell, Floyd, Marble Rock, Nora Springs, Rockford, Rudd.
-- **Chickasaw County:** Alta Vista, Bassett, Fredericksburg, Ionia, Lawler, Nashua, New Hampton, North Washington.
 - **Franklin County:** Alexander, Coulter, Geneva, Hampton, Hansell, Latimer, Sheffield.
 - **Hancock County:** Britt, Corwith, Crystal Lake, Garner, Goodell, Kanawha, Klemme, Woden.
 - **Mitchell County:** Carpenter, McIntire, Mitchell, Orchard, Osage, Riceville, St. Ansgar, Stacyville.
