@@ -165,45 +165,12 @@ const schema = { '@context': 'https://schema.org' as const, '@graph': graph };
   <Schema item={schema as any} />
   <link rel="sitemap" href="/sitemap-index.xml">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <!-- Consent defaults are queued before GTM loads. Analytics stays denied until a visitor opts in. -->
-  <script is:inline>
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = window.gtag || function () { window.dataLayer.push(arguments); };
-    window.gtag('consent', 'default', {
-      analytics_storage: 'denied',
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      functionality_storage: 'granted',
-      security_storage: 'granted'
-    });
-    try {
-      if (window.localStorage.getItem('a1-analytics-consent') === 'granted') {
-        window.gtag('consent', 'update', { analytics_storage: 'granted' });
-      }
-    } catch (error) {
-      // If storage is unavailable, retain the denied default.
-    }
-  </script>
   <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W9D7WZ6J');</script>
 </head>
 <body>
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W9D7WZ6J" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <a class="skip" href="#main">Skip to content</a>
   <slot />
-
-  <section id="a1-cookie-consent" class="cookie-consent" aria-labelledby="a1-cookie-title" aria-describedby="a1-cookie-description" hidden>
-    <div class="cookie-consent__copy">
-      <h2 id="a1-cookie-title">Analytics cookies</h2>
-      <p id="a1-cookie-description">A-1 Drain Cleaning uses Google Analytics to measure website visits. Analytics stays off unless you choose to allow it. You can change this choice using Cookie settings.</p>
-    </div>
-    <div class="cookie-consent__actions">
-      <button type="button" id="a1-cookie-reject" class="cookie-consent__button cookie-consent__button--secondary">Reject analytics</button>
-      <button type="button" id="a1-cookie-accept" class="cookie-consent__button cookie-consent__button--primary">Allow analytics</button>
-    </div>
-  </section>
-  <button type="button" id="a1-cookie-settings" class="cookie-settings" aria-controls="a1-cookie-consent" aria-expanded="false">Cookie settings</button>
-
   <div class="fixed bottom-0 left-0 right-0 z-50 border-t border-slate-300 bg-white p-3 md:hidden">
     <a class="bottom-call-cta call-button block min-h-12 rounded-md bg-[#b4232b] px-4 py-3 text-center font-black text-white" href={`tel:${business.phone.tel}`}>CALL {business.phone.formatted}</a>
   </div>
@@ -220,86 +187,7 @@ const schema = { '@context': 'https://schema.org' as const, '@graph': graph };
       border-bottom: 1px solid #ffffff;
       box-shadow: 0 -2px 0 #1A1A68, 0 2px 0 #1A1A68, 0 1px 4px rgba(0, 0, 0, 0.08);
     }
-
-    .cookie-consent {
-      position: fixed;
-      z-index: 100;
-      inset: auto 1rem 5.5rem 1rem;
-      max-width: 42rem;
-      margin-inline: auto;
-      padding: 1rem;
-      border: 1px solid #cbd5e1;
-      border-radius: 0.5rem;
-      background: #fff;
-      color: #0f172a;
-      box-shadow: 0 8px 30px rgb(15 23 42 / 18%);
-    }
-
-    .cookie-consent[hidden] { display: none; }
-    .cookie-consent h2 { margin: 0 0 0.35rem; font-size: 1.05rem; font-weight: 800; }
-    .cookie-consent p { margin: 0; font-size: 0.9rem; line-height: 1.5; }
-    .cookie-consent__actions { display: flex; flex-wrap: wrap; gap: 0.65rem; margin-top: 1rem; }
-    .cookie-consent__button, .cookie-settings {
-      min-height: 2.75rem;
-      border-radius: 0.375rem;
-      padding: 0.65rem 0.9rem;
-      font-weight: 700;
-      cursor: pointer;
-    }
-    .cookie-consent__button--primary { background: #0f172a; color: #fff; }
-    .cookie-consent__button--secondary { border: 1px solid #64748b; background: #fff; color: #0f172a; }
-    .cookie-settings {
-      position: fixed;
-      z-index: 90;
-      right: 0.75rem;
-      bottom: 5.25rem;
-      border: 1px solid #64748b;
-      background: #fff;
-      color: #0f172a;
-      font-size: 0.75rem;
-      box-shadow: 0 2px 8px rgb(15 23 42 / 12%);
-    }
-    @media (min-width: 48rem) {
-      .cookie-consent { inset-inline: 1rem; bottom: 1rem; }
-      .cookie-settings { bottom: 1rem; }
-    }
   </style>
-  <script is:inline>
-    (() => {
-      const banner = document.getElementById('a1-cookie-consent');
-      const accept = document.getElementById('a1-cookie-accept');
-      const reject = document.getElementById('a1-cookie-reject');
-      const settings = document.getElementById('a1-cookie-settings');
-      if (!banner || !accept || !reject || !settings) return;
-
-      const setConsent = (choice) => {
-        try {
-          window.localStorage.setItem('a1-analytics-consent', choice);
-        } catch (error) {
-          // Consent remains denied if the visitor's browser blocks storage.
-        }
-        window.gtag('consent', 'update', { analytics_storage: choice });
-        banner.hidden = true;
-        settings.setAttribute('aria-expanded', 'false');
-      };
-
-      accept.addEventListener('click', () => setConsent('granted'));
-      reject.addEventListener('click', () => setConsent('denied'));
-      settings.addEventListener('click', () => {
-        banner.hidden = false;
-        settings.setAttribute('aria-expanded', 'true');
-        accept.focus();
-      });
-
-      let savedChoice = null;
-      try {
-        savedChoice = window.localStorage.getItem('a1-analytics-consent');
-      } catch (error) {
-        // Show the banner when the choice cannot be read.
-      }
-      banner.hidden = savedChoice === 'granted' || savedChoice === 'denied';
-    })();
-  </script>
   <script is:inline src="https://learntok-backend-2026-24c204fe508e.herokuapp.com/leadpulse/embed.js" data-key="lp_83827ecbd5692cf9f4176805" async></script>
 </body>
 </html>
