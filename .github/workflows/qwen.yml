@@ -1,0 +1,69 @@
+name: Qwen Code Agent
+
+on:
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
+jobs:
+  qwen:
+    if: >-
+      github.event.issue.pull_request == null &&
+      github.event.comment.user.type == 'User' &&
+      contains(fromJSON('["OWNER", "MEMBER", "COLLABORATOR"]'), github.event.comment.author_association) &&
+      startsWith(github.event.comment.body, '@qwencoder')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Run Qwen Code
+        uses: QwenLM/qwen-code-action@v1
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          openai_api_key: ${{ secrets.QWEN_API_KEY }}
+          openai_base_url: ${{ vars.QWEN_BASE_URL || 'https://dashscope.aliyuncs.com/compatible-mode/v1' }}
+          openai_model: ${{ vars.QWEN_MODEL || 'qwen-coder-plus-latest' }}
+          prompt: |-
+            You are the Qwen coding agent for this repository.
+            Read QWEN.md before making changes and follow it.
+            Work only on the request in this GitHub issue comment:
+            ${{ github.event.comment.body }}
+            Inspect relevant files first. Make the smallest safe change, run relevant checks,
+            and report exactly what changed and what remains. Do not expose secrets.
+          settings: |-
+            {
+              "model": { "maxSessionTurns": 25 },
+              "mcpServers": {
+                "github": {
+                  "command": "docker",
+                  "args": [
+                    "run", "-i", "--rm",
+                    "-e", "GITHUB_PERSONAL_ACCESS_TOKEN",
+                    "ghcr.io/github/github-mcp-server:v0.18.0"
+                  ],
+                  "includeTools": [
+                    "add_issue_comment",
+                    "get_issue",
+                    "get_issue_comments",
+                    "create_pull_request",
+                    "pull_request_read",
+                    "create_branch",
+                    "create_or_update_file",
+                    "get_file_contents",
+                    "push_files",
+                    "search_code"
+                  ],
+                  "env": {
+                    "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_TOKEN}"
+                  }
+                }
+              }
+            }
