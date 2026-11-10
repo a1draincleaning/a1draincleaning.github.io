@@ -1,6 +1,10 @@
 User-agent: *
 Allow: /
 
+# Permit Screpy site audits
+User-agent: ScrepyBot
+Allow: /
+
 # Permit production AI Search Crawlers for Generative Engine Visibility
 User-agent: GPTBot
 Allow: /
