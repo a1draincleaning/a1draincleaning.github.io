@@ -33,7 +33,7 @@ export const business = {
     rating: 4.9,
     count: 72,
     googleMapsUrl:
-      'https://maps.google.com/maps?cid=7826151039410291134',
+      'https://www.google.com/maps/place/?q=place_id:ChIJ1-N4s2sH8YcRvsGa1ucSnGw',
     googleReviewUrl:
       'https://search.google.com/local/writereview?placeid=ChIJ1-N4s2sH8YcRvsGa1ucSnGw',
   },
