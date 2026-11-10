@@ -97,7 +97,7 @@ jobs:
           }
 
           const affectsPages = changed.some(path =>
-            /^(src\/pages\/|src\/data\/|src\/content\/|astro\.config\.|public\/)/.test(path)
+            /^(src\/pages\/|src\/data\/|src\/content\/|astro\.config\.|public\/|\.github\/workflows\/)/.test(path)
           );
 
           if (!affectsPages) {
