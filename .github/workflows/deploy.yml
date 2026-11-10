@@ -66,3 +66,79 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
+
+      - name: Checkout source for changed-file detection
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+
+      - name: Submit changed pages to IndexNow
+        env:
+          INDEXNOW_KEY: a1d1e0c9b7f34a6d8c2e5f9017b3a4c6
+          SITE_URL: https://a1draincleaning.github.io
+          BEFORE_SHA: ${{ github.event.before }}
+          CURRENT_SHA: ${{ github.sha }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { execFileSync } from 'node:child_process';
+
+          const site = process.env.SITE_URL;
+          const key = process.env.INDEXNOW_KEY;
+          const before = process.env.BEFORE_SHA;
+          const current = process.env.CURRENT_SHA;
+          let changed = [];
+
+          if (before && !/^0+$/.test(before)) {
+            execFileSync('git', ['fetch', '--no-tags', 'origin', before], { stdio: 'inherit' });
+            changed = execFileSync('git', ['diff', '--name-only', before, current], { encoding: 'utf8' })
+              .split(/\r?\n/).filter(Boolean);
+          } else {
+            changed = ['src/pages/'];
+          }
+
+          const affectsPages = changed.some(path =>
+            /^(src\/pages\/|src\/data\/|src\/content\/|astro\.config\.|public\/)/.test(path)
+          );
+
+          if (!affectsPages) {
+            console.log('No page, content, configuration, or public-file changes; skipping IndexNow.');
+            process.exit(0);
+          }
+
+          const sitemapIndexResponse = await fetch(site + '/sitemap-index.xml');
+          if (!sitemapIndexResponse.ok) throw new Error('Sitemap index returned HTTP ' + sitemapIndexResponse.status);
+          const sitemapIndex = await sitemapIndexResponse.text();
+          const sitemapUrls = [...sitemapIndex.matchAll(/<loc>([^<]+)<\/loc>/g)].map(match => match[1]);
+          const urls = new Set();
+
+          for (const sitemapUrl of sitemapUrls) {
+            const response = await fetch(sitemapUrl);
+            if (!response.ok) throw new Error('Sitemap returned HTTP ' + response.status + ': ' + sitemapUrl);
+            const xml = await response.text();
+            for (const match of xml.matchAll(/<loc>([^<]+)<\/loc>/g)) {
+              const url = match[1].trim();
+              if (new URL(url).origin === new URL(site).origin) urls.add(url);
+            }
+          }
+
+          const urlList = [...urls];
+          if (!urlList.length) throw new Error('No site URLs found in the sitemap.');
+          if (urlList.length > 10000) throw new Error('Sitemap exceeds IndexNow batch limit; split submissions.');
+
+          const response = await fetch('https://api.indexnow.org/indexnow', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json; charset=utf-8' },
+            body: JSON.stringify({
+              host: new URL(site).host,
+              key,
+              keyLocation: site + '/' + key + '.txt',
+              urlList
+            })
+          });
+
+          console.log('IndexNow response:', response.status, response.statusText);
+          if (![200, 202].includes(response.status)) {
+            throw new Error('IndexNow submission failed with HTTP ' + response.status + ': ' + await response.text());
+          }
+          console.log('Submitted ' + urlList.length + ' sitemap URLs to IndexNow.');
+          NODE
