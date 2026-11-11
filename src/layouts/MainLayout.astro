@@ -19,6 +19,7 @@ interface Props {
 
 const { title, description, path = '/', service, city, breadcrumbLabel } = Astro.props;
 const canonical = new URL(path, Astro.site ?? business.website).href;
+const socialImage = new URL('/images/a1-main-sewer-drain-cleaning-mason-city.webp', canonical).href;
 const businessId = `${business.website}#business`;
 const websiteId = `${business.website}#website`;
 
@@ -159,8 +160,8 @@ const schema = { '@context': 'https://schema.org' as const, '@graph': graph };
     title={title}
     description={description}
     canonical={canonical}
-    openGraph={{ basic: { title, type: 'website', url: canonical, image: new URL('/images/a1-main-sewer-drain-cleaning-mason-city.webp', canonical).href }, optional: { description, siteName: business.name, locale: 'en_US' } }}
-    twitter={{ card: 'summary', title, description }}
+    openGraph={{ basic: { title, type: 'website', url: canonical, image: socialImage }, optional: { description, siteName: business.name, locale: 'en_US' } }}
+    twitter={{ card: 'summary_large_image', title, description, image: socialImage }}
   />
   <Schema item={schema as any} />
   <link rel="sitemap" href="/sitemap-index.xml">
