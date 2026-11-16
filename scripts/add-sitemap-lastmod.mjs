@@ -8,7 +8,7 @@ const dist = join(root, 'dist');
 
 export function sourceFilesForUrl(url, projectRoot = root) {
   const pathname = new URL(url).pathname;
-  const relative = pathname.replace(/^\\/+|\\/+$/g, '');
+  const relative = pathname.replace(/^\/+|\/+$/g, '');
   const staticCandidates = relative
     ? [`src/pages/${relative}/index.astro`, `src/pages/${relative}.astro`]
     : ['src/pages/index.astro'];
@@ -49,19 +49,19 @@ export function sourceFilesForUrl(url, projectRoot = root) {
 
 export function addUrlLastmod(xml, getLastmod) {
   let count = 0;
-  const updated = xml.replace(/<url>([\\s\\S]*?)<\\/url>/g, (_whole, inner) => {
-    const loc = inner.match(/<loc>([^<]+)<\\/loc>/)?.[1]?.trim();
+  const updated = xml.replace(/<url>([\s\S]*?)<\/url>/g, (_whole, inner) => {
+    const loc = inner.match(/<loc>([^<]+)<\/loc>/)?.[1]?.trim();
     if (!loc) throw new Error('Sitemap URL entry is missing its <loc> element.');
     const lastmod = new Date(getLastmod(loc));
     if (Number.isNaN(lastmod.getTime())) throw new Error(`Invalid lastmod date for ${loc}`);
     const date = lastmod.toISOString();
-    const content = inner.replace(/<lastmod>[^<]*<\\/lastmod>/g, '').trim();
+    const content = inner.replace(/<lastmod>[^<]*<\/lastmod>/g, '').trim();
     count += 1;
-    return `<url>\\n${content}\\n  <lastmod>${date}</lastmod>\\n</url>`;
+    return `<url>\n${content}\n  <lastmod>${date}</lastmod>\n</url>`;
   });
   if (count === 0) throw new Error('No <url> entries found in sitemap.');
-  const withoutDates = [...updated.matchAll(/<url>([\\s\\S]*?)<\\/url>/g)]
-    .filter(([, inner]) => !/<lastmod>[^<]+<\\/lastmod>/.test(inner));
+  const withoutDates = [...updated.matchAll(/<url>([\s\S]*?)<\/url>/g)]
+    .filter(([, inner]) => !/<lastmod>[^<]+<\/lastmod>/.test(inner));
   if (withoutDates.length) throw new Error('One or more sitemap URLs are missing lastmod.');
   return updated;
 }
@@ -70,11 +70,11 @@ export function addIndexLastmod(xml, lastmod) {
   const date = new Date(lastmod);
   if (Number.isNaN(date.getTime())) throw new Error('Invalid sitemap-index lastmod date.');
   let count = 0;
-  const updated = xml.replace(/<sitemap>([\\s\\S]*?)<\\/sitemap>/g, (_whole, inner) => {
-    if (!/<loc>[^<]+<\\/loc>/.test(inner)) throw new Error('Sitemap index entry is missing its <loc> element.');
+  const updated = xml.replace(/<sitemap>([\s\S]*?)<\/sitemap>/g, (_whole, inner) => {
+    if (!/<loc>[^<]+<\/loc>/.test(inner)) throw new Error('Sitemap index entry is missing its <loc> element.');
     count += 1;
-    const content = inner.replace(/<lastmod>[^<]*<\\/lastmod>/g, '').trim();
-    return `<sitemap>\\n${content}\\n  <lastmod>${date.toISOString()}</lastmod>\\n</sitemap>`;
+    const content = inner.replace(/<lastmod>[^<]*<\/lastmod>/g, '').trim();
+    return `<sitemap>\n${content}\n  <lastmod>${date.toISOString()}</lastmod>\n</sitemap>`;
   });
   if (count === 0) throw new Error('No <sitemap> entries found in sitemap index.');
   return updated;
@@ -103,7 +103,7 @@ function run() {
   const updated = addUrlLastmod(original, (url) => gitLastmod(sourceFilesForUrl(url)));
   writeFileSync(sitemapPath, updated);
 
-  const dates = [...updated.matchAll(/<lastmod>([^<]+)<\\/lastmod>/g)].map((match) => new Date(match[1]).getTime());
+  const dates = [...updated.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((match) => new Date(match[1]).getTime());
   const latest = new Date(Math.max(...dates)).toISOString();
   const index = readFileSync(indexPath, 'utf8');
   writeFileSync(indexPath, addIndexLastmod(index, latest));
