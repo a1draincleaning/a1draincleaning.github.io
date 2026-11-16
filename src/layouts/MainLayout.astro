@@ -40,7 +40,8 @@ const serviceAreaAreas = [
 ];
 
 const businessSchema = {
-  '@type': 'Plumber',
+  // One canonical business entity: Organization identity plus the specific local-business type.
+  '@type': ['Organization', 'Plumber'],
   '@id': businessId,
   name: business.name,
   description: 'A-1 Drain Cleaning provides drain cleaning and sewer service in Mason City, Iowa and surrounding North Iowa communities.',
@@ -81,6 +82,7 @@ const graph = [
     '@id': websiteId,
     name: business.name,
     url: business.website,
+    description: 'Official website of A-1 Drain Cleaning, providing drain cleaning and sewer services from Mason City, Iowa.',
     publisher: { '@id': businessId }
   },
   {
