@@ -14,11 +14,12 @@ interface Props {
   path?: string;
   schemaType?: string;
   service?: { title: string; description: string };
+  faqs?: { question: string; answer: string }[];
   city?: { name: string; counties: string[] };
   breadcrumbLabel?: string;
 }
 
-const { title, description, path = '/', service, city, breadcrumbLabel } = Astro.props;
+const { title, description, path = '/', service, city, breadcrumbLabel, faqs } = Astro.props;
 const canonical = new URL(path, Astro.site ?? business.website).href;
 const socialImage = new URL('/images/a1-main-sewer-drain-cleaning-mason-city.webp', canonical).href;
 const businessId = `${business.website}#business`;
@@ -106,6 +107,18 @@ const graph = [
       ...city.counties.map((county) => ({ '@type': 'AdministrativeArea', name: `${county} County, Iowa` })),
       { '@type': 'AdministrativeArea', name: 'Iowa' }
     ]
+  }] : []),
+  ...(faqs?.length ? [{
+    '@type': 'FAQPage',
+    '@id': `${canonical}#faq`,
+    mainEntity: faqs.map(({ question, answer }) => ({
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: answer
+      }
+    }))
   }] : []),
   ...(service ? [{
     '@type': 'Service',
