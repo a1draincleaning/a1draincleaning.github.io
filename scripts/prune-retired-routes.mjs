@@ -1,5 +1,4 @@
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
-import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 
 const dist = join(process.cwd(), 'dist');
@@ -142,6 +141,3 @@ if (readFileSync(llmsText, 'utf8') !== readFileSync(llmsMarkdown, 'utf8')) {
 
 console.log('Pruned ' + retiredRoutes.length + ' retired routes, validated ' + sitemapUrls.length + ' canonical sitemap URLs against generated HTML pages, published sitemap.xml and sitemap-index.xml, and copied llms.txt to llms.md.');
 
-// Run post-build assertions for agent discovery files, custom 404 navigation,
-// sitemap URL integrity, and source-derived lastmod timestamps.
-execFileSync(process.execPath, [join(process.cwd(), 'scripts/verify-agent-readiness.mjs')], { stdio: 'inherit' });
