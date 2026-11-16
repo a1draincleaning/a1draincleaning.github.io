@@ -37,6 +37,15 @@ if (llms !== readFileSync(join(dist, 'llms.md'), 'utf8')) throw new Error('llms.
 if (!llms.includes('https://a1draincleaning.github.io/agent-index.md')) {
   throw new Error('llms.txt does not link to the Markdown agent index.');
 }
+for (const required of [
+  'Emergency Drain Cleaning',
+  'Emergency sewer backup service',
+  'Drain & Sewer Camera Inspections',
+  'Sewer Line Locating',
+  'Drain & Sewer Pipe Repair',
+]) {
+  if (!llms.includes(required)) throw new Error(`llms.txt is missing a core service: ${required}`);
+}
 
 const homepage = readFileSync(join(dist, 'index.html'), 'utf8');
 function extractJsonLd(html) {
