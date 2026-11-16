@@ -75,7 +75,55 @@ const featuredServiceCities = uniqueServiceAreaCities.filter((city) => featuredS
     <section class="bg-white py-16 sm:py-20">
       <div class="container grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
         <article>
-          {service.slug === 'main-drain-cleaning' ? (
+          {service.slug === 'emergency-drain-cleaning' ? (
+            <>
+              <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Emergency drain cleaning</p>
+              <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">When a drain stops working or starts overflowing</h2>
+              <p class="mt-6 text-lg leading-8 text-slate-700">A stopped toilet, sink, bathtub, shower, laundry drain, or floor drain can disrupt the whole house. A-1 Drain Cleaning offers 24/7 service for urgent drain problems in Mason City and North Iowa. Call 641-530-2728 and explain which fixture is affected and whether water is standing, rising, or overflowing.</p>
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">What to tell us when you call</h2>
+              <ul class="mt-5 grid gap-3 sm:grid-cols-2">
+                {service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}
+              </ul>
+              <p class="mt-5 leading-8 text-slate-700">Tell us whether the problem is limited to one fixture or whether other drains are affected. Mention any water on the floor, sewage coming up through a low drain, or a toilet that is close to overflowing. Stop using the affected fixture while water is rising.</p>
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">A clogged fixture or a sewer backup?</h2>
+              <p class="mt-4 leading-8 text-slate-700">A single stopped sink, toilet, tub, or shower may be a fixture or branch-drain problem. Several fixtures backing up together, or wastewater coming up through a basement floor drain, can indicate a main drain or sewer-line problem. Those situations need to be described as a possible sewer backup when you call.</p>
+              <p class="mt-4 leading-8 text-slate-700">For wastewater backing up through several fixtures or a low drain, see <a href="/services/sewer-backup-emergency/" class="font-bold text-[#b4232b] underline underline-offset-4">emergency sewer backup service</a>, <a href="/services/basement-floor-drains/" class="font-bold text-[#b4232b] underline underline-offset-4">basement floor drain backups</a>, and <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a>.</p>
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Emergency drain cleaning in Mason City and North Iowa</h2>
+              <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning is based in Mason City, Iowa and serves nearby North Iowa communities. Call 641-530-2728 for current service availability. Explain the fixture, the symptoms, and whether the problem is getting worse.</p>
+            </>
+          ) : service.slug === 'sewer-camera-inspection' ? (
+            <>
+              <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Drain and sewer camera inspections</p>
+              <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Look inside the line when a recurring problem needs more answers</h2>
+              <p class="mt-6 text-lg leading-8 text-slate-700">A sewer camera inspection lets a technician view the inside of an accessible drain or sewer line. It can help investigate a blockage that keeps returning, a suspected damaged section, or a problem that cleaning alone has not explained.</p>
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">When a camera inspection may help</h2>
+              <ul class="mt-5 grid gap-3 sm:grid-cols-2">
+                {service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}
+              </ul>
+              <p class="mt-5 leading-8 text-slate-700">The camera may show roots, buildup, standing water, a visible break, or another condition inside the portion of pipe it can reach. The inspection is useful when the result can help determine the next step—not something every routine clogged drain automatically needs.</p>
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">What a camera inspection does not do</h2>
+              <p class="mt-4 leading-8 text-slate-700">A camera inspection is a visual check. It does not clean a blocked line or repair a damaged pipe. Debris, standing water, access limitations, and the condition of the pipe can limit what is visible. Findings describe the portion of line that can be inspected; they are not a guarantee about every buried section.</p>
+              <p class="mt-4 leading-8 text-slate-700">If the line needs to be traced from above ground, ask about <a href="/services/sewer-line-locating/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line locating</a>. If the camera shows a recurring blockage or visible damage, the next step depends on what is actually found.</p>
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Camera inspections in Mason City and North Iowa</h2>
+              <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning provides drain and sewer camera inspections in Mason City and North Iowa. Call 641-530-2728 and describe the repeated blockage or pipe concern so we can discuss whether an inspection makes sense.</p>
+            </>
+          ) : service.slug === 'sewer-line-locating' ? (
+            <>
+              <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Sewer line locating</p>
+              <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Find the route of an underground drain or sewer line</h2>
+              <p class="mt-6 text-lg leading-8 text-slate-700">Sewer line locating helps identify the approximate route or location of an accessible underground drain or sewer line. It can be useful when the pipe needs to be found for further inspection or repair, or when the route is not known.</p>
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">When line locating may be useful</h2>
+              <ul class="mt-5 grid gap-3 sm:grid-cols-2">
+                {service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}
+              </ul>
+              <p class="mt-5 leading-8 text-slate-700">The locating process depends on access to the line, the pipe material, the signal or method available, and surrounding conditions. The result is an approximate route or point of interest—not a promise of exact depth or a substitute for utility locating and required underground utility marking before digging.</p>
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Locating and camera inspection work together</h2>
+              <p class="mt-4 leading-8 text-slate-700">A camera inspection can show visible conditions inside an accessible line. Locating can help identify where the line or a point of interest runs below ground. They answer different questions and may be used together when the job calls for both.</p>
+              <p class="mt-4 leading-8 text-slate-700">See <a href="/services/sewer-camera-inspection/" class="font-bold text-[#b4232b] underline underline-offset-4">drain and sewer camera inspections</a> or <a href="/pipe-repair/" class="font-bold text-[#b4232b] underline underline-offset-4">drain and sewer pipe repair</a> for related work.</p>
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Sewer line locating in Mason City and North Iowa</h2>
+              <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning provides sewer line locating in Mason City and North Iowa. Call 641-530-2728 and explain why the line needs to be found and whether there is an accessible cleanout or inspection point.</p>
+            </>
+          ) : service.slug === 'main-drain-cleaning' ? (
             <>
               <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Main drain problems</p>
               <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">When the main drain is blocked, the whole house can be affected</h2>
