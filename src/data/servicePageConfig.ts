@@ -33,6 +33,7 @@ export const servicePageTitles: Record<string, string> = {
 };
 
 export const servicePageDescriptions: Record<string, string> = {
+  'emergency-drain-cleaning': 'Emergency drain cleaning for clogged toilets, sinks, tubs, showers, laundry drains, and floor drains in Mason City and North Iowa. Call A-1 Drain Cleaning.',
   'basement-floor-drains': 'Basement floor drain backing up or sewage coming up through the drain? A-1 Drain Cleaning cleans and unclogs floor and main drains in North Iowa.',
   'main-drain-cleaning': 'Main drain line clogged or several drains backing up? A-1 Drain Cleaning cleans and unclogs house main drains in Mason City and North Iowa.',
   'sewer-line-cleaning': 'Main sewer pipe clogged or several fixtures backing up? A-1 Drain Cleaning cleans and unclogs residential sewer lines in North Iowa.',
@@ -77,6 +78,7 @@ for (const [slug, additions] of Object.entries(serviceDetailAdditions)) {
 }
 
 export const relatedServiceSlugs: Record<string, string[]> = {
+  'emergency-drain-cleaning': ['toilet-clogs', 'bathroom-shower-drains', 'basement-floor-drains', 'sewer-backup-emergency'],
   'main-drain-cleaning': ['sewer-line-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
   'sewer-line-cleaning': ['main-drain-cleaning', 'tree-roots-in-sewer-line', 'basement-floor-drains'],
   'tree-roots-in-sewer-line': ['sewer-line-cleaning', 'main-drain-cleaning'],
