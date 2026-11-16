@@ -20,6 +20,13 @@ body {
   line-height: 1.65;
 }
 
+/* Keep page content and form controls above the fixed mobile call bar. */
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 5.5rem;
+  }
+}
+
 /* Keep previously white sections slightly softened instead of stark white. */
 .bg-white {
   background-color: #f8fafc !important;

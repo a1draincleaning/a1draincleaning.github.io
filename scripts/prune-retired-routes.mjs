@@ -1,4 +1,5 @@
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 
 const dist = join(process.cwd(), 'dist');
@@ -116,13 +117,32 @@ for (const sitemapUrl of sitemapUrls) {
 }
 
 copyFileSync(generatedSitemap, directSitemap);
+const sitemapFileLastmod = new Date().toISOString();
 writeFileSync(
   sitemapIndex,
-  '<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://a1draincleaning.github.io/sitemap.xml</loc></sitemap></sitemapindex>'
+  '<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://a1draincleaning.github.io/sitemap.xml</loc><lastmod>' + sitemapFileLastmod + '</lastmod></sitemap></sitemapindex>'
 );
 
 if (!existsSync(directSitemap) || !readFileSync(sitemapIndex, 'utf8').includes('https://a1draincleaning.github.io/sitemap.xml')) {
   throw new Error('Direct sitemap or sitemap index was not published correctly.');
 }
 
-console.log('Pruned ' + retiredRoutes.length + ' retired routes, validated ' + sitemapUrls.length + ' canonical sitemap URLs against generated HTML pages, and published sitemap.xml plus sitemap-index.xml.');
+// Publish an explicit Markdown URL for agents. GitHub Pages cannot negotiate
+// representations from the Accept header or set Vary: Accept, so this is a
+// directly addressable static Markdown resource rather than HTTP negotiation.
+const llmsText = join(dist, 'llms.txt');
+const llmsMarkdown = join(dist, 'llms.md');
+if (!existsSync(llmsText)) {
+  throw new Error('public/llms.txt was not copied into dist; refusing to omit agent-readable site information.');
+}
+copyFileSync(llmsText, llmsMarkdown);
+if (readFileSync(llmsText, 'utf8') !== readFileSync(llmsMarkdown, 'utf8')) {
+  throw new Error('The published llms.md does not match llms.txt.');
+}
+
+// Add accurate source-history timestamps, then assert all agent-facing build outputs.
+execFileSync(process.execPath, [join(process.cwd(), 'scripts/add-sitemap-lastmod.mjs')], { stdio: 'inherit' });
+execFileSync(process.execPath, [join(process.cwd(), 'scripts/verify-agent-readiness.mjs')], { stdio: 'inherit' });
+
+console.log('Pruned ' + retiredRoutes.length + ' retired routes, validated ' + sitemapUrls.length + ' canonical sitemap URLs against generated HTML pages, published sitemap.xml and sitemap-index.xml, and copied llms.txt to llms.md.');
+

@@ -3,6 +3,7 @@ import { SEO } from 'astro-seo';
 import { Schema } from 'astro-seo-schema';
 import { services } from '../data/services';
 import { uniqueServiceAreaCities } from '../data/serviceAreaCities';
+import { builtServiceAreaCitySlugs } from '../data/serviceAreaCityPages';
 import { featuredServiceSlugs } from '../data/serviceGroups';
 import { business } from '../data/business';
 import '../styles/global.css';
@@ -13,11 +14,12 @@ interface Props {
   path?: string;
   schemaType?: string;
   service?: { title: string; description: string };
+  faqs?: { question: string; answer: string }[];
   city?: { name: string; counties: string[] };
   breadcrumbLabel?: string;
 }
 
-const { title, description, path = '/', service, city, breadcrumbLabel } = Astro.props;
+const { title, description, path = '/', service, city, breadcrumbLabel, faqs } = Astro.props;
 const canonical = new URL(path, Astro.site ?? business.website).href;
 const socialImage = new URL('/images/a1-main-sewer-drain-cleaning-mason-city.webp', canonical).href;
 const businessId = `${business.website}#business`;
@@ -25,22 +27,22 @@ const websiteId = `${business.website}#website`;
 
 const serviceAreaAreas = [
   { '@type': 'AdministrativeArea', name: 'North Iowa' },
-  ...Array.from(new Set(uniqueServiceAreaCities.flatMap((item) => item.counties))).map((county) => ({
-    '@type': 'AdministrativeArea',
-    name: `${county} County, Iowa`
-  })),
-  ...uniqueServiceAreaCities.map((item) => ({
+  ...uniqueServiceAreaCities
+    .filter((item) => builtServiceAreaCitySlugs.has(item.slug))
+    .map((item) => ({
+      '@type': 'Place',
+      name: `${item.name}, Iowa`
+    })),
+  {
     '@type': 'Place',
-    name: `${item.name}, Iowa`,
-    containedInPlace: item.counties.map((county) => ({
-      '@type': 'AdministrativeArea',
-      name: `${county} County, Iowa`
-    }))
-  }))
+    name: 'Albert Lea, Minnesota',
+    containedInPlace: { '@type': 'AdministrativeArea', name: 'Minnesota' }
+  }
 ];
 
 const businessSchema = {
-  '@type': 'Plumber',
+  // One canonical business entity: Organization identity plus the specific local-business type.
+  '@type': ['Organization', 'Plumber'],
   '@id': businessId,
   name: business.name,
   description: 'A-1 Drain Cleaning provides drain cleaning and sewer service in Mason City, Iowa and surrounding North Iowa communities.',
@@ -48,6 +50,12 @@ const businessSchema = {
   logo: business.logo,
   image: business.image,
   telephone: business.phone.tel,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: business.phone.tel,
+    contactType: 'customer service',
+    availableLanguage: 'English'
+  },
   sameAs: business.sameAs,
   address: {
     '@type': 'PostalAddress',
@@ -57,15 +65,8 @@ const businessSchema = {
     postalCode: business.address.postalCode,
     addressCountry: business.address.country
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: business.reviews.rating,
-    reviewCount: business.reviews.count,
-    bestRating: 5,
-    worstRating: 1
-  },
   areaServed: serviceAreaAreas,
-  founder: { '@type': 'Person', name: business.owner },
+  ...(path === '/about/' ? { founder: { '@type': 'Person', name: business.owner } } : {}),
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Drain Cleaning and Sewer Services',
@@ -88,6 +89,7 @@ const graph = [
     '@id': websiteId,
     name: business.name,
     url: business.website,
+    description: 'Official website of A-1 Drain Cleaning, providing drain cleaning and sewer services from Mason City, Iowa.',
     publisher: { '@id': businessId }
   },
   {
@@ -111,6 +113,18 @@ const graph = [
       ...city.counties.map((county) => ({ '@type': 'AdministrativeArea', name: `${county} County, Iowa` })),
       { '@type': 'AdministrativeArea', name: 'Iowa' }
     ]
+  }] : []),
+  ...(faqs?.length ? [{
+    '@type': 'FAQPage',
+    '@id': `${canonical}#faq`,
+    mainEntity: faqs.map(({ question, answer }) => ({
+      '@type': 'Question',
+      name: question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: answer
+      }
+    }))
   }] : []),
   ...(service ? [{
     '@type': 'Service',
@@ -164,7 +178,8 @@ const schema = { '@context': 'https://schema.org' as const, '@graph': graph };
     twitter={{ card: 'summary_large_image', title, description, image: socialImage }}
   />
   <Schema item={schema as any} />
-  <link rel="sitemap" href="/sitemap-index.xml">
+  <link rel="sitemap" href="/sitemap.xml">
+  <link rel="describedby" type="text/markdown" href="/agent-index.md" title="A-1 Drain Cleaning agent index">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <script is:inline>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-W9D7WZ6J');</script>
 </head>

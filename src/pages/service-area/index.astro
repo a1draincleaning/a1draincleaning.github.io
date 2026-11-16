@@ -26,8 +26,8 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
     <section class="bg-white py-16 sm:py-20" aria-labelledby="communities-heading">
       <div class="container">
         <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Local coverage</p>
-        <h2 id="communities-heading" class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Communities A-1 Drain Cleaning serves</h2>
-        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">Mason City is the home base. The directory below shows the current North Iowa service-area plan. Only communities with researched local content are linked to dedicated city pages.</p>
+        <h2 id="communities-heading" class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">North Iowa service-area directory</h2>
+        <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">The linked cities above have dedicated A-1 Drain Cleaning pages. The county lists below are regional directory references, not confirmation that every town or address is covered. Call 641-530-2728 with your address to confirm service availability.</p>
 
         <div class="mt-7 grid gap-4 sm:grid-cols-3" aria-label="Primary service-area communities">
           {uniqueServiceAreaCities
@@ -39,6 +39,13 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
               </a>
             ))}
         </div>
+
+        <section class="mt-10 border border-slate-200 bg-slate-50 p-6 sm:p-8" aria-labelledby="minnesota-service-area">
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Minnesota service area</p>
+          <h3 id="minnesota-service-area" class="mt-2 text-2xl font-black text-slate-950">Albert Lea, Minnesota</h3>
+          <p class="mt-3 max-w-3xl leading-7 text-slate-700">A-1 Drain Cleaning is based in Mason City, Iowa and also serves Albert Lea, Minnesota. Albert Lea is a service area, not a second office.</p>
+          <a href="/albert-lea-mn-drain-cleaning/" class="mt-4 inline-block font-black text-[#b4232b] underline underline-offset-4">Albert Lea drain cleaning and sewer service →</a>
+        </section>
 
         <div class="mt-10 space-y-8">
           {Array.from(new Set(uniqueServiceAreaCities.flatMap((city) => city.counties)))
