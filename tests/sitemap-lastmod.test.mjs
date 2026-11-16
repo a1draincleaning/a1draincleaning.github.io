@@ -12,8 +12,8 @@ test('adds a distinct source date to every URL and replaces stale dates', () => 
     ['https://a1draincleaning.github.io/about/', '2026-11-02T10:00:00Z']
   ]);
   const result = addUrlLastmod(xml, (url) => dates.get(url));
-  assert.match(result, /<lastmod>2026-11-01T10:00:00.000Z<\\/lastmod>/);
-  assert.match(result, /<lastmod>2026-11-02T10:00:00.000Z<\\/lastmod>/);
+  assert.match(result, /<lastmod>2026-11-01T10:00:00.000Z<\/lastmod>/);
+  assert.match(result, /<lastmod>2026-11-02T10:00:00.000Z<\/lastmod>/);
   assert.equal((result.match(/<lastmod>/g) || []).length, 2);
 });
 
@@ -25,7 +25,7 @@ test('rejects missing URL locations and invalid modification dates', () => {
 test('adds the latest child sitemap date to each sitemap-index entry', () => {
   const xml = '<sitemapindex><sitemap><loc>https://a1draincleaning.github.io/sitemap.xml</loc></sitemap></sitemapindex>';
   const result = addIndexLastmod(xml, '2026-11-03T12:00:00Z');
-  assert.match(result, /<lastmod>2026-11-03T12:00:00.000Z<\\/lastmod>/);
+  assert.match(result, /<lastmod>2026-11-03T12:00:00.000Z<\/lastmod>/);
 });
 
 test('maps dynamic service URLs to the service template and content data', () => {
