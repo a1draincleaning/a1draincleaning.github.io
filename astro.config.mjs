@@ -6,6 +6,21 @@ import tailwindcss from '@tailwindcss/vite';
 
 const sharedFiles = ['src/layouts/MainLayout.astro', 'src/data/business.ts'];
 
+let hasFullGitHistory = false;
+try {
+  hasFullGitHistory = execFileSync('git', ['rev-parse', '--is-shallow-repository'], { encoding: 'utf8' }).trim() === 'false';
+  if (!hasFullGitHistory) {
+    // GitHub Actions checkout defaults to a shallow clone. Fetch history so
+    // lastmod can reflect the source page's last significant change, not build time.
+    execFileSync('git', ['fetch', '--unshallow', '--no-tags', 'origin'], {
+      stdio: ['ignore', 'ignore', 'ignore'],
+    });
+    hasFullGitHistory = true;
+  }
+} catch {
+  // If history is unavailable, omit lastmod rather than publishing invented dates.
+}
+
 function sourceFilesForUrl(url) {
   const pathname = new URL(url).pathname;
   if (pathname === '/') return [...sharedFiles, 'src/pages/index.astro'];
