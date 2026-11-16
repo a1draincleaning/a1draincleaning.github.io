@@ -37,6 +37,7 @@ if (llms !== readFileSync(join(dist, 'llms.md'), 'utf8')) throw new Error('llms.
 if (!llms.includes('https://a1draincleaning.github.io/agent-index.md')) {
   throw new Error('llms.txt does not link to the Markdown agent index.');
 }
+// Match the exact published labels in llms.txt so the index cannot drift.
 for (const required of [
   'Emergency Drain Cleaning',
   'Emergency sewer backup service',
