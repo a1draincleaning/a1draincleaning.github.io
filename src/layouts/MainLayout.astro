@@ -50,6 +50,12 @@ const businessSchema = {
   logo: business.logo,
   image: business.image,
   telephone: business.phone.tel,
+  contactPoint: {
+    '@type': 'ContactPoint',
+    telephone: business.phone.tel,
+    contactType: 'customer service',
+    availableLanguage: 'English'
+  },
   sameAs: business.sameAs,
   address: {
     '@type': 'PostalAddress',
