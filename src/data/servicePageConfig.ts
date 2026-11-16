@@ -13,6 +13,7 @@ if (washingMachineService && laundryService) {
 }
 
 export const servicePageTitles: Record<string, string> = {
+  'emergency-drain-cleaning': 'Emergency Drain Cleaning | A-1 Drain Cleaning',
   'basement-floor-drains': 'Basement Floor Drain Backups | A-1 Drain Cleaning',
   'main-drain-cleaning': 'Main Drain Cleaning | A-1 Drain Cleaning',
   'sewer-line-cleaning': 'Sewer Line Cleaning | A-1 Drain Cleaning',
