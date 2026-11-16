@@ -2,7 +2,7 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const dist = join(process.cwd(), 'dist');
-const requiredFiles = ['404.html', 'agent-index.md', 'llms.txt', 'sitemap.xml', 'sitemap-index.xml'];
+const requiredFiles = ['404.html', 'agent-index.md', 'llms.txt', 'llms.md', 'sitemap.xml', 'sitemap-index.xml'];
 for (const file of requiredFiles) {
   if (!existsSync(join(dist, file))) throw new Error(\`Agent-readiness output is missing dist/\${file}\`);
 }
@@ -33,11 +33,32 @@ for (const required of [
 }
 
 const llms = readFileSync(join(dist, 'llms.txt'), 'utf8');
+if (llms !== readFileSync(join(dist, 'llms.md'), 'utf8')) throw new Error('llms.md must match llms.txt exactly.');
 if (!llms.includes('https://a1draincleaning.github.io/agent-index.md')) {
   throw new Error('llms.txt does not link to the Markdown agent index.');
 }
 
 const homepage = readFileSync(join(dist, 'index.html'), 'utf8');
+const jsonLdScripts = [...homepage.matchAll(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/g)];
+if (!jsonLdScripts.length) throw new Error('Homepage has no JSON-LD script.');
+const homepageGraphs = jsonLdScripts.map((match) => JSON.parse(match[1]));
+const graphNodes = homepageGraphs.flatMap((value) => Array.isArray(value['@graph']) ? value['@graph'] : [value]);
+const hasType = (node, type) => (Array.isArray(node['@type']) ? node['@type'] : [node['@type']]).includes(type);
+const organization = graphNodes.find((node) => hasType(node, 'Organization'));
+if (!organization) throw new Error('Homepage JSON-LD has no Organization identity.');
+for (const field of ['name', 'url', 'logo', 'description', 'sameAs', 'address', 'contactPoint']) {
+  if (!organization[field]) throw new Error(`Organization JSON-LD is missing ${field}.`);
+}
+if (!organization.contactPoint.telephone) throw new Error('Organization contactPoint has no telephone.');
+if (!graphNodes.some((node) => hasType(node, 'WebSite') && node.name && node.url && node.description && node.publisher)) {
+  throw new Error('Homepage JSON-LD WebSite node is incomplete.');
+}
+const servicePage = readFileSync(join(dist, 'services', 'main-drain-cleaning', 'index.html'), 'utf8');
+const serviceJsonLd = [...servicePage.matchAll(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/g)].map((match) => JSON.parse(match[1]));
+const serviceNodes = serviceJsonLd.flatMap((value) => Array.isArray(value['@graph']) ? value['@graph'] : [value]);
+for (const type of ['Service', 'FAQPage', 'BreadcrumbList']) {
+  if (!serviceNodes.some((node) => hasType(node, type))) throw new Error(`Main drain page JSON-LD is missing ${type}.`);
+}
 if (!homepage.includes('type="text/markdown"') || !homepage.includes('href="/agent-index.md"')) {
   throw new Error('Homepage HTML does not advertise the Markdown agent index.');
 }
