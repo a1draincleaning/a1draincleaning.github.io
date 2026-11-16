@@ -18,13 +18,21 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
       - name: Setup Node
         uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
         with:
           node-version: 22
       - name: Install dependencies
         run: npm install --ignore-scripts --no-audit --no-fund
+      - name: Run unit tests
+        run: npm test
       - name: Astro type and content check
         run: npm run check
       - name: Build Astro site
         run: npm run build
+      - name: Validate generated routes and sitemap
+        run: node scripts/prune-retired-routes.mjs
+      - name: Validate sitemap lastmod values
+        run: node scripts/add-sitemap-lastmod.mjs
