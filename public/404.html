@@ -3,8 +3,13 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="robots" content="noindex">
+  <meta name="robots" content="noindex,follow">
   <title>Page Not Found | A-1 Drain Cleaning</title>
+  <script>
+    if (window.location.pathname === '/drain-diagnosis') {
+      window.location.replace('/drain-diagnosis/' + window.location.search + window.location.hash);
+    }
+  </script>
 </head>
 <body>
   <main>
@@ -14,7 +19,8 @@
     <h2>Find the right page</h2>
     <ul>
       <li><a href="/sitemap.xml">XML sitemap — all current page URLs</a></li>
-      <li><a href="/llms.md">Markdown site information for agents</a></li>
+      <li><a href="/agent-index.md">Markdown agent index</a></li>
+      <li><a href="/llms.md">Full Markdown site information for agents</a></li>
       <li><a href="/llms.txt">Agent and language-model site information</a></li>
       <li><a href="/services/">Drain cleaning and sewer services</a></li>
       <li><a href="/service-area/">Service areas</a></li>
