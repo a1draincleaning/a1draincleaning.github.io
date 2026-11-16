@@ -1,4 +1,5 @@
 import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 
 const dist = join(process.cwd(), 'dist');
@@ -116,9 +117,10 @@ for (const sitemapUrl of sitemapUrls) {
 }
 
 copyFileSync(generatedSitemap, directSitemap);
+const sitemapFileLastmod = new Date().toISOString();
 writeFileSync(
   sitemapIndex,
-  '<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://a1draincleaning.github.io/sitemap.xml</loc></sitemap></sitemapindex>'
+  '<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://a1draincleaning.github.io/sitemap.xml</loc><lastmod>' + sitemapFileLastmod + '</lastmod></sitemap></sitemapindex>'
 );
 
 if (!existsSync(directSitemap) || !readFileSync(sitemapIndex, 'utf8').includes('https://a1draincleaning.github.io/sitemap.xml')) {
@@ -126,3 +128,7 @@ if (!existsSync(directSitemap) || !readFileSync(sitemapIndex, 'utf8').includes('
 }
 
 console.log('Pruned ' + retiredRoutes.length + ' retired routes, validated ' + sitemapUrls.length + ' canonical sitemap URLs against generated HTML pages, and published sitemap.xml plus sitemap-index.xml.');
+
+// Run post-build assertions for agent discovery files, custom 404 navigation,
+// sitemap URL integrity, and source-derived lastmod timestamps.
+execFileSync(process.execPath, [join(process.cwd(), 'scripts/verify-agent-readiness.mjs')], { stdio: 'inherit' });
