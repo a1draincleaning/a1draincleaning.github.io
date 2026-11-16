@@ -53,6 +53,8 @@ jobs:
         run: node scripts/prune-retired-routes.mjs
       - name: Add source-history sitemap lastmod values
         run: node scripts/add-sitemap-lastmod.mjs
+      - name: Verify published agent Markdown
+        run: test -s dist/llms.md && cmp -s dist/llms.txt dist/llms.md
 
       - name: Setup Pages
         uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
