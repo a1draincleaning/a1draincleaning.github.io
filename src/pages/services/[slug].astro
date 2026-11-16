@@ -40,6 +40,7 @@ const description =
 const canonicalServiceLinks = new Map([
   ['kitchen-drains', { slug: 'kitchen-drains', title: 'Kitchen Drains' }],
   ['bathroom-shower-drains', { slug: 'bathroom-shower-drains', title: 'Bathroom & Shower Drains' }],
+  ['pipe-repair', { slug: 'pipe-repair', title: 'Drain & Sewer Pipe Repair' }],
 ]);
 const relatedServices = (relatedServiceSlugs[service.slug] || [])
   .map((slug) => services.find((item) => item.slug === slug) ?? canonicalServiceLinks.get(slug))
