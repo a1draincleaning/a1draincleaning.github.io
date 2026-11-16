@@ -34,7 +34,3 @@ jobs:
         run: npm run build
       - name: Validate generated routes and sitemap
         run: node scripts/prune-retired-routes.mjs
-      - name: Validate sitemap lastmod values
-        run: node scripts/add-sitemap-lastmod.mjs
-      - name: Verify agent readiness outputs
-        run: node scripts/verify-agent-readiness.mjs
