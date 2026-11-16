@@ -46,9 +46,41 @@ const relatedServices = (relatedServiceSlugs[service.slug] || [])
   .map((slug) => services.find((item) => item.slug === slug) ?? canonicalServiceLinks.get(slug))
   .filter((item): item is { slug: string; title: string } => Boolean(item));
 const featuredServiceCities = uniqueServiceAreaCities.filter((city) => featuredServiceCitySlugs.includes(city.slug));
+const pageFaqs: Record<string, { question: string; answer: string }[]> = {
+  'main-drain-cleaning': [
+    { question: 'Why does water come up through the basement floor drain?', answer: 'A restriction farther down a shared drain or main sewer line can stop wastewater from leaving the house. The low floor drain may become the place where it comes back up.' },
+    { question: 'Can a washing machine reveal a main drain blockage?', answer: 'Yes. A washer releases a large amount of water in a short time. If the line cannot carry it away, water may rise in a standpipe or another connected drain.' },
+    { question: 'Does drain cleaning fix a damaged sewer pipe?', answer: 'No. Cleaning can remove a blockage, including roots or accumulated material, but it does not repair a cracked, separated, or collapsed pipe. A recurring problem may need further investigation.' },
+    { question: 'Should I keep using water while the drain is backing up?', answer: 'No. Stop using water where possible until the backup has been assessed. Additional water can send more wastewater toward the blockage and worsen the overflow.' },
+  ],
+  'sewer-line-cleaning': [
+    { question: 'How can I tell if the sewer line is blocked?', answer: 'Several fixtures backing up together, or wastewater rising at a low drain when water is used elsewhere, can point to a shared line or sewer-line restriction.' },
+    { question: 'Will cleaning repair a damaged sewer pipe?', answer: 'No. Cleaning can remove material blocking the pipe, but a cracked, separated, or collapsed section may need repair.' },
+    { question: 'Do I need a camera inspection every time?', answer: 'No. A camera can be useful when the blockage returns or the pipe’s condition is uncertain. It is not automatically needed for every cleaning.' },
+    { question: 'What should I do while sewage is backing up?', answer: 'Stop using water where possible, avoid contact with sewage, and keep people and pets away from the affected area until the backup is addressed.' },
+  ],
+  'tree-roots-in-sewer-line': [
+    { question: 'Can tree roots get into a sewer pipe that is still draining?', answer: 'Yes. Roots can narrow the opening and catch waste before the pipe becomes completely blocked. Early symptoms may include a recurring slow drain or repeated backups.' },
+    { question: 'Will cutting the roots stop them from coming back?', answer: 'Not necessarily. Cutting roots can reopen the line, but it does not close the joint or repair the crack where roots entered. A damaged entry point can allow another root blockage to develop.' },
+    { question: 'How can I tell whether roots are the cause?', answer: 'Recurring blockages can raise suspicion, but symptoms alone do not confirm roots. A sewer camera inspection may help identify roots and show the visible condition of the pipe.' },
+    { question: 'Does a sewer line always need to be replaced if roots get in?', answer: 'No. The next step depends on the amount of blockage and the condition of the pipe. Cleaning may restore flow; repair decisions depend on whether the pipe is damaged and how severe that damage is.' },
+  ],
+  'hydro-jetting': [
+    { question: 'Does every clogged drain need hydro jetting?', answer: 'No. Many clogs can be cleaned with other equipment. Jetting is considered when the blockage and pipe conditions make it a suitable option.' },
+    { question: 'Can hydro jetting remove tree roots?', answer: 'Roots may need to be removed with suitable tree root removal equipment. The best method depends on the root blockage and pipe condition; jetting is not a universal substitute for tree root removal.' },
+    { question: 'Will hydro jetting repair a cracked or collapsed sewer pipe?', answer: 'No. Jetting is a cleaning method. A cracked, separated, or collapsed pipe may require repair rather than more cleaning.' },
+    { question: 'When might a camera inspection help?', answer: 'It may help when the blockage repeatedly returns or the condition of the line is uncertain and that information would affect the cleaning approach.' },
+  ],
+  'basement-floor-drains': [
+    { question: 'Why does sewage come up through the floor drain first?', answer: 'The floor drain is low in the house. If a shared drain or main sewer line is blocked, wastewater can rise through that low opening rather than continue out of the house.' },
+    { question: 'Does a backed-up floor drain mean the floor drain itself is clogged?', answer: 'Not necessarily. The restriction can be in the floor-drain branch, a shared drain line, or the main sewer line. The timing and other affected fixtures help narrow down the likely location.' },
+    { question: 'Why does the backup happen when the washer drains?', answer: 'The washer releases a large volume of water quickly. A restricted line may handle smaller amounts but back up when the washer empties.' },
+    { question: 'What if the floor drain backs up again after cleaning?', answer: 'A recurring backup may need further investigation to check for repeated buildup, roots, or pipe damage. Cleaning restores flow through a blockage but does not repair damaged pipe.' },
+  ],
+};
 ---
 
-<MainLayout title={title} description={description} path={`/services/${service.slug}/`} service={service}>
+<MainLayout title={title} description={description} path={`/services/${service.slug}/`} service={service} faqs={pageFaqs[service.slug]}>
   <Header />
   <main id="main">
     <section class="bg-[#1A1A68] text-white">
