@@ -36,3 +36,5 @@ jobs:
         run: node scripts/prune-retired-routes.mjs
       - name: Validate sitemap lastmod values
         run: node scripts/add-sitemap-lastmod.mjs
+      - name: Verify published agent Markdown
+        run: test -s dist/llms.md && cmp -s dist/llms.txt dist/llms.md
