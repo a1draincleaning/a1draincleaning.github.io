@@ -80,7 +80,23 @@ export function addIndexLastmod(xml, lastmod) {
   return updated;
 }
 
+let gitHistoryChecked = false;
+function ensureFullGitHistory() {
+  if (gitHistoryChecked) return;
+  gitHistoryChecked = true;
+  const shallow = execFileSync('git', ['rev-parse', '--is-shallow-repository'], {
+    cwd: root,
+    encoding: 'utf8'
+  }).trim() === 'true';
+  if (shallow) {
+    const args = ['fetch', '--unshallow', '--no-tags', 'origin'];
+    if (process.env.GITHUB_REF) args.push(process.env.GITHUB_REF);
+    execFileSync('git', args, { cwd: root, stdio: 'inherit' });
+  }
+}
+
 function gitLastmod(files) {
+  ensureFullGitHistory();
   for (const file of files) {
     if (!existsSync(join(root, file))) throw new Error(`Sitemap source file is missing: ${file}`);
   }
