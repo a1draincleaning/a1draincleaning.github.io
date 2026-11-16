@@ -58,7 +58,7 @@ function sourceFilesForUrl(url) {
   }
 
   const directoryPage = `src/pages${pathname}index.astro`;
-  const flatPage = `src/pages${pathname.replace(/\\/$/, '')}.astro`;
+  const flatPage = \`src/pages\${pathname.replace(/\/$/, '')}.astro\`;
   const specificFiles = [directoryPage, flatPage].filter((path) => existsSync(path));
   return [...sharedFiles, ...specificFiles];
 }
