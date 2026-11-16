@@ -84,7 +84,7 @@ for (const type of ['Service', 'FAQPage', 'BreadcrumbList']) {
   if (!serviceNodes.some((node) => hasType(node, type))) throw new Error(`Main drain page JSON-LD is missing ${type}.`);
 }
 if (!homepage.includes('type="text/markdown"') || !homepage.includes('href="/agent-index.md"')) {
-  throw new Error('Homepage HTML does not advertise the Markdown agent index.');
+  throw new Error('Homepage HTML does not link to the Markdown agent index.');
 }
 
 const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8');
@@ -119,4 +119,4 @@ if (!/<lastmod>[^<]+<\/lastmod>/.test(indexXml)) {
   throw new Error('Sitemap index is missing its sitemap-file lastmod timestamp.');
 }
 
-console.log(`Agent-readiness checks passed: custom 404, Markdown agent index, llms.txt discovery, HTML alternate link, and ${entries.length} unique sitemap URLs with valid lastmod values.`);
+console.log(`Agent-readiness checks passed: custom 404, Markdown agent index, llms.txt discovery, HTML Markdown description link, and ${entries.length} unique sitemap URLs with valid lastmod values.`);
