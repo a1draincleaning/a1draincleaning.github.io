@@ -26,7 +26,7 @@ for (const required of [
   'https://a1draincleaning.github.io/sitemap.xml',
   'https://a1draincleaning.github.io/llms.txt',
   'Emergency drain cleaning',
-  'Emergency sewer backup service',
+  'Sewer Backup Emergency Service',
   'Albert Lea, Minnesota',
 ]) {
   if (!agentIndex.includes(required)) throw new Error(`Markdown agent index is missing required fact: ${required}`);
