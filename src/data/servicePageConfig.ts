@@ -13,6 +13,8 @@ if (washingMachineService && laundryService) {
 }
 
 export const servicePageTitles: Record<string, string> = {
+  'sewer-camera-inspection': 'Drain & Sewer Camera Inspections | A-1 Drain Cleaning',
+  'sewer-line-locating': 'Sewer Line Locating | A-1 Drain Cleaning',
   'emergency-drain-cleaning': 'Emergency Drain Cleaning | A-1 Drain Cleaning',
   'basement-floor-drains': 'Basement Floor Drain Backups | A-1 Drain Cleaning',
   'main-drain-cleaning': 'Main Drain Cleaning | A-1 Drain Cleaning',
@@ -33,6 +35,8 @@ export const servicePageTitles: Record<string, string> = {
 };
 
 export const servicePageDescriptions: Record<string, string> = {
+  'sewer-camera-inspection': 'Drain and sewer camera inspections in Mason City and North Iowa to investigate recurring blockages and visible pipe conditions.',
+  'sewer-line-locating': 'Sewer line locating in Mason City and North Iowa to help identify underground drain and sewer line routes.',
   'emergency-drain-cleaning': 'Emergency drain cleaning for clogged toilets, sinks, tubs, showers, laundry drains, and floor drains in Mason City and North Iowa. Call A-1 Drain Cleaning.',
   'basement-floor-drains': 'Basement floor drain backing up or sewage coming up through the drain? A-1 Drain Cleaning cleans and unclogs floor and main drains in North Iowa.',
   'main-drain-cleaning': 'Main drain line clogged or several drains backing up? A-1 Drain Cleaning cleans and unclogs house main drains in Mason City and North Iowa.',
@@ -78,6 +82,8 @@ for (const [slug, additions] of Object.entries(serviceDetailAdditions)) {
 }
 
 export const relatedServiceSlugs: Record<string, string[]> = {
+  'sewer-camera-inspection': ['sewer-line-cleaning', 'tree-roots-in-sewer-line', 'pipe-repair'],
+  'sewer-line-locating': ['sewer-camera-inspection', 'pipe-repair', 'sewer-line-cleaning'],
   'emergency-drain-cleaning': ['toilet-clogs', 'bathroom-shower-drains', 'basement-floor-drains', 'sewer-backup-emergency'],
   'main-drain-cleaning': ['sewer-line-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
   'sewer-line-cleaning': ['main-drain-cleaning', 'tree-roots-in-sewer-line', 'basement-floor-drains'],
