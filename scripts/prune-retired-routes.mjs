@@ -139,5 +139,9 @@ if (readFileSync(llmsText, 'utf8') !== readFileSync(llmsMarkdown, 'utf8')) {
   throw new Error('The published llms.md does not match llms.txt.');
 }
 
+// Add accurate source-history timestamps, then assert all agent-facing build outputs.
+execFileSync(process.execPath, [join(process.cwd(), 'scripts/add-sitemap-lastmod.mjs')], { stdio: 'inherit' });
+execFileSync(process.execPath, [join(process.cwd(), 'scripts/verify-agent-readiness.mjs')], { stdio: 'inherit' });
+
 console.log('Pruned ' + retiredRoutes.length + ' retired routes, validated ' + sitemapUrls.length + ' canonical sitemap URLs against generated HTML pages, published sitemap.xml and sitemap-index.xml, and copied llms.txt to llms.md.');
 
