@@ -39,9 +39,24 @@ if (!llms.includes('https://a1draincleaning.github.io/agent-index.md')) {
 }
 
 const homepage = readFileSync(join(dist, 'index.html'), 'utf8');
-const jsonLdScripts = [...homepage.matchAll(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/g)];
-if (!jsonLdScripts.length) throw new Error('Homepage has no JSON-LD script.');
-const homepageGraphs = jsonLdScripts.map((match) => JSON.parse(match[1]));
+function extractJsonLd(html) {
+  const opening = '<script type="application/ld+json">';
+  const closing = '</script>';
+  const values = [];
+  let cursor = 0;
+  while (true) {
+    const start = html.indexOf(opening, cursor);
+    if (start === -1) break;
+    const contentStart = start + opening.length;
+    const end = html.indexOf(closing, contentStart);
+    if (end === -1) throw new Error('Unclosed JSON-LD script element.');
+    values.push(JSON.parse(html.slice(contentStart, end)));
+    cursor = end + closing.length;
+  }
+  return values;
+}
+const homepageGraphs = extractJsonLd(homepage);
+if (!homepageGraphs.length) throw new Error('Homepage has no JSON-LD script.');
 const graphNodes = homepageGraphs.flatMap((value) => Array.isArray(value['@graph']) ? value['@graph'] : [value]);
 const hasType = (node, type) => (Array.isArray(node['@type']) ? node['@type'] : [node['@type']]).includes(type);
 const organization = graphNodes.find((node) => hasType(node, 'Organization'));
@@ -54,7 +69,7 @@ if (!graphNodes.some((node) => hasType(node, 'WebSite') && node.name && node.url
   throw new Error('Homepage JSON-LD WebSite node is incomplete.');
 }
 const servicePage = readFileSync(join(dist, 'services', 'main-drain-cleaning', 'index.html'), 'utf8');
-const serviceJsonLd = [...servicePage.matchAll(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/g)].map((match) => JSON.parse(match[1]));
+const serviceJsonLd = extractJsonLd(servicePage);
 const serviceNodes = serviceJsonLd.flatMap((value) => Array.isArray(value['@graph']) ? value['@graph'] : [value]);
 for (const type of ['Service', 'FAQPage', 'BreadcrumbList']) {
   if (!serviceNodes.some((node) => hasType(node, type))) throw new Error(`Main drain page JSON-LD is missing ${type}.`);
