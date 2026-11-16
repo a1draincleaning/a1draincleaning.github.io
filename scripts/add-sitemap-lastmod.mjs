@@ -120,9 +120,9 @@ function run() {
   writeFileSync(sitemapPath, updated);
 
   const dates = [...updated.matchAll(/<lastmod>([^<]+)<\/lastmod>/g)].map((match) => new Date(match[1]).getTime());
-  const latest = new Date(Math.max(...dates)).toISOString();
+  const sitemapFileLastmod = new Date().toISOString();
   const index = readFileSync(indexPath, 'utf8');
-  writeFileSync(indexPath, addIndexLastmod(index, latest));
+  writeFileSync(indexPath, addIndexLastmod(index, sitemapFileLastmod));
 
   console.log(`Added source-history lastmod dates to ${dates.length} sitemap URLs and updated sitemap-index.xml.`);
 }
