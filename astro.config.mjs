@@ -6,19 +6,23 @@ import tailwindcss from '@tailwindcss/vite';
 
 const sharedFiles = ['src/layouts/MainLayout.astro', 'src/data/business.ts'];
 
-let hasFullGitHistory = false;
-try {
-  hasFullGitHistory = execFileSync('git', ['rev-parse', '--is-shallow-repository'], { encoding: 'utf8' }).trim() === 'false';
-  if (!hasFullGitHistory) {
-    // GitHub Actions checkout defaults to a shallow clone. Fetch history so
-    // lastmod can reflect the source page's last significant change, not build time.
-    execFileSync('git', ['fetch', '--unshallow', '--no-tags', 'origin'], {
-      stdio: ['ignore', 'ignore', 'ignore'],
-    });
-    hasFullGitHistory = true;
+let gitHistoryChecked = false;
+function ensureFullGitHistory() {
+  if (gitHistoryChecked) return;
+  gitHistoryChecked = true;
+  try {
+    const isShallow = execFileSync('git', ['rev-parse', '--is-shallow-repository'], { encoding: 'utf8' }).trim() === 'true';
+    if (isShallow) {
+      // GitHub Actions checkout defaults to a shallow clone. Fetch the current
+      // ref's history only when sitemap serialization runs during production build.
+      const currentRef = process.env.GITHUB_REF;
+      const args = ['fetch', '--unshallow', '--no-tags', 'origin'];
+      if (currentRef) args.push(currentRef);
+      execFileSync('git', args, { stdio: ['ignore', 'ignore', 'ignore'] });
+    }
+  } catch {
+    // If history is unavailable, omit lastmod rather than inventing dates.
   }
-} catch {
-  // If history is unavailable, omit lastmod rather than publishing invented dates.
 }
 
 function sourceFilesForUrl(url) {
@@ -65,6 +69,7 @@ function sourceFilesForUrl(url) {
 
 function lastSignificantSourceChange(url) {
   const files = sourceFilesForUrl(url).filter((path) => existsSync(path));
+  ensureFullGitHistory();
   if (!files.length) return undefined;
 
   try {
