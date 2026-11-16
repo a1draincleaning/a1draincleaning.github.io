@@ -40,7 +40,7 @@ if (!llms.includes('https://a1draincleaning.github.io/agent-index.md')) {
 // Match the exact published labels in llms.txt so the index cannot drift.
 for (const required of [
   'Emergency Drain Cleaning',
-  'Emergency sewer backup service',
+  'Sewer Backup Emergency Service',
   'Drain & Sewer Camera Inspections',
   'Sewer Line Locating',
   'Drain & Sewer Pipe Repair',
