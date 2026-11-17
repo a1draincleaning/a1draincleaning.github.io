@@ -1,0 +1,202 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ContactCTA from '../components/ContactCTA.astro';
+
+const title = 'Mason City Sewer Line Cleaning | A-1 Drain Cleaning';
+const description = 'Sewer line cleaning in Mason City, Iowa for clogged main sewer pipes, recurring backups, and tree roots. 24-hour service from A-1 Drain Cleaning. Call 641-530-2728.';
+const faqs = [
+  {
+    question: 'How do I know if my sewer line is clogged?',
+    answer: 'Several drains backing up together, a toilet affecting another fixture, or wastewater rising through a basement floor drain can point to a restriction in a shared drain or sewer line. Those symptoms help narrow the problem but do not confirm the exact location.'
+  },
+  {
+    question: 'Why does sewage come up through my basement floor drain?',
+    answer: 'The floor drain is often one of the lowest openings in a house. When wastewater cannot get through a restricted shared drain or sewer line, it may rise through that low opening. Stop using water and keep people and pets away from the wastewater.'
+  },
+  {
+    question: 'Can tree roots clog a sewer line?',
+    answer: 'Yes. Roots can enter through joints or damaged sections and catch paper and other material. A-1 Drain Cleaning removes tree roots when they are blocking a sewer line. Removing roots opens the line but does not repair a damaged pipe.'
+  },
+  {
+    question: 'Does sewer line cleaning repair a broken pipe?',
+    answer: 'No. Cleaning removes a blockage; it does not repair a cracked, separated, or collapsed pipe. If a problem keeps returning, a camera inspection can help show the visible condition of an accessible line.'
+  },
+  {
+    question: 'Do you use a sewer camera on every cleaning?',
+    answer: 'No. A camera inspection is available when the cause keeps returning or the condition of the line needs a closer look. It is not automatically required for every sewer-line cleaning.'
+  },
+  {
+    question: 'Do you provide 24-hour sewer line service in Mason City?',
+    answer: 'Yes. A-1 Drain Cleaning offers 24-hour service. Call 641-530-2728 and explain where the backup is happening and which fixtures are affected.'
+  }
+];
+---
+
+<MainLayout title={title} description={description} path="/mason-city-sewer-line-cleaning/" faqs={faqs}>
+  <Header />
+  <main id="main">
+    <section class="bg-[#1A1A68] text-white">
+      <div class="container py-14 sm:py-18 lg:py-24">
+        <nav aria-label="Breadcrumb" class="text-sm font-bold text-slate-300">
+          <a href="/" class="hover:text-white">Home</a>
+          <span class="mx-2" aria-hidden="true">/</span>
+          <a href="/mason-city-drain-cleaning/" class="hover:text-white">Mason City Drain Cleaning</a>
+          <span class="mx-2" aria-hidden="true">/</span>
+          <span class="text-white">Sewer Line Cleaning</span>
+        </nav>
+        <p class="mt-5 text-sm font-black uppercase tracking-[0.2em] text-red-300">A-1 Drain Cleaning · Mason City, Iowa</p>
+        <h1 class="mt-4 max-w-4xl text-4xl font-black leading-tight tracking-tight sm:text-5xl lg:text-6xl">Mason City Sewer Line Cleaning</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200">When the main sewer line is blocked, wastewater has nowhere to go. Toilets, tubs, showers, and basement floor drains can start backing up together. A-1 Drain Cleaning cleans blocked sewer lines in Mason City and surrounding North Iowa communities.</p>
+        <p class="mt-4 max-w-3xl leading-7 text-slate-200">A-1 Drain Cleaning is based in Mason City and offers 24-hour service. If sewage is coming up through a floor drain or another fixture, stop running water and call.</p>
+        <a href="tel:+16415302728" class="mt-8 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-lg font-black text-white hover:bg-[#a82129]">CALL 641-530-2728</a>
+      </div>
+    </section>
+
+    <section class="bg-white py-14 sm:py-18" aria-labelledby="sewer-symptoms">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Recognize the warning signs</p>
+        <h2 id="sewer-symptoms" class="mt-2 max-w-4xl text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Signs the sewer line may be blocked</h2>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-700">A blockage in the sewer line can affect more than one drain because the line carries wastewater away from the house. Pay attention to which fixtures are affected and what happens when water is used.</p>
+        <ul class="mt-7 grid gap-4 sm:grid-cols-2">
+          <li class="border border-slate-200 p-5 leading-7 text-slate-700"><strong class="text-slate-950">Several fixtures back up.</strong> Toilets, sinks, tubs, or showers act up around the same time.</li>
+          <li class="border border-slate-200 p-5 leading-7 text-slate-700"><strong class="text-slate-950">Wastewater comes through a floor drain.</strong> The basement floor drain fills when water is used elsewhere.</li>
+          <li class="border border-slate-200 p-5 leading-7 text-slate-700"><strong class="text-slate-950">A toilet affects another drain.</strong> Flushing causes water to rise or gurgle at a nearby fixture.</li>
+          <li class="border border-slate-200 p-5 leading-7 text-slate-700"><strong class="text-slate-950">The same blockage keeps returning.</strong> The line drains after cleaning but plugs again.</li>
+          <li class="border border-slate-200 p-5 leading-7 text-slate-700"><strong class="text-slate-950">A tub or shower backs up.</strong> In homes without a basement, a low bathtub or shower can show a main-line backup.</li>
+          <li class="border border-slate-200 p-5 leading-7 text-slate-700"><strong class="text-slate-950">Tree roots may be involved.</strong> Roots entering a joint or damaged pipe section can catch waste and restrict flow.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="bg-slate-100 py-14 sm:py-18" aria-labelledby="what-to-do">
+      <div class="container grid gap-8 lg:grid-cols-[.8fr_1.2fr]">
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">If sewage is backing up</p>
+          <h2 id="what-to-do" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">What to do before the line is cleaned</h2>
+        </div>
+        <div class="space-y-4 text-slate-700">
+          <p class="leading-7">Stop using toilets, sinks, showers, and the washing machine as much as practical. More water can add to the backup and push more wastewater into the house.</p>
+          <p class="leading-7">Keep children and pets away from sewage or possibly contaminated water. Avoid direct contact. If wastewater is near electrical outlets, appliances, or wiring, do not enter standing water or touch electrical equipment.</p>
+          <p class="leading-7">When you call, explain where the wastewater is coming up, which fixtures are affected, when the problem started, and whether using water makes it rise. Do not keep flushing or running water to test the line.</p>
+          <a href="tel:+16415302728" class="inline-flex rounded-md bg-[#c52b34] px-6 py-3 font-black text-white hover:bg-[#a82129]">CALL 641-530-2728</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-14 sm:py-18" aria-labelledby="cleaning-process">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">The work</p>
+        <h2 id="cleaning-process" class="mt-2 max-w-4xl text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">How A-1 Drain Cleaning approaches a sewer-line blockage</h2>
+        <div class="mt-8 grid gap-5 md:grid-cols-2">
+          <article class="border border-slate-200 p-6">
+            <h3 class="text-xl font-black text-slate-950">1. Identify the symptoms and access</h3>
+            <p class="mt-3 leading-7 text-slate-700">We start with what is backing up, which fixtures are involved, and where the sewer line can be accessed. A single fixture clog and a whole-house sewer backup are not the same problem.</p>
+          </article>
+          <article class="border border-slate-200 p-6">
+            <h3 class="text-xl font-black text-slate-950">2. Choose the cleaning method</h3>
+            <p class="mt-3 leading-7 text-slate-700">Cable cleaning is used when it fits the blockage and pipe. Hydro jetting is another option when the material, access, and pipe condition make pressurized-water cleaning appropriate. Not every line needs jetting.</p>
+          </article>
+          <article class="border border-slate-200 p-6">
+            <h3 class="text-xl font-black text-slate-950">3. Address roots when they are the obstruction</h3>
+            <p class="mt-3 leading-7 text-slate-700">Tree roots can catch paper and other waste inside a sewer pipe. A-1 Drain Cleaning provides tree root removal when roots are blocking the line. Root removal clears the obstruction; it does not seal a joint or repair damaged pipe.</p>
+          </article>
+          <article class="border border-slate-200 p-6">
+            <h3 class="text-xl font-black text-slate-950">4. Inspect further when the problem calls for it</h3>
+            <p class="mt-3 leading-7 text-slate-700">If a blockage returns or the pipe condition is uncertain, a sewer camera inspection can show visible conditions inside an accessible line. Sewer line locating can help identify the underground route or a point of interest when needed.</p>
+          </article>
+        </div>
+        <p class="mt-6 max-w-4xl leading-7 text-slate-700">Cleaning and pipe repair are different jobs. Cleaning can reopen a blocked line, but a cracked, separated, or collapsed pipe may need repair. Further work depends on what is found—not an assumption that every backup means the pipe must be replaced.</p>
+      </div>
+    </section>
+
+    <section class="bg-slate-100 py-14 sm:py-18" aria-labelledby="causes">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Common causes</p>
+        <h2 id="causes" class="mt-2 max-w-4xl text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">What can block a sewer line?</h2>
+        <div class="mt-7 grid gap-5 md:grid-cols-3">
+          <article class="bg-white p-6">
+            <h3 class="text-xl font-black text-slate-950">Tree roots</h3>
+            <p class="mt-3 leading-7 text-slate-700">Roots can enter through joints or damaged sections. Once inside, they catch paper and other material, gradually narrowing the path wastewater needs.</p>
+            <a href="/services/tree-roots-in-sewer-line/" class="mt-4 inline-flex font-black text-[#b4232b] underline underline-offset-4">Tree root removal →</a>
+          </article>
+          <article class="bg-white p-6">
+            <h3 class="text-xl font-black text-slate-950">Accumulated material</h3>
+            <p class="mt-3 leading-7 text-slate-700">Waste and buildup can collect where the pipe is already restricted. The right cleaning method depends on what is in the line and the pipe's condition.</p>
+            <a href="/services/hydro-jetting/" class="mt-4 inline-flex font-black text-[#b4232b] underline underline-offset-4">Hydro jetting →</a>
+          </article>
+          <article class="bg-white p-6">
+            <h3 class="text-xl font-black text-slate-950">Pipe damage or a separated joint</h3>
+            <p class="mt-3 leading-7 text-slate-700">A damaged section can catch material or allow roots to enter. Cleaning may restore flow temporarily, but it will not repair the pipe itself.</p>
+            <a href="/services/sewer-camera-inspection/" class="mt-4 inline-flex font-black text-[#b4232b] underline underline-offset-4">Sewer camera inspections →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-14 sm:py-18" aria-labelledby="which-service">
+      <div class="container">
+        <h2 id="which-service" class="text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Sewer line, main drain, or floor drain?</h2>
+        <p class="mt-4 max-w-3xl leading-7 text-slate-700">The terms are related, but they describe different parts of the drain system. A floor drain is the opening where water may show up; the blockage can be farther back in a shared drain or the sewer line leaving the house.</p>
+        <div class="mt-7 grid gap-4 md:grid-cols-3">
+          <article class="border border-slate-200 p-5">
+            <h3 class="font-black text-slate-950">Main drain cleaning</h3>
+            <p class="mt-2 leading-7 text-slate-700">For restrictions in the home's primary drain system and problems affecting multiple fixtures.</p>
+            <a href="/services/main-drain-cleaning/" class="mt-3 inline-flex font-black text-[#b4232b] underline underline-offset-4">Main drain cleaning →</a>
+          </article>
+          <article class="border border-slate-200 p-5">
+            <h3 class="font-black text-slate-950">Basement floor drains</h3>
+            <p class="mt-2 leading-7 text-slate-700">For water or sewage backing up through the basement floor drain.</p>
+            <a href="/services/basement-floor-drains/" class="mt-3 inline-flex font-black text-[#b4232b] underline underline-offset-4">Floor drain backups →</a>
+          </article>
+          <article class="border border-slate-200 p-5">
+            <h3 class="font-black text-slate-950">Sewer line cleaning</h3>
+            <p class="mt-2 leading-7 text-slate-700">For a blockage in the line carrying wastewater away from the property.</p>
+            <a href="/services/sewer-line-cleaning/" class="mt-3 inline-flex font-black text-[#b4232b] underline underline-offset-4">General sewer line service →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-slate-100 py-14 sm:py-18" aria-labelledby="mason-city-area">
+      <div class="container grid gap-8 lg:grid-cols-[1fr_1.2fr]">
+        <div>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Local service</p>
+          <h2 id="mason-city-area" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Sewer line cleaning based in Mason City</h2>
+          <p class="mt-4 leading-7 text-slate-700">A-1 Drain Cleaning is based at 206 29th St SW in Mason City, Iowa. Service is available in Mason City and surrounding North Iowa communities.</p>
+          <address class="mt-5 not-italic font-bold text-slate-950">A-1 Drain Cleaning<br />206 29th St SW<br />Mason City, IA 50401</address>
+          <a href="tel:+16415302728" class="mt-6 inline-flex rounded-md bg-[#c52b34] px-6 py-3 font-black text-white hover:bg-[#a82129]">CALL 641-530-2728</a>
+        </div>
+        <div class="grid gap-3 sm:grid-cols-2">
+          <p class="border border-slate-200 bg-white p-4 font-bold text-slate-900">Clear Lake</p>
+          <p class="border border-slate-200 bg-white p-4 font-bold text-slate-900">Rockwell</p>
+          <p class="border border-slate-200 bg-white p-4 font-bold text-slate-900">Nora Springs</p>
+          <p class="border border-slate-200 bg-white p-4 font-bold text-slate-900">Northwood</p>
+          <p class="border border-slate-200 bg-white p-4 font-bold text-slate-900">Garner</p>
+          <p class="border border-slate-200 bg-white p-4 font-bold text-slate-900">Forest City</p>
+          <p class="border border-slate-200 bg-white p-4 font-bold text-slate-900">Charles City</p>
+          <p class="border border-slate-200 bg-white p-4 font-bold text-slate-900">Hampton</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="bg-white py-14 sm:py-18" aria-labelledby="sewer-faq">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Common questions</p>
+        <h2 id="sewer-faq" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Mason City sewer line cleaning FAQs</h2>
+        <div class="mt-7 space-y-4">
+          {faqs.map((faq) => (
+            <article class="border border-slate-200 p-6">
+              <h3 class="text-lg font-black text-slate-950">{faq.question}</h3>
+              <p class="mt-3 max-w-4xl leading-7 text-slate-700">{faq.answer}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <ContactCTA showForm />
+  </main>
+  <Footer />
+</MainLayout>
