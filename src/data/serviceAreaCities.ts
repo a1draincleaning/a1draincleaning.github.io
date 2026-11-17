@@ -6,7 +6,7 @@ export type ServiceAreaCity = {
 
 const city = (name: string, counties: string[]): ServiceAreaCity => ({
   name,
-  slug: name.toLowerCase().replace(/\\./g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+  slug: name.toLowerCase().replace(/\./g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
   counties
 });
 
