@@ -6,17 +6,16 @@ export type ServiceAreaCity = {
 
 const city = (name: string, counties: string[]): ServiceAreaCity => ({
   name,
-  slug: name.toLowerCase().replace(/\./g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
+  slug: name.toLowerCase().replace(/\\./g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
   counties
 });
 
 /**
- * City/community pages for A-1's current 9-county North Iowa service-area plan.
- * County assignments are based on Iowa's incorporated-city directory and official
- * local-government sources. Review the full county coverage before expanding it.
+ * Master community directory for A-1's approved North Iowa service-area plan.
+ * This directory drives the service-area listings and the business/service schema.
+ * Dedicated city landing pages are tracked separately in serviceAreaCityPages.ts.
  */
 export const serviceAreaCities: ServiceAreaCity[] = [
-  // County assignments checked against the Iowa Secretary of State incorporated-city list.
   // Cerro Gordo County
   ...[
     ['Clear Lake', ['Cerro Gordo']],
@@ -31,7 +30,7 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Ventura', ['Cerro Gordo']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
 
-  // Floyd County
+  // Floyd County — all seven approved communities
   ...[
     ['Charles City', ['Floyd']],
     ['Colwell', ['Floyd']],
@@ -41,7 +40,6 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Rockford', ['Floyd']],
     ['Rudd', ['Floyd']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
-
 
   // Franklin County
   ...[
@@ -66,6 +64,23 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Kanawha', ['Hancock']],
     ['Klemme', ['Hancock']],
     ['Woden', ['Hancock']]
+  ].map(([name, counties]) => city(name as string, counties as string[])),
+
+  // Kossuth County — city directory verified against Iowa DOT county maps
+  ...[
+    ['Algona', ['Kossuth']],
+    ['Bancroft', ['Kossuth']],
+    ['Burt', ['Kossuth']],
+    ['Fenton', ['Kossuth']],
+    ['Lakota', ['Kossuth']],
+    ['Ledyard', ['Kossuth']],
+    ['Lone Rock', ['Kossuth']],
+    ['Lu Verne', ['Kossuth']],
+    ['Swea City', ['Kossuth']],
+    ['Titonka', ['Kossuth']],
+    ['Wesley', ['Kossuth']],
+    ['West Bend', ['Kossuth']],
+    ['Whittemore', ['Kossuth']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
 
   // Mitchell County
@@ -114,7 +129,7 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Woolstock', ['Wright']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
 
-  // Butler County
+  // Butler County — retained from the existing approved project directory
   ...[
     ['Allison', ['Butler']],
     ['Aplington', ['Butler']],
