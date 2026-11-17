@@ -66,23 +66,6 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Woden', ['Hancock']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
 
-  // Kossuth County — city directory verified against Iowa DOT county maps
-  ...[
-    ['Algona', ['Kossuth']],
-    ['Bancroft', ['Kossuth']],
-    ['Burt', ['Kossuth']],
-    ['Fenton', ['Kossuth']],
-    ['Lakota', ['Kossuth']],
-    ['Ledyard', ['Kossuth']],
-    ['Lone Rock', ['Kossuth']],
-    ['Lu Verne', ['Kossuth']],
-    ['Swea City', ['Kossuth']],
-    ['Titonka', ['Kossuth']],
-    ['Wesley', ['Kossuth']],
-    ['West Bend', ['Kossuth']],
-    ['Whittemore', ['Kossuth']]
-  ].map(([name, counties]) => city(name as string, counties as string[])),
-
   // Mitchell County
   ...[
     ['Carpenter', ['Mitchell']],
