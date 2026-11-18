@@ -119,12 +119,12 @@ const locations = [
     @media(prefers-reduced-motion:reduce){.route-highlight path{transition:none}}
   </style>
   <script>
-    const choices = document.querySelectorAll('.fixture-choice');
-    const routes = document.querySelectorAll('.route-highlight');
-    const title = document.getElementById('fixture-result-title');
-    const detail = document.getElementById('fixture-result-detail');
-    const clue = document.getElementById('fixture-result-clue');
-    const next = document.getElementById('fixture-result-next');
+    const choices = document.querySelectorAll<HTMLButtonElement>('.fixture-choice');
+    const routes = document.querySelectorAll<SVGGElement>('.route-highlight');
+    const title = document.getElementById('fixture-result-title') as HTMLElement;
+    const detail = document.getElementById('fixture-result-detail') as HTMLElement;
+    const clue = document.getElementById('fixture-result-clue') as HTMLElement;
+    const next = document.getElementById('fixture-result-next') as HTMLElement;
 
     choices.forEach((choice) => {
       choice.addEventListener('click', () => {
