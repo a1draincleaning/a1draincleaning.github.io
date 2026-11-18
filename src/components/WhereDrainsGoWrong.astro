@@ -1,0 +1,49 @@
+---
+const points = [
+{n:'1',title:'Outside cleanout and drain exit',detail:'A restriction near where the house drain leaves the foundation can affect several fixtures. The cleanout provides access when its location and condition allow.',clue:'Several fixtures slow down or back up together.',href:'/services/main-drain-cleaning/'},
+{n:'2',title:'Kitchen drain run',detail:'Grease, food waste and soap residue can build up in the kitchen branch and restrict the sink drain.',clue:'The kitchen sink is slow while other fixtures may work normally.',href:'/services/kitchen-drains/'},
+{n:'3',title:'Roots at a sewer-pipe joint',detail:'Roots can enter through a joint or damaged section and catch debris. If the same clog returns after cleaning, a camera inspection can help show whether roots are entering through a defect.',clue:'The sewer line plugs again after cleaning.',href:'/services/tree-roots-in-sewer-line/'},
+{n:'4',title:'Sewer cleanout and inspection access',detail:'A cleanout gives access to a section of the drain or sewer line. Its location can help a technician choose where to inspect or clear a blockage.',clue:'The cleanout provides an access point for checking the line.',href:'/services/main-drain-cleaning/'},
+{n:'5',title:'Property sewer connection',detail:'The building sewer runs from the house toward the public sewer. A restriction or pipe defect along this run can affect the whole house.',clue:'Multiple drains are affected or the backup keeps returning.',href:'/services/sewer-line-cleaning/'},
+{n:'6',title:'Buried line under yard or driveway',detail:'A buried sewer can develop roots, buildup, a separated joint or a damaged section. Camera inspection and line locating can help identify the problem area before repair decisions are made.',clue:'Recurring trouble points to an underground pipe section.',href:'/services/sewer-line-cleaning/'}
+];
+---
+<section class="where-drains-fail py-16 sm:py-20" aria-labelledby="where-drains-heading">
+  <div class="container">
+    <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">The drainage system, from house to sewer</p>
+    <h2 id="where-drains-heading" class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Where drains go wrong</h2>
+    <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">Six places a house drain can fail, and what may fix each one. Select a numbered point on the drawing or open an explanation below.</p>
+    <div class="mt-10 grid gap-8 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
+      <figure class="overflow-hidden rounded-xl border border-slate-200 bg-[#eef3f8] p-3 shadow-sm sm:p-6">
+        <svg viewBox="0 0 760 430" role="img" aria-labelledby="drain-map-title drain-map-desc" class="block h-auto w-full">
+          <title id="drain-map-title">House drainage system and six possible trouble spots</title>
+          <desc id="drain-map-desc">Cutaway house connected to an underground sewer pipe, inspection access, yard or driveway and public sewer. Numbered links lead to six explanations.</desc>
+          <defs><pattern id="soil-lines" width="12" height="12" patternUnits="userSpaceOnUse"><path d="M0 12L12 0" stroke="#d4dce5" stroke-width="1"/></pattern></defs>
+          <path d="M15 245H745V410H15Z" fill="url(#soil-lines)"/><path d="M15 245H745" stroke="#64748b" stroke-width="3"/>
+          <path d="M65 245V105L180 30L295 105V245Z" fill="#fff" stroke="#1e3a8a" stroke-width="5" stroke-linejoin="round"/><path d="M45 108L180 20L315 108" fill="none" stroke="#b4232b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M95 245V160H265V245" fill="#e2e8f0" stroke="#64748b" stroke-width="3"/><path d="M180 160V245M95 205H265" stroke="#94a3b8" stroke-width="2"/>
+          <rect x="110" y="120" width="42" height="40" fill="#dbeafe" stroke="#1e3a8a" stroke-width="3"/><rect x="205" y="120" width="42" height="40" fill="#dbeafe" stroke="#1e3a8a" stroke-width="3"/>
+          <path d="M230 225V270H320V300H680" fill="none" stroke="#1e3a8a" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><path d="M230 225V270H320V300H680" fill="none" stroke="#93c5fd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M320 300V245M306 245H334" stroke="#475569" stroke-width="5"/><path d="M680 300V335M650 335H710M650 350H710M650 365H710" stroke="#475569" stroke-width="8" stroke-linecap="round"/>
+          <path d="M420 245L460 200L500 245" fill="#dbeafe" stroke="#64748b" stroke-width="3"/><path d="M460 245V300" stroke="#1e3a8a" stroke-width="10"/><path d="M460 300L475 285M460 300L445 285" stroke="#b4232b" stroke-width="4"/>
+          <text x="180" y="15" text-anchor="middle" fill="#1e293b" font-size="15" font-weight="700">HOUSE</text><text x="460" y="185" text-anchor="middle" fill="#334155" font-size="13" font-weight="700">YARD / DRIVE</text><text x="575" y="280" text-anchor="middle" fill="#334155" font-size="13" font-weight="700">PROPERTY SEWER</text><text x="680" y="395" text-anchor="middle" fill="#334155" font-size="12" font-weight="700">PUBLIC SEWER</text>
+          <g class="map-hotspot"><a href="#drain-point-1" aria-label="Point 1, outside cleanout"><circle cx="230" cy="270" r="17"/><text x="230" y="276">1</text></a></g>
+          <g class="map-hotspot"><a href="#drain-point-2" aria-label="Point 2, kitchen drain run"><circle cx="245" cy="180" r="17"/><text x="245" y="186">2</text></a></g>
+          <g class="map-hotspot"><a href="#drain-point-3" aria-label="Point 3, roots at sewer joint"><circle cx="460" cy="300" r="17"/><text x="460" y="306">3</text></a></g>
+          <g class="map-hotspot"><a href="#drain-point-4" aria-label="Point 4, sewer cleanout and inspection access"><circle cx="320" cy="270" r="17"/><text x="320" y="276">4</text></a></g>
+          <g class="map-hotspot"><a href="#drain-point-5" aria-label="Point 5, property sewer connection"><circle cx="680" cy="300" r="17"/><text x="680" y="306">5</text></a></g>
+          <g class="map-hotspot"><a href="#drain-point-6" aria-label="Point 6, buried line under yard or driveway"><circle cx="550" cy="300" r="17"/><text x="550" y="306">6</text></a></g>
+        </svg>
+        <figcaption class="px-2 pb-2 text-sm leading-6 text-slate-600">Schematic, not to scale. House layouts and sewer connections vary. A suitable CCTV inspection can show the condition of an accessible pipe.</figcaption>
+      </figure>
+      <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
+        {points.map((point) => <a id={`drain-point-${point.n}`} href={point.href} class="drain-failure-card group rounded-lg border border-slate-200 bg-white p-4 shadow-sm transition hover:border-[#1A1A68] hover:shadow-md focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1A1A68]"><div class="flex items-start gap-3"><span class="map-number">{point.n}</span><div><h3 class="text-lg font-black leading-snug text-slate-950 group-hover:text-[#1A1A68]">{point.title}</h3><p class="mt-2 text-sm leading-6 text-slate-700">{point.detail}</p><p class="mt-2 text-sm font-bold text-[#1A1A68]">What you may notice: {point.clue}</p><span class="mt-2 inline-block text-sm font-black text-[#b4232b] underline underline-offset-4">See related A-1 service →</span></div></div></a>)}
+      </div>
+    </div>
+    <p class="mt-6 text-sm leading-6 text-slate-600">These are possible trouble areas, not a diagnosis. Symptoms, pipe access and inspection findings determine the right next step.</p>
+  </div>
+  <style>
+    .map-hotspot a { cursor:pointer; }.map-hotspot circle { fill:#b4232b;stroke:#fff;stroke-width:4;transition:fill .15s ease; }.map-hotspot text { fill:#fff;font-size:15px;font-weight:900;text-anchor:middle;pointer-events:none; }.map-hotspot a:hover circle,.map-hotspot a:focus circle { fill:#1A1A68;stroke:#fbbf24;stroke-width:5; }.map-hotspot a:focus { outline:none; }.map-number { display:inline-flex;width:2rem;height:2rem;flex:0 0 2rem;align-items:center;justify-content:center;border-radius:9999px;background:#1A1A68;color:#fff;font-weight:900; }.drain-failure-card:target { border-color:#b4232b;box-shadow:0 0 0 2px rgb(180 35 43 / 18%); }
+    @media(prefers-reduced-motion:reduce){.map-hotspot circle{transition:none}}
+  </style>
+</section>
