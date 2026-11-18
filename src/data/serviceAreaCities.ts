@@ -114,6 +114,23 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Woolstock', ['Wright']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
 
+  // Kossuth County
+  ...[
+    ['Algona', ['Kossuth']],
+    ['Bancroft', ['Kossuth']],
+    ['Burt', ['Kossuth']],
+    ['Fenton', ['Kossuth']],
+    ['Lakota', ['Kossuth']],
+    ['Ledyard', ['Kossuth']],
+    ['Lone Rock', ['Kossuth']],
+    ['Lu Verne', ['Kossuth']],
+    ['Swea City', ['Kossuth']],
+    ['Titonka', ['Kossuth']],
+    ['Wesley', ['Kossuth']],
+    ['West Bend', ['Kossuth']],
+    ['Whittemore', ['Kossuth']]
+  ].map(([name, counties]) => city(name as string, counties as string[])),
+
   // Butler County
   ...[
     ['Allison', ['Butler']],
