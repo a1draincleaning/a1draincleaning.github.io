@@ -100,7 +100,7 @@ const locations = [
         <h3 id="fixture-choice-heading" class="text-lg font-black text-slate-950">Where are you seeing the problem?</h3>
         <p class="mt-1 text-sm leading-6 text-slate-600">Choose one to highlight the related drain route.</p>
         <div class="mt-4 grid grid-cols-2 gap-2">
-          {locations.map((item) => <button type="button" class="fixture-choice min-h-12 rounded-md border border-slate-300 bg-white px-3 py-2 text-left text-sm font-bold text-slate-800 hover:border-[#1A1A68] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1A1A68]" data-route={item.id} data-title={item.title} data-detail={item.detail} data-clue={item.clue} data-next={item.next} aria-pressed="false">{item.label}</button>)}
+          {locations.map((item) => <button type="button" class="fixture-choice min-h-12 rounded-md border border-slate-300 bg-white px-3 py-2 text-left text-sm font-bold text-slate-800 hover:border-[#1A1A68] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1A1A68]" data-route={item.id} data-title={item.title} data-detail={item.detail} data-clue={item.clue} data-next={item.next} aria-controls="fixture-result-title fixture-result-detail fixture-result-clue fixture-result-next" aria-pressed="false">{item.label}</button>)}
         </div>
         <div class="mt-5 border-l-4 border-[#b4232b] bg-white p-4" aria-live="polite" aria-atomic="true">
           <h4 id="fixture-result-title" class="text-lg font-black text-slate-950">Choose a fixture above</h4>
