@@ -44,7 +44,11 @@ const canonicalServiceLinks = new Map([
 ]);
 const relatedServices = (relatedServiceSlugs[service.slug] || [])
   .map((slug) => services.find((item) => item.slug === slug) ?? canonicalServiceLinks.get(slug))
-  .filter((item): item is { slug: string; title: string } => Boolean(item));
+  .filter((item): item is { slug: string; title: string } => Boolean(item))
+  .map((item) => ({
+    ...item,
+    href: item.slug === 'pipe-repair' ? '/pipe-repair/' : `/services/${item.slug}/`,
+  }));
 const featuredServiceCities = uniqueServiceAreaCities.filter((city) => featuredServiceCitySlugs.includes(city.slug));
 const pageFaqs: Record<string, { question: string; answer: string }[]> = {
   'main-drain-cleaning': [
@@ -465,7 +469,7 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
             <a href="/services/sewer-backup-emergency/" class="border border-slate-200 bg-white p-5 font-black text-slate-950 hover:border-[#b4232b]">Sewer backup emergency service →</a>
           </div>
         )}
-        {relatedServices.length > 0 && (<div class="mt-12 grid gap-4 sm:grid-cols-3">{relatedServices.map((related) => (<a href={`/services/${related.slug}/`} class="border border-slate-200 bg-white p-5 font-black text-slate-950 hover:border-[#b4232b]">{related.title} →</a>))}</div>)}
+        {relatedServices.length > 0 && (<div class="mt-12 grid gap-4 sm:grid-cols-3">{relatedServices.map((related) => (<a href={related.href} class="border border-slate-200 bg-white p-5 font-black text-slate-950 hover:border-[#b4232b]">{related.title} →</a>))}</div>)}
       </div>
     </section>
 
