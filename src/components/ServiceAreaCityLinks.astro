@@ -26,7 +26,7 @@ const featuredCities = featuredCitySlugs
     <nav aria-label="A-1 Drain Cleaning featured service-area cities" class="mt-8 grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
       {featuredCities.map((city) => (
         <a
-          href={`/service-area/${city.slug}/`}
+          href={city.slug === 'mason-city' ? '/mason-city-drain-cleaning/' : `/service-area/${city.slug}/`}
           class="inline-flex min-h-12 items-center border border-slate-200 bg-slate-50 px-4 py-3 font-bold text-slate-950 hover:border-[#b4232b] hover:bg-white hover:underline"
         >
           {city.name}, Iowa

@@ -1,0 +1,91 @@
+---
+const symptoms = [
+  {
+    number: '01',
+    title: 'Basement floor drain backing up',
+    detail: 'Water or sewage comes up through the basement floor drain, sometimes when a toilet flushes or the washing machine pumps out.',
+    action: 'Floor drain backup help',
+    href: '/services/basement-floor-drains/'
+  },
+  {
+    number: '02',
+    title: 'Several drains are slow or backing up',
+    detail: 'More than one fixture acts up, a toilet makes another drain rise, or the lowest drain fills first.',
+    action: 'Main drain cleaning',
+    href: '/services/main-drain-cleaning/'
+  },
+  {
+    number: '03',
+    title: 'Washer makes water spill out',
+    detail: 'The laundry standpipe overflows or water comes up through a nearby floor drain during the wash cycle.',
+    action: 'Laundry drain service',
+    href: '/services/laundry-drains/'
+  },
+  {
+    number: '04',
+    title: 'Tub or shower is clogged',
+    detail: 'The bathtub or shower drains slowly, will not clear, or backs up when another fixture is used.',
+    action: 'Bathroom & shower drain help',
+    href: '/services/kitchen-bathroom-drains/'
+  },
+  {
+    number: '05',
+    title: 'Sewer line keeps plugging up',
+    detail: 'The same blockage returns after cleaning. Roots, buildup, or pipe damage may need a closer look.',
+    action: 'Tree roots and sewer lines',
+    href: '/services/tree-roots-in-sewer-line/'
+  },
+  {
+    number: '06',
+    title: 'Kitchen sink will not drain',
+    detail: 'Grease, food debris, or buildup may be restricting the kitchen drain.',
+    action: 'Kitchen drain service',
+    href: '/services/kitchen-bathroom-drains/'
+  },
+  {
+    number: '07',
+    title: 'Toilet keeps clogging or bubbling',
+    detail: 'A toilet that repeatedly clogs, bubbles, or affects another drain may have a restriction beyond the toilet itself.',
+    action: 'Toilet drain help',
+    href: '/services/toilet-clogs/'
+  },
+  {
+    number: '08',
+    title: 'Sewage backs up into a tub or shower',
+    detail: 'In a home without a basement, a bathtub or shower can be the first place a blocked main drain or sewer line shows up.',
+    action: 'Tub and shower sewer backups',
+    href: '/services/sewer-backup-into-tub-shower/'
+  }
+];
+---
+
+<section class="bg-slate-100 py-14 sm:py-20" aria-labelledby="drain-symptoms-heading">
+  <div class="container">
+    <div class="grid gap-8 lg:grid-cols-[.8fr_1.2fr] lg:items-end">
+      <div>
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Start with what you see</p>
+        <h2 id="drain-symptoms-heading" class="mt-2 text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">What's your drain doing?</h2>
+      </div>
+      <p class="max-w-2xl text-lg leading-8 text-slate-700">Pick the symptom closest to what is happening at your house. We'll point you to the likely problem area and the A-1 service page that explains it. Symptoms are clues, not a final diagnosis.</p>
+    </div>
+
+    <div class="mt-9 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      {symptoms.map((symptom) => (
+        <article class="flex h-full flex-col border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+          <p class="text-xs font-black tracking-[0.18em] text-[#b4232b]">{symptom.number} / DRAIN PROBLEM</p>
+          <h3 class="mt-3 text-xl font-black leading-snug text-slate-950">{symptom.title}</h3>
+          <p class="mt-3 flex-1 text-base leading-7 text-slate-600">{symptom.detail}</p>
+          <a href={symptom.href} class="mt-5 inline-flex min-h-11 items-center font-black text-[#b4232b] underline decoration-2 underline-offset-4 hover:text-[#8f1b22]">{symptom.action} →</a>
+        </article>
+      ))}
+    </div>
+
+    <div class="mt-8 flex flex-col gap-4 border-l-4 border-[#b4232b] bg-white p-6 sm:flex-row sm:items-center sm:justify-between sm:p-7">
+      <div>
+        <h3 class="text-xl font-black text-slate-950">Not sure where the blockage is?</h3>
+        <p class="mt-1 max-w-2xl leading-7 text-slate-700">Explore the house drain diagram, select the fixture, then answer nine questions about the symptoms. Both help narrow down what may be happening; neither replaces an inspection.</p>
+      </div>
+      <a href="/drain-diagnosis/" class="inline-flex min-h-12 shrink-0 items-center justify-center rounded-md bg-[#1A1A68] px-6 py-3 font-black text-white hover:bg-[#142052]">START DRAIN DIAGNOSIS →</a>
+    </div>
+  </div>
+</section>
