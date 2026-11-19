@@ -6,6 +6,12 @@ import ServicesGrid from '../components/ServicesGrid.astro';
 import ContactCTA from '../components/ContactCTA.astro';
 import Footer from '../components/Footer.astro';
 import GoogleBusinessInfo from '../components/GoogleBusinessInfo.astro';
+
+const featuredReview = {
+  author: 'sarahj1759205747',
+  datePublished: '2020-01-18',
+  reviewBody: "I have a 3 story home yesterday everything was ok, today i had water coming out of my kitchen lights on ceiling. I had no idea what to do, i called a few plumbing companies, they told me to call A-1 Drain Cleaning. I called and spoke to josh, he came over and took a look at my drain issues. From the 3rd floor to the 1st floor there was an obstruction in the sewer line. Josh said its exterior wall so it was frozen. He had to run and grab some equipment. He pulled toilet and he called it jetting. He jetted my sewer line and in 25 mins he had my sewer cleared and taking water again. . All of our toilets and showers are on 2nd and 3rd floor. Im just so glad i got ahold of this nice man. Hes so knowledgeable and fun to be around i can tell he loves his job. This business is located in mason city, ia. A-1 Drain Cleaning 641-530-2728 in Mason City,IA",
+};
 ---
 
 <MainLayout
@@ -18,6 +24,22 @@ import GoogleBusinessInfo from '../components/GoogleBusinessInfo.astro';
     <Hero />
 
     <ServicesGrid />
+
+    <section class="bg-white py-16 sm:py-20" aria-labelledby="customer-review-heading">
+      <div class="container max-w-4xl">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">A customer experience</p>
+        <h2 id="customer-review-heading" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">A sewer line cleared after a serious backup</h2>
+        <figure class="mt-6 border-l-4 border-[#b4232b] bg-slate-50 p-6 sm:p-8">
+          <blockquote class="leading-8 text-slate-700">
+            <p>{featuredReview.reviewBody}</p>
+          </blockquote>
+          <figcaption class="mt-5 border-t border-slate-200 pt-4 text-sm font-bold text-slate-800">
+            <span>{featuredReview.author}</span>
+            <time class="ml-2 font-normal text-slate-600" datetime={featuredReview.datePublished}>January 18, 2020</time>
+          </figcaption>
+        </figure>
+      </div>
+    </section>
 
     <section class="bg-slate-100 py-16 sm:py-20">
       <div class="container grid gap-10 lg:grid-cols-[.8fr_1.2fr] lg:items-start">
