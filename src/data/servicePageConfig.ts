@@ -31,7 +31,7 @@ export const servicePageTitles: Record<string, string> = {
   'dishwasher-drain': 'Dishwasher Drain Problems | A-1 Drain Cleaning',
   'sump-pumps': 'Sump Pump Service | A-1 Drain Cleaning',
   'roof-vent-drains': 'Plumbing Vent Drain Problems | A-1 Drain Cleaning',
-  'septic-lines': 'Septic Drain Line Cleaning | A-1 Drain Cleaning',
+  'septic-lines': 'Septic Line Cleaning | A-1 Drain Cleaning',
 };
 
 export const servicePageDescriptions: Record<string, string> = {
