@@ -77,14 +77,6 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
     { question: 'Why does the backup happen when the washer drains?', answer: 'The washer releases a large volume of water quickly. A restricted line may handle smaller amounts but back up when the washer empties.' },
     { question: 'What if the floor drain backs up again after cleaning?', answer: 'A recurring backup may need further investigation to check for repeated buildup, roots, or pipe damage. Cleaning restores flow through a blockage but does not repair damaged pipe.' },
   ],
-  'drain-repair': [
-    { question: 'Can drain cleaning fix a cracked or collapsed pipe?', answer: 'No. Cleaning can remove a blockage, but it does not repair a cracked, separated, deformed, or collapsed pipe. Damaged pipe may need repair.' },
-    { question: 'Why does the same drain keep backing up after cleaning?', answer: 'A recurring blockage can come from roots, buildup, or a damaged section of pipe that continues to catch material. A camera inspection may help show the visible condition of an accessible section.' },
-    { question: 'Do I need a camera inspection before every drain repair?', answer: 'Not every call needs a camera inspection. It can be useful when the line keeps failing, the pipe condition is uncertain, or the repair location needs to be identified.' },
-    { question: 'Does A-1 Drain Cleaning repair sewer and drain pipes?', answer: 'Yes. A-1 Drain Cleaning handles drain and sewer pipe repair in Mason City and North Iowa when cleaning alone is not enough.' },
-    { question: 'Can a camera show the entire buried sewer line?', answer: 'A camera shows the sections it can reach and view. It cannot show parts of the line that are inaccessible, obstructed, or outside the camera path.' },
-  ],
-
 };
 ---
 
@@ -410,40 +402,6 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
                 <section class="mt-8 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="fixture-drain-sizes">
                   <h2 id="fixture-drain-sizes" class="text-2xl font-black tracking-tight text-slate-950">Common sink, tub, and shower drain sizes</h2>
                   <p class="mt-3 leading-7 text-slate-700">Kitchen sinks commonly connect to 1½- or 2-inch drain piping. Bathroom sinks often use 1¼- or 1½-inch piping, while tubs and showers commonly use 1½- or 2-inch drains. Actual sizes vary by fixture, age of the plumbing, and local installation. These are typical pipe sizes—not a diagnosis of where a clog is located.</p>
-                </section>
-              )}
-              {service.slug === 'drain-repair' && (
-                <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="drain-repair-details">
-                  <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Drain and sewer pipe repair</p>
-                  <h2 id="drain-repair-details" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">When cleaning is not enough</h2>
-                  <p class="mt-5 text-lg leading-8 text-slate-700">A drain that keeps backing up may have more than a blockage. A cracked, separated, deformed, or collapsed pipe can keep catching waste or prevent wastewater from moving away, even after the line has been cleaned. Cleaning and pipe repair solve different problems.</p>
-
-                  <h3 class="mt-8 text-xl font-black tracking-tight text-slate-950">Signs a drain or sewer pipe may be damaged</h3>
-                  <ul class="mt-4 list-disc space-y-3 pl-6 leading-8 text-slate-700">
-                    <li>The same line repeatedly blocks after it has been cleaned.</li>
-                    <li>A camera inspection shows a crack, separation, deformation, or collapsed section.</li>
-                    <li>Roots keep entering at the same point in the line.</li>
-                    <li>The line will not stay open or wastewater continues to drain poorly after the blockage is removed.</li>
-                  </ul>
-                  <p class="mt-4 leading-8 text-slate-700">These symptoms do not prove that a pipe is broken. A recurring blockage can have more than one cause, so the condition of the line needs to be checked before deciding whether repair is needed.</p>
-
-                  <h3 class="mt-8 text-xl font-black tracking-tight text-slate-950">How inspection helps determine the next step</h3>
-                  <p class="mt-4 leading-8 text-slate-700">A <a href="/services/sewer-camera-inspection/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer camera inspection</a> may show the visible interior condition of an accessible pipe section. If the line route needs to be established, <a href="/services/sewer-line-locating/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line locating</a> may help identify where the buried line runs. A camera view has limits and does not show sections the equipment cannot reach.</p>
-                  <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning repairs damaged drain and sewer pipes in Mason City and North Iowa. The repair method depends on where the damage is, the pipe material, access, and the condition of the surrounding line. No repair method should be chosen until the problem is understood.</p>
-                  <p class="mt-4 leading-8 text-slate-700">For a blockage without confirmed pipe damage, see <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a> or <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a>.</p>
-
-                  <h3 class="mt-8 text-xl font-black tracking-tight text-slate-950">Drain repair in Mason City and North Iowa</h3>
-                  <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning offers 24/7 drain and sewer service. If the same drain keeps backing up, tell us what has already been cleaned, how soon the problem returned, and whether a camera inspection has been done. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a>.</p>
-
-                  <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="drain-repair-faq">
-                    <h2 id="drain-repair-faq" class="text-3xl font-black tracking-tight text-slate-950">Drain and sewer pipe repair questions</h2>
-                    {pageFaqs[service.slug]?.map((faq) => (
-                      <div class="mt-6">
-                        <h3 class="text-xl font-black tracking-tight text-slate-950">{faq.question}</h3>
-                        <p class="mt-2 leading-8 text-slate-700">{faq.answer}</p>
-                      </div>
-                    ))}
-                  </section>
                 </section>
               )}
               {service.slug === 'toilet-clogs' && (
