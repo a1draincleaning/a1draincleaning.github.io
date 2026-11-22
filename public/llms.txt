@@ -17,10 +17,10 @@
 
 - [All drain and sewer services](https://a1draincleaning.github.io/services/)
 - [General drain cleaning](https://a1draincleaning.github.io/services/drain-cleaning/)
-- [Emergency drain cleaning](https://a1draincleaning.github.io/services/emergency-drain-cleaning/)
+- [Emergency Drain Cleaning](https://a1draincleaning.github.io/services/emergency-drain-cleaning/)
 - [Main drain cleaning](https://a1draincleaning.github.io/services/main-drain-cleaning/)
 - [Sewer line cleaning](https://a1draincleaning.github.io/services/sewer-line-cleaning/)
-- [Emergency sewer backup service](https://a1draincleaning.github.io/services/sewer-backup-emergency/)
+- [Sewer Backup Emergency Service](https://a1draincleaning.github.io/services/sewer-backup-emergency/)
 - [Basement floor drain backups](https://a1draincleaning.github.io/services/basement-floor-drains/)
 - [Sewer backup into a bathtub or shower](https://a1draincleaning.github.io/services/sewer-backup-into-tub-shower/)
 - [Tree root removal from sewer lines](https://a1draincleaning.github.io/services/tree-roots-in-sewer-line/)
@@ -34,9 +34,9 @@
 - [Septic line cleaning](https://a1draincleaning.github.io/services/septic-lines/)
 - [Sump pump repair, replacement, and installation](https://a1draincleaning.github.io/services/sump-pumps/)
 - [Roof plumbing vent clearing](https://a1draincleaning.github.io/services/roof-vent-drains/)
-- [Sewer camera inspections](https://a1draincleaning.github.io/services/sewer-camera-inspection/)
-- [Sewer line locating](https://a1draincleaning.github.io/services/sewer-line-locating/)
-- [Drain and sewer pipe repair](https://a1draincleaning.github.io/pipe-repair/)
+- [Drain & Sewer Camera Inspections](https://a1draincleaning.github.io/services/sewer-camera-inspection/)
+- [Sewer Line Locating](https://a1draincleaning.github.io/services/sewer-line-locating/)
+- [Drain & Sewer Pipe Repair](https://a1draincleaning.github.io/pipe-repair/)
 - [Smoke testing](https://a1draincleaning.github.io/services/smoke-testing/)
 - Commercial drain cleaning is also provided; there is no separate commercial service URL listed here.
 
