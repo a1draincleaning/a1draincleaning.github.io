@@ -39,7 +39,7 @@ export const servicePageDescriptions: Record<string, string> = {
   'sewer-line-locating': 'Sewer line locating in Mason City and North Iowa to help identify underground drain and sewer line routes.',
   'emergency-drain-cleaning': 'Emergency drain cleaning for clogged toilets, sinks, tubs, showers, laundry drains, and floor drains in Mason City and North Iowa. Call A-1 Drain Cleaning.',
   'basement-floor-drains': 'Basement floor drain backing up or sewage coming up through the drain? A-1 Drain Cleaning cleans and unclogs floor and main drains in North Iowa.',
-  'main-drain-cleaning': 'Main drain line clogged or several drains backing up? A-1 Drain Cleaning cleans and unclogs house main drains in Mason City and North Iowa.',
+  'main-drain-cleaning': 'Main drain clogged or several drains backing up in Mason City? A-1 Drain Cleaning cleans house main drains. Call 641-530-2728.',
   'sewer-line-cleaning': 'Main sewer pipe clogged or several fixtures backing up? A-1 Drain Cleaning cleans and unclogs residential sewer lines in North Iowa.',
   'laundry-drains': 'Washing machine drain backing up or water flooding the basement? A-1 Drain Cleaning cleans and unclogs laundry and washer drain lines in North Iowa.',
   'bathroom-shower-drains': 'Bathroom sink, shower, or bathtub drain clogged, slow, or backing up? A-1 Drain Cleaning cleans and unclogs bathroom drains in Mason City and North Iowa.',
