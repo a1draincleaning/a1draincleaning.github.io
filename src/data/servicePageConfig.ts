@@ -5,7 +5,7 @@ const laundryService = services.find((service) => service.slug === 'laundry-drai
 
 if (washingMachineService && laundryService) {
   laundryService.title = 'Laundry & Washing Machine Drains';
-  laundryService.description = 'Washing machine drain backing up, overflowing, or flooding the basement? A-1 Drain Cleaning cleans and unclogs laundry and washing machine drain lines in Mason City and North Iowa.';
+  laundryService.description = 'Washing machine drain backing up or laundry standpipe overflowing? A-1 Drain Cleaning cleans laundry drain lines in Mason City and North Iowa.';
   laundryService.problems = [...new Set([...laundryService.problems, ...washingMachineService.problems])];
   laundryService.signs = [...new Set([...laundryService.signs, ...washingMachineService.signs])];
   laundryService.details = [...laundryService.details, ...washingMachineService.details.filter((detail) => !laundryService.details.includes(detail))];
