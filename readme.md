@@ -15,18 +15,21 @@ A-1 Drain Cleaning provides professional drain cleaning and sewer line clearing 
  * **Tree Root Removal:** Cutting through and clearing out aggressive tree roots that penetrate and block sewer lines.
  * **Hydro Jetting:** High-pressure water scouring to strip grease buildup, scale, and debris off pipe walls.
  * **Basement Drain Cleaning:** Clearing clogged floor drains to drain standing water and keep lower living spaces dry.
- * **Kitchen Sink Drains:** Removing grease traps, food buildup, and soap scum restricting sink drainage.
+ * **Kitchen Sink Drains:** Clearing grease buildup, food residue, and soap scum from kitchen drain lines.
  * **Shower & BathTub Drains:** Clearing soap scum, hair clogs, and standing water from bathroom lines.
  * **Toilet Clog Removal:** Clearing blockages beyond standard plunging tools safely without damaging porcelain.
  * **Floor Drain Cleaning:** Servicing utility room, shop, and garage floor drains to ensure proper water discharge.
  * **Laundry Drains:** Clearing lint, detergent residue, and heavy discharge lines attached to washing machines.
- * **Roof Vent Clearing:** Clearing leaves, bird nests, and roof stack obstructions to restore proper venting and drain flow.
- * **Septic Line Cleaning:** Clearing the main incoming sewer pipe leading directly into your septic tank.
+ * **Roof Vent Clearing:** Checking and clearing plumbing roof vents when symptoms point to a vent restriction.
+ * **Septic Line Cleaning:** Cleaning the private drain line from the house toward a septic system. A-1 does not provide septic tank pumping.
  * **Sewer Backup Service:** Clearing blocked sewer lines causing wastewater backups, basement flooding concerns, and drainage problems.
  * **Drain Repairs:** Diagnosing, spot-repairing, and fixing broken, cracked, or misaligned drain lines.
- * **Garbage Disposal Service:** Unjamming, repairing, or replacing worn-out garbage disposals.
- * **Dishwasher Drain Issues:** Clearing clogged waste lines and air gaps preventing dishwashers from draining completely.
- * **Sump Pump Service:** Servicing discharge pipes and sump pits to ensure reliable storm water removal.
+ * **Garbage Disposal Repair & Installation:** Repairing and installing garbage disposals.
+ * **Dishwasher Drain Issues:** Addressing drain-side restrictions in dishwasher connections and kitchen drain lines; appliance repair is not provided.
+ * **Sump Pump Repair & Replacement:** Repairing, replacing, and installing sump pumps.
+### Service Scope Notes
+A-1 Drain Cleaning does not provide grease trap cleaning or septic tank pumping. Septic service is limited to cleaning the house-to-septic drain line. Dishwasher service is limited to the drain side, not appliance repair.
+
 ## Common Drain Problems We Fix
 If your drainage system is showing signs of trouble, addressing it early prevents severe water damage and costly repairs.
  * **Slow Drains:** Water pooling in sinks, tubs, or showers due to gradual pipe buildup.
@@ -37,7 +40,7 @@ If your drainage system is showing signs of trouble, addressing it early prevent
  * **Bad Drain Odors:** Foul sewer gas smells escaping from dry traps, clogged vents, or dirty floor drains.
  * **Tree Roots in Pipes:** Recurring drain slowdowns caused by invasive root systems invading underground sewer pipes.
 ## Service Area
-A-1 Drain Cleaning is based in **Mason City, Iowa**, and proudly serves homeowners and businesses throughout North Iowa and nearby Southern Minnesota communities.
+A-1 Drain Cleaning is based in **Mason City, Iowa**, and serves homeowners and businesses throughout North Iowa, with additional service in Albert Lea, Minnesota.
 A-1 Drain Cleaning helps homeowners throughout North Iowa with clogged drains, sewer backups, slow drains, and main sewer line problems.
 Primary service locations include:
  * Mason City, Iowa
