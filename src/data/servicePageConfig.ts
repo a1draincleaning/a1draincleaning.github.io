@@ -29,7 +29,7 @@ export const servicePageTitles: Record<string, string> = {
   'drain-repair': 'Drain Repair | A-1 Drain Cleaning',
   'garbage-disposal': 'Garbage Disposal Drain Problems | A-1 Drain Cleaning',
   'dishwasher-drain': 'Dishwasher Drain Problems | A-1 Drain Cleaning',
-  'sump-pumps': 'Sump Pump Service | A-1 Drain Cleaning',
+  'sump-pumps': 'Sump Pump Repair & Replacement | A-1 Drain Cleaning',
   'roof-vent-drains': 'Plumbing Vent Drain Problems | A-1 Drain Cleaning',
   'septic-lines': 'Septic Drain Line Cleaning | A-1 Drain Cleaning',
 };
