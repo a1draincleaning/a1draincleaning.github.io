@@ -34,6 +34,8 @@ A-1 Drain Cleaning serves Mason City and nearby North Iowa communities. Service 
 - [Bathroom, Shower, and Tub Drains](https://a1draincleaning.github.io/services/bathroom-shower-drains/): Clogged or slow bathroom sinks, bathtubs, and showers.
 - [Toilet Clogs](https://a1draincleaning.github.io/services/toilet-clogs/): Toilet clogs and toilet drainage problems; multiple affected fixtures can indicate a larger drain restriction.
 - [Smoke Testing](https://a1draincleaning.github.io/services/smoke-testing/): Smoke testing as a method of investigating certain drain, sewer, or vent concerns.
+- [Drain and Sewer Camera Inspections](https://a1draincleaning.github.io/services/sewer-camera-inspection/): Camera inspection of an accessible line when a blockage keeps returning or pipe condition needs to be checked.
+- [Sewer Line Locating](https://a1draincleaning.github.io/services/sewer-line-locating/): Locating an underground drain or sewer line route or point of interest when access and conditions allow.
 - [Drain and Sewer Pipe Repair](https://a1draincleaning.github.io/pipe-repair/): Pipe repair when a damaged or failing line cannot be corrected by cleaning alone.
 
 ## North Iowa Service Areas
