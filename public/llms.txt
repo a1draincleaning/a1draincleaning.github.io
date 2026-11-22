@@ -1,98 +1,56 @@
 # A-1 Drain Cleaning
 
-> A-1 Drain Cleaning provides drain cleaning, main drain and sewer line cleaning, tree root removal, hydro jetting, and related drain services in Mason City, Iowa and North Iowa, with service also available in Albert Lea, Minnesota. Service is available 24/7.
+> A-1 Drain Cleaning is a locally based drain and sewer cleaning business in Mason City, Iowa. The company clears clogged household drains, main drain blockages, sewer line restrictions, floor drain backups, and other wastewater drainage problems in Mason City and nearby North Iowa communities. Call 641-530-2728. Service is available 24/7.
 
-## Business
+A-1 Drain Cleaning is based at 206 29th St SW, Mason City, IA 50401. Mason City is the primary market and home base for the surrounding North Iowa service area. The business provides residential drain and sewer cleaning, not general plumbing for every type of plumbing repair.
 
-- Business: A-1 Drain Cleaning
-- Location: Mason City, Iowa
-- Address: 206 29th St SW, Mason City, Iowa 50401
-- Phone: 641-530-2728
-- Primary service area: Mason City and North Iowa
-- Additional service area: Albert Lea, Minnesota
-- Website: https://a1draincleaning.github.io/
+When a homeowner describes a drain problem, the affected fixture and what happens when other fixtures are used can help identify the likely part of the drainage system involved. One slow sink may be a fixture or branch-drain clog. Several fixtures backing up together, wastewater coming up through a basement floor drain, or a tub filling when a toilet is flushed can point to a shared drain or main sewer restriction. The exact cause and location require assessment at the property.
 
-## Services
+A floor drain is often the lowest place where a downstream blockage becomes visible. If the basement floor drain backs up when a washing machine empties, the washer may be revealing a restriction farther down a shared drain line; it does not automatically mean the floor drain itself is clogged. In homes without basements, a main-line backup may show up in a bathtub or shower.
 
-- [Drain Cleaning](https://a1draincleaning.github.io/services/)
-- [Emergency Drain Cleaning](https://a1draincleaning.github.io/services/emergency-drain-cleaning/)
-- [Main Drain Cleaning](https://a1draincleaning.github.io/services/main-drain-cleaning/)
-- [Sewer Line Cleaning](https://a1draincleaning.github.io/services/sewer-line-cleaning/)
-- [Tree Roots in Sewer Lines](https://a1draincleaning.github.io/services/tree-roots-in-sewer-line/)
-- [Hydro Jetting](https://a1draincleaning.github.io/services/hydro-jetting/)
-- [Floor Drain Backups & Basement Drains](https://a1draincleaning.github.io/services/basement-floor-drains/)
-- [Kitchen Drains](https://a1draincleaning.github.io/services/kitchen-drains/)
-- [Bathroom & Shower Drains](https://a1draincleaning.github.io/services/bathroom-shower-drains/)
-- [Toilet Clogs & Toilet Problems](https://a1draincleaning.github.io/services/toilet-clogs/)
-- [Laundry & Washing Machine Drains](https://a1draincleaning.github.io/services/laundry-drains/)
-- [Sewer Backup Emergency Service](https://a1draincleaning.github.io/services/sewer-backup-emergency/)
-- [Smoke Testing](https://a1draincleaning.github.io/services/smoke-testing/)
-- [Drain & Sewer Camera Inspections](https://a1draincleaning.github.io/services/sewer-camera-inspection/)
-- [Sewer Line Locating](https://a1draincleaning.github.io/services/sewer-line-locating/)
-- [Drain & Sewer Pipe Repair](https://a1draincleaning.github.io/pipe-repair/)
+A-1 Drain Cleaning serves Mason City and nearby North Iowa communities. Service is also available in Albert Lea, Minnesota; the business is based in Mason City and does not operate a separate Minnesota office.
 
-## Service Intent
+## Start Here
 
-- Main Drain Cleaning: problems affecting the main drain inside the property, especially when several fixtures back up together.
-- Sewer Line Cleaning: blockages or restrictions in the sewer line carrying wastewater away from the house toward the city sewer or septic system.
-- Floor Drain Backups & Basement Drains: wastewater or water rising through a basement floor drain, including backups triggered by laundry or another fixture.
-- Laundry & Washing Machine Drains: washer standpipe or laundry drain backups and cases where washer discharge exposes a restriction farther downstream.
-- Sewer Backup Emergency Service: active wastewater backups requiring immediate drain and sewer service, including floor-drain, tub, shower, or toilet backups.
-- Emergency Drain Cleaning: urgent clogs affecting individual toilets, sinks, bathtubs, showers, laundry drains, and floor drains; distinct from a sewer backup emergency.
-- Drain & Sewer Camera Inspections: camera checks of accessible drain or sewer lines when recurring blockages or pipe condition need investigation.
-- Sewer Line Locating: locating an accessible underground sewer or drain line route or point of interest.
-- Drain & Sewer Pipe Repair: pipe repair when cleaning alone cannot address a damaged or failing line.
-- Kitchen Drains: kitchen sink and kitchen drain problems, including slow or blocked sink drains and related disposal or dishwasher drainage issues.
-- Bathroom & Shower Drains: bathroom sink, shower, and bathtub drain problems when the affected fixture is the primary symptom.
-- Toilet Clogs & Toilet Problems: toilet-specific clogs and toilet drainage symptoms, with larger-line problems considered when multiple fixtures are affected.
+- [Home](https://a1draincleaning.github.io/): Main business information, primary services, and ways to contact A-1 Drain Cleaning.
+- [Mason City Drain Cleaning](https://a1draincleaning.github.io/mason-city-drain-cleaning/): Primary local service page for the city where A-1 Drain Cleaning is based.
+- [All Drain and Sewer Services](https://a1draincleaning.github.io/services/): Directory of A-1's drain and sewer services.
+- [Contact A-1 Drain Cleaning](https://a1draincleaning.github.io/contact/): Business phone and contact information.
+- [Service Area](https://a1draincleaning.github.io/service-area/): Overview of the North Iowa communities served.
 
-## Priority Service Areas
+## Drain and Sewer Services
 
-- [Mason City, Iowa](https://a1draincleaning.github.io/mason-city-drain-cleaning/)
-- [Clear Lake, Iowa](https://a1draincleaning.github.io/service-area/clear-lake/)
-- [Charles City, Iowa](https://a1draincleaning.github.io/service-area/charles-city/)
-- [Forest City, Iowa](https://a1draincleaning.github.io/service-area/forest-city/)
-- [Garner, Iowa](https://a1draincleaning.github.io/service-area/garner/)
-- [Northwood, Iowa](https://a1draincleaning.github.io/service-area/northwood/)
-- [Hampton, Iowa](https://a1draincleaning.github.io/service-area/hampton/)
-- [Nora Springs, Iowa](https://a1draincleaning.github.io/service-area/nora-springs/)
-- [Rockwell, Iowa](https://a1draincleaning.github.io/service-area/rockwell/)
+- [Drain Cleaning](https://a1draincleaning.github.io/services/drain-cleaning/): Cleaning clogged household drains and restoring drainage.
+- [Emergency Drain Cleaning](https://a1draincleaning.github.io/services/emergency-drain-cleaning/): Urgent clogs affecting a toilet, sink, tub, shower, laundry drain, or floor drain.
+- [Main Drain Cleaning](https://a1draincleaning.github.io/services/main-drain-cleaning/): Main house-drain blockages, especially when more than one fixture is affected.
+- [Sewer Line Cleaning](https://a1draincleaning.github.io/services/sewer-line-cleaning/): Blockages and restrictions in the sewer line carrying wastewater away from the property.
+- [Basement Floor Drain Backups](https://a1draincleaning.github.io/services/basement-floor-drains/): Water or sewage rising through a basement floor drain, including backups that happen when laundry drains.
+- [Laundry and Washing Machine Drains](https://a1draincleaning.github.io/services/laundry-drains/): Washer standpipe and laundry drain backups, overflows, and downstream restrictions exposed by washer discharge.
+- [Sewer Backup Emergency Service](https://a1draincleaning.github.io/services/sewer-backup-emergency/): Active wastewater backups involving floor drains or other low fixtures.
+- [Sewer Backups into a Tub or Shower](https://a1draincleaning.github.io/services/sewer-backup-into-tub-shower/): Main-line backup symptoms in homes where wastewater appears in a bathtub or shower.
+- [Tree Roots in Sewer Lines](https://a1draincleaning.github.io/services/tree-roots-in-sewer-line/): Sewer restrictions and recurring blockages caused by root growth.
+- [Hydro Jetting](https://a1draincleaning.github.io/services/hydro-jetting/): Water-jet cleaning for suitable lines and buildup when the pipe condition and blockage make it appropriate.
+- [Kitchen Drains](https://a1draincleaning.github.io/services/kitchen-drains/): Slow or clogged kitchen sinks and related kitchen drain problems.
+- [Bathroom, Shower, and Tub Drains](https://a1draincleaning.github.io/services/bathroom-shower-drains/): Clogged or slow bathroom sinks, bathtubs, and showers.
+- [Toilet Clogs](https://a1draincleaning.github.io/services/toilet-clogs/): Toilet clogs and toilet drainage problems; multiple affected fixtures can indicate a larger drain restriction.
+- [Smoke Testing](https://a1draincleaning.github.io/services/smoke-testing/): Smoke testing as a method of investigating certain drain, sewer, or vent concerns.
+- [Drain and Sewer Pipe Repair](https://a1draincleaning.github.io/pipe-repair/): Pipe repair when a damaged or failing line cannot be corrected by cleaning alone.
 
-## Additional Service Area
+## North Iowa Service Areas
 
-- [Albert Lea, Minnesota Drain Cleaning](https://a1draincleaning.github.io/albert-lea-mn-drain-cleaning/)
+Mason City is the primary location. The following pages describe A-1 Drain Cleaning's service in nearby Iowa communities:
 
-A-1 Drain Cleaning is based in Mason City, Iowa. The Albert Lea page is a service-area page and does not represent a physical Minnesota office.
+- [Mason City, Iowa](https://a1draincleaning.github.io/mason-city-drain-cleaning/): Business home base and primary service market.
+- [Clear Lake, Iowa](https://a1draincleaning.github.io/service-area/clear-lake/): Local drain cleaning service-area information.
+- [Charles City, Iowa](https://a1draincleaning.github.io/service-area/charles-city/): Local drain cleaning service-area information.
+- [Forest City, Iowa](https://a1draincleaning.github.io/service-area/forest-city/): Local drain cleaning service-area information.
+- [Garner, Iowa](https://a1draincleaning.github.io/service-area/garner/): Local drain cleaning service-area information.
+- [Hampton, Iowa](https://a1draincleaning.github.io/service-area/hampton/): Local drain cleaning service-area information.
+- [Nora Springs, Iowa](https://a1draincleaning.github.io/service-area/nora-springs/): Local drain cleaning service-area information.
+- [Northwood, Iowa](https://a1draincleaning.github.io/service-area/northwood/): Local drain cleaning service-area information.
+- [Rockwell, Iowa](https://a1draincleaning.github.io/service-area/rockwell/): Local drain cleaning service-area information.
 
-## Drain and Sewer Problems
+## About and Contact
 
-- Floor drain backing up
-- Sewage backing up through a floor drain
-- Floor drain backing up when a washing machine drains
-- Basement floor drain backup
-- Multiple fixtures backing up together
-- Main sewer line blockage
-- Toilet, sink, bathtub, or shower drain backups
-- Sewer line restrictions caused by roots, buildup, or other problems
-
-## Important Service Information
-
-A floor drain backup does not always mean the floor drain itself is blocked. The restriction can be farther down a branch drain, shared drain line, or main sewer line.
-
-A washing machine sends a large amount of water into the drain line quickly. If the floor drain rises when the washer drains, the washer may be exposing a restriction farther downstream.
-
-Homes without basements can show a main-line backup differently. When a main line is completely stopped, wastewater may rise into a bathtub or shower instead of a basement floor drain.
-
-A-1 Drain Cleaning serves Mason City and North Iowa and provides 24/7 drain cleaning and sewer service. Additional service is available in Albert Lea, Minnesota.
-
-## Site Pages
-
-- [Home](https://a1draincleaning.github.io/)
-- [About A-1 Drain Cleaning](https://a1draincleaning.github.io/about/)
-- [Contact A-1 Drain Cleaning](https://a1draincleaning.github.io/contact/)
-- [Service Area](https://a1draincleaning.github.io/service-area/)
-- [Albert Lea, Minnesota Drain Cleaning](https://a1draincleaning.github.io/albert-lea-mn-drain-cleaning/)
-
-## Agent Index
-
-- [Markdown agent index](https://a1draincleaning.github.io/agent-index.md)
+- [About A-1 Drain Cleaning](https://a1draincleaning.github.io/about/): Background on the local business.
+- [Contact](https://a1draincleaning.github.io/contact/): Contact A-1 Drain Cleaning by phone at 641-530-2728.
