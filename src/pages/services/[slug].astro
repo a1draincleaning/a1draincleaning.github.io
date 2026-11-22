@@ -77,6 +77,13 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
     { question: 'Why does the backup happen when the washer drains?', answer: 'The washer releases a large volume of water quickly. A restricted line may handle smaller amounts but back up when the washer empties.' },
     { question: 'What if the floor drain backs up again after cleaning?', answer: 'A recurring backup may need further investigation to check for repeated buildup, roots, or pipe damage. Cleaning restores flow through a blockage but does not repair damaged pipe.' },
   ],
+  'tree-roots-in-sewer-line': [
+    { question: 'Can tree roots get into a sewer pipe that is still draining?', answer: 'Yes. Roots can narrow the opening and catch waste before the pipe becomes completely blocked. Early symptoms may include a recurring slow drain or repeated backups.' },
+    { question: 'Will tree roots return after removal?', answer: 'Removing tree roots can reopen the line, but it does not close the joint or repair the crack where roots entered. A damaged entry point can allow another root blockage to develop.' },
+    { question: 'How can I tell whether roots are the cause?', answer: 'Recurring blockages can raise suspicion, but symptoms alone do not confirm roots. A sewer camera inspection may help identify roots and show the visible condition of the pipe.' },
+    { question: 'Does a sewer line always need to be replaced if roots get in?', answer: 'No. The next step depends on the amount of blockage and the condition of the pipe. Cleaning may restore flow; repair decisions depend on whether the pipe is damaged and how severe that damage is.' },
+  ],
+
 };
 ---
 
@@ -276,7 +283,7 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
 
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">How A-1 Drain Cleaning removes tree roots</h2>
               <p class="mt-5 leading-8 text-slate-700">A-1 uses drain-cleaning equipment to remove tree roots that are blocking the line and restore a path for wastewater. The approach depends on access to the pipe, the blockage, and the condition of the line. Opening the pipe helps wastewater flow, but root removal is not the same as repairing a crack, separated joint, or collapsed section.</p>
-              <p class="mt-4 leading-8 text-slate-700">If the line has plugged repeatedly or the pipe condition is uncertain, a sewer camera inspection can help show whether roots are present and whether the pipe has visible damage. That information can help distinguish a blockage that needs cleaning from a pipe problem that may need repair.</p>
+              <p class="mt-4 leading-8 text-slate-700">If the line has plugged repeatedly or the pipe condition is uncertain, a <a href="/services/sewer-camera-inspection/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer camera inspection</a> can help show whether roots are present and whether the pipe has visible damage. That information can help distinguish a blockage that needs cleaning from a pipe problem that may need repair.</p>
               <p class="mt-4 leading-8 text-slate-700">When you call, explain how often the line has backed up, whether cleaning has been done before, and which drains are affected. If wastewater is currently coming up through a floor drain, tub, or shower, stop using water where possible and keep people and pets away from the affected area.</p>
 
               <section class="mt-10 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="repeat-root-blockage">
@@ -286,18 +293,16 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
               </section>
 
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Tree roots in sewer lines in Mason City and North Iowa</h2>
-              <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning works on blocked sewer lines in Mason City and across North Iowa. If your sewer line has been cleaned before and the same symptoms return, share that history when you call. It helps us assess whether the immediate job is to remove a root blockage, investigate a recurring restriction, or determine whether pipe damage may be involved.</p>
+              <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning works on blocked sewer lines in Mason City and across North Iowa and offers 24/7 drain and sewer service. If your sewer line has been cleaned before and the same symptoms return, share that history when you call. It helps us assess whether the immediate job is to remove a root blockage, investigate a recurring restriction, or determine whether pipe damage may be involved. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a>.</p>
 
               <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="tree-root-faqs">
                 <h2 id="tree-root-faqs" class="text-3xl font-black tracking-tight text-slate-950">Tree root sewer line FAQs</h2>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Can tree roots get into a sewer pipe that is still draining?</h3>
-                <p class="mt-2 leading-8 text-slate-700">Yes. Roots can narrow the opening and catch waste before the pipe becomes completely blocked. Early symptoms may include a recurring slow drain or repeated backups.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Will tree roots return after removal?</h3>
-                <p class="mt-2 leading-8 text-slate-700">Removing tree roots can reopen the line, but it does not close the joint or repair the crack where roots entered. A damaged entry point can allow another root blockage to develop.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">How can I tell whether roots are the cause?</h3>
-                <p class="mt-2 leading-8 text-slate-700">Recurring blockages can raise suspicion, but symptoms alone do not confirm roots. A sewer camera inspection may help identify roots and show the visible condition of the pipe.</p>
-                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Does a sewer line always need to be replaced if roots get in?</h3>
-                <p class="mt-2 leading-8 text-slate-700">No. The next step depends on the amount of blockage and the condition of the pipe. Cleaning may restore flow; repair decisions depend on whether the pipe is damaged and how severe that damage is.</p>
+                {pageFaqs[service.slug]?.map((faq) => (
+                  <div class="mt-6">
+                    <h3 class="text-xl font-black tracking-tight text-slate-950">{faq.question}</h3>
+                    <p class="mt-2 leading-8 text-slate-700">{faq.answer}</p>
+                  </div>
+                ))}
               </section>
             </>
           ) : service.slug === 'hydro-jetting' ? (
