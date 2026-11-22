@@ -17,6 +17,7 @@ This file is a short Markdown directory for search agents and automated website 
 ## Main pages
 
 - [Home](https://a1draincleaning.github.io/)
+- [North Iowa drain cleaning](https://a1draincleaning.github.io/iowa-drain-cleaning/)
 - [About A-1 Drain Cleaning](https://a1draincleaning.github.io/about/)
 - [Contact](https://a1draincleaning.github.io/contact/)
 - [Service areas](https://a1draincleaning.github.io/service-area/)
