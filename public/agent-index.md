@@ -55,7 +55,7 @@ A-1 Drain Cleaning is based in Mason City, Iowa and serves Mason City and nearby
 
 ## Additional service coverage
 
-A-1 Drain Cleaning also serves Albert Lea, Minnesota. The business is based in Mason City, Iowa; Albert Lea is not a separate office.
+Additional service coverage extends to Albert Lea, Minnesota; A-1 Drain Cleaning is based in Mason City and has no Minnesota office.
 
 ## Machine-readable resources
 
