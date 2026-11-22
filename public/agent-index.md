@@ -29,7 +29,7 @@ A-1 Drain Cleaning is based in Mason City, Iowa and serves Mason City and nearby
 - [Sewer line cleaning](https://a1draincleaning.github.io/services/sewer-line-cleaning/)
 - [Basement floor drain backups](https://a1draincleaning.github.io/services/basement-floor-drains/)
 - [Laundry and washing machine drains](https://a1draincleaning.github.io/services/laundry-drains/)
-- [Sewer backup emergency service](https://a1draincleaning.github.io/services/sewer-backup-emergency/)
+- [Emergency sewer backup service](https://a1draincleaning.github.io/services/sewer-backup-emergency/)
 - [Sewer backup into a tub or shower](https://a1draincleaning.github.io/services/sewer-backup-into-tub-shower/)
 - [Tree roots in sewer lines](https://a1draincleaning.github.io/services/tree-roots-in-sewer-line/)
 - [Hydro jetting](https://a1draincleaning.github.io/services/hydro-jetting/)
