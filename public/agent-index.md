@@ -67,7 +67,7 @@ The service-area directory also lists communities in Cerro Gordo, Floyd, Frankli
 
 ## Service limits
 
-- A-1 cleans house-to-septic drain lines; it does not pump septic tanks or maintain septic systems.
+- A-1 cleans house-to-septic drain lines; it does not pump septic tanks.
 - A-1 does not provide grease trap cleaning.
 - A-1 handles dishwasher drain-side problems, not dishwasher appliance repair.
 - A-1 offers 24/7 service, but does not publish a guaranteed response or arrival time.
