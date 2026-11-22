@@ -65,6 +65,14 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
     { question: 'How can I tell whether roots are the cause?', answer: 'Recurring blockages can raise suspicion, but symptoms alone do not confirm roots. A sewer camera inspection may help identify roots and show the visible condition of the pipe.' },
     { question: 'Does a sewer line always need to be replaced if roots get in?', answer: 'No. The next step depends on the amount of blockage and the condition of the pipe. Cleaning may restore flow; repair decisions depend on whether the pipe is damaged and how severe that damage is.' },
   ],
+  'laundry-drains': [
+    { question: 'Why does the washing machine drain back up?', answer: 'The washer sends a large amount of water into the drain quickly. If the standpipe, laundry branch, or a downstream shared line is restricted, the water may overflow instead of draining away.' },
+    { question: 'What is the difference between a standpipe overflow and a basement floor drain backup?', answer: 'Water coming out of the washer standpipe points toward the laundry connection, branch, or a downstream restriction. Water coming up through a separate floor drain during the washer drain cycle can point to a restriction farther along a shared or main drain.' },
+    { question: 'Can the washing machine cause a main drain backup?', answer: 'The washer may expose an existing restriction rather than cause it. Its fast discharge can overwhelm a partially blocked line and make the backup visible.' },
+    { question: 'Should I keep running wash cycles to test the drain?', answer: 'No. Stop the washer if water is overflowing and avoid running other fixtures while the drain is backing up. More water can make the overflow worse.' },
+    { question: 'Does A-1 Drain Cleaning repair washing machines?', answer: 'This service is for the laundry drain and connected drain piping, not repair of the washing machine appliance itself.' },
+    { question: 'Does A-1 Drain Cleaning offer 24/7 laundry drain service?', answer: 'A-1 Drain Cleaning offers 24/7 drain and sewer service in Mason City and North Iowa. Call 641-530-2728 and explain whether water is coming from the standpipe or a separate floor drain.' },
+  ],
   'hydro-jetting': [
     { question: 'Does every clogged drain need hydro jetting?', answer: 'No. Many clogs can be cleaned with other equipment. Jetting is considered when the blockage and pipe conditions make it a suitable option.' },
     { question: 'Can hydro jetting remove tree roots?', answer: 'Roots may need to be removed with suitable tree root removal equipment. The best method depends on the root blockage and pipe condition; jetting is not a universal substitute for tree root removal.' },
@@ -298,6 +306,49 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
                 <p class="mt-2 leading-8 text-slate-700">Recurring blockages can raise suspicion, but symptoms alone do not confirm roots. A sewer camera inspection may help identify roots and show the visible condition of the pipe.</p>
                 <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Does a sewer line always need to be replaced if roots get in?</h3>
                 <p class="mt-2 leading-8 text-slate-700">No. The next step depends on the amount of blockage and the condition of the pipe. Cleaning may restore flow; repair decisions depend on whether the pipe is damaged and how severe that damage is.</p>
+              </section>
+            </>
+          ) : service.slug === 'laundry-drains' ? (
+            <>
+              <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Laundry drain backup help</p>
+              <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Washing machine drain backing up or laundry standpipe overflowing?</h2>
+              <p class="mt-6 text-lg leading-8 text-slate-700">A washing machine pumps a large amount of water into the drain in a short period. If the standpipe, laundry branch, or a downstream shared line cannot carry that water away, the standpipe may overflow or water may appear at another drain. The washer may be working normally while its fast discharge exposes a restriction in the drain piping.</p>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Where is the water coming from?</h2>
+              <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Water coming out of the washer standpipe</h3>
+              <p class="mt-2 leading-8 text-slate-700">If the laundry standpipe overflows during the drain cycle, the restriction may be at the standpipe connection, in the laundry branch, or farther downstream. The exact location depends on how the laundry drain connects to the rest of the house.</p>
+              <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Water coming up through a separate basement floor drain</h3>
+              <p class="mt-2 leading-8 text-slate-700">If the washer drains and water rises through a separate floor drain, the washer may be exposing a restriction in a shared drain or the main line. The floor drain is where the backup appears, not necessarily where the blockage is located. Read more about <a href="/services/basement-floor-drains/" class="font-bold text-[#b4232b] underline underline-offset-4">basement floor drain backups</a>.</p>
+              <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Water backing up into another fixture</h3>
+              <p class="mt-2 leading-8 text-slate-700">If a sink, tub, shower, or toilet changes when the washer drains, the restriction may be in a shared section of the drain system. Several affected fixtures can point to a main drain or sewer-line problem rather than a clog limited to the laundry standpipe.</p>
+
+              <section class="mt-10 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="laundry-backup-steps">
+                <h2 id="laundry-backup-steps" class="text-2xl font-black tracking-tight text-slate-950">What to do when the laundry drain overflows</h2>
+                <ul class="mt-4 list-disc space-y-3 pl-6 leading-7 text-slate-700">
+                  <li>Stop the washing machine if water is spilling out. Do not start another cycle to test the drain.</li>
+                  <li>Avoid using other fixtures while wastewater is backing up. More water can add to the overflow.</li>
+                  <li>Keep people and pets away from wastewater, especially if it may contain sewage.</li>
+                  <li>Do not enter standing water if electrical outlets, cords, appliances, or other equipment may be affected.</li>
+                  <li>When you call, explain whether water came from the washer standpipe, a separate floor drain, or another fixture.</li>
+                </ul>
+              </section>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">How A-1 Drain Cleaning handles laundry drain problems</h2>
+              <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning cleans laundry drains and connected drain lines in Mason City and North Iowa. If the symptoms point to a restriction farther downstream, the work may involve the shared drain or main line rather than only the laundry branch. A camera inspection may help when the same line keeps backing up or the pipe condition needs to be checked.</p>
+              <p class="mt-4 leading-8 text-slate-700">This service is for the drain piping, not repair of the washing machine appliance. If the washer itself is leaking or not pumping water out, that is a separate appliance issue.</p>
+              <p class="mt-4 leading-8 text-slate-700">Related service information: <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a>, <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a>, and <a href="/services/sewer-backup-emergency/" class="font-bold text-[#b4232b] underline underline-offset-4">emergency sewer backup service</a>.</p>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Laundry drain cleaning in Mason City and North Iowa</h2>
+              <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning is based in Mason City, Iowa, and offers 24/7 drain and sewer service. When you call, tell us whether the standpipe overflows, a separate floor drain backs up, or another fixture is affected during the washer drain cycle. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a>.</p>
+
+              <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="laundry-drain-faq">
+                <h2 id="laundry-drain-faq" class="text-3xl font-black tracking-tight text-slate-950">Laundry and washing machine drain questions</h2>
+                {pageFaqs[service.slug]?.map((faq) => (
+                  <div class="mt-6">
+                    <h3 class="text-xl font-black tracking-tight text-slate-950">{faq.question}</h3>
+                    <p class="mt-2 leading-8 text-slate-700">{faq.answer}</p>
+                  </div>
+                ))}
               </section>
             </>
           ) : service.slug === 'hydro-jetting' ? (
