@@ -2,67 +2,67 @@
 const symptoms = [
   {
     id: 'slow', number: '01', label: 'Slow draining sink, bath or shower',
-    summary: 'A sink, bathtub, or shower is draining slowly.',
-    cause: 'A partial blockage may be building up in the waste pipe or the drain outside: hair, soap, grease, and scale can narrow the pipe until water backs up.',
-    action: 'A-1 Drain Cleaning clears the drain run with mechanical equipment or high-pressure water jetting. We can also check the outside drain to help prevent the blockage from coming straight back.',
+    summary: 'A sink, bath, or shower is draining slowly.',
+    cause: 'A partial blockage may be building up in the waste pipe or outside drain: hair, soap, grease, and scale can narrow the pipe until water backs up.',
+    action: 'We clear the drain run with mechanical drain-cleaning equipment or high-pressure water jetting, depending on the blockage. We also check the accessible outside drain where appropriate.',
     urgency: 'Book in the next few days.',
     urgencyLabel: 'Book in the next few days', href: '/services/kitchen-bathroom-drains/', link: 'About drain unblocking'
   },
   {
-    id: 'gurgle', number: '02', label: 'Gurgling from the toilet or drain',
-    summary: 'You hear bubbling or gurgling from a toilet, sink, tub, or shower when water runs elsewhere.',
-    cause: 'Gurgling can mean air is being pushed or pulled through the drain system because of a partial blockage. When more than one fixture reacts, the restriction may be in a shared drain or main sewer line.',
-    action: 'A-1 Drain Cleaning clears main drains and sewer lines. We use which fixtures gurgle and when it happens to narrow down the likely location.',
-    urgency: 'Do not ignore gurgling paired with slow drains. If a fixture starts filling with wastewater, stop using water and call now.',
-    urgencyLabel: 'Check it promptly', href: '/services/main-drain-cleaning/', link: 'Main drain cleaning'
+    id: 'gurgle', number: '02', label: 'Gurgling from the toilet or plughole',
+    summary: 'A toilet or drain gurgles when water is used elsewhere.',
+    cause: 'Air may be trapped behind a blockage farther down the line. Gurgling is often a warning before wastewater overflows.',
+    action: 'We locate the blockage and clear it with the appropriate drain-cleaning equipment, including high-pressure jetting where suitable. If it keeps happening, a sewer camera inspection can help find out why.',
+    urgency: 'Sooner rather than later.',
+    urgencyLabel: 'Sooner rather than later', href: '/services/main-drain-cleaning/', link: 'About drain unblocking'
   },
   {
-    id: 'overflow', number: '03', label: 'Overflowing yard drain, floor drain or sewer cleanout',
-    summary: 'Water or sewage is spilling from a floor drain, outside drain, or sewer cleanout.',
-    cause: 'An overflow at a low opening often means water cannot get through a downstream section of the drain or sewer line. A basement floor drain may be the first place a main-line blockage shows up.',
-    action: 'A-1 Drain Cleaning clears floor drains, main drains, and sewer lines. The location of the overflow and which fixtures were running help determine where to start.',
-    urgency: 'If sewage is coming into the home, stop using toilets, sinks, showers, and the washer. Keep people and pets away from wastewater and call now.',
-    urgencyLabel: 'Call now', href: '/services/basement-floor-drains/', link: 'Basement floor drain service'
+    id: 'overflow', number: '03', label: 'Overflowing outside drain, floor drain or sewer cleanout',
+    summary: 'Wastewater is overflowing from an outside drain, basement floor drain, or sewer cleanout.',
+    cause: 'The main drain may be blocked and wastewater has nowhere to go. If a line is shared, a blockage elsewhere may also cause wastewater to appear at your cleanout or drain.',
+    action: 'A-1 Drain Cleaning clears main drain and sewer-line blockages using professional drain-cleaning and jetting equipment. Contaminated-area cleanup and sanitizing should be handled by an appropriate cleanup provider.',
+    urgency: 'Call now. A-1 Drain Cleaning offers 24/7 service.',
+    urgencyLabel: 'Call now · 24/7 service', href: '/services/basement-floor-drains/', link: 'About basement floor drain backups'
   },
   {
-    id: 'odor', number: '04', label: 'Bad smell inside or outside',
-    summary: 'You notice a sewer or drain odor in the basement, bathroom, near a floor drain, or out in the yard.',
-    cause: 'A drain odor can come from a dry trap, a venting issue, or a damaged or obstructed drain or sewer line. The location and timing of the smell matter.',
-    action: 'A-1 Drain Cleaning can investigate drain and sewer-line problems, including camera inspection and smoke testing where appropriate, to help locate the source.',
-    urgency: 'If the odor is strong or you suspect natural gas, leave the area and contact the appropriate emergency service. For a persistent sewer smell, arrange an inspection.',
-    urgencyLabel: 'Arrange an inspection', href: '/services/sewer-camera-inspection/', link: 'Sewer camera inspection'
+    id: 'odor', number: '04', label: 'Bad smell inside or outside the house',
+    summary: 'A persistent sewer or drain odor is coming from inside the house or the yard.',
+    cause: 'Standing wastewater in a partly blocked drain, a dry or damaged trap, or a cracked pipe may be letting foul air escape beneath the floor or in the yard.',
+    action: 'We trace the source. A sewer camera inspection can help identify a blockage or damaged pipe; we then recommend the appropriate cleaning or drain repair.',
+    urgency: 'Book an inspection this week.',
+    urgencyLabel: 'Book an inspection this week', href: '/services/sewer-camera-inspection/', link: 'About sewer camera inspection'
   },
   {
     id: 'repeat', number: '05', label: 'Blockages that keep coming back',
-    summary: 'The same drain or sewer line plugs up again after it has been cleared.',
-    cause: 'Recurring blockages can point to tree roots, grease or scale buildup, a damaged pipe, or a section that holds debris. Clearing the blockage may restore flow without correcting the reason it returns.',
-    action: 'A-1 Drain Cleaning clears the line and can use a sewer camera and line locating to help identify roots, damage, or other trouble spots.',
-    urgency: 'Arrange service before the next full backup. If sewage is backing up into the house now, stop using water and call immediately.',
-    urgencyLabel: 'Find the cause', href: '/services/tree-roots-in-sewer-line/', link: 'Tree roots in sewer lines'
+    summary: 'The same drain or sewer line blocks again after it has been cleared.',
+    cause: 'A recurring blockage can point to a structural problem, such as a displaced joint, tree-root intrusion, a low spot in the pipe, or a collapsed section that keeps catching debris.',
+    action: 'A sewer camera inspection can show where the problem is and what may be causing it. A-1 Drain Cleaning can clear root and debris blockages and assess drain repair options. The repair method depends on the pipe condition and access.',
+    urgency: 'Survey first, then plan a permanent fix.',
+    urgencyLabel: 'Survey first · then plan the repair', href: '/services/sewer-camera-inspection/', link: 'About sewer camera inspection'
   },
   {
-    id: 'rats', number: '06', label: 'Rats, or scratching under the floor',
-    summary: 'You hear scratching under the floor or suspect rodents are using a damaged drain or sewer line.',
-    cause: 'A broken pipe or open connection can provide a route for rodents, but scratching noises alone do not confirm a sewer-line problem.',
-    action: 'A-1 Drain Cleaning does not provide pest-control or rodent-exclusion service. If a drain or sewer defect is suspected, we can discuss whether a camera inspection or smoke test is appropriate.',
-    urgency: 'Contact a licensed pest-control professional for the rodent issue. If you also have sewer odors, a backup, or a suspected broken drain, arrange a drain inspection.',
-    urgencyLabel: 'Pest control may be needed', href: '/services/sewer-camera-inspection/', link: 'Sewer camera inspection'
+    id: 'rats', number: '06', label: 'Rats or scratching under the floor',
+    summary: 'You hear scratching under the floor or suspect rodents are entering through a drain.',
+    cause: 'Rats can travel through sewer lines and may enter a property through a broken pipe, open connection, or disused branch.',
+    action: 'We can inspect accessible drain and sewer lines with a camera to look for damage or an opening. If a defect is found, we can discuss drain repair. A-1 Drain Cleaning does not provide pest control or rat-flap installation.',
+    urgency: 'Book a drain inspection in the next few days. Contact a pest-control professional about the rodents.',
+    urgencyLabel: 'Book in the next few days', href: '/services/sewer-camera-inspection/', link: 'About sewer camera inspection'
   },
   {
     id: 'ground', number: '07', label: 'A wet patch or sinking ground outside',
-    summary: 'A patch of ground stays wet, smells like sewage, or appears to be sinking near the sewer route.',
-    cause: 'A leaking, separated, or damaged underground drain can release water into the soil. Irrigation, surface water, and other plumbing leaks can cause similar signs, so the source needs to be checked.',
-    action: 'A-1 Drain Cleaning can inspect accessible sewer lines with a camera, locate the line, and help identify whether a drain defect is present.',
-    urgency: 'Keep people and vehicles away from ground that is sinking. Arrange an inspection, and call promptly if the wet area smells like sewage or a backup is also occurring.',
-    urgencyLabel: 'Arrange an inspection', href: '/services/sewer-camera-inspection/', link: 'Sewer camera inspection'
+    summary: 'A wet patch, soft spot, or sinking area has appeared in the yard or near the sewer route.',
+    cause: 'A leaking or collapsed drain may be washing soil away beneath the surface. Left unchecked, it can undermine nearby paths, driveways, and other structures.',
+    action: 'A sewer camera inspection can help confirm whether the drain is damaged. A-1 Drain Cleaning can assess the line and discuss an appropriate drain repair. The repair method depends on the pipe condition and access.',
+    urgency: 'Get it looked at this week.',
+    urgencyLabel: 'Inspect this week', href: '/services/sewer-camera-inspection/', link: 'About sewer camera inspection'
   },
   {
-    id: 'septic', number: '08', label: 'Septic tank full, or grease trap due',
-    summary: 'You think a septic tank needs pumping or a commercial grease trap is due for service.',
-    cause: 'A full septic tank and a full grease trap are separate maintenance problems. They are not the same as a blocked household drain or sewer lateral.',
-    action: 'A-1 Drain Cleaning does not offer septic-tank pumping or grease-trap servicing. If the issue is a blocked building drain or sewer line, we can help with that portion of the problem.',
-    urgency: 'Contact a septic hauler or grease-trap service provider for tank or trap pumping. If wastewater is backing up inside the building, stop using water and call a drain professional.',
-    urgencyLabel: 'Different service needed', href: '/services/drain-cleaning/', link: 'A-1 drain cleaning services'
+    id: 'septic', number: '08', label: 'Septic tank full or grease trap due',
+    summary: 'You think a septic tank needs pumping or a commercial grease trap needs service.',
+    cause: 'Septic tanks and grease traps need periodic pumping and maintenance. When they are overdue, wastewater can back up and odors can develop.',
+    action: 'A-1 Drain Cleaning does not provide septic-tank pumping or grease-trap cleaning. Contact a septic hauler or grease-trap service provider. If a separate building drain or sewer line is clogged, A-1 can help with that drain blockage.',
+    urgency: 'Book routine service with a septic or grease-trap provider.',
+    urgencyLabel: 'Book a routine visit', href: '/services/drain-cleaning/', link: 'About A-1 drain cleaning'
   }
 ];
 const first = symptoms[0];
