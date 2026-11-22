@@ -77,6 +77,14 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
     { question: 'Why does the backup happen when the washer drains?', answer: 'The washer releases a large volume of water quickly. A restricted line may handle smaller amounts but back up when the washer empties.' },
     { question: 'What if the floor drain backs up again after cleaning?', answer: 'A recurring backup may need further investigation to check for repeated buildup, roots, or pipe damage. Cleaning restores flow through a blockage but does not repair damaged pipe.' },
   ],
+  'roof-vent-drains': [
+    { question: 'What does a plumbing roof vent do?', answer: 'The vent allows air into the drain system so wastewater can flow through the pipes properly. If the vent is blocked, some drains may gurgle or behave unusually.' },
+    { question: 'Can a blocked roof vent cause gurgling drains?', answer: 'It can. Gurgling or slow drainage at more than one fixture may point to a venting problem, but those symptoms can also have other causes.' },
+    { question: 'Does every slow drain mean the roof vent is blocked?', answer: 'No. A slow drain can come from a local clog, a shared drain restriction, a main drain problem, or a venting issue. The symptoms need to be considered together.' },
+    { question: 'Does A-1 Drain Cleaning clear plumbing roof vents?', answer: 'Yes. A-1 Drain Cleaning checks and clears roof vents when the symptoms point to a vent restriction in Mason City and North Iowa.' },
+    { question: 'Should I climb onto the roof to clear a plumbing vent?', answer: 'No. Roof access can be dangerous, especially when the roof is wet, icy, steep, or unstable. Leave roof access and vent clearing to someone equipped to do the work safely.' },
+  ],
+
 };
 ---
 
@@ -398,6 +406,37 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
               <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">About this drain problem</p>
               <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">What can cause this problem?</h2>
               <div class="mt-6 space-y-5">{service.details.map((paragraph) => (<p class="text-lg leading-8 text-slate-700">{paragraph}</p>))}</div>
+              {service.slug === 'roof-vent-drains' && (
+                <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="roof-vent-details">
+                  <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Plumbing vent service</p>
+                  <h2 id="roof-vent-details" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Gurgling drains or slow drainage with no obvious clog?</h2>
+                  <p class="mt-5 text-lg leading-8 text-slate-700">Plumbing vents allow air into the drain system so wastewater can move through the pipes. If a roof vent is blocked, one or more drains may gurgle, drain slowly, or behave unusually. A vent problem is one possibility; those symptoms can also come from a local clog or a restriction farther down the drain system.</p>
+
+                  <h3 class="mt-8 text-xl font-black tracking-tight text-slate-950">Signs a plumbing vent may be involved</h3>
+                  <ul class="mt-4 list-disc space-y-3 pl-6 leading-8 text-slate-700">
+                    <li>Drains gurgle after water is used elsewhere in the house.</li>
+                    <li>Several fixtures behave unusually without one obvious local clog.</li>
+                    <li>A drain problem remains after ordinary cleaning.</li>
+                    <li>The symptoms suggest an airflow problem rather than a blockage at one fixture.</li>
+                  </ul>
+                  <p class="mt-4 leading-8 text-slate-700">These signs do not prove the roof vent is blocked. A-1 Drain Cleaning looks at the symptoms before treating venting as the cause.</p>
+
+                  <h3 class="mt-8 text-xl font-black tracking-tight text-slate-950">Roof vent clearing in Mason City and North Iowa</h3>
+                  <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning checks and clears plumbing roof vents when the symptoms point to a vent restriction. Roof access and the work required depend on the property and the problem found. Do not climb onto the roof or push tools down a vent pipe yourself; roof access can be dangerous.</p>
+                  <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning offers 24/7 drain and sewer service. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a> and describe which drains are gurgling or draining slowly.</p>
+                  <p class="mt-4 leading-8 text-slate-700">If several fixtures are backing up, the issue may be farther down the system. See <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a> or <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a>.</p>
+
+                  <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="roof-vent-faq">
+                    <h2 id="roof-vent-faq" class="text-3xl font-black tracking-tight text-slate-950">Plumbing roof vent questions</h2>
+                    {pageFaqs[service.slug]?.map((faq) => (
+                      <div class="mt-6">
+                        <h3 class="text-xl font-black tracking-tight text-slate-950">{faq.question}</h3>
+                        <p class="mt-2 leading-8 text-slate-700">{faq.answer}</p>
+                      </div>
+                    ))}
+                  </section>
+                </section>
+              )}
               {service.slug === 'bathroom-shower-drains' && (
                 <section class="mt-8 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="fixture-drain-sizes">
                   <h2 id="fixture-drain-sizes" class="text-2xl font-black tracking-tight text-slate-950">Common sink, tub, and shower drain sizes</h2>
