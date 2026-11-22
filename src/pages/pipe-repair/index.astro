@@ -7,9 +7,16 @@ import Footer from '../../components/Footer.astro';
 
 const title = 'Drain & Pipe Repair | A-1 Drain Cleaning';
 const description = 'A-1 Drain Cleaning handles drain and pipe problems in Mason City and North Iowa when cleaning alone will not solve the issue. Call 641-530-2728.';
+
+const faqs = [
+  { question: 'Does cleaning a drain repair the pipe?', answer: 'No. Cleaning can remove a blockage, but it does not repair a cracked, separated, collapsed, or badly deteriorated pipe.' },
+  { question: 'When should a recurring clog be investigated?', answer: 'If the same line repeatedly plugs up after it has been cleaned, the history of the problem is a reason to consider further investigation rather than assuming another clog is the whole problem.' },
+  { question: 'Can a sewer camera find a broken pipe?', answer: 'A camera can show visible conditions inside an accessible line and can provide useful information about recurring blockages or pipe damage. It does not replace a full evaluation of the property and pipe system.' },
+  { question: 'Do you repair every sewer line problem?', answer: 'The first step is identifying what is actually happening. Some problems are blockages that need cleaning; others may require additional investigation or a different repair approach.' },
+];
 ---
 
-<MainLayout title={title} description={description} path="/pipe-repair/" service={{ title: "Drain & Sewer Pipe Repair", description }}>
+<MainLayout title={title} description={description} path="/pipe-repair/" service={{ title: "Drain & Sewer Pipe Repair", description }} faqs={faqs}>
   <Header />
   <main id="main">
     <section class="bg-[#1A1A68] text-white">
@@ -62,7 +69,7 @@ const description = 'A-1 Drain Cleaning handles drain and pipe problems in Mason
         <div class="mt-6 grid gap-6 lg:grid-cols-2">
           <article class="bg-white p-6 sm:p-8">
             <h3 class="text-2xl font-black text-slate-950">What a camera can help show</h3>
-            <p class="mt-4 leading-8 text-slate-700">A sewer camera inspection can help identify conditions inside an accessible drain or sewer line, including recurring obstructions and visible pipe problems. It gives useful information when cleaning alone does not explain why a line keeps failing.</p>
+            <p class="mt-4 leading-8 text-slate-700">A <a href="/services/sewer-camera-inspection/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer camera inspection</a> can help identify conditions inside an accessible drain or sewer line, including recurring obstructions and visible pipe problems. It gives useful information when cleaning alone does not explain why a line keeps failing.</p>
           </article>
           <article class="bg-white p-6 sm:p-8">
             <h3 class="text-2xl font-black text-slate-950">It is not automatically needed</h3>
@@ -97,7 +104,7 @@ const description = 'A-1 Drain Cleaning handles drain and pipe problems in Mason
     <section class="bg-[#1A1A68] py-14 text-white sm:py-18">
       <div class="container">
         <h2 class="text-3xl font-black sm:text-4xl">Drain and pipe repair in Mason City and North Iowa</h2>
-        <p class="mt-4 max-w-3xl leading-8 text-slate-200">A-1 Drain Cleaning is based at 206 29th St SW in Mason City, Iowa. We serve Mason City and nearby North Iowa communities. Call 641-530-2728 and describe what the drain is doing, how often it happens, and whether the line has already been cleaned.</p>
+        <p class="mt-4 max-w-3xl leading-8 text-slate-200">A-1 Drain Cleaning is based at 206 29th St SW in Mason City, Iowa. We serve Mason City and nearby North Iowa communities and offer 24/7 drain and sewer service. Call 641-530-2728 and describe what the drain is doing, how often it happens, and whether the line has already been cleaned.</p>
         <address class="mt-6 not-italic text-slate-200">A-1 Drain Cleaning<br />206 29th St SW<br />Mason City, IA 50401</address>
         <a href="tel:+16415302728" class="mt-7 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-lg font-black text-white hover:bg-[#a82129]">CALL 641-530-2728</a>
       </div>
