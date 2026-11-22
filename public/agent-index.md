@@ -1,6 +1,6 @@
 # A-1 Drain Cleaning — Agent Index
 
-This file is a short Markdown directory for search agents and automated website readers. For the fuller business and service summary, see [llms.txt](https://a1draincleaning.github.io/llms.txt). For every published canonical page, see the [XML sitemap](https://a1draincleaning.github.io/sitemap.xml).
+This file is a short Markdown directory for search agents and automated website readers. For the full business and service summary, see [llms.txt](https://a1draincleaning.github.io/llms.txt). For published canonical URLs, see the [XML sitemap](https://a1draincleaning.github.io/sitemap.xml).
 
 ## Business identity
 
@@ -10,7 +10,7 @@ This file is a short Markdown directory for search agents and automated website 
 - **Address:** 206 29th St SW, Mason City, IA 50401
 - **Phone:** 641-530-2728
 - **Website:** https://a1draincleaning.github.io/
-- **Service availability:** 24/7 service
+- **Service availability:** 24/7 service; no guaranteed response or arrival time
 - **Primary service area:** Mason City and North Iowa
 - **Additional service area:** Albert Lea, Minnesota. This is a service area, not a second business address or office.
 
@@ -32,16 +32,23 @@ This file is a short Markdown directory for search agents and automated website 
 - [Sewer line cleaning](https://a1draincleaning.github.io/services/sewer-line-cleaning/)
 - [Emergency sewer backup service](https://a1draincleaning.github.io/services/sewer-backup-emergency/)
 - [Basement floor drain backups](https://a1draincleaning.github.io/services/basement-floor-drains/)
+- [Sewer backup into a tub or shower](https://a1draincleaning.github.io/services/sewer-backup-into-tub-shower/)
 - [Tree root removal from sewer lines](https://a1draincleaning.github.io/services/tree-roots-in-sewer-line/)
-- [Toilet unclogging](https://a1draincleaning.github.io/services/toilet-clogs/)
-- [Kitchen sink drain cleaning](https://a1draincleaning.github.io/services/kitchen-drains/)
-- [Bathroom sink, bathtub and shower drain cleaning](https://a1draincleaning.github.io/services/bathroom-shower-drains/)
+- [Toilet drain cleaning](https://a1draincleaning.github.io/services/toilet-clogs/)
+- [Kitchen drain cleaning](https://a1draincleaning.github.io/services/kitchen-drains/)
+- [Bathroom and shower drain cleaning](https://a1draincleaning.github.io/services/bathroom-shower-drains/)
 - [Laundry and washing machine drain cleaning](https://a1draincleaning.github.io/services/laundry-drains/)
+- [Garbage disposal repair and installation](https://a1draincleaning.github.io/services/garbage-disposal/)
+- [Dishwasher drain problems](https://a1draincleaning.github.io/services/dishwasher-drain/)
 - [Hydro jetting](https://a1draincleaning.github.io/services/hydro-jetting/)
-- [Drain and sewer camera inspections](https://a1draincleaning.github.io/services/sewer-camera-inspection/)
+- [Septic line cleaning](https://a1draincleaning.github.io/services/septic-lines/)
+- [Sump pump repair, replacement, and installation](https://a1draincleaning.github.io/services/sump-pumps/)
+- [Roof plumbing vent clearing](https://a1draincleaning.github.io/services/roof-vent-drains/)
+- [Sewer camera inspections](https://a1draincleaning.github.io/services/sewer-camera-inspection/)
 - [Sewer line locating](https://a1draincleaning.github.io/services/sewer-line-locating/)
-- [Smoke testing](https://a1draincleaning.github.io/services/smoke-testing/)
 - [Drain and sewer pipe repair](https://a1draincleaning.github.io/pipe-repair/)
+- [Smoke testing](https://a1draincleaning.github.io/services/smoke-testing/)
+- Commercial drain cleaning is also provided.
 
 ## Service-area pages
 
@@ -55,6 +62,15 @@ This file is a short Markdown directory for search agents and automated website 
 - [Northwood, Iowa](https://a1draincleaning.github.io/service-area/northwood/)
 - [Rockwell, Iowa](https://a1draincleaning.github.io/service-area/rockwell/)
 - [Albert Lea, Minnesota](https://a1draincleaning.github.io/albert-lea-mn-drain-cleaning/)
+
+The service-area directory also lists communities in Cerro Gordo, Floyd, Franklin, Hancock, Mitchell, Winnebago, Worth, Wright, and Butler counties. Albert Lea is an additional service area, not an office.
+
+## Service limits
+
+- A-1 cleans house-to-septic drain lines; it does not pump septic tanks or maintain septic systems.
+- A-1 does not provide grease trap cleaning.
+- A-1 handles dishwasher drain-side problems, not dishwasher appliance repair.
+- A-1 offers 24/7 service, but does not publish a guaranteed response or arrival time.
 
 ## Machine-readable resources
 
