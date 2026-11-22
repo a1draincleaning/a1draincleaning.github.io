@@ -71,6 +71,13 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
     { question: 'Will hydro jetting repair a cracked or collapsed sewer pipe?', answer: 'No. Jetting is a cleaning method. A cracked, separated, or collapsed pipe may require repair rather than more cleaning.' },
     { question: 'When might a camera inspection help?', answer: 'It may help when the blockage repeatedly returns or the condition of the line is uncertain and that information would affect the cleaning approach.' },
   ],
+  'garbage-disposal': [
+    { question: 'Why is my garbage disposal not draining?', answer: 'The disposal may be jammed, or the restriction may be in the kitchen drain connected to it. If the disposal runs but water stays in the sink, the drain line may be the problem.' },
+    { question: 'What should I do if the garbage disposal is jammed?', answer: 'Turn the disposal off at the wall switch. Do not put your hand or utensils into the disposal opening. If it remains jammed or will not operate, have it checked rather than repeatedly switching it on.' },
+    { question: 'Can a clogged kitchen drain make the disposal seem broken?', answer: 'Yes. A disposal can operate while water still cannot drain through the connected kitchen line. A drain restriction can leave the sink full even when the disposal itself is running.' },
+    { question: 'Does A-1 Drain Cleaning repair and install garbage disposals?', answer: 'Yes. A-1 Drain Cleaning handles garbage disposal repair and installation, as well as related kitchen drain problems in Mason City and North Iowa.' },
+    { question: 'What if the sink backs up when the dishwasher drains?', answer: 'The dishwasher and sink can share part of the kitchen drain path. A restriction in that connection or farther downstream can cause water to back up into the sink. See the dishwasher drain service page for more information.' },
+  ],
   'basement-floor-drains': [
     { question: 'Why does sewage come up through the floor drain first?', answer: 'The floor drain is low in the house. If a shared drain or main sewer line is blocked, wastewater can rise through that low opening rather than continue out of the house.' },
     { question: 'Does a backed-up floor drain mean the floor drain itself is clogged?', answer: 'Not necessarily. The restriction can be in the floor-drain branch, a shared drain line, or the main sewer line. The timing and other affected fixtures help narrow down the likely location.' },
@@ -107,7 +114,38 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
     <section class="bg-white py-16 sm:py-20">
       <div class="container grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
         <article>
-          {service.slug === 'emergency-drain-cleaning' ? (
+          {service.slug === 'garbage-disposal' ? (
+          <>
+            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Garbage disposal repair and installation</p>
+            <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Garbage disposal jammed, humming, or leaving the sink full?</h2>
+            <p class="mt-6 text-lg leading-8 text-slate-700">A garbage disposal problem and a kitchen drain clog can look similar. The disposal may be jammed or not operating, or the disposal may run while water remains in the sink because the connected drain line is restricted. The symptoms help distinguish a disposal problem from a blockage farther down the kitchen drain.</p>
+
+            <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Signs the disposal itself may need repair</h2>
+            <ul class="mt-5 list-disc space-y-3 pl-6 leading-8 text-slate-700">
+              <li>The disposal is jammed or will not operate normally.</li>
+              <li>The disposal runs but the sink does not drain.</li>
+              <li>The disposal needs replacement or a new installation.</li>
+            </ul>
+            <p class="mt-4 leading-8 text-slate-700">Turn the disposal off at the wall switch before looking into the opening. Never put your hand or utensils inside the disposal. If it remains jammed, do not keep switching it on to test it.</p>
+
+            <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">When the problem may be the kitchen drain line</h2>
+            <p class="mt-4 leading-8 text-slate-700">If the disposal runs but water stays in the sink, the restriction may be in the drain connection or the kitchen line beyond the disposal. A dishwasher and kitchen sink can also share part of the same drainage path, so water backing into the sink during a dishwasher drain cycle can point to a shared-line restriction.</p>
+            <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning handles <a href="/services/kitchen-drains/" class="font-bold text-[#b4232b] underline underline-offset-4">kitchen drain cleaning</a> and <a href="/services/dishwasher-drain/" class="font-bold text-[#b4232b] underline underline-offset-4">dishwasher drain problems</a> when the issue is in the drain system.</p>
+
+            <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Garbage disposal repair in Mason City and North Iowa</h2>
+            <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning repairs and installs garbage disposals in Mason City and North Iowa. We also check whether a connected kitchen drain restriction is contributing to the problem. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a>. A-1 Drain Cleaning offers 24/7 drain and sewer service.</p>
+
+            <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="garbage-disposal-faq">
+              <h2 id="garbage-disposal-faq" class="text-3xl font-black tracking-tight text-slate-950">Garbage disposal repair questions</h2>
+              {pageFaqs[service.slug]?.map((faq) => (
+                <div class="mt-6">
+                  <h3 class="text-xl font-black tracking-tight text-slate-950">{faq.question}</h3>
+                  <p class="mt-2 leading-8 text-slate-700">{faq.answer}</p>
+                </div>
+              ))}
+            </section>
+          </>
+        ) : service.slug === 'emergency-drain-cleaning' ? (
             <>
               <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Emergency drain cleaning</p>
               <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">When a drain stops working or starts overflowing</h2>
