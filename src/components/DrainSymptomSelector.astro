@@ -1,0 +1,78 @@
+---
+const symptoms = [
+  { id:'floor', number:'01', label:'Basement floor drain backing up', summary:'Water or sewage is coming up through the basement floor drain.', cause:'The floor drain is often the lowest opening where a main drain blockage shows up. The restriction may be farther down a shared drain or sewer line, not at the floor drain itself.', action:'A-1 Drain Cleaning clears floor-drain and main-drain blockages. The affected fixtures and what was running when the backup started help narrow down where to begin.', urgency:'Call now if sewage is coming up. Stop using toilets, sinks, showers, and the washing machine. Keep people and pets away from wastewater.', urgencyLabel:'Call now', href:'/services/basement-floor-drains/', link:'Basement floor drain service' },
+  { id:'multiple', number:'02', label:'Several drains are slow or backing up', summary:'More than one fixture is affected, or one fixture makes another drain rise or gurgle.', cause:'When several fixtures act up together, the restriction may be in a shared branch, main drain, or sewer line leaving the house.', action:'A-1 Drain Cleaning cleans main drains and sewer lines. The first step is to establish which fixtures are affected and whether water use at one fixture changes another.', urgency:'If wastewater is backing up, stop using water and call now. If several drains are only running slowly, call before the line becomes fully blocked.', urgencyLabel:'Call promptly', href:'/services/main-drain-cleaning/', link:'Main drain cleaning' },
+  { id:'washer', number:'03', label:'Washing machine makes water overflow', summary:'The laundry standpipe overflows, or the basement floor drain rises when the washer pumps out.', cause:'A washing machine sends a large amount of water into the drain in a short time. A restricted laundry branch or shared drain may not carry that water away quickly enough.', action:'A-1 Drain Cleaning clears laundry drains and the larger drain line when the washer is exposing a downstream blockage.', urgency:'Stop the washer if water is spilling out. If sewage is coming up through a floor drain, stop using water and call now.', urgencyLabel:'Stop the washer', href:'/services/washing-machine-basement-flooding/', link:'Washing machine drain backup help' },
+  { id:'toilet', number:'04', label:'Toilet keeps clogging or bubbling', summary:'The toilet will not clear, clogs repeatedly, or gurgles when another fixture drains.', cause:'One toilet acting up can have a local clog. Repeated clogs, bubbling, or another fixture reacting when the toilet flushes can point to a restriction farther down the drain system.', action:'A-1 Drain Cleaning clears toilet drains and can check whether the symptoms point beyond the toilet to a shared drain or main line.', urgency:'Do not keep flushing a toilet when the bowl is rising. If other fixtures are backing up too, stop using water and call promptly.', urgencyLabel:'Check the pattern', href:'/services/toilet-clogs/', link:'Toilet drain service' },
+  { id:'kitchen', number:'05', label:'Kitchen sink will not drain', summary:'The kitchen sink drains slowly, holds standing water, or has stopped draining.', cause:'Grease, food residue, and soap can build up in the kitchen drain. If other fixtures are affected too, the restriction may be farther down a shared line.', action:'A-1 Drain Cleaning clears kitchen and bathroom drains. Tell us whether the problem is limited to the kitchen sink or whether other fixtures are slow as well.', urgency:'A single slow sink can usually be scheduled before it stops completely. If wastewater is coming back into the sink or other fixtures are backing up, call promptly.', urgencyLabel:'Schedule service', href:'/services/kitchen-bathroom-drains/', link:'Kitchen and bathroom drain service' },
+  { id:'bath', number:'06', label:'Bathtub or shower drains slowly', summary:'Water pools in the tub or shower, drains very slowly, or comes back up.', cause:'Hair and soap residue commonly restrict a tub or shower branch. If the toilet or another fixture causes the tub or shower to fill, the problem may be farther down a shared drain.', action:'A-1 Drain Cleaning clears tub, shower, and bathroom drain lines. The number of affected fixtures helps distinguish a local clog from a larger drain problem.', urgency:'If it is only a slow fixture, arrange service before it stops. If dirty water or sewage is backing up, stop using water and call now.', urgencyLabel:'Schedule service', href:'/services/kitchen-bathroom-drains/', link:'Bathroom and shower drain service' },
+  { id:'roots', number:'07', label:'Sewer line keeps plugging up', summary:'The same main drain or sewer line blocks again after it has been cleaned.', cause:'Roots can enter through pipe joints or damaged sections and catch waste. Buildup or a pipe defect can also cause a blockage to return.', action:'A-1 Drain Cleaning removes root blockages. When a problem keeps returning, a sewer camera inspection can help show the condition of an accessible line.', urgency:'Arrange service rather than waiting for another full backup. If wastewater is coming into the house now, stop using water and call immediately.', urgencyLabel:'Recurring problem', href:'/services/tree-roots-in-sewer-line/', link:'Tree roots in sewer lines' },
+  { id:'tubbackup', number:'08', label:'Sewage backs up into a tub or shower', summary:'Dirty water or sewage comes up through a bathtub or shower, often in a home without a basement.', cause:'A blocked main drain or sewer line can force wastewater back through a low fixture. The tub or shower may be where the backup becomes visible even though the restriction is farther downstream.', action:'A-1 Drain Cleaning handles sewer and main-drain backups. Explain whether the toilet, sinks, or other fixtures are affected too.', urgency:'Call now. Stop using water in the house and keep people and pets away from the wastewater.', urgencyLabel:'Call now', href:'/services/sewer-backup-into-tub-shower/', link:'Sewer backup into tub or shower' }
+];
+const first = symptoms[0];
+---
+<section class="bg-slate-100 py-14 sm:py-20" aria-labelledby="drain-symptom-heading">
+  <div class="container">
+    <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Start with what you see</p>
+    <h2 id="drain-symptom-heading" class="mt-2 max-w-4xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">What's your drain doing?</h2>
+    <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">Pick the symptom closest to what is happening at your house. We'll explain what may be causing it, what A-1 can do, and when to call.</p>
+    <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" role="group" aria-label="Choose the drain problem">
+      {symptoms.map((symptom, index) => (
+        <button type="button" class:list={['drain-symptom-choice flex min-h-24 items-start gap-3 border-2 p-4 text-left transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1A1A68]', index === 0 ? 'is-active border-[#1A1A68] bg-[#1A1A68] text-white' : 'border-slate-200 bg-white text-slate-950 hover:border-[#1A1A68]']} data-symptom={symptom.id} data-label={symptom.label} data-summary={symptom.summary} data-cause={symptom.cause} data-action={symptom.action} data-urgency={symptom.urgency} data-urgency-label={symptom.urgencyLabel} data-href={symptom.href} data-link={symptom.link} aria-pressed={index === 0 ? 'true' : 'false'} aria-controls="drain-symptom-result">
+          <span class="shrink-0 text-xs font-black tracking-[0.15em] opacity-75">{symptom.number}</span>
+          <span class="text-base font-black leading-snug">{symptom.label}</span>
+        </button>
+      ))}
+    </div>
+    <article id="drain-symptom-result" class="mt-5 border border-slate-200 bg-white p-6 shadow-sm sm:p-8" aria-live="polite" aria-atomic="true">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <p id="drain-symptom-urgency" class="inline-flex min-h-8 items-center bg-[#fff1f2] px-3 py-1 text-sm font-black text-[#9f2028]">\${first.urgencyLabel}</p>
+        <p class="text-xs font-bold uppercase tracking-[0.15em] text-slate-500">A-1 Drain Cleaning · Mason City, Iowa</p>
+      </div>
+      <h3 id="drain-symptom-title" class="mt-3 text-2xl font-black leading-tight text-slate-950 sm:text-3xl">\${first.label}</h3>
+      <p id="drain-symptom-summary" class="mt-2 text-base leading-7 text-slate-700">\${first.summary}</p>
+      <div class="mt-6 grid gap-5 md:grid-cols-3">
+        <section><h4 class="text-sm font-black uppercase tracking-wide text-slate-950">What may be happening</h4><p id="drain-symptom-cause" class="mt-2 text-sm leading-6 text-slate-700">\${first.cause}</p></section>
+        <section><h4 class="text-sm font-black uppercase tracking-wide text-slate-950">What A-1 can do</h4><p id="drain-symptom-action" class="mt-2 text-sm leading-6 text-slate-700">\${first.action}</p></section>
+        <section><h4 class="text-sm font-black uppercase tracking-wide text-slate-950">When to call</h4><p id="drain-symptom-urgency-detail" class="mt-2 text-sm leading-6 text-slate-700">\${first.urgency}</p></section>
+      </div>
+      <div class="mt-6 flex flex-col gap-3 border-t border-slate-200 pt-5 sm:flex-row sm:items-center sm:justify-between">
+        <a id="drain-symptom-service" href="\${first.href}" class="inline-flex min-h-11 items-center font-black text-[#b4232b] underline decoration-2 underline-offset-4">\${first.link} →</a>
+        <a href="tel:+16415302728" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#b4232b] px-6 py-3 text-base font-black text-white hover:bg-[#951d24]">CALL 641-530-2728</a>
+      </div>
+    </article>
+    <p class="mt-4 max-w-3xl text-sm leading-6 text-slate-600">These are common symptom patterns, not a pipe diagnosis. The actual cause depends on the drain layout, access, and what is found when the line is checked.</p>
+  </div>
+  <script>
+    const symptomButtons = document.querySelectorAll<HTMLButtonElement>('.drain-symptom-choice');
+    const urgency = document.getElementById('drain-symptom-urgency') as HTMLElement;
+    const title = document.getElementById('drain-symptom-title') as HTMLElement;
+    const summary = document.getElementById('drain-symptom-summary') as HTMLElement;
+    const cause = document.getElementById('drain-symptom-cause') as HTMLElement;
+    const action = document.getElementById('drain-symptom-action') as HTMLElement;
+    const urgencyDetail = document.getElementById('drain-symptom-urgency-detail') as HTMLElement;
+    const service = document.getElementById('drain-symptom-service') as HTMLAnchorElement;
+    symptomButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        symptomButtons.forEach((item) => {
+          const active = item === button;
+          item.setAttribute('aria-pressed', String(active));
+          item.classList.toggle('border-[#1A1A68]', active);
+          item.classList.toggle('bg-[#1A1A68]', active);
+          item.classList.toggle('text-white', active);
+          item.classList.toggle('border-slate-200', !active);
+          item.classList.toggle('bg-white', !active);
+          item.classList.toggle('text-slate-950', !active);
+        });
+        urgency.textContent = button.dataset.urgencyLabel || '';
+        title.textContent = button.dataset.label || '';
+        summary.textContent = button.dataset.summary || '';
+        cause.textContent = button.dataset.cause || '';
+        action.textContent = button.dataset.action || '';
+        urgencyDetail.textContent = button.dataset.urgency || '';
+        service.href = button.dataset.href || '/services/';
+        service.textContent = (button.dataset.link || 'View service') + ' →';
+      });
+    });
+  </script>
+</section>
