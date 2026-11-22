@@ -2,11 +2,11 @@
 const symptoms = [
   {
     id: 'slow', number: '01', label: 'Slow draining sink, bath or shower',
-    summary: 'A sink, bathtub, or shower is taking too long to empty.',
-    cause: 'When one fixture is slow and the others work normally, the restriction is often in that fixture’s branch drain. If several fixtures slow down together, the blockage may be farther down the main drain.',
-    action: 'A-1 Drain Cleaning clears household sink, tub, and shower drains. We use the symptoms across the house to help locate whether the problem is local or shared.',
-    urgency: 'A single slow fixture can usually be scheduled. If other drains start backing up or wastewater appears, stop using water and call promptly.',
-    urgencyLabel: 'Schedule service', href: '/services/kitchen-bathroom-drains/', link: 'Kitchen and bathroom drain service'
+    summary: 'A sink, bathtub, or shower is draining slowly.',
+    cause: 'A partial blockage may be building up in the waste pipe or the drain outside: hair, soap, grease, and scale can narrow the pipe until water backs up.',
+    action: 'A-1 Drain Cleaning clears the drain run with mechanical equipment or high-pressure water jetting. We can also check the outside drain to help prevent the blockage from coming straight back.',
+    urgency: 'Book in the next few days.',
+    urgencyLabel: 'Book in the next few days', href: '/services/kitchen-bathroom-drains/', link: 'About drain unblocking'
   },
   {
     id: 'gurgle', number: '02', label: 'Gurgling from the toilet or drain',
@@ -94,7 +94,7 @@ const first = symptoms[0];
       </div>
       <div class="mt-6 flex flex-col gap-3 border-t border-slate-200 pt-5 sm:flex-row sm:items-center sm:justify-between">
         <a id="drain-symptom-service" href={first.href} class="inline-flex min-h-11 items-center font-black text-[#b4232b] underline decoration-2 underline-offset-4">{first.link} →</a>
-        <a href="tel:+16415302728" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#b4232b] px-6 py-3 text-base font-black text-white hover:bg-[#951d24]">CALL 641-530-2728</a>
+        <a href="tel:+16415302728" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#b4232b] px-6 py-3 text-base font-black text-white hover:bg-[#951d24]">CALL TO BOOK · 641-530-2728</a>
       </div>
     </article>
     <p class="mt-4 max-w-3xl text-sm leading-6 text-slate-600">These symptoms help narrow down where a problem may be. They do not replace an inspection of the actual drain or sewer line.</p>
