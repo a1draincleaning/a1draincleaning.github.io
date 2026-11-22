@@ -27,7 +27,7 @@ export const servicePageTitles: Record<string, string> = {
   'sewer-backup-emergency': 'Sewer Backup Emergency Service | A-1 Drain Cleaning',
   'sewer-backup-into-tub-shower': 'Sewer Backup in Tub or Shower | A-1 Drain Cleaning',
   'drain-repair': 'Drain Repair | A-1 Drain Cleaning',
-  'garbage-disposal': 'Garbage Disposal Drain Problems | A-1 Drain Cleaning',
+  'garbage-disposal': 'Garbage Disposal Repair & Installation | A-1 Drain Cleaning',
   'dishwasher-drain': 'Dishwasher Drain Problems | A-1 Drain Cleaning',
   'sump-pumps': 'Sump Pump Service | A-1 Drain Cleaning',
   'roof-vent-drains': 'Plumbing Vent Drain Problems | A-1 Drain Cleaning',
