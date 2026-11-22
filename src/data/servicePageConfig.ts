@@ -47,7 +47,7 @@ export const servicePageDescriptions: Record<string, string> = {
   'hydro-jetting': 'Need hydro jetting for buildup or a recurring sewer restriction? A-1 Drain Cleaning uses water jetting when the pipe and blockage are suitable.',
   'toilet-clogs': 'Toilet clogged, backing up, or bubbling when flushed? A-1 Drain Cleaning unclogs toilets and connected drains in Mason City and North Iowa.',
   'sewer-backup-emergency': 'Sewage coming up through a floor drain, tub, or toilet? A-1 Drain Cleaning provides emergency drain and sewer service in North Iowa.',
-  'sewer-backup-into-tub-shower': 'Sewer backing up into a bathtub or shower? A-1 Drain Cleaning cleans and unclogs main drains and sewer lines in Mason City and North Iowa.',
+  'sewer-backup-into-tub-shower': 'Sewage backing up into a tub or shower? A-1 Drain Cleaning offers 24/7 service in Mason City and North Iowa. Call 641-530-2728.',
   'drain-repair': 'Recurring drain backups or suspected pipe damage? A-1 Drain Cleaning can inspect the line and determine when cleaning is not enough.',
   'garbage-disposal': 'Garbage disposal will not drain or the kitchen sink stays full? A-1 Drain Cleaning handles disposal and related drain problems in North Iowa.',
   'dishwasher-drain': 'Dishwasher not draining or backing up into the kitchen sink? A-1 Drain Cleaning handles the drain side of dishwasher backup problems.',
