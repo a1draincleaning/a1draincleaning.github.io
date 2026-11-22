@@ -56,3 +56,7 @@ Mason City is the primary location. The following pages describe A-1 Drain Clean
 
 - [About A-1 Drain Cleaning](https://a1draincleaning.github.io/about/): Background on the local business.
 - [Contact](https://a1draincleaning.github.io/contact/): Contact A-1 Drain Cleaning by phone at 641-530-2728.
+
+## Agent Resources
+
+- [Markdown agent index](https://a1draincleaning.github.io/agent-index.md): Short directory of A-1 Drain Cleaning's key business pages and machine-readable resources.
