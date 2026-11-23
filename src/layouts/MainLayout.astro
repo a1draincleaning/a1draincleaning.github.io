@@ -25,19 +25,42 @@ const socialImage = new URL('/images/a1-main-sewer-drain-cleaning-mason-city.web
 const businessId = `${business.website}#business`;
 const websiteId = `${business.website}#website`;
 
+const serviceAreaCounties = [
+  'Cerro Gordo',
+  'Floyd',
+  'Franklin',
+  'Hancock',
+  'Mitchell',
+  'Winnebago',
+  'Worth',
+  'Wright',
+  'Butler'
+];
+
 const serviceAreaAreas = [
   { '@type': 'AdministrativeArea', name: 'North Iowa' },
-  { '@type': 'Place', name: 'Mason City, Iowa' },
+  ...serviceAreaCounties.map((county) => ({
+    '@type': 'AdministrativeArea',
+    name: `${county} County, Iowa`,
+    containedInPlace: { '@type': 'State', name: 'Iowa' }
+  })),
   ...uniqueServiceAreaCities
-    .filter((item) => builtServiceAreaCitySlugs.has(item.slug))
+    .filter((item) => builtServiceAreaCitySlugs.has(item.slug) || item.slug === 'mason-city')
     .map((item) => ({
-      '@type': 'Place',
-      name: `${item.name}, Iowa`
+      '@type': 'City',
+      name: item.name,
+      containedInPlace: item.counties.map((county) => ({
+        '@type': 'AdministrativeArea',
+        name: `${county} County, Iowa`
+      }))
     })),
   {
-    '@type': 'Place',
-    name: 'Albert Lea, Minnesota',
-    containedInPlace: { '@type': 'AdministrativeArea', name: 'Minnesota' }
+    '@type': 'City',
+    name: 'Albert Lea',
+    containedInPlace: {
+      '@type': 'AdministrativeArea',
+      name: 'Freeborn County, Minnesota'
+    }
   }
 ];
 
