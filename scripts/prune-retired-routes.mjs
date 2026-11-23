@@ -104,6 +104,27 @@ if (sitemapUrls.length === 0) {
   throw new Error('Generated sitemap-0.xml contains no URLs.');
 }
 
+const sitemapUrlSet = new Set(sitemapUrls);
+if (sitemapUrlSet.size !== sitemapUrls.length) {
+  throw new Error('Generated sitemap contains duplicate URLs.');
+}
+
+const generatedPageFiles = filesUnder(dist, (name) => name === 'index.html');
+const generatedPageUrls = generatedPageFiles
+  .map((file) => {
+    const relativeFile = file.slice(dist.length + 1).replace(/\\/g, '/');
+    const route = relativeFile === 'index.html'
+      ? '/'
+      : `/${relativeFile.replace(/\\/index\\.html$/, '')}/`;
+    return `https://a1draincleaning.github.io${route}`;
+  })
+  .filter((url) => !retiredRoutes.some(({ from }) => from === new URL(url).pathname));
+
+const missingPageUrls = generatedPageUrls.filter((url) => !sitemapUrlSet.has(url));
+if (missingPageUrls.length) {
+  throw new Error('Generated HTML pages missing from sitemap: ' + missingPageUrls.join(', '));
+}
+
 for (const sitemapUrl of sitemapUrls) {
   const parsed = new URL(sitemapUrl);
   if (parsed.origin !== 'https://a1draincleaning.github.io' || !parsed.pathname.endsWith('/')) {
@@ -117,6 +138,8 @@ for (const sitemapUrl of sitemapUrls) {
 }
 
 copyFileSync(generatedSitemap, directSitemap);
+// The direct sitemap.xml is the published URL-set; do not leave Astro's duplicate child file exposed.
+rmSync(generatedSitemap, { force: true });
 const sitemapFileLastmod = new Date().toISOString();
 writeFileSync(
   sitemapIndex,
