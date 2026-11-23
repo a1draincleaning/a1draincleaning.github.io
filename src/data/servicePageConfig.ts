@@ -117,4 +117,5 @@ export const featuredServiceCitySlugs = [
   'nora-springs',
   'rockwell',
   'hampton',
+  'manly',
 ];
