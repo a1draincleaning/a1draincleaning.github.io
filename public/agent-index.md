@@ -9,7 +9,7 @@ A-1 Drain Cleaning is based in Mason City, Iowa and serves Mason City and nearby
 - **Base:** 206 29th St SW, Mason City, IA 50401
 - **Phone:** 641-530-2728
 - **Website:** https://a1draincleaning.github.io/
-- **Service availability:** 24/7
+- **Service availability:** 24/7 service; call to confirm current availability
 - **Primary service area:** Mason City and North Iowa
 
 ## Main pages
@@ -27,6 +27,7 @@ A-1 Drain Cleaning is based in Mason City, Iowa and serves Mason City and nearby
 - [Emergency drain cleaning](https://a1draincleaning.github.io/services/emergency-drain-cleaning/)
 - [Main drain cleaning](https://a1draincleaning.github.io/services/main-drain-cleaning/)
 - [Sewer line cleaning](https://a1draincleaning.github.io/services/sewer-line-cleaning/)
+- [Septic drain line cleaning](https://a1draincleaning.github.io/services/septic-lines/) — cleaning a blocked drain line leading toward a septic system; not septic tank pumping or tank cleaning.
 - [Basement floor drain backups](https://a1draincleaning.github.io/services/basement-floor-drains/)
 - [Laundry and washing machine drains](https://a1draincleaning.github.io/services/laundry-drains/)
 - [Emergency sewer backup service](https://a1draincleaning.github.io/services/sewer-backup-emergency/)
