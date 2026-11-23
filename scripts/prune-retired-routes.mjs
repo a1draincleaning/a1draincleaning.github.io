@@ -115,7 +115,7 @@ const generatedPageUrls = generatedPageFiles
     const relativeFile = file.slice(dist.length + 1).replace(/\\/g, '/');
     const route = relativeFile === 'index.html'
       ? '/'
-      : `/${relativeFile.replace(/\\/index\\.html$/, '')}/`;
+      : `/${relativeFile.slice(0, -'/index.html'.length)}/`;
     return `https://a1draincleaning.github.io${route}`;
   })
   .filter((url) => !retiredRoutes.some(({ from }) => from === new URL(url).pathname));
