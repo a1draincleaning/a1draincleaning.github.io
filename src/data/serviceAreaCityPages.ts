@@ -9,4 +9,5 @@ export const builtServiceAreaCitySlugs = new Set([
   'hampton',
   'nora-springs',
   'rockwell',
+  'manly',
 ]);
