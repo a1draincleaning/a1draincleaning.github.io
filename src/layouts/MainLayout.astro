@@ -27,6 +27,7 @@ const websiteId = `${business.website}#website`;
 
 const serviceAreaAreas = [
   { '@type': 'AdministrativeArea', name: 'North Iowa' },
+  { '@type': 'Place', name: 'Mason City, Iowa' },
   ...uniqueServiceAreaCities
     .filter((item) => builtServiceAreaCitySlugs.has(item.slug))
     .map((item) => ({
