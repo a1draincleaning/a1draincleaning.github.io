@@ -1,6 +1,6 @@
 # A-1 Drain Cleaning
 
-> A-1 Drain Cleaning is a locally based drain and sewer cleaning business in Mason City, Iowa. The company clears clogged household drains, main drain blockages, sewer line restrictions, floor drain backups, and other wastewater drainage problems in Mason City and nearby North Iowa communities. Call 641-530-2728. Service is available 24/7.
+> A-1 Drain Cleaning is a locally based drain and sewer cleaning business in Mason City, Iowa. The company clears clogged household drains, main drain blockages, sewer line restrictions, floor drain backups, and other wastewater drainage problems in Mason City and nearby North Iowa communities. Call 641-530-2728. A-1 Drain Cleaning offers 24/7 service; call to confirm current availability.
 
 A-1 Drain Cleaning is based at 206 29th St SW, Mason City, IA 50401. Mason City is the primary market and home base for the surrounding North Iowa service area. The business provides residential drain and sewer cleaning, not general plumbing for every type of plumbing repair.
 
@@ -24,6 +24,7 @@ A-1 Drain Cleaning serves Mason City and nearby North Iowa communities. Service 
 - [Emergency Drain Cleaning](https://a1draincleaning.github.io/services/emergency-drain-cleaning/): Urgent clogs affecting a toilet, sink, tub, shower, laundry drain, or floor drain.
 - [Main Drain Cleaning](https://a1draincleaning.github.io/services/main-drain-cleaning/): Main house-drain blockages, especially when more than one fixture is affected.
 - [Sewer Line Cleaning](https://a1draincleaning.github.io/services/sewer-line-cleaning/): Blockages and restrictions in the sewer line carrying wastewater away from the property.
+- [Septic Drain Line Cleaning](https://a1draincleaning.github.io/services/septic-lines/): Cleaning a blocked building drain line carrying wastewater toward a septic system. A-1 cleans the drain line; septic tank pumping and tank cleaning are separate services.
 - [Basement Floor Drain Backups](https://a1draincleaning.github.io/services/basement-floor-drains/): Water or sewage rising through a basement floor drain, including backups that happen when laundry drains.
 - [Laundry and Washing Machine Drains](https://a1draincleaning.github.io/services/laundry-drains/): Washer standpipe and laundry drain backups, overflows, and downstream restrictions exposed by washer discharge.
 - [Sewer Backup Emergency Service](https://a1draincleaning.github.io/services/sewer-backup-emergency/): Active wastewater backups involving floor drains or other low fixtures.
