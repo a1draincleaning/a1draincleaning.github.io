@@ -11,7 +11,7 @@ The website provides information about drain cleaning services, sewer line clean
 ## Drain Cleaning and Sewer Services
 A-1 Drain Cleaning provides professional drain cleaning and sewer line clearing for residential and commercial customers throughout Mason City and surrounding North Iowa communities.
  * **Main Drain Cleaning:** Heavy-duty snaking to clear thick sludge, grease, and debris out of your main wastewater pipe.
- * **Sewer Line Cleaning:** Comprehensive line cleaning to restore proper flow from your home to the city sewer connection or septic system.
+ * **Sewer Line Cleaning:** Clearing blockages and restrictions in the private line carrying wastewater from the house toward the city sewer or septic system.
  * **Tree Root Removal:** Cutting through and clearing out aggressive tree roots that penetrate and block sewer lines.
  * **Hydro Jetting:** High-pressure water scouring to strip grease buildup, scale, and debris off pipe walls.
  * **Basement Drain Cleaning:** Clearing clogged floor drains to drain standing water and keep lower living spaces dry.
