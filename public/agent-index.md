@@ -1,6 +1,6 @@
 # A-1 Drain Cleaning — Agent Index
 
-This file is a short Markdown directory for search agents and automated website readers. For the fuller business and service summary, see [llms.txt](https://a1draincleaning.github.io/llms.txt). For every published canonical page, see the [XML sitemap](https://a1draincleaning.github.io/sitemap.xml).
+This file is a short Markdown directory for search agents and automated website readers. For the fuller business and service summary, see [llms.txt](https://a1draincleaning.github.io/llms.txt). For every published canonical page, see the [Astro sitemap index](https://a1draincleaning.github.io/sitemap-index.xml).
 
 ## Business identity
 
@@ -59,5 +59,4 @@ This file is a short Markdown directory for search agents and automated website 
 ## Machine-readable resources
 
 - [Full agent information](https://a1draincleaning.github.io/llms.txt)
-- [Canonical URL sitemap](https://a1draincleaning.github.io/sitemap.xml)
 - [Sitemap index](https://a1draincleaning.github.io/sitemap-index.xml)
