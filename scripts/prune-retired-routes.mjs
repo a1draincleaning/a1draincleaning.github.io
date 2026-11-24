@@ -95,7 +95,7 @@ if (!generatedXml.includes('<urlset')) {
   throw new Error('Generated sitemap-0.xml is not a valid URL-set sitemap.');
 }
 
-const sitemapUrls = [...generatedXml.matchAll(/<loc>([^<]+)<\\/loc>/g)].map((match) => match[1]);
+const sitemapUrls = [...generatedXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
 if (sitemapUrls.length === 0) {
   throw new Error('Generated sitemap-0.xml contains no URLs.');
 }
@@ -105,7 +105,7 @@ for (const sitemapUrl of sitemapUrls) {
   if (parsed.origin !== 'https://a1draincleaning.github.io' || !parsed.pathname.endsWith('/')) {
     throw new Error('Non-canonical URL found in sitemap: ' + sitemapUrl);
   }
-  const relativePath = decodeURIComponent(parsed.pathname).replace(/^\\/+|\\/+$/g, '');
+  const relativePath = decodeURIComponent(parsed.pathname).replace(/^\/+|\/+$/g, '');
   const htmlPath = relativePath ? join(dist, relativePath, 'index.html') : join(dist, 'index.html');
   if (!existsSync(htmlPath)) {
     throw new Error('Sitemap URL has no generated HTML page: ' + sitemapUrl + ' (expected ' + htmlPath + ')');
