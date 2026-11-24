@@ -91,7 +91,7 @@ if (!homepage.includes('type="text/markdown"') || !homepage.includes('href="/age
 const sitemap = readFileSync(join(dist, 'sitemap-0.xml'), 'utf8');
 if (!sitemap.includes('<urlset')) throw new Error('sitemap-0.xml is not a URL-set child sitemap.');
 const entries = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => match[1]);
-if (!entries.length) throw new Error('sitemap.xml contains no URL entries.');
+if (!entries.length) throw new Error('sitemap-0.xml contains no URL entries.');
 
 const seen = new Set();
 for (const [index, entry] of entries.entries()) {
