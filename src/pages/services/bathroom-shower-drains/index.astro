@@ -5,22 +5,50 @@ import Footer from '../../../components/Footer.astro';
 import ContactCTA from '../../../components/ContactCTA.astro';
 
 const title = 'Bathroom & Shower Drain Cleaning in Mason City, IA | A-1 Drain Cleaning';
-const description = 'Bathroom sink, shower, and bathtub drain cleaning for slow, clogged, or backing-up drains. A-1 Drain Cleaning serves Mason City and surrounding communities.';
+const description = 'Clogged shower, bathtub, or bathroom sink? A-1 Drain Cleaning clears slow and stopped bathroom drains in Mason City, Iowa. Call 641-530-2728.';
+
+const faqs = [
+  {
+    question: 'Why is my shower drain slow?',
+    answer: 'Hair, soap residue, and other material can collect in a shower drain and restrict water flow. If only the shower is slow, the restriction may be near the fixture or in its branch drain.'
+  },
+  {
+    question: 'Can you unclog a bathtub drain?',
+    answer: 'A-1 Drain Cleaning handles clogged and slow bathtub drains. Tell us whether the tub drains slowly, is completely stopped, or backs up when another fixture is used.'
+  },
+  {
+    question: 'Why does my bathtub or shower back up when I flush the toilet?',
+    answer: 'When water rises in a tub or shower as another fixture is used, the restriction may be in a shared drain, main drain, or sewer line rather than at the tub or shower itself. Stop using water and call to describe what is happening.'
+  },
+  {
+    question: 'Do you clean bathroom sink drains?',
+    answer: 'Yes. A-1 Drain Cleaning handles slow and clogged bathroom sink drains as well as shower and bathtub drains.'
+  }
+];
 ---
 
-<MainLayout title={title} description={description} path="/services/bathroom-shower-drains/" breadcrumbLabel="Bathroom & Shower Drains" service={{ title: 'Bathroom & Shower Drain Cleaning', description }}>
+<MainLayout
+  title={title}
+  description={description}
+  path="/services/bathroom-shower-drains/"
+  breadcrumbLabel="Bathroom & Shower Drain Cleaning"
+  service={{ title: 'Bathroom & Shower Drain Cleaning', description }}
+  faqs={faqs}
+>
   <Header />
   <main id="main">
     <section class="bg-[#1A1A68] text-white">
       <div class="container py-14 sm:py-18 lg:py-24">
         <nav aria-label="Breadcrumb" class="text-sm font-bold text-slate-300">
-          <a href="/" class="hover:text-white">Home</a><span class="mx-2" aria-hidden="true">/</span>
-          <a href="/services/" class="hover:text-white">Services</a><span class="mx-2" aria-hidden="true">/</span>
-          <span class="text-white">Bathroom &amp; Shower Drains</span>
+          <a href="/" class="hover:text-white">Home</a>
+          <span class="mx-2" aria-hidden="true">/</span>
+          <a href="/services/" class="hover:text-white">Services</a>
+          <span class="mx-2" aria-hidden="true">/</span>
+          <span class="text-white">Bathroom &amp; Shower Drain Cleaning</span>
         </nav>
-        <p class="mt-5 text-sm font-black uppercase tracking-[0.2em] text-red-300">Bathroom &amp; shower drains • Mason City • North Iowa</p>
+        <p class="mt-5 text-sm font-black uppercase tracking-[0.2em] text-red-300">Bathroom sinks • Bathtubs • Showers • Mason City, Iowa</p>
         <h1 class="mt-3 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">Bathroom &amp; Shower Drain Cleaning</h1>
-        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">Hair, soap residue, and other material can slow a shower, tub, or bathroom sink. A-1 Drain Cleaning cleans and unclogs bathroom drains in Mason City and surrounding North Iowa communities.</p>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">Shower holding water? Bathtub draining slowly? Bathroom sink completely stopped? A-1 Drain Cleaning clears clogged bathroom drains in Mason City and nearby communities. Call and tell us which fixture is giving you trouble.</p>
         <a href="tel:+16415302728" class="call-button mt-8 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-center text-lg font-black text-white shadow-lg hover:bg-[#a82129]">CALL 641-530-2728</a>
       </div>
     </section>
@@ -29,48 +57,139 @@ const description = 'Bathroom sink, shower, and bathtub drain cleaning for slow,
       <div class="container">
         <img
           src="/images/unclog-shower-drain-hair-a1-drain-cleaning-iowa.png"
-          alt="Hair removed from a clogged shower drain by A-1 Drain Cleaning"
+          alt="Hair removed from a clogged shower drain"
+          width="280"
           loading="lazy"
           decoding="async"
           class="mx-auto block h-auto w-full max-w-[280px] rounded-lg object-contain"
         />
-        <figcaption class="mx-auto mt-3 max-w-[280px] text-sm leading-6 text-slate-600">
-          Hair pulled from a bathroom drain. Hair and soap residue can collect in shower and bathtub drain lines.
+        <figcaption class="mx-auto mt-3 max-w-[420px] text-center text-sm leading-6 text-slate-600">
+          Hair and soap residue can collect in shower and bathtub drain lines and slow the flow of water.
         </figcaption>
       </div>
     </figure>
 
+    <section class="bg-slate-100 py-16 sm:py-20" aria-labelledby="bathroom-symptoms">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">What is the drain doing?</p>
+        <h2 id="bathroom-symptoms" class="mt-2 max-w-4xl text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Common bathroom drain problems</h2>
+        <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-700">Bathroom drains can slow down a little at a time or stop without much warning. These are the problems people usually notice first.</p>
+        <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <article class="border border-slate-200 bg-white p-5">
+            <h3 class="text-lg font-black text-slate-950">Clogged shower drain</h3>
+            <p class="mt-2 leading-7 text-slate-700">Water pools around your feet or takes several minutes to go down after a shower.</p>
+          </article>
+          <article class="border border-slate-200 bg-white p-5">
+            <h3 class="text-lg font-black text-slate-950">Bathtub will not drain</h3>
+            <p class="mt-2 leading-7 text-slate-700">Water stays in the tub after bathing, or the tub drains much slower than it used to.</p>
+          </article>
+          <article class="border border-slate-200 bg-white p-5">
+            <h3 class="text-lg font-black text-slate-950">Bathroom sink clogged</h3>
+            <p class="mt-2 leading-7 text-slate-700">The sink fills while brushing your teeth or washing up and empties slowly or not at all.</p>
+          </article>
+          <article class="border border-slate-200 bg-white p-5">
+            <h3 class="text-lg font-black text-slate-950">Water backing up</h3>
+            <p class="mt-2 leading-7 text-slate-700">Water rises in a tub or shower when a toilet is flushed or another fixture drains.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <section class="bg-white py-16 sm:py-20">
       <div class="container grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
         <article>
-          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Bathroom drains</p>
-          <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Slow shower or tub drain?</h2>
-          <p class="mt-6 text-lg leading-8 text-slate-700">Bathroom drains commonly collect hair, soap residue, and personal-care products. A slow drain can narrow gradually before water stops moving.</p>
-          <ul class="mt-6 grid gap-3 sm:grid-cols-2">
-            <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">Shower drains slowly</li>
-            <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">Bathtub drain is slow or stopped</li>
-            <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">Bathroom sink drains slowly</li>
-            <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">Standing water around the shower drain</li>
-          </ul>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">What causes the clog?</p>
+          <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Hair, soap buildup, and drain restrictions</h2>
+          <p class="mt-6 text-lg leading-8 text-slate-700">Hair can catch in the drain and combine with soap residue, shampoo, and other material. Over time, that buildup can narrow the opening and slow the water leaving a shower, bathtub, or bathroom sink.</p>
+          <p class="mt-4 leading-8 text-slate-700">A clog is not always right below the drain opening. The restriction may be in the fixture trap or farther along the branch drain. If more than one fixture is affected, the problem may be in a shared drain line.</p>
 
-          <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">One bathroom fixture or a larger drain problem?</h2>
-          <p class="mt-5 leading-8 text-slate-700">If one shower, tub, or sink is slow while the rest of the house drains normally, the restriction may be close to that fixture or its branch drain. If several fixtures are backing up together, the problem may be farther down a shared drain or main line.</p>
-          <p class="mt-4 leading-8 text-slate-700">If wastewater rises in a bathtub or shower when a toilet is flushed or another fixture is used, stop adding water. That pattern can indicate a larger drain or sewer-line restriction rather than an isolated shower clog.</p>
+          <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">How A-1 handles a bathroom drain clog</h2>
+          <ol class="mt-6 space-y-4">
+            <li class="flex gap-4 border border-slate-200 bg-slate-50 p-5">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1A1A68] font-black text-white">1</span>
+              <div>
+                <h3 class="font-black text-slate-950">Find out which fixtures are affected</h3>
+                <p class="mt-1 leading-7 text-slate-700">We start with the symptoms: which drain is slow or stopped, whether water is standing, and whether another fixture changes when water is used.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 border border-slate-200 bg-slate-50 p-5">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1A1A68] font-black text-white">2</span>
+              <div>
+                <h3 class="font-black text-slate-950">Determine where to start</h3>
+                <p class="mt-1 leading-7 text-slate-700">One slow sink or shower may point to its fixture drain or branch. Several fixtures backing up can point to a shared drain or a larger line restriction.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 border border-slate-200 bg-slate-50 p-5">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1A1A68] font-black text-white">3</span>
+              <div>
+                <h3 class="font-black text-slate-950">Clear the blockage with a suitable method</h3>
+                <p class="mt-1 leading-7 text-slate-700">The cleaning method depends on the location and nature of the restriction and the pipe access. The right tool is the one suited to that drain—not the same method for every call.</p>
+              </div>
+            </li>
+            <li class="flex gap-4 border border-slate-200 bg-slate-50 p-5">
+              <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1A1A68] font-black text-white">4</span>
+              <div>
+                <h3 class="font-black text-slate-950">Check the drainage</h3>
+                <p class="mt-1 leading-7 text-slate-700">After cleaning, the drain is checked for restored flow. If the same blockage keeps returning, further inspection may be worth discussing.</p>
+              </div>
+            </li>
+          </ol>
 
-          <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Bathroom drain cleaning in Mason City and North Iowa</h2>
-          <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and surrounding North Iowa communities. When you call, tell us whether the shower, tub, or sink is slow or completely stopped and whether any other fixture changes when water is used.</p>
+          <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">When a tub or shower backup is more than a fixture clog</h2>
+          <p class="mt-5 leading-8 text-slate-700">If one bathroom sink, tub, or shower is slow and the rest of the house drains normally, the restriction may be local to that fixture. If a tub or shower fills when a toilet is flushed, or several fixtures back up together, the cause may be farther down a shared drain, main drain, or sewer line.</p>
+          <p class="mt-4 leading-8 text-slate-700">If wastewater is coming up through a tub or shower, stop using water and avoid flushing toilets or running the washing machine. Keep people and pets away from wastewater and call A-1 Drain Cleaning.</p>
+
+          <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Bathroom drain cleaning in Mason City, Iowa</h2>
+          <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and surrounding communities. When you call, tell us whether the problem is at a bathroom sink, bathtub, or shower; whether the drain is slow or completely stopped; and whether any other fixture is affected.</p>
         </article>
 
         <aside class="lg:sticky lg:top-6">
           <div class="border border-slate-200 bg-slate-50 p-6 shadow-sm">
             <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Bathroom drain problem?</p>
-            <h2 class="mt-2 text-2xl font-black tracking-tight text-slate-950">Call A-1 Drain Cleaning</h2>
-            <p class="mt-3 leading-7 text-slate-700">Slow shower, tub, or bathroom sink? Call 641-530-2728.</p>
-            <a href="tel:+16415302728" class="call-button mt-5 block rounded-md bg-[#c52b34] px-6 py-4 text-center font-black text-white hover:bg-[#a82129]">Call 641-530-2728</a>
+            <h2 class="mt-2 text-2xl font-black tracking-tight text-slate-950">Talk to A-1 Drain Cleaning</h2>
+            <p class="mt-3 leading-7 text-slate-700">Slow shower, clogged bathtub, or bathroom sink that will not drain? Call and explain what is happening.</p>
+            <a href="tel:+16415302728" class="call-button mt-5 block rounded-md bg-[#c52b34] px-6 py-4 text-center font-black text-white hover:bg-[#a82129]">CALL 641-530-2728</a>
+            <p class="mt-4 text-sm leading-6 text-slate-600">24/7 service. Call to discuss the drain problem and service needed.</p>
+          </div>
+          <div class="mt-5 border border-slate-200 p-6">
+            <h2 class="text-lg font-black text-slate-950">Related drain services</h2>
+            <ul class="mt-4 space-y-3">
+              <li><a href="/services/kitchen-drains/" class="font-bold text-[#b4232b] underline underline-offset-4">Kitchen Drain Cleaning</a></li>
+              <li><a href="/services/toilet-clogs/" class="font-bold text-[#b4232b] underline underline-offset-4">Toilet Clogs &amp; Drain Problems</a></li>
+              <li><a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">Main Drain Cleaning</a></li>
+              <li><a href="/services/sewer-backup-into-tub-shower/" class="font-bold text-[#b4232b] underline underline-offset-4">Sewer Backup into Bathtub or Shower</a></li>
+              <li><a href="/services/sewer-camera-inspection/" class="font-bold text-[#b4232b] underline underline-offset-4">Drain &amp; Sewer Camera Inspections</a></li>
+            </ul>
           </div>
         </aside>
       </div>
     </section>
+
+    <section class="bg-slate-100 py-16 sm:py-20" aria-labelledby="bathroom-faq-heading">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Bathroom drain questions</p>
+        <h2 id="bathroom-faq-heading" class="mt-2 max-w-4xl text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Questions about clogged bathroom drains</h2>
+        <div class="mt-8 max-w-4xl space-y-3">
+          <details class="border border-slate-300 bg-white p-5 sm:p-6">
+            <summary class="cursor-pointer text-lg font-black text-slate-950">Why is my shower drain slow?</summary>
+            <p class="mt-3 leading-7 text-slate-700">Hair and soap residue can collect in the drain and restrict flow. If the shower is the only fixture affected, the clog may be close to the shower or in its branch drain.</p>
+          </details>
+          <details class="border border-slate-300 bg-white p-5 sm:p-6">
+            <summary class="cursor-pointer text-lg font-black text-slate-950">Can A-1 unclog a bathtub drain?</summary>
+            <p class="mt-3 leading-7 text-slate-700">Yes. A-1 Drain Cleaning handles slow and stopped bathtub drains. Let us know if the tub is the only fixture affected or if water backs up when another fixture is used.</p>
+          </details>
+          <details class="border border-slate-300 bg-white p-5 sm:p-6">
+            <summary class="cursor-pointer text-lg font-black text-slate-950">Why does my bathtub fill when I flush the toilet?</summary>
+            <p class="mt-3 leading-7 text-slate-700">That can indicate a restriction in a shared drain, main drain, or sewer line. Stop using water and call if wastewater is rising in the tub or shower.</p>
+          </details>
+          <details class="border border-slate-300 bg-white p-5 sm:p-6">
+            <summary class="cursor-pointer text-lg font-black text-slate-950">Do you clean bathroom sink drains?</summary>
+            <p class="mt-3 leading-7 text-slate-700">Yes. A-1 Drain Cleaning handles clogged bathroom sink drains as well as bathtub and shower drains.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
     <ContactCTA />
   </main>
   <Footer />
