@@ -12,7 +12,7 @@ const fixtures = [
   { id:'sewer', label:'Underground sewer line', title:'Underground sewer line', detail:'The private building sewer carries wastewater from the house toward the public sewer or a septic system. Roots, buildup, separated joints, or other pipe conditions can restrict this buried line.', clue:'Repeated backups or several affected fixtures can point to a problem in the sewer line leaving the house. A camera inspection may help when the problem keeps returning.', service:'Sewer Line Cleaning', href:'/services/sewer-line-cleaning/' },
 ];
 ---
-<section class="bg-slate-100 py-14 sm:py-18" aria-labelledby="homepage-house-diagnostic-heading">
+<section class="bg-slate-100 py-14 sm:py-16" aria-labelledby="homepage-house-diagnostic-heading">
   <div class="container">
     <div class="max-w-4xl">
       <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Inside the house drain system</p>
@@ -115,7 +115,7 @@ const fixtures = [
       const choice=Array.from(choices).find(item=>item.dataset.fixture===id);
       if(!choice)return;
       choices.forEach(item=>item.setAttribute('aria-pressed',String(item===choice)));
-      hotspots.forEach(item=>item.classList.toggle('is-selected',item.dataset.fixtureHotspot===id));
+      hotspots.forEach(item=>{const selected=item.dataset.fixtureHotspot===id;item.classList.toggle('is-selected',selected);item.setAttribute('aria-pressed',String(selected));});
       routes.forEach(item=>item.classList.toggle('is-active',item.dataset.route===id));
       showAll.setAttribute('aria-pressed','false');
       title.textContent=choice.dataset.title||'';
@@ -127,7 +127,7 @@ const fixtures = [
     }
     function clearSelection(){
       choices.forEach(item=>item.setAttribute('aria-pressed','false'));
-      hotspots.forEach(item=>item.classList.remove('is-selected'));
+      hotspots.forEach(item=>{item.classList.remove('is-selected');item.setAttribute('aria-pressed','false');});
       routes.forEach(item=>item.classList.remove('is-active'));
       showAll.setAttribute('aria-pressed','false');
       title.textContent='Select a fixture to trace its drain.';
