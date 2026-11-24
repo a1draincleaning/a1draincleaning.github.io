@@ -1,4 +1,4 @@
-import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { execFileSync } from 'node:child_process';
 import { join } from 'node:path';
 
@@ -84,14 +84,10 @@ for (const file of filesUnder(dist, (name) => name.endsWith('.xml'))) {
   writeFileSync(file, xml);
 }
 
-// Publish a conventional /sitemap.xml alongside Astro's generated sitemap files.
-// This gives crawlers a stable direct sitemap endpoint even if the generated
-// sitemap-index/child endpoint is not being served correctly by the Pages CDN.
+// Validate Astro's generated child sitemap after retired-route pruning.
 const generatedSitemap = join(dist, 'sitemap-0.xml');
-const directSitemap = join(dist, 'sitemap.xml');
-const sitemapIndex = join(dist, 'sitemap-index.xml');
 if (!existsSync(generatedSitemap)) {
-  throw new Error('Astro did not generate dist/sitemap-0.xml; refusing to deploy without a source sitemap.');
+  throw new Error('Astro did not generate dist/sitemap-0.xml; refusing to deploy without its child sitemap.');
 }
 
 const generatedXml = readFileSync(generatedSitemap, 'utf8');
@@ -99,7 +95,7 @@ if (!generatedXml.includes('<urlset')) {
   throw new Error('Generated sitemap-0.xml is not a valid URL-set sitemap.');
 }
 
-const sitemapUrls = [...generatedXml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+const sitemapUrls = [...generatedXml.matchAll(/<loc>([^<]+)<\\/loc>/g)].map((match) => match[1]);
 if (sitemapUrls.length === 0) {
   throw new Error('Generated sitemap-0.xml contains no URLs.');
 }
@@ -109,22 +105,11 @@ for (const sitemapUrl of sitemapUrls) {
   if (parsed.origin !== 'https://a1draincleaning.github.io' || !parsed.pathname.endsWith('/')) {
     throw new Error('Non-canonical URL found in sitemap: ' + sitemapUrl);
   }
-  const relativePath = decodeURIComponent(parsed.pathname).replace(/^\/+|\/+$/g, '');
+  const relativePath = decodeURIComponent(parsed.pathname).replace(/^\\/+|\\/+$/g, '');
   const htmlPath = relativePath ? join(dist, relativePath, 'index.html') : join(dist, 'index.html');
   if (!existsSync(htmlPath)) {
     throw new Error('Sitemap URL has no generated HTML page: ' + sitemapUrl + ' (expected ' + htmlPath + ')');
   }
-}
-
-copyFileSync(generatedSitemap, directSitemap);
-const sitemapFileLastmod = new Date().toISOString();
-writeFileSync(
-  sitemapIndex,
-  '<?xml version="1.0" encoding="UTF-8"?><sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><sitemap><loc>https://a1draincleaning.github.io/sitemap.xml</loc><lastmod>' + sitemapFileLastmod + '</lastmod></sitemap></sitemapindex>'
-);
-
-if (!existsSync(directSitemap) || !readFileSync(sitemapIndex, 'utf8').includes('https://a1draincleaning.github.io/sitemap.xml')) {
-  throw new Error('Direct sitemap or sitemap index was not published correctly.');
 }
 
 // Publish an explicit Markdown URL for agents. GitHub Pages cannot negotiate
@@ -144,5 +129,5 @@ if (readFileSync(llmsText, 'utf8') !== readFileSync(llmsMarkdown, 'utf8')) {
 execFileSync(process.execPath, [join(process.cwd(), 'scripts/add-sitemap-lastmod.mjs')], { stdio: 'inherit' });
 execFileSync(process.execPath, [join(process.cwd(), 'scripts/verify-agent-readiness.mjs')], { stdio: 'inherit' });
 
-console.log('Pruned ' + retiredRoutes.length + ' retired routes, validated ' + sitemapUrls.length + ' canonical sitemap URLs against generated HTML pages, published sitemap.xml and sitemap-index.xml, and copied llms.txt to llms.md.');
+console.log('Pruned ' + retiredRoutes.length + ' retired routes, validated ' + sitemapUrls.length + ' canonical sitemap URLs against generated HTML pages, kept Astro's sitemap-index.xml and sitemap-0.xml, and copied llms.txt to llms.md.');
 
