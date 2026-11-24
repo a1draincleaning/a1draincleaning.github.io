@@ -129,5 +129,5 @@ if (readFileSync(llmsText, 'utf8') !== readFileSync(llmsMarkdown, 'utf8')) {
 execFileSync(process.execPath, [join(process.cwd(), 'scripts/add-sitemap-lastmod.mjs')], { stdio: 'inherit' });
 execFileSync(process.execPath, [join(process.cwd(), 'scripts/verify-agent-readiness.mjs')], { stdio: 'inherit' });
 
-console.log('Pruned ' + retiredRoutes.length + ' retired routes, validated ' + sitemapUrls.length + ' canonical sitemap URLs against generated HTML pages, kept Astro's sitemap-index.xml and sitemap-0.xml, and copied llms.txt to llms.md.');
+console.log(`Pruned ${retiredRoutes.length} retired routes, validated ${sitemapUrls.length} canonical sitemap URLs against generated HTML pages, kept Astro's sitemap-index.xml and sitemap-0.xml, and copied llms.txt to llms.md.`);
 
