@@ -23,7 +23,7 @@ test('rejects missing URL locations and invalid modification dates', () => {
 });
 
 test('adds the latest child sitemap date to each sitemap-index entry', () => {
-  const xml = '<sitemapindex><sitemap><loc>https://a1draincleaning.github.io/sitemap.xml</loc></sitemap></sitemapindex>';
+  const xml = '<sitemapindex><sitemap><loc>https://a1draincleaning.github.io/sitemap-0.xml</loc></sitemap></sitemapindex>';
   const result = addIndexLastmod(xml, '2026-11-03T12:00:00Z');
   assert.match(result, /<lastmod>2026-11-03T12:00:00.000Z<\/lastmod>/);
 });

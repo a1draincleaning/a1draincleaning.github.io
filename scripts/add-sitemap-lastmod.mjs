@@ -109,10 +109,10 @@ function gitLastmod(files) {
 }
 
 function run() {
-  const sitemapPath = join(dist, 'sitemap.xml');
+  const sitemapPath = join(dist, 'sitemap-0.xml');
   const indexPath = join(dist, 'sitemap-index.xml');
   if (!existsSync(sitemapPath) || !existsSync(indexPath)) {
-    throw new Error('Expected dist/sitemap.xml and dist/sitemap-index.xml. Run the route-pruning step first.');
+    throw new Error("Expected Astro's dist/sitemap-0.xml child sitemap and dist/sitemap-index.xml. Run the route-pruning step first.");
   }
 
   const original = readFileSync(sitemapPath, 'utf8');

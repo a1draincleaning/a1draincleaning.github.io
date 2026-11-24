@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   site: 'https://a1draincleaning.github.io',
+  base: '/',
   output: 'static',
   trailingSlash: 'always',
   integrations: [sitemap()],

@@ -2,7 +2,11 @@ name: Deploy Astro site to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -17,50 +21,35 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-        with:
-          fetch-depth: 0
+      - name: Check out repository
+        uses: actions/checkout@v7
 
-      - name: Setup Node
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+      # The repository currently has no committed package-lock.json.
+      # Generate one before withastro/action detects the npm package manager.
+      - name: Set up Node for lockfile generation
+        uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - name: Install dependencies
-        run: npm install --ignore-scripts --no-audit --no-fund
-      - name: Run unit tests
-        run: npm test
+      - name: Generate npm lockfile for this build
+        run: npm install --package-lock-only --ignore-scripts --no-audit --no-fund
 
-      - name: Install image optimizer
-        run: npm install sharp --no-save --ignore-scripts --no-audit --no-fund
-
-      - name: Check Astro project
-        run: npm run check
-
-      - name: Build Astro site
-        run: npm run build
-
-      - name: Remove generated keyword-list blocks
-        run: node scripts/remove-keyword-stuffing-blocks.mjs
-
-      - name: Optimize oversized deployed images
-        run: node scripts/optimize-deployed-images.mjs
-
-      - name: Remove retired duplicate routes
-        run: node scripts/prune-retired-routes.mjs
-
-      - name: Setup Pages
-        uses: actions/configure-pages@983d7736d9b0ae728b81ab479565c72886d7745b # v5
-
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa # v3
+      - name: Install dependencies, validate, build, and upload the site
+        uses: withastro/action@v6
         with:
-          path: ./dist
+          node-version: 22
+          build-cmd: >-
+            npm test &&
+            npm run check &&
+            npm install sharp --no-save --ignore-scripts --no-audit --no-fund &&
+            npm run build &&
+            node scripts/remove-keyword-stuffing-blocks.mjs &&
+            node scripts/optimize-deployed-images.mjs &&
+            node scripts/prune-retired-routes.mjs
 
   deploy:
+    if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     environment:
@@ -69,10 +58,10 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e # v4
+        uses: actions/deploy-pages@v5
 
-      - name: Checkout source for changed-file detection
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Check out source for changed-file detection
+        uses: actions/checkout@v7
         with:
           fetch-depth: 0
 

@@ -2,13 +2,13 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const dist = join(process.cwd(), 'dist');
-const requiredFiles = ['404.html', 'agent-index.md', 'llms.txt', 'llms.md', 'sitemap.xml', 'sitemap-index.xml'];
+const requiredFiles = ['404.html', 'agent-index.md', 'llms.txt', 'llms.md', 'sitemap-0.xml', 'sitemap-index.xml'];
 for (const file of requiredFiles) {
   if (!existsSync(join(dist, file))) throw new Error(`Agent-readiness output is missing dist/${file}`);
 }
 
 const notFound = readFileSync(join(dist, '404.html'), 'utf8');
-for (const href of ['/sitemap.xml', '/llms.txt', '/agent-index.md', '/services/', '/contact/']) {
+for (const href of ['/sitemap-index.xml', '/llms.txt', '/agent-index.md', '/services/', '/contact/']) {
   if (!notFound.includes(href)) throw new Error(`Custom 404 is missing navigation link ${href}`);
 }
 if (!/<meta name="robots" content="noindex,follow">/i.test(notFound)) {
@@ -23,7 +23,7 @@ for (const required of [
   'A-1 Drain Cleaning',
   '206 29th St SW, Mason City, IA 50401',
   '641-530-2728',
-  'https://a1draincleaning.github.io/sitemap.xml',
+  'https://a1draincleaning.github.io/sitemap-index.xml',
   'https://a1draincleaning.github.io/llms.txt',
   'Emergency drain cleaning',
   'Emergency sewer backup service',
@@ -88,10 +88,10 @@ if (!homepage.includes('type="text/markdown"') || !homepage.includes('href="/age
   throw new Error('Homepage HTML does not link to the Markdown agent index.');
 }
 
-const sitemap = readFileSync(join(dist, 'sitemap.xml'), 'utf8');
-if (!sitemap.includes('<urlset')) throw new Error('sitemap.xml is not a URL-set sitemap.');
+const sitemap = readFileSync(join(dist, 'sitemap-0.xml'), 'utf8');
+if (!sitemap.includes('<urlset')) throw new Error('sitemap-0.xml is not a URL-set child sitemap.');
 const entries = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => match[1]);
-if (!entries.length) throw new Error('sitemap.xml contains no URL entries.');
+if (!entries.length) throw new Error('sitemap-0.xml contains no URL entries.');
 
 const seen = new Set();
 for (const [index, entry] of entries.entries()) {
@@ -113,8 +113,8 @@ for (const [index, entry] of entries.entries()) {
 }
 
 const indexXml = readFileSync(join(dist, 'sitemap-index.xml'), 'utf8');
-if (!indexXml.includes('https://a1draincleaning.github.io/sitemap.xml')) {
-  throw new Error('Sitemap index does not point to the direct sitemap URL.');
+if (!indexXml.includes('https://a1draincleaning.github.io/sitemap-0.xml')) {
+  throw new Error('Sitemap index does not point to Astro\'s generated child sitemap.');
 }
 if (!/<lastmod>[^<]+<\/lastmod>/.test(indexXml)) {
   throw new Error('Sitemap index is missing its sitemap-file lastmod timestamp.');
