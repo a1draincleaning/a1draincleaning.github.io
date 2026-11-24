@@ -26,7 +26,6 @@ export const servicePageTitles: Record<string, string> = {
   'toilet-clogs': 'Toilet Clogs & Drain Problems | A-1 Drain Cleaning',
   'sewer-backup-emergency': 'Sewer Backup Emergency Service | A-1 Drain Cleaning',
   'sewer-backup-into-tub-shower': 'Sewer Backup in Tub or Shower | A-1 Drain Cleaning',
-  'drain-repair': 'Drain Repair | A-1 Drain Cleaning',
   'garbage-disposal': 'Garbage Disposal Drain Problems | A-1 Drain Cleaning',
   'dishwasher-drain': 'Dishwasher Drain Problems | A-1 Drain Cleaning',
   'sump-pumps': 'Sump Pump Service | A-1 Drain Cleaning',
@@ -48,7 +47,6 @@ export const servicePageDescriptions: Record<string, string> = {
   'toilet-clogs': 'Toilet clogged, backing up, or bubbling when flushed? A-1 Drain Cleaning unclogs toilets and connected drains in Mason City and North Iowa.',
   'sewer-backup-emergency': 'Sewage coming up through a floor drain, tub, or toilet? A-1 Drain Cleaning provides emergency drain and sewer service in North Iowa.',
   'sewer-backup-into-tub-shower': 'Sewer backing up into a bathtub or shower? A-1 Drain Cleaning cleans and unclogs main drains and sewer lines in Mason City and North Iowa.',
-  'drain-repair': 'Recurring drain backups or suspected pipe damage? A-1 Drain Cleaning can inspect the line and determine when cleaning is not enough.',
   'garbage-disposal': 'Garbage disposal will not drain or the kitchen sink stays full? A-1 Drain Cleaning handles disposal and related drain problems in North Iowa.',
   'dishwasher-drain': 'Dishwasher not draining or backing up into the kitchen sink? A-1 Drain Cleaning handles the drain side of dishwasher backup problems.',
   'sump-pumps': 'Sump pump stopped or not keeping up with basement water? A-1 Drain Cleaning repairs, replaces, and installs sump pumps in North Iowa.',
@@ -82,8 +80,8 @@ for (const [slug, additions] of Object.entries(serviceDetailAdditions)) {
 }
 
 export const relatedServiceSlugs: Record<string, string[]> = {
-  'sewer-camera-inspection': ['sewer-line-cleaning', 'tree-roots-in-sewer-line', 'pipe-repair'],
-  'sewer-line-locating': ['sewer-camera-inspection', 'pipe-repair', 'sewer-line-cleaning'],
+  'sewer-camera-inspection': ['sewer-line-cleaning', 'tree-roots-in-sewer-line'],
+  'sewer-line-locating': ['sewer-camera-inspection', 'sewer-line-cleaning'],
   'emergency-drain-cleaning': ['toilet-clogs', 'bathroom-shower-drains', 'basement-floor-drains', 'sewer-backup-emergency'],
   'main-drain-cleaning': ['sewer-line-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
   'sewer-line-cleaning': ['main-drain-cleaning', 'tree-roots-in-sewer-line', 'basement-floor-drains'],
@@ -95,7 +93,6 @@ export const relatedServiceSlugs: Record<string, string[]> = {
   'sewer-backup-into-tub-shower': ['main-drain-cleaning', 'sewer-line-cleaning', 'basement-floor-drains', 'laundry-drains', 'sewer-backup-emergency'],
   'toilet-clogs': ['main-drain-cleaning', 'sewer-line-cleaning', 'basement-floor-drains'],
   'bathroom-shower-drains': ['main-drain-cleaning', 'toilet-clogs', 'laundry-drains'],
-  'drain-repair': ['sewer-line-cleaning', 'tree-roots-in-sewer-line', 'hydro-jetting'],
   'septic-lines': ['main-drain-cleaning', 'sewer-line-cleaning', 'sewer-backup-emergency'],
   'roof-vent-drains': ['bathroom-shower-drains', 'toilet-clogs', 'main-drain-cleaning'],
   'garbage-disposal': ['bathroom-shower-drains', 'main-drain-cleaning'],
