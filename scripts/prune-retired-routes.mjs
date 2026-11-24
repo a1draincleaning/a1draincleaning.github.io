@@ -8,7 +8,8 @@ const dist = join(process.cwd(), 'dist');
 // source generation prevents them from becoming current canonical pages.
 const retiredRoutes = [
   { from: '/service-area/mason-city/', to: '/mason-city-drain-cleaning/' },
-  { from: '/services/drain-repair/', to: '/pipe-repair/' },
+  { from: '/pipe-repair/', to: '/services/sewer-camera-inspection/' },
+  { from: '/services/drain-repair/', to: '/services/sewer-camera-inspection/' },
   { from: '/services/washing-machine-basement-flooding/', to: '/services/laundry-drains/' },
   { from: '/services/kitchen-bathroom-drains/', to: '/services/bathroom-shower-drains/' }
 ];
