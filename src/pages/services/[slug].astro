@@ -465,7 +465,7 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
             <a href="/services/sewer-backup-emergency/" class="border border-slate-200 bg-white p-5 font-black text-slate-950 hover:border-[#b4232b]">Sewer backup emergency service →</a>
           </div>
         )}
-        {relatedServices.length > 0 && (<div class="mt-12 grid gap-4 sm:grid-cols-3">{relatedServices.map((related) => (<a href={`/services/${related.slug}/`} class="border border-slate-200 bg-white p-5 font-black text-slate-950 hover:border-[#b4232b]">{related.title} →</a>))}</div>)}
+        {relatedServices.length > 0 && (<div class="mt-12 grid gap-4 sm:grid-cols-3">{relatedServices.map((related) => (<a href={related.slug === 'pipe-repair' ? '/pipe-repair/' : `/services/${related.slug}/`} class="border border-slate-200 bg-white p-5 font-black text-slate-950 hover:border-[#b4232b]">{related.title} →</a>))}</div>)}
       </div>
     </section>
 
