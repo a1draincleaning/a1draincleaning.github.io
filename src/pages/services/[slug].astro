@@ -59,6 +59,15 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
     { question: 'Do I need a camera inspection every time?', answer: 'No. A camera can be useful when the blockage returns or the pipe’s condition is uncertain. It is not automatically needed for every cleaning.' },
     { question: 'What should I do while sewage is backing up?', answer: 'Stop using water where possible, avoid contact with sewage, and keep people and pets away from the affected area until the backup is addressed.' },
   ],
+  'sewer-backup-emergency': [
+    { question: 'What should I do first during a sewer backup?', answer: 'Stop using water where possible. Do not flush toilets, run the washer or dishwasher, or use sinks, tubs, and showers while wastewater is backing up. Keep people and pets away from sewage.' },
+    { question: 'Why does sewage come up through the basement floor drain?', answer: 'The floor drain is often one of the lowest openings in a basement. If a shared drain or main sewer line cannot carry wastewater away, it may rise through that opening. The blockage is not necessarily under the floor drain.' },
+    { question: 'What if wastewater comes up through a bathtub or shower?', answer: 'In a home without a basement floor drain, a main drain or sewer restriction may show up through a tub or shower. The fixture where wastewater appears does not by itself identify the blockage location.' },
+    { question: 'Should I flush or run the washing machine to test the drain?', answer: 'No. More water can add to the backup and push additional wastewater into the house. Stop using water where possible and explain what was running when the backup began.' },
+    { question: 'Does A-1 Drain Cleaning offer 24/7 sewer backup service?', answer: 'Yes. A-1 Drain Cleaning offers 24/7 drain and sewer service in Mason City and North Iowa. Call 641-530-2728 and describe where wastewater is coming up.' },
+    { question: 'Can drain cleaning repair a cracked or collapsed sewer pipe?', answer: 'No. Cleaning can remove a blockage and restore a path for wastewater, but it does not repair a cracked, separated, or collapsed pipe. A recurring backup may need a camera inspection and, if damage is found, pipe repair.' },
+    { question: 'Does a sewer backup always mean the floor drain is clogged?', answer: 'No. A floor drain, tub, shower, or toilet may be where the wastewater appears even when the restriction is farther down a shared drain or main sewer line.' },
+  ],
   'tree-roots-in-sewer-line': [
     { question: 'Can tree roots get into a sewer pipe that is still draining?', answer: 'Yes. Roots can narrow the opening and catch waste before the pipe becomes completely blocked. Early symptoms may include a recurring slow drain or repeated backups.' },
     { question: 'Will tree roots return after removal?', answer: 'Removing tree roots can reopen the line, but it does not close the joint or repair the crack where roots entered. A damaged entry point can allow another root blockage to develop.' },
@@ -391,6 +400,50 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
                 <p class="mt-2 leading-8 text-slate-700">The washer releases a large volume of water quickly. A restricted line may handle smaller amounts but back up when the washer empties.</p>
                 <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">What if the floor drain backs up again after cleaning?</h3>
                 <p class="mt-2 leading-8 text-slate-700">A recurring backup may need further investigation to check for repeated buildup, roots, or pipe damage. Cleaning restores flow through a blockage but does not repair damaged pipe.</p>
+              </section>
+            </>
+          ) : service.slug === 'sewer-backup-emergency' ? (
+            <>
+              <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Active sewer backup help</p>
+              <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Wastewater backing up into the house? Stop using water and call.</h2>
+              <p class="mt-6 text-lg leading-8 text-slate-700">When sewage or wastewater rises through a basement floor drain, bathtub, shower, toilet, or another low fixture, the restriction may be in a shared drain or the main sewer line. The fixture where you see the backup is the exit point; it does not prove that the blockage is right below that fixture.</p>
+              <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning offers 24/7 emergency drain and sewer service in Mason City and North Iowa. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a>. Tell us where wastewater is coming up and whether more than one fixture is affected.</p>
+
+              <section class="mt-10 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="sewer-backup-now">
+                <h2 id="sewer-backup-now" class="text-2xl font-black tracking-tight text-slate-950">What to do during an active sewer backup</h2>
+                <ol class="mt-4 list-decimal space-y-3 pl-6 leading-7 text-slate-700">
+                  <li><strong class="text-slate-950">Stop using water.</strong> Do not flush toilets, run the washing machine or dishwasher, or use sinks, tubs, and showers while wastewater is backing up. Do not add water just to test whether the drain is open.</li>
+                  <li><strong class="text-slate-950">Keep people and pets away.</strong> Avoid direct contact with sewage or possibly contaminated water.</li>
+                  <li><strong class="text-slate-950">Stay out of standing water near electricity.</strong> Do not enter wet areas if electrical outlets, cords, appliances, or other equipment may be affected. Do not touch electrical equipment while standing in water.</li>
+                  <li><strong class="text-slate-950">Do not attempt an unprotected cleanup.</strong> Sewage can contain harmful contaminants. Arrange for the drain or sewer backup to be addressed and use appropriate protection for any cleanup.</li>
+                </ol>
+                <p class="mt-5 leading-7 text-slate-700">Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a> and explain what is happening. Avoid using more water while the backup is active.</p>
+              </section>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Where a sewer backup may appear</h2>
+              <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Basement floor drain</h3>
+              <p class="mt-2 leading-8 text-slate-700">A basement floor drain is often one of the lowest openings in the house. If wastewater cannot move past a downstream restriction, it may rise through the floor drain when another fixture sends water into the line. Read more about <a href="/services/basement-floor-drains/" class="font-bold text-[#b4232b] underline underline-offset-4">basement floor drain backups</a>.</p>
+              <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Bathtub or shower</h3>
+              <p class="mt-2 leading-8 text-slate-700">In a home without a basement floor drain, wastewater may rise through a bathtub or shower when a shared drain or main sewer line is restricted. See <a href="/services/sewer-backup-into-tub-shower/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer backup into a bathtub or shower</a>.</p>
+              <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Toilet or more than one fixture</h3>
+              <p class="mt-2 leading-8 text-slate-700">A toilet that overflows may have a local clog, but when flushing one fixture causes wastewater to rise somewhere else—or several fixtures back up together—the restriction may be farther down a shared drain or main sewer line. A toilet does not have to gurgle for a main-line backup to be present.</p>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">How A-1 Drain Cleaning handles a sewer backup</h2>
+              <p class="mt-4 leading-8 text-slate-700">We start with the symptoms: where wastewater appears, which fixtures are affected, what was being used when the backup began, and whether the problem has happened before. Those details help narrow down whether the restriction may be in a shared drain, the main drain, or the private sewer line leaving the house.</p>
+              <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning cleans blocked drain and sewer lines. If the same line keeps backing up or pipe damage is suspected, a <a href="/services/sewer-camera-inspection/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer camera inspection</a> may help show the visible condition of an accessible section. Cleaning can open a blockage, but it does not repair a cracked, separated, or collapsed pipe.</p>
+              <p class="mt-4 leading-8 text-slate-700">Related service information: <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a> and <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a>.</p>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Emergency sewer backup service in Mason City and North Iowa</h2>
+              <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning is based at 206 29th St SW in Mason City, Iowa, and offers 24/7 drain and sewer service. When you call, tell us whether the backup is coming through a floor drain, tub, shower, or toilet; whether multiple fixtures are affected; and whether running water makes it rise. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a>.</p>
+
+              <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="sewer-backup-faq">
+                <h2 id="sewer-backup-faq" class="text-3xl font-black tracking-tight text-slate-950">Sewer backup emergency questions</h2>
+                {pageFaqs[service.slug]?.map((faq) => (
+                  <div class="mt-6">
+                    <h3 class="text-xl font-black tracking-tight text-slate-950">{faq.question}</h3>
+                    <p class="mt-2 leading-8 text-slate-700">{faq.answer}</p>
+                  </div>
+                ))}
               </section>
             </>
           ) : (
