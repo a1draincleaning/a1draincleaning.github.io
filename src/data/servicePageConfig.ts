@@ -5,7 +5,7 @@ const laundryService = services.find((service) => service.slug === 'laundry-drai
 
 if (washingMachineService && laundryService) {
   laundryService.title = 'Laundry & Washing Machine Drains';
-  laundryService.description = 'Washing machine drain backing up, overflowing, or flooding the basement? A-1 Drain Cleaning cleans and unclogs laundry and washing machine drain lines in Mason City and North Iowa.';
+  laundryService.description = 'Washing machine drain backing up or laundry standpipe overflowing? A-1 Drain Cleaning cleans laundry drain lines in Mason City and North Iowa.';
   laundryService.problems = [...new Set([...laundryService.problems, ...washingMachineService.problems])];
   laundryService.signs = [...new Set([...laundryService.signs, ...washingMachineService.signs])];
   laundryService.details = [...laundryService.details, ...washingMachineService.details.filter((detail) => !laundryService.details.includes(detail))];
@@ -19,7 +19,7 @@ export const servicePageTitles: Record<string, string> = {
   'basement-floor-drains': 'Basement Floor Drain Backups | A-1 Drain Cleaning',
   'main-drain-cleaning': 'Main Drain Cleaning | A-1 Drain Cleaning',
   'sewer-line-cleaning': 'Sewer Line Cleaning | A-1 Drain Cleaning',
-  'laundry-drains': 'Laundry & Washing Machine Drains | A-1 Drain Cleaning',
+  'laundry-drains': 'Washing Machine Drain Backup | A-1 Drain Cleaning',
   'bathroom-shower-drains': 'Bathroom, Shower & Tub Drain Cleaning | A-1 Drain Cleaning',
   'tree-roots-in-sewer-line': 'Tree Roots in Sewer Lines | A-1 Drain Cleaning',
   'hydro-jetting': 'Hydro Jetting | A-1 Drain Cleaning',
@@ -41,7 +41,7 @@ export const servicePageDescriptions: Record<string, string> = {
   'basement-floor-drains': 'Basement floor drain backing up or sewage coming up through the drain? A-1 Drain Cleaning cleans and unclogs floor and main drains in North Iowa.',
   'main-drain-cleaning': 'Main drain line clogged or several drains backing up? A-1 Drain Cleaning cleans and unclogs house main drains in Mason City and North Iowa.',
   'sewer-line-cleaning': 'Main sewer pipe clogged or several fixtures backing up? A-1 Drain Cleaning cleans and unclogs residential sewer lines in North Iowa.',
-  'laundry-drains': 'Washing machine drain backing up or water flooding the basement? A-1 Drain Cleaning cleans and unclogs laundry and washer drain lines in North Iowa.',
+  'laundry-drains': 'Washing machine drain backing up or laundry standpipe overflowing? A-1 Drain Cleaning handles laundry drain backups in Mason City. Call 641-530-2728.',
   'bathroom-shower-drains': 'Bathroom sink, shower, or bathtub drain clogged, slow, or backing up? A-1 Drain Cleaning cleans and unclogs bathroom drains in Mason City and North Iowa.',
   'tree-roots-in-sewer-line': 'Tree roots blocking a sewer pipe or causing repeat backups? A-1 Drain Cleaning removes tree roots from sewer lines in Mason City and North Iowa.',
   'hydro-jetting': 'Need hydro jetting for buildup or a recurring sewer restriction? A-1 Drain Cleaning uses water jetting when the pipe and blockage are suitable.',
