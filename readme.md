@@ -36,8 +36,8 @@ If your drainage system is showing signs of trouble, addressing it early prevent
  * **Bad Drain Odors:** Foul sewer gas smells escaping from dry traps, clogged vents, or dirty floor drains.
  * **Tree Roots in Pipes:** Recurring drain slowdowns caused by invasive root systems invading underground sewer pipes.
 ## Service Area
-A-1 Drain Cleaning is based in **Mason City, Iowa**, and proudly serves homeowners and businesses throughout nearby communities and nearby Southern Minnesota communities.
-A-1 Drain Cleaning helps homeowners throughout nearby communities with clogged drains, sewer backups, slow drains, and main sewer line problems.
+A-1 Drain Cleaning is based in **Mason City, Iowa**, and proudly serves homeowners and businesses in Mason City, nearby Iowa communities, and Albert Lea, Minnesota.
+A-1 Drain Cleaning helps homeowners in the towns listed below with clogged drains, sewer backups, slow drains, and main sewer line problems.
 Primary service locations include:
  * Mason City, Iowa
  * Clear Lake, Iowa
