@@ -23,8 +23,8 @@ for (const required of [
   'A-1 Drain Cleaning',
   '206 29th St SW, Mason City, IA 50401',
   '641-530-2728',
-  'https://a1draincleaning.github.io/sitemap-index.xml',
-  'https://a1draincleaning.github.io/llms.txt',
+  'https://www.a1drain.com/sitemap-index.xml',
+  'https://www.a1drain.com/llms.txt',
   'Emergency drain cleaning',
   'Emergency sewer backup service',
   'Albert Lea, Minnesota',
@@ -34,7 +34,7 @@ for (const required of [
 
 const llms = readFileSync(join(dist, 'llms.txt'), 'utf8');
 if (llms !== readFileSync(join(dist, 'llms.md'), 'utf8')) throw new Error('llms.md must match llms.txt exactly.');
-if (!llms.includes('https://a1draincleaning.github.io/agent-index.md')) {
+if (!llms.includes('https://www.a1drain.com/agent-index.md')) {
   throw new Error('llms.txt does not link to the Markdown agent index.');
 }
 // Match the exact published labels in llms.txt so the index cannot drift.
@@ -100,7 +100,7 @@ for (const [index, entry] of entries.entries()) {
   if (seen.has(loc)) throw new Error(`Duplicate sitemap URL: ${loc}`);
   seen.add(loc);
   const parsed = new URL(loc);
-  if (parsed.origin !== 'https://a1draincleaning.github.io' || !parsed.pathname.endsWith('/')) {
+  if (parsed.origin !== 'https://www.a1drain.com' || !parsed.pathname.endsWith('/')) {
     throw new Error(`Non-canonical sitemap URL: ${loc}`);
   }
   if (!lastmod || Number.isNaN(Date.parse(lastmod))) {
@@ -112,7 +112,7 @@ for (const [index, entry] of entries.entries()) {
 }
 
 const indexXml = readFileSync(join(dist, 'sitemap-index.xml'), 'utf8');
-if (!indexXml.includes('https://a1draincleaning.github.io/sitemap-0.xml')) {
+if (!indexXml.includes('https://www.a1drain.com/sitemap-0.xml')) {
   throw new Error('Sitemap index does not point to Astro\'s generated child sitemap.');
 }
 if (!/<lastmod>[^<]+<\/lastmod>/.test(indexXml)) {
