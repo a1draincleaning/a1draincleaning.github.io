@@ -99,16 +99,16 @@ const expectedServices = [
   'Garbage Disposal Repair and Installation',
   'Sump Pump Repair',
 ];
-const serviceNodes = graphNodes.filter((node) => hasType(node, 'Service'));
-const serviceIds = serviceNodes.map((node) => node['@id']);
+const homepageServiceNodes = graphNodes.filter((node) => hasType(node, 'Service'));
+const serviceIds = homepageServiceNodes.map((node) => node['@id']);
 if (new Set(serviceIds).size !== serviceIds.length) {
   throw new Error('Homepage JSON-LD contains duplicate Service entity IDs.');
 }
-if (serviceNodes.length !== expectedServices.length) {
-  throw new Error(`Homepage JSON-LD has ${serviceNodes.length} Service entities; expected ${expectedServices.length}.`);
+if (homepageServiceNodes.length !== expectedServices.length) {
+  throw new Error(`Homepage JSON-LD has ${homepageServiceNodes.length} Service entities; expected ${expectedServices.length}.`);
 }
 for (const required of expectedServices) {
-  const matches = serviceNodes.filter((node) => node.name === required);
+  const matches = homepageServiceNodes.filter((node) => node.name === required);
   if (matches.length !== 1) {
     throw new Error(`Expected exactly one JSON-LD Service entity named "${required}", found ${matches.length}.`);
   }
@@ -122,7 +122,7 @@ for (const required of expectedServices) {
 }
 const catalogItems = organization.hasOfferCatalog?.itemListElement ?? [];
 const catalogServiceIds = catalogItems.map((offer) => offer.itemOffered?.['@id']);
-if (catalogServiceIds.length !== serviceNodes.length || new Set(catalogServiceIds).size !== catalogServiceIds.length) {
+if (catalogServiceIds.length !== homepageServiceNodes.length || new Set(catalogServiceIds).size !== catalogServiceIds.length) {
   throw new Error('OfferCatalog does not reference every Service entity exactly once.');
 }
 for (const id of serviceIds) {
