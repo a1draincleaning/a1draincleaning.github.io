@@ -30,6 +30,6 @@ export const schemaServices: SchemaService[] = [
   { slug: 'tree-root-removal-from-sewer-lines', name: 'Tree root removal from sewer lines', description: 'Removing tree roots that have entered and are blocking a sewer line.', pageSlug: 'tree-roots-in-sewer-line' },
   { slug: 'hydro-jetting', name: 'Hydro Jetting', description: 'Cleaning suitable drain and sewer lines with pressurized water.', pageSlug: 'hydro-jetting' },
   { slug: 'sewer-camera-inspections', name: 'Sewer Camera Inspections', description: 'Inspecting accessible drain and sewer lines with a camera to view visible pipe conditions.', pageSlug: 'sewer-camera-inspection' },
-  { slug: 'smoke-testing', name: 'Smoke Testing', description: 'Smoke testing of drain and sewer systems to help identify openings or suspected defects.' },
+  { slug: 'smoke-testing', name: 'Smoke Testing', description: 'Smoke testing of drain and sewer systems to help identify openings or suspected defects.', pageSlug: 'smoke-testing' },
   { slug: 'sewer-backup-clearing', name: 'Sewer Backup Clearing', description: 'Clearing sewer blockages that cause wastewater to back up into a building.', alternateName: ['Emergency Sewer Backup Service'], pageSlug: 'sewer-backup-emergency' },
 ];
