@@ -13,14 +13,21 @@ if (washingMachineService && laundryService) {
 }
 
 export const servicePageTitles: Record<string, string> = {
+  'kitchen-drains': 'Kitchen Drain Cleaning | A-1 Drain Cleaning',
+  'bathroom-drain-cleaning': 'Bathroom Sink Drain Cleaning | A-1 Drain Cleaning',
+  'shower-drain-cleaning': 'Shower Drain Cleaning | A-1 Drain Cleaning',
+  'bathtub-drain-cleaning': 'Bathtub Drain Cleaning | A-1 Drain Cleaning',
+  'basement-drain-cleaning': 'Basement Drain Cleaning | A-1 Drain Cleaning',
+  'garage-drain-cleaning': 'Garage Drain Cleaning | A-1 Drain Cleaning',
+  'utility-sink-drain-cleaning': 'Utility Sink Drain Cleaning | A-1 Drain Cleaning',
   'sewer-camera-inspection': 'Drain & Sewer Camera Inspections | A-1 Drain Cleaning',
   'sewer-line-locating': 'Sewer Line Locating | A-1 Drain Cleaning',
   'emergency-drain-cleaning': 'Emergency Drain Cleaning | A-1 Drain Cleaning',
-  'basement-floor-drains': 'Basement Floor Drain Backups | A-1 Drain Cleaning',
+  'basement-floor-drains': 'Floor Drain Cleaning | A-1 Drain Cleaning',
   'main-drain-cleaning': 'Main Drain Cleaning | A-1 Drain Cleaning',
   'sewer-line-cleaning': 'Sewer Line Cleaning | A-1 Drain Cleaning',
   'laundry-drains': 'Laundry & Washing Machine Drains | A-1 Drain Cleaning',
-  'bathroom-shower-drains': 'Bathroom, Shower & Tub Drain Cleaning | A-1 Drain Cleaning',
+  
   'tree-roots-in-sewer-line': 'Tree Roots in Sewer Lines | A-1 Drain Cleaning',
   'hydro-jetting': 'Hydro Jetting | A-1 Drain Cleaning',
   'toilet-clogs': 'Toilet Clogs & Drain Problems | A-1 Drain Cleaning',
@@ -29,11 +36,18 @@ export const servicePageTitles: Record<string, string> = {
   'garbage-disposal': 'Garbage Disposal Drain Problems | A-1 Drain Cleaning',
   'dishwasher-drain': 'Dishwasher Drain Problems | A-1 Drain Cleaning',
   'sump-pumps': 'Sump Pump Service | A-1 Drain Cleaning',
-  'roof-vent-drains': 'Plumbing Vent Drain Problems | A-1 Drain Cleaning',
+  'roof-drains': 'Roof Drain Cleaning | A-1 Drain Cleaning',
   'septic-lines': 'Septic Drain Line Cleaning | A-1 Drain Cleaning',
 };
 
 export const servicePageDescriptions: Record<string, string> = {
+  'kitchen-drains': 'Kitchen sink drain cleaning in Mason City and nearby communities. Garbage disposal and dishwasher drain work are separate services.',
+  'bathroom-drain-cleaning': 'Bathroom sink drain cleaning in Mason City and nearby communities. Kitchen, shower, and bathtub drains are separate services.',
+  'shower-drain-cleaning': 'Shower drain cleaning in Mason City and nearby communities. Bathroom sink and bathtub drains are separate services.',
+  'bathtub-drain-cleaning': 'Bathtub drain cleaning in Mason City and nearby communities. Bathroom sink and shower drains are separate services.',
+  'basement-drain-cleaning': 'Basement drain cleaning in Mason City and nearby communities. Separate from Floor Drain Cleaning.',
+  'garage-drain-cleaning': 'Garage drain cleaning in Mason City and nearby communities.',
+  'utility-sink-drain-cleaning': 'Utility sink drain cleaning in Mason City and nearby communities.',
   'sewer-camera-inspection': 'Drain and sewer camera inspections in Mason City and nearby communities to investigate recurring blockages and visible pipe conditions.',
   'sewer-line-locating': 'Sewer line locating in Mason City and nearby communities to help identify underground drain and sewer line routes.',
   'emergency-drain-cleaning': 'Emergency drain cleaning for clogged toilets, sinks, tubs, showers, laundry drains, and floor drains in Mason City and nearby communities. Call A-1 Drain Cleaning.',
@@ -41,7 +55,7 @@ export const servicePageDescriptions: Record<string, string> = {
   'main-drain-cleaning': 'Main drain line clogged or several drains backing up? A-1 Drain Cleaning cleans and unclogs house main drains in Mason City and nearby communities.',
   'sewer-line-cleaning': 'Main sewer pipe clogged or several fixtures backing up? A-1 Drain Cleaning cleans and unclogs residential sewer lines in nearby communities.',
   'laundry-drains': 'Washing machine drain backing up or water flooding the basement? A-1 Drain Cleaning cleans and unclogs laundry and washer drain lines in nearby communities.',
-  'bathroom-shower-drains': 'Bathroom sink, shower, or bathtub drain clogged, slow, or backing up? A-1 Drain Cleaning cleans and unclogs bathroom drains in Mason City and nearby communities.',
+  
   'tree-roots-in-sewer-line': 'Tree roots blocking a sewer pipe or causing repeat backups? A-1 Drain Cleaning removes tree roots from sewer lines in Mason City and nearby communities.',
   'hydro-jetting': 'Need hydro jetting for buildup or a recurring sewer restriction? A-1 Drain Cleaning uses water jetting when the pipe and blockage are suitable.',
   'toilet-clogs': 'Toilet clogged, backing up, or bubbling when flushed? A-1 Drain Cleaning unclogs toilets and connected drains in Mason City and nearby communities.',
@@ -50,7 +64,7 @@ export const servicePageDescriptions: Record<string, string> = {
   'garbage-disposal': 'Garbage disposal will not drain or the kitchen sink stays full? A-1 Drain Cleaning handles disposal and related drain problems in nearby communities.',
   'dishwasher-drain': 'Dishwasher not draining or backing up into the kitchen sink? A-1 Drain Cleaning handles the drain side of dishwasher backup problems.',
   'sump-pumps': 'Sump pump stopped or not keeping up with basement water? A-1 Drain Cleaning repairs, replaces, and installs sump pumps in nearby communities.',
-  'roof-vent-drains': 'Drains gurgling or behaving oddly with no clear clog? A-1 Drain Cleaning can help determine whether a plumbing vent is involved.',
+  'roof-drains': 'Roof drain blocked or not carrying rainwater away? A-1 Drain Cleaning provides roof drain cleaning in Mason City and nearby communities.',
   'septic-lines': 'House drain line to a septic system backing up? A-1 Drain Cleaning cleans and unclogs blocked drain lines leading to septic systems in Mason City and nearby communities.',
 };
 
@@ -92,12 +106,18 @@ export const relatedServiceSlugs: Record<string, string[]> = {
   'sewer-backup-emergency': ['main-drain-cleaning', 'sewer-line-cleaning', 'basement-floor-drains'],
   'sewer-backup-into-tub-shower': ['main-drain-cleaning', 'sewer-line-cleaning', 'basement-floor-drains', 'laundry-drains', 'sewer-backup-emergency'],
   'toilet-clogs': ['main-drain-cleaning', 'sewer-line-cleaning', 'basement-floor-drains'],
-  'bathroom-shower-drains': ['main-drain-cleaning', 'toilet-clogs', 'laundry-drains'],
   'septic-lines': ['main-drain-cleaning', 'sewer-line-cleaning', 'sewer-backup-emergency'],
-  'roof-vent-drains': ['bathroom-shower-drains', 'toilet-clogs', 'main-drain-cleaning'],
-  'garbage-disposal': ['bathroom-shower-drains', 'main-drain-cleaning'],
-  'dishwasher-drain': ['bathroom-shower-drains', 'garbage-disposal', 'main-drain-cleaning'],
-  'sump-pumps': ['sewer-backup-emergency', 'basement-floor-drains'],
+  'garbage-disposal': ['kitchen-drains', 'main-drain-cleaning'],
+  'dishwasher-drain': ['kitchen-drains', 'garbage-disposal', 'main-drain-cleaning'],
+  'sump-pumps': ['basement-drain-cleaning', 'basement-floor-drains'],
+  'kitchen-drains': ['garbage-disposal', 'dishwasher-drain', 'main-drain-cleaning'],
+  'bathroom-drain-cleaning': ['shower-drain-cleaning', 'bathtub-drain-cleaning', 'toilet-clogs'],
+  'shower-drain-cleaning': ['bathroom-drain-cleaning', 'bathtub-drain-cleaning', 'sewer-backup-into-tub-shower'],
+  'bathtub-drain-cleaning': ['shower-drain-cleaning', 'bathroom-drain-cleaning', 'sewer-backup-into-tub-shower'],
+  'basement-drain-cleaning': ['basement-floor-drains', 'sump-pumps', 'main-drain-cleaning'],
+  'garage-drain-cleaning': ['yard-drain-cleaning', 'storm-drain-cleaning'],
+  'utility-sink-drain-cleaning': ['laundry-drains', 'main-drain-cleaning'],
+  'roof-drains': ['storm-drain-cleaning', 'yard-drain-cleaning'],
 };
 
 // Floor-drain content belongs on the dedicated floor-drain page and the specialized service sections.
