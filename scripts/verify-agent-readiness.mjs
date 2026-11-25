@@ -70,6 +70,64 @@ const graphNodes = homepageGraphs.flatMap((value) => Array.isArray(value['@graph
 const hasType = (node, type) => (Array.isArray(node['@type']) ? node['@type'] : [node['@type']]).includes(type);
 const organization = graphNodes.find((node) => hasType(node, 'Organization'));
 if (!organization) throw new Error('Homepage JSON-LD has no Organization identity.');
+
+const expectedServices = [
+  'Emergency Drain Cleaning',
+  'Main Drain Cleaning',
+  'Drain & Sewer Camera Inspections',
+  'Sewer Line Locating',
+  'Sewer Line Cleaning',
+  'Tree Root Removal and Cutting',
+  'Hydro Jetting',
+  'Floor Drain Cleaning',
+  'Basement Drain Cleaning',
+  'Garage Drain Cleaning',
+  'Utility Sink Drain Cleaning',
+  'Kitchen Drain Cleaning',
+  'Bathroom Drain Cleaning',
+  'Shower Drain Cleaning',
+  'Bathtub Drain Cleaning',
+  'Roof Drain Cleaning',
+  'Storm Drain Cleaning',
+  'Yard Drain Cleaning',
+  'Smoke Testing',
+  'Toilet Unclogging',
+  'Laundry/Washing Machine Drain Cleaning',
+  'Septic Line Cleaning',
+  'Sewer Backup Emergency Service',
+  'Dishwasher Drain Service',
+  'Garbage Disposal Repair and Installation',
+  'Sump Pump Repair',
+];
+const serviceNodes = graphNodes.filter((node) => hasType(node, 'Service'));
+const serviceIds = serviceNodes.map((node) => node['@id']);
+if (new Set(serviceIds).size !== serviceIds.length) {
+  throw new Error('Homepage JSON-LD contains duplicate Service entity IDs.');
+}
+if (serviceNodes.length !== expectedServices.length) {
+  throw new Error(`Homepage JSON-LD has ${serviceNodes.length} Service entities; expected ${expectedServices.length}.`);
+}
+for (const required of expectedServices) {
+  const matches = serviceNodes.filter((node) => node.name === required);
+  if (matches.length !== 1) {
+    throw new Error(`Expected exactly one JSON-LD Service entity named "${required}", found ${matches.length}.`);
+  }
+  const node = matches[0];
+  if (node.provider?.['@id'] !== organization['@id']) {
+    throw new Error(`Service "${required}" does not reference the canonical A-1 Drain Cleaning provider.`);
+  }
+  if (!node.url?.startsWith('https://www.a1drain.com/services/') || !node.url.endsWith('/')) {
+    throw new Error(`Service "${required}" has a non-canonical service URL.`);
+  }
+}
+const catalogItems = organization.hasOfferCatalog?.itemListElement ?? [];
+const catalogServiceIds = catalogItems.map((offer) => offer.itemOffered?.['@id']);
+if (catalogServiceIds.length !== serviceNodes.length || new Set(catalogServiceIds).size !== catalogServiceIds.length) {
+  throw new Error('OfferCatalog does not reference every Service entity exactly once.');
+}
+for (const id of serviceIds) {
+  if (!catalogServiceIds.includes(id)) throw new Error(`Service entity is missing from OfferCatalog: ${id}`);
+}
 for (const field of ['name', 'url', 'logo', 'description', 'sameAs', 'address', 'contactPoint']) {
   if (!organization[field]) throw new Error(`Organization JSON-LD is missing ${field}.`);
 }
