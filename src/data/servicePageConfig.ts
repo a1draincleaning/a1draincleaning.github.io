@@ -5,7 +5,7 @@ const laundryService = services.find((service) => service.slug === 'laundry-drai
 
 if (washingMachineService && laundryService) {
   laundryService.title = 'Laundry & Washing Machine Drains';
-  laundryService.description = 'Washing machine drain backing up, overflowing, or flooding the basement? A-1 Drain Cleaning cleans and unclogs laundry and washing machine drain lines in Mason City and North Iowa.';
+  laundryService.description = 'Washing machine drain backing up, overflowing, or flooding the basement? A-1 Drain Cleaning cleans and unclogs laundry and washing machine drain lines in Mason City and nearby communities.';
   laundryService.problems = [...new Set([...laundryService.problems, ...washingMachineService.problems])];
   laundryService.signs = [...new Set([...laundryService.signs, ...washingMachineService.signs])];
   laundryService.details = [...laundryService.details, ...washingMachineService.details.filter((detail) => !laundryService.details.includes(detail))];
@@ -34,24 +34,24 @@ export const servicePageTitles: Record<string, string> = {
 };
 
 export const servicePageDescriptions: Record<string, string> = {
-  'sewer-camera-inspection': 'Drain and sewer camera inspections in Mason City and North Iowa to investigate recurring blockages and visible pipe conditions.',
-  'sewer-line-locating': 'Sewer line locating in Mason City and North Iowa to help identify underground drain and sewer line routes.',
-  'emergency-drain-cleaning': 'Emergency drain cleaning for clogged toilets, sinks, tubs, showers, laundry drains, and floor drains in Mason City and North Iowa. Call A-1 Drain Cleaning.',
-  'basement-floor-drains': 'Basement floor drain backing up or sewage coming up through the drain? A-1 Drain Cleaning cleans and unclogs floor and main drains in North Iowa.',
-  'main-drain-cleaning': 'Main drain line clogged or several drains backing up? A-1 Drain Cleaning cleans and unclogs house main drains in Mason City and North Iowa.',
-  'sewer-line-cleaning': 'Main sewer pipe clogged or several fixtures backing up? A-1 Drain Cleaning cleans and unclogs residential sewer lines in North Iowa.',
-  'laundry-drains': 'Washing machine drain backing up or water flooding the basement? A-1 Drain Cleaning cleans and unclogs laundry and washer drain lines in North Iowa.',
-  'bathroom-shower-drains': 'Bathroom sink, shower, or bathtub drain clogged, slow, or backing up? A-1 Drain Cleaning cleans and unclogs bathroom drains in Mason City and North Iowa.',
-  'tree-roots-in-sewer-line': 'Tree roots blocking a sewer pipe or causing repeat backups? A-1 Drain Cleaning removes tree roots from sewer lines in Mason City and North Iowa.',
+  'sewer-camera-inspection': 'Drain and sewer camera inspections in Mason City and nearby communities to investigate recurring blockages and visible pipe conditions.',
+  'sewer-line-locating': 'Sewer line locating in Mason City and nearby communities to help identify underground drain and sewer line routes.',
+  'emergency-drain-cleaning': 'Emergency drain cleaning for clogged toilets, sinks, tubs, showers, laundry drains, and floor drains in Mason City and nearby communities. Call A-1 Drain Cleaning.',
+  'basement-floor-drains': 'Basement floor drain backing up or sewage coming up through the drain? A-1 Drain Cleaning cleans and unclogs floor and main drains in Mason City and nearby communities.',
+  'main-drain-cleaning': 'Main drain line clogged or several drains backing up? A-1 Drain Cleaning cleans and unclogs house main drains in Mason City and nearby communities.',
+  'sewer-line-cleaning': 'Main sewer pipe clogged or several fixtures backing up? A-1 Drain Cleaning cleans and unclogs residential sewer lines in Mason City and nearby communities.',
+  'laundry-drains': 'Washing machine drain backing up or water flooding the basement? A-1 Drain Cleaning cleans and unclogs laundry and washer drain lines in Mason City and nearby communities.',
+  'bathroom-shower-drains': 'Bathroom sink, shower, or bathtub drain clogged, slow, or backing up? A-1 Drain Cleaning cleans and unclogs bathroom drains in Mason City and nearby communities.',
+  'tree-roots-in-sewer-line': 'Tree roots blocking a sewer pipe or causing repeat backups? A-1 Drain Cleaning removes tree roots from sewer lines in Mason City and nearby communities.',
   'hydro-jetting': 'Need hydro jetting for buildup or a recurring sewer restriction? A-1 Drain Cleaning uses water jetting when the pipe and blockage are suitable.',
-  'toilet-clogs': 'Toilet clogged, backing up, or bubbling when flushed? A-1 Drain Cleaning unclogs toilets and connected drains in Mason City and North Iowa.',
-  'sewer-backup-emergency': 'Sewage coming up through a floor drain, tub, or toilet? A-1 Drain Cleaning provides emergency drain and sewer service in North Iowa.',
-  'sewer-backup-into-tub-shower': 'Sewer backing up into a bathtub or shower? A-1 Drain Cleaning cleans and unclogs main drains and sewer lines in Mason City and North Iowa.',
-  'garbage-disposal': 'Garbage disposal will not drain or the kitchen sink stays full? A-1 Drain Cleaning handles disposal and related drain problems in North Iowa.',
+  'toilet-clogs': 'Toilet clogged, backing up, or bubbling when flushed? A-1 Drain Cleaning unclogs toilets and connected drains in Mason City and nearby communities.',
+  'sewer-backup-emergency': 'Sewage coming up through a floor drain, tub, or toilet? A-1 Drain Cleaning provides emergency drain and sewer service in Mason City and nearby communities.',
+  'sewer-backup-into-tub-shower': 'Sewer backing up into a bathtub or shower? A-1 Drain Cleaning cleans and unclogs main drains and sewer lines in Mason City and nearby communities.',
+  'garbage-disposal': 'Garbage disposal will not drain or the kitchen sink stays full? A-1 Drain Cleaning handles disposal and related drain problems in Mason City and nearby communities.',
   'dishwasher-drain': 'Dishwasher not draining or backing up into the kitchen sink? A-1 Drain Cleaning handles the drain side of dishwasher backup problems.',
-  'sump-pumps': 'Sump pump stopped or not keeping up with basement water? A-1 Drain Cleaning repairs, replaces, and installs sump pumps in North Iowa.',
+  'sump-pumps': 'Sump pump stopped or not keeping up with basement water? A-1 Drain Cleaning repairs, replaces, and installs sump pumps in Mason City and nearby communities.',
   'roof-vent-drains': 'Drains gurgling or behaving oddly with no clear clog? A-1 Drain Cleaning can help determine whether a plumbing vent is involved.',
-  'septic-lines': 'House drain line to a septic system backing up? A-1 Drain Cleaning cleans and unclogs blocked drain lines leading to septic systems in Mason City and North Iowa.',
+  'septic-lines': 'House drain line to a septic system backing up? A-1 Drain Cleaning cleans and unclogs blocked drain lines leading to septic systems in Mason City and nearby communities.',
 };
 
 const serviceDetailAdditions: Record<string, string[]> = {
