@@ -263,7 +263,7 @@ const localHosts = new Set(['www.a1drain.com', 'a1drain.com']);
 let checkedInternalLinks = 0;
 for (const htmlPath of walkHtml(dist)) {
   const html = readFileSync(htmlPath, 'utf8');
-  const relativePagePath = htmlPath.slice(dist.length).replace(/index\\.html$/, '');
+  const relativePagePath = htmlPath.slice(dist.length).replace(/index\.html$/, '');
   const pageBase = new URL(relativePagePath || '/', 'https://www.a1drain.com/');
   const references = [...html.matchAll(/\b(?:href|src)=["']([^"']+)["']/gi)].map((match) => match[1]);
   for (const reference of references) {
