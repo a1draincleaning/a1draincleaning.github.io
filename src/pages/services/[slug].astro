@@ -77,6 +77,14 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
     { question: 'Why does the backup happen when the washer drains?', answer: 'The washer releases a large volume of water quickly. A restricted line may handle smaller amounts but back up when the washer empties.' },
     { question: 'What if the floor drain backs up again after cleaning?', answer: 'A recurring backup may need further investigation to check for repeated buildup, roots, or pipe damage. Cleaning restores flow through a blockage but does not repair damaged pipe.' },
   ],
+  'sump-pumps': [
+    { question: 'Why is my sump pump not turning on?', answer: 'Possible causes include loss of power, a float that is not moving freely, or a failed pump. The cause needs to be checked at the property before deciding whether repair or replacement is needed.' },
+    { question: 'What if the sump pump runs but the water level does not go down?', answer: 'The pump may not be moving water effectively, or the discharge side may not be carrying water away. The pump and the full situation need to be checked.' },
+    { question: 'What should I do if water is rising around the sump pit?', answer: 'Keep away from standing water if electrical outlets, cords, appliances, or other equipment may be affected. Do not touch wet electrical equipment. Call A-1 Drain Cleaning and explain how quickly the water is rising.' },
+    { question: 'Does A-1 Drain Cleaning repair and replace sump pumps?', answer: 'Yes. A-1 Drain Cleaning repairs, replaces, and installs sump pumps in Mason City and North Iowa.' },
+    { question: 'Can a sump pump fix sewage coming up through a basement floor drain?', answer: 'No. A sump pump removes groundwater collected in a sump pit. Sewage coming up through a floor drain is a drain or sewer backup and needs to be handled as a separate problem.' },
+  ],
+
 };
 ---
 
@@ -208,6 +216,46 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
                 <p class="mt-2 leading-8 text-slate-700">No. Stop using water where possible until the backup has been assessed. Additional water can send more wastewater toward the blockage and worsen the overflow.</p>
               </section>
             </>
+           ) : service.slug === 'sump-pumps' ? (
+          <>
+            <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Sump pump repair and replacement</p>
+            <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Sump pump stopped or not keeping up with basement water?</h2>
+            <p class="mt-6 text-lg leading-8 text-slate-700">A sump pump removes groundwater collected in a sump pit before it reaches the basement floor. If the pump stops working or cannot keep up with incoming water, the water level in the pit can rise and the basement may get wet. This is different from sewage coming up through a basement floor drain, which is a drain or sewer backup.</p>
+
+            <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Signs the sump pump may need service</h2>
+            <ul class="mt-5 list-disc space-y-3 pl-6 leading-8 text-slate-700">
+              <li>The pump does not start as water rises in the sump pit.</li>
+              <li>The pump runs but the water level does not drop.</li>
+              <li>The pit keeps filling and the pump is not keeping up.</li>
+              <li>Water is appearing around the sump pit or on the basement floor.</li>
+            </ul>
+            <p class="mt-4 leading-8 text-slate-700">These symptoms do not identify the failed part by themselves. The pump, float operation, power supply, and discharge conditions may all affect how the system works.</p>
+
+            <section class="mt-10 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="sump-pump-safety">
+              <h2 id="sump-pump-safety" class="text-2xl font-black tracking-tight text-slate-950">What to do if basement water is rising</h2>
+              <ul class="mt-4 list-disc space-y-3 pl-6 leading-7 text-slate-700">
+                <li>Keep away from standing water if electrical outlets, cords, appliances, or other equipment may be affected.</li>
+                <li>Do not touch electrical equipment while standing in water or while it is wet.</li>
+                <li>If it is safe to do so, move stored items away from the water.</li>
+                <li>When you call, explain whether the pump is silent, running without lowering the water, or not keeping up with the incoming water.</li>
+              </ul>
+            </section>
+
+            <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Sump pump repair and replacement in Mason City and North Iowa</h2>
+            <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning repairs, replaces, and installs sump pumps in Mason City and North Iowa. If the pump has failed or cannot keep up, the right next step depends on the pump and the conditions at the sump pit. A problem with groundwater, exterior drainage, or a discharge line may involve more than the pump itself.</p>
+            <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning offers 24/7 drain and sewer service. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a> and describe what the pump is doing and how quickly the water is rising.</p>
+            <p class="mt-4 leading-8 text-slate-700">If the water is sewage coming up through a floor drain rather than groundwater in the sump pit, see <a href="/services/basement-floor-drains/" class="font-bold text-[#b4232b] underline underline-offset-4">basement floor drain backups</a> or <a href="/services/sewer-backup-emergency/" class="font-bold text-[#b4232b] underline underline-offset-4">emergency sewer backup service</a>.</p>
+
+            <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="sump-pump-faq">
+              <h2 id="sump-pump-faq" class="text-3xl font-black tracking-tight text-slate-950">Sump pump service questions</h2>
+              {pageFaqs[service.slug]?.map((faq) => (
+                <div class="mt-6">
+                  <h3 class="text-xl font-black tracking-tight text-slate-950">{faq.question}</h3>
+                  <p class="mt-2 leading-8 text-slate-700">{faq.answer}</p>
+                </div>
+              ))}
+            </section>
+          </>
           ) : service.slug === 'sewer-line-cleaning' ? (
             <>
               <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Sewer line problems</p>
