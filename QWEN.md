@@ -21,9 +21,9 @@
 - Always use the full business name: A-1 Drain Cleaning.
 - Business location: 206 29th St SW, Mason City, Iowa 50401.
 - Phone: 641-530-2728.
-- Service area: Mason City and North Iowa communities. Do not add Chickasaw County to the service area.
-- Services include drain and sewer cleaning, root cutting, hydro jetting, smoke testing, drain repair, laundry drains, basement floor drains, main drain cleaning, and sewer-backup emergency service.
-- Floor-drain backups and basement sewer backups are a high-priority service topic.
+- Service area: Mason City and nearby communities communities. Do not add Chickasaw County to the service area.
+- Services include drain and sewer cleaning, tree root removal from sewer lines, hydro jetting, smoke testing, laundry drains, floor drain cleaning, main drain cleaning, and sewer-backup emergency service. Do not list pipe repair as an offered service.
+- Floor Drain Cleaning is the service name; a floor-drain backup is a symptom. Keep Basement Drain Cleaning as a separate service. Kitchen, bathroom, shower, and bathtub drains must remain separate services.
 - A-1 offers 24/7 service; do not describe this as a guarantee.
 - Write in direct, plain language with a practical Midwestern contractor's voice. Avoid corporate marketing language and generic filler.
 - Keep city and service pages factually distinct. Do not fabricate local soil, pipe, housing, municipal, or service claims.
