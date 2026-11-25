@@ -11,7 +11,7 @@ This file is a short Markdown directory for search agents and automated website 
 - **Phone:** 641-530-2728
 - **Website:** https://a1draincleaning.github.io/
 - **Service availability:** 24/7 service
-- **Primary service area:** Mason City and North Iowa
+- **Primary service area:** Mason City and nearby communities
 - **Additional service area:** Albert Lea, Minnesota. This is a service area, not a second business address or office.
 
 ## Main pages

@@ -26,7 +26,6 @@ const businessId = `${business.website}#business`;
 const websiteId = `${business.website}#website`;
 
 const serviceAreaAreas = [
-  { '@type': 'AdministrativeArea', name: 'North Iowa' },
   ...uniqueServiceAreaCities
     .filter((item) => builtServiceAreaCitySlugs.has(item.slug))
     .map((item) => ({
@@ -45,7 +44,7 @@ const businessSchema = {
   '@type': ['Organization', 'Plumber'],
   '@id': businessId,
   name: business.name,
-  description: 'A-1 Drain Cleaning provides drain cleaning and sewer service in Mason City, Iowa and surrounding North Iowa communities.',
+  description: 'A-1 Drain Cleaning provides drain cleaning and sewer service in Mason City, Iowa and nearby communities.',
   url: business.website,
   logo: business.logo,
   image: business.image,
