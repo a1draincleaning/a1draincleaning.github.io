@@ -21,3 +21,9 @@ The production domain is `https://www.a1drain.com`. GitHub Pages serves this cus
 ## Important
 
 The contact form is intentionally not included because no real form endpoint was supplied. The primary contact path is the business phone: 641-530-2728.
+
+
+## Production domain
+
+- Canonical website: https://www.a1drain.com/
+- GitHub Pages custom domain file: `public/CNAME`
