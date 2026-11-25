@@ -26,18 +26,20 @@ export const servicePageTitles: Record<string, string> = {
   'basement-floor-drains': 'Floor Drain Cleaning | A-1 Drain Cleaning',
   'main-drain-cleaning': 'Main Drain Cleaning | A-1 Drain Cleaning',
   'sewer-line-cleaning': 'Sewer Line Cleaning | A-1 Drain Cleaning',
-  'laundry-drains': 'Laundry & Washing Machine Drains | A-1 Drain Cleaning',
+  'laundry-drains': 'Laundry/Washing Machine Drain Cleaning | A-1 Drain Cleaning',
   
   'tree-roots-in-sewer-line': 'Tree Roots in Sewer Lines | A-1 Drain Cleaning',
   'hydro-jetting': 'Hydro Jetting | A-1 Drain Cleaning',
-  'toilet-clogs': 'Toilet Clogs & Drain Problems | A-1 Drain Cleaning',
+  'toilet-clogs': 'Toilet Unclogging | A-1 Drain Cleaning',
   'sewer-backup-emergency': 'Sewer Backup Emergency Service | A-1 Drain Cleaning',
   'sewer-backup-into-tub-shower': 'Sewer Backup in Tub or Shower | A-1 Drain Cleaning',
-  'garbage-disposal': 'Garbage Disposal Drain Problems | A-1 Drain Cleaning',
-  'dishwasher-drain': 'Dishwasher Drain Problems | A-1 Drain Cleaning',
-  'sump-pumps': 'Sump Pump Service | A-1 Drain Cleaning',
+  'garbage-disposal': 'Garbage Disposal Repair and Installation | A-1 Drain Cleaning',
+  'dishwasher-drain': 'Dishwasher Drain Service | A-1 Drain Cleaning',
+  'sump-pumps': 'Sump Pump Repair | A-1 Drain Cleaning',
   'roof-drains': 'Roof Drain Cleaning | A-1 Drain Cleaning',
-  'septic-lines': 'Septic Drain Line Cleaning | A-1 Drain Cleaning',
+  'septic-lines': 'Septic Line Cleaning | A-1 Drain Cleaning',
+  'storm-drain-cleaning': 'Storm Drain Cleaning | A-1 Drain Cleaning',
+  'yard-drain-cleaning': 'Yard Drain Cleaning | A-1 Drain Cleaning',
 };
 
 export const servicePageDescriptions: Record<string, string> = {
@@ -65,7 +67,9 @@ export const servicePageDescriptions: Record<string, string> = {
   'dishwasher-drain': 'Dishwasher not draining or backing up into the kitchen sink? A-1 Drain Cleaning handles the drain side of dishwasher backup problems.',
   'sump-pumps': 'Sump pump stopped or not keeping up with basement water? A-1 Drain Cleaning repairs, replaces, and installs sump pumps in nearby communities.',
   'roof-drains': 'Roof drain blocked or not carrying rainwater away? A-1 Drain Cleaning provides roof drain cleaning in Mason City and nearby communities.',
-  'septic-lines': 'House drain line to a septic system backing up? A-1 Drain Cleaning cleans and unclogs blocked drain lines leading to septic systems in Mason City and nearby communities.',
+  'septic-lines': 'Septic line cleaning in Mason City and nearby communities for a blocked house drain line leading to a septic system.',
+  'storm-drain-cleaning': 'Storm drain cleaning in Mason City and nearby communities for accessible drains blocked by leaves, sediment, or debris.',
+  'yard-drain-cleaning': 'Yard drain cleaning in Mason City and nearby communities for accessible drains blocked by leaves, soil, or debris.',
 };
 
 const serviceDetailAdditions: Record<string, string[]> = {
@@ -115,6 +119,8 @@ export const relatedServiceSlugs: Record<string, string[]> = {
   'garage-drain-cleaning': ['yard-drain-cleaning', 'storm-drain-cleaning'],
   'utility-sink-drain-cleaning': ['laundry-drains', 'main-drain-cleaning'],
   'roof-drains': ['storm-drain-cleaning', 'yard-drain-cleaning'],
+  'storm-drain-cleaning': ['roof-drains', 'yard-drain-cleaning'],
+  'yard-drain-cleaning': ['storm-drain-cleaning', 'roof-drains'],
 };
 
 // Floor-drain content belongs on the dedicated floor-drain page and the specialized service sections.
