@@ -66,6 +66,12 @@ For the fuller business and service summary, see [llms.txt](https://www.a1drain.
 - [Rockwell, Iowa](https://www.a1drain.com/service-area/rockwell/)
 - [Albert Lea, Minnesota](https://www.a1drain.com/albert-lea-mn-drain-cleaning/)
 
+## Symptom and diagnostic pages
+
+- [Sewer backup into a bathtub or shower](https://www.a1drain.com/services/sewer-backup-into-tub-shower/) is a symptom explanation, not a combined bathroom-and-shower drain service.
+- [Drain Diagnosis](https://www.a1drain.com/drain-diagnosis/) is the interactive drain-problem diagnostic page.
+- [Service directory and symptom guides](https://www.a1drain.com/services/) separates service pages from common drain symptoms.
+
 ## Service-area directory
 
 The community directory covers locations in Cerro Gordo, Floyd, Franklin, Hancock, Mitchell, Winnebago, Worth, Wright, and Butler counties. These are directory communities, not nine county landing pages. The nine dedicated Iowa city pages are listed above. Albert Lea, Minnesota, is also included as a service area, not a second office. Call to confirm availability for a specific address.
