@@ -1,18 +1,18 @@
 # A-1 Drain Cleaning — Agent Index
 
-This file is a short Markdown directory for search agents and automated website readers. For the fuller business and service summary, see [llms.txt](https://a1draincleaning.github.io/llms.txt). For every published canonical page, see the [Astro sitemap index](https://a1draincleaning.github.io/sitemap-index.xml).
+For the fuller business and service summary, see [llms.txt](https://a1draincleaning.github.io/llms.txt). For published canonical pages, see the [sitemap index](https://a1draincleaning.github.io/sitemap-index.xml).
 
 ## Business identity
 
-- **Business:** A-1 Drain Cleaning
-- **Business type:** Drain cleaning and sewer service
-- **Base:** Mason City, Iowa
-- **Address:** 206 29th St SW, Mason City, IA 50401
-- **Phone:** 641-530-2728
-- **Website:** https://a1draincleaning.github.io/
-- **Service availability:** 24/7 service
-- **Primary service area:** Mason City and North Iowa
-- **Additional service area:** Albert Lea, Minnesota. This is a service area, not a second business address or office.
+- Business: A-1 Drain Cleaning
+- Owner/operator: Josh Theilen
+- Business type: Drain cleaning and sewer service
+- Base: Mason City, Iowa
+- Address: 206 29th St SW, Mason City, IA 50401
+- Phone: 641-530-2728
+- Website: https://a1draincleaning.github.io/
+- Service availability: 24/7 service; call to confirm current availability.
+- Additional service area: Albert Lea, Minnesota. This is a service area, not a second business address or office.
 
 ## Main pages
 
@@ -24,23 +24,39 @@ This file is a short Markdown directory for search agents and automated website 
 - [Albert Lea, Minnesota service area](https://a1draincleaning.github.io/albert-lea-mn-drain-cleaning/)
 - [All drain and sewer services](https://a1draincleaning.github.io/services/)
 
-## Services
+## Published service pages
 
-- [General drain cleaning](https://a1draincleaning.github.io/services/drain-cleaning/)
 - [Emergency drain cleaning](https://a1draincleaning.github.io/services/emergency-drain-cleaning/)
 - [Main drain cleaning](https://a1draincleaning.github.io/services/main-drain-cleaning/)
 - [Sewer line cleaning](https://a1draincleaning.github.io/services/sewer-line-cleaning/)
-- [Emergency sewer backup service](https://a1draincleaning.github.io/services/sewer-backup-emergency/)
-- [Basement floor drain backups](https://a1draincleaning.github.io/services/basement-floor-drains/)
-- [Tree root removal from sewer lines](https://a1draincleaning.github.io/services/tree-roots-in-sewer-line/)
+- [Floor drain cleaning](https://a1draincleaning.github.io/services/basement-floor-drains/)
+- [Kitchen drain cleaning](https://a1draincleaning.github.io/services/kitchen-drains/)
 - [Toilet unclogging](https://a1draincleaning.github.io/services/toilet-clogs/)
-- [Kitchen sink drain cleaning](https://a1draincleaning.github.io/services/kitchen-drains/)
-- [Bathroom sink, bathtub and shower drain cleaning](https://a1draincleaning.github.io/services/bathroom-shower-drains/)
 - [Laundry and washing machine drain cleaning](https://a1draincleaning.github.io/services/laundry-drains/)
+- [Sewer backup emergency service](https://a1draincleaning.github.io/services/sewer-backup-emergency/)
+- [Tree root removal from sewer lines](https://a1draincleaning.github.io/services/tree-roots-in-sewer-line/)
 - [Hydro jetting](https://a1draincleaning.github.io/services/hydro-jetting/)
 - [Drain and sewer camera inspections](https://a1draincleaning.github.io/services/sewer-camera-inspection/)
 - [Sewer line locating](https://a1draincleaning.github.io/services/sewer-line-locating/)
 - [Smoke testing](https://a1draincleaning.github.io/services/smoke-testing/)
+
+## Confirmed services that need distinct page and schema treatment
+
+- Basement Drain Cleaning
+- Garage Drain Cleaning
+- Utility Sink Drain Cleaning
+- Bathroom Drain Cleaning
+- Shower Drain Cleaning
+- Bathtub Drain Cleaning
+- Roof Drain Service
+- Sump Pump Repair
+- Garbage Disposal Repair and Installation
+- Dishwasher Drain Service
+- Septic Line Cleaning
+- Storm Drain Cleaning
+- Yard Drain Cleaning
+
+These are not combined with kitchen drains or with one another. The list records confirmed work; it does not claim each has a dedicated published page yet.
 
 ## Service-area pages
 
