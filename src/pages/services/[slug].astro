@@ -117,7 +117,7 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
               <p class="mt-4 leading-8 text-slate-700">A single stopped sink, toilet, tub, or shower may be a fixture or branch-drain problem. Several fixtures backing up together, or wastewater coming up through a basement floor drain, can indicate a main drain or sewer-line problem. Those situations need to be described as a possible sewer backup when you call.</p>
               <p class="mt-4 leading-8 text-slate-700">For wastewater backing up through several fixtures or a low drain, see <a href="/services/sewer-backup-emergency/" class="font-bold text-[#b4232b] underline underline-offset-4">emergency sewer backup service</a>, <a href="/services/basement-floor-drains/" class="font-bold text-[#b4232b] underline underline-offset-4">basement floor drain backups</a>, and <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a>.</p>
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Emergency drain cleaning in Mason City and nearby communities</h2>
-              <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning is based in Mason City, Iowa and serves nearby nearby communities communities. Call 641-530-2728 for current service availability. Explain the fixture, the symptoms, and whether the problem is getting worse.</p>
+              <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning is based in Mason City, Iowa and serves Mason City and nearby communities. Call 641-530-2728 for current service availability. Explain the fixture, the symptoms, and whether the problem is getting worse.</p>
             </>
           ) : service.slug === 'sewer-camera-inspection' ? (
             <>
@@ -463,13 +463,13 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
       <div class="container">
         <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Service towns</p>
         <h2 class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Drain cleaning in Mason City and nearby Iowa communities</h2>
-        <p class="mt-4 max-w-3xl leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and communities across nearby communities. Choose a town below to read its local drain-cleaning and sewer-service information.</p>
+        <p class="mt-4 max-w-3xl leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and nearby communities. Choose a town below to read its local drain-cleaning and sewer-service information.</p>
         <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {featuredServiceCities.map((city) => (
             <a href={`/service-area/${city.slug}/`} class="border border-slate-200 bg-white px-4 py-4 font-bold text-[#1A1A68] underline underline-offset-4 hover:border-[#b4232b] hover:text-[#b4232b]">{city.name}, Iowa</a>
           ))}
         </div>
-        <a href="/service-area/" class="mt-6 inline-block font-black text-[#b4232b] underline underline-offset-4">View all nearby communities service towns →</a>
+        <a href="/service-area/" class="mt-6 inline-block font-black text-[#b4232b] underline underline-offset-4">View all service-area communities →</a>
       </div>
     </section>
     <ContactCTA />
