@@ -44,7 +44,7 @@
 
 ## Service distinctions
 
-The following are distinct services or work types. A service name in this list does not imply that a separate landing page has already been published.
+Each item below is a distinct service. Kitchen, bathroom sink, shower, bathtub, roof, storm, and yard drains are separate services.
 
 - Floor Drain Cleaning — separate from basement drain cleaning; a backup is a symptom, not the service name.
 - Basement Drain Cleaning.
@@ -57,11 +57,11 @@ The following are distinct services or work types. A service name in this list d
 - Main Drain Cleaning.
 - Sewer Line Cleaning.
 - Emergency Drain Cleaning and Sewer Backup Emergency Service.
-- Tree Root Removal from Sewer Lines.
+- Tree Root Removal and Cutting.
 - Hydro Jetting.
 - Smoke Testing.
 - Drain & Sewer Camera Inspections and Sewer Line Locating are separate services.
-- Laundry and Washing Machine Drain Cleaning.
+- Laundry/Washing Machine Drain Cleaning.
 - Toilet Unclogging.
 - Septic Line Cleaning.
 - Sump Pump Repair.
@@ -78,6 +78,10 @@ A floor drain backup does not always mean the floor drain itself is blocked. The
 A washing machine sends a large amount of water into the drain line quickly. If a floor drain rises when the washer drains, the washer may be exposing a restriction farther downstream.
 
 Homes without basements can show a main-line backup differently. Wastewater may rise into a bathtub or shower instead of a basement floor drain.
+
+## Service-area directory
+
+The directory groups listed communities under nine Iowa counties: Cerro Gordo, Floyd, Franklin, Hancock, Mitchell, Winnebago, Worth, Wright, and Butler. The nine dedicated Iowa city pages are Mason City, Clear Lake, Charles City, Forest City, Garner, Hampton, Nora Springs, Northwood, and Rockwell. Albert Lea, Minnesota, is also included. County groups are directory references, not county landing pages; call to confirm availability for a specific address.
 
 ## Service-area pages
 
