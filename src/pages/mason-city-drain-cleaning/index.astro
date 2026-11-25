@@ -1,5 +1,8 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
+import { uniqueServiceAreaCities } from '../../data/serviceAreaCities';
+
+const city = uniqueServiceAreaCities.find((item) => item.slug === 'mason-city')!;
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
@@ -9,7 +12,7 @@ const title = 'Mason City Drain Cleaning | A-1 Drain Cleaning';
 const description = 'Mason City drain cleaning for clogged drains, main drain backups, floor drains and sewer lines. A-1 Drain Cleaning is based in Mason City. Call 641-530-2728.';
 ---
 
-<MainLayout title={title} description={description} path="/mason-city-drain-cleaning/">
+<MainLayout title={title} description={description} path="/mason-city-drain-cleaning/" city={city}>
   <Header />
   <main id="main">
     <section class="bg-[#1A1A68] text-white">
