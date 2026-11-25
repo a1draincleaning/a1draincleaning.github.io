@@ -81,9 +81,6 @@ const serviceDetailAdditions: Record<string, string[]> = {
   'laundry-drains': [
     'A washing machine drain backing up can send water into the kitchen sink, bathtub, shower, toilet, standpipe, or basement floor drain depending on how the house is piped. If water comes up the sink when the washing machine is on, or the washer backs up into another fixture, the washer may be exposing a restriction in a shared or downstream drain line rather than having a problem with the appliance itself.',
   ],
-  'bathroom-shower-drains': [
-    'Bathroom drain problems can start with a slow sink and progress to a complete backup. A bathroom sink that is backing up, a shower that will not drain, or a shower drain that is backing up can point to a branch-drain problem. When a bathtub backs up while another fixture drains, the problem may be farther down a shared line.',
-  ],
 };
 
 for (const [slug, additions] of Object.entries(serviceDetailAdditions)) {
@@ -96,7 +93,7 @@ for (const [slug, additions] of Object.entries(serviceDetailAdditions)) {
 export const relatedServiceSlugs: Record<string, string[]> = {
   'sewer-camera-inspection': ['sewer-line-cleaning', 'tree-roots-in-sewer-line'],
   'sewer-line-locating': ['sewer-camera-inspection', 'sewer-line-cleaning'],
-  'emergency-drain-cleaning': ['toilet-clogs', 'bathroom-shower-drains', 'basement-floor-drains', 'sewer-backup-emergency'],
+  'emergency-drain-cleaning': ['toilet-clogs', 'kitchen-drains', 'bathroom-drain-cleaning', 'shower-drain-cleaning', 'bathtub-drain-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
   'main-drain-cleaning': ['sewer-line-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
   'sewer-line-cleaning': ['main-drain-cleaning', 'tree-roots-in-sewer-line', 'basement-floor-drains'],
   'tree-roots-in-sewer-line': ['sewer-line-cleaning', 'main-drain-cleaning'],
