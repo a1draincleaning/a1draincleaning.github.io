@@ -41,8 +41,13 @@ export const business = {
   serviceAreas: [
     'Mason City',
     'Clear Lake',
-    'Forest City',
     'Charles City',
+    'Forest City',
+    'Garner',
+    'Hampton',
+    'Nora Springs',
+    'Northwood',
+    'Rockwell',
     'North Iowa',
   ],
 } as const;
