@@ -31,10 +31,10 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
 
         <div class="mt-7 grid gap-4 sm:grid-cols-3" aria-label="Primary service-area communities">
           {uniqueServiceAreaCities
-            .filter((city) => builtServiceAreaCitySlugs.has(city.slug))
+            .filter((city) => builtServiceAreaCitySlugs.has(city.slug) || city.slug === 'mason-city')
             .sort((a, b) => a.name.localeCompare(b.name))
             .map((city) => (
-              <a href={`/service-area/${city.slug}/`} class="flex min-h-12 items-center justify-between border border-[#1A1A68] bg-[#1A1A68] px-5 py-4 font-black !text-white hover:bg-[#141452] hover:!text-white">
+              <a href={city.slug === 'mason-city' ? '/mason-city-drain-cleaning/' : `/service-area/${city.slug}/`} class="flex min-h-12 items-center justify-between border border-[#1A1A68] bg-[#1A1A68] px-5 py-4 font-black !text-white hover:bg-[#141452] hover:!text-white">
                 <span class="!text-white">{city.name}, Iowa</span><span aria-hidden="true" class="!text-white">→</span>
               </a>
             ))}
@@ -60,7 +60,7 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
                   <ul class="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                     {countyCities.map((city) => (
                       <li>
-                        {builtServiceAreaCitySlugs.has(city.slug) ? (
+                        {builtServiceAreaCitySlugs.has(city.slug) || city.slug === 'mason-city' ? (
                           <a href={`/service-area/${city.slug}/`} class="flex min-h-12 items-center border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold !text-white hover:bg-[#141452] hover:!text-white">{city.name}</a>
                         ) : (
                           <span class="flex min-h-12 items-center border border-slate-200 bg-slate-100 px-3 py-3 text-sm font-bold text-slate-600">{city.name}</span>
