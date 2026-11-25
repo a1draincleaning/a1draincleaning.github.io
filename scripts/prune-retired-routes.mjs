@@ -20,7 +20,7 @@ function routeDir(route) {
 }
 
 function redirectHtml(to) {
-  const destination = `https://a1draincleaning.github.io${to}`;
+  const destination = `https://www.a1drain.com${to}`;
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -72,13 +72,13 @@ for (const file of filesUnder(dist, (name) => name.endsWith('.html'))) {
 for (const file of filesUnder(dist, (name) => name.endsWith('.xml'))) {
   let xml = readFileSync(file, 'utf8');
   for (const { from } of retiredRoutes) {
-    const url = `https://a1draincleaning.github.io${from}`;
+    const url = `https://www.a1drain.com${from}`;
     const escaped = url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     xml = xml.replace(new RegExp(`\\s*<url>\\s*<loc>${escaped}</loc>[\\s\\S]*?</url>`, 'g'), '');
   }
   // Fail the build if a retired canonical URL survives sitemap pruning.
   for (const { from } of retiredRoutes) {
-    const url = `https://a1draincleaning.github.io${from}`;
+    const url = `https://www.a1drain.com${from}`;
     if (xml.includes(url)) {
       throw new Error(`Retired URL remained in generated XML sitemap: ${url}`);
     }
@@ -104,7 +104,7 @@ if (sitemapUrls.length === 0) {
 
 for (const sitemapUrl of sitemapUrls) {
   const parsed = new URL(sitemapUrl);
-  if (parsed.origin !== 'https://a1draincleaning.github.io' || !parsed.pathname.endsWith('/')) {
+  if (parsed.origin !== 'https://www.a1drain.com' || !parsed.pathname.endsWith('/')) {
     throw new Error('Non-canonical URL found in sitemap: ' + sitemapUrl);
   }
   const relativePath = decodeURIComponent(parsed.pathname).replace(/^\/+|\/+$/g, '');
