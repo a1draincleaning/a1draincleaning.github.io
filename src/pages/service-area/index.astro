@@ -48,11 +48,11 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
         </section>
 
         <div class="mt-10 space-y-8">
-          {Array.from(new Set(uniqueServiceAreaCities.flatMap((city) => city.counties)))
+          {Array.from(new Set(uniqueServiceAreaCities.filter((city) => city.state === 'Iowa').flatMap((city) => city.counties)))
             .sort((a, b) => a.localeCompare(b))
             .map((county) => {
               const countyCities = uniqueServiceAreaCities
-                .filter((city) => city.counties.includes(county))
+                .filter((city) => city.state === 'Iowa' && city.counties.includes(county))
                 .sort((a, b) => a.name.localeCompare(b.name));
               return (
                 <section aria-labelledby={`county-${county.toLowerCase().replaceAll(' ', '-')}`}>
