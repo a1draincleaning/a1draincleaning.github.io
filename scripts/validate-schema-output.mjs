@@ -79,7 +79,7 @@ const serviceNodes = nodes.filter((node) => node['@type'] === 'Service');
 assert.equal(placeNodes.length, 74, 'Expected 73 Iowa communities plus Albert Lea');
 assert.equal(countyNodes.length, 10, 'Expected nine Iowa counties plus Freeborn County');
 assert.equal(stateNodes.length, 2, 'Expected Iowa and Minnesota');
-assert.equal(serviceNodes.length, 20, 'Expected 20 canonical service entities');
+assert.equal(serviceNodes.length, 21, 'Expected 21 canonical service entities');
 
 const citySource = await readFile(path.join(root, 'src/data/serviceAreaCities.ts'), 'utf8');
 const iowaRows = [...citySource.matchAll(/\['([^']+)',\s*\['([^']+)'\]\]/g)].map((match) => ({ name: match[1], county: match[2] }));
@@ -107,7 +107,7 @@ const servedIds = new Set((business.areaServed ?? []).map((item) => item['@id'])
 assert.equal(servedIds.size, 74, 'Business areaServed must reference every directory community exactly once');
 for (const place of placeNodes) assert.ok(servedIds.has(place['@id']), `Business areaServed missing ${place.name}`);
 const catalogOffers = business.hasOfferCatalog?.itemListElement ?? [];
-assert.equal(catalogOffers.length, 20, 'OfferCatalog must reference all canonical services');
+assert.equal(catalogOffers.length, 21, 'OfferCatalog must reference all canonical services');
 for (const offer of catalogOffers) assert.ok(byId.has(offer.itemOffered['@id']), 'OfferCatalog has an unresolved Service reference');
 for (const service of serviceNodes) {
   assert.equal(service.provider['@id'], businessId);
@@ -116,7 +116,7 @@ for (const service of serviceNodes) {
 
 const serviceSource = await readFile(path.join(root, 'src/data/schemaServices.ts'), 'utf8');
 const expectedServiceNames = [...serviceSource.matchAll(/name:\s*'([^']+)'/g)].map((match) => match[1]);
-assert.equal(expectedServiceNames.length, 20, 'Canonical service source count mismatch');
+assert.equal(expectedServiceNames.length, 21, 'Canonical service source count mismatch');
 assert.deepEqual(new Set(serviceNodes.map((node) => node.name)), new Set(expectedServiceNames));
 const serializedServices = JSON.stringify(serviceNodes);
 assert.ok(serializedServices.includes('Tree root removal from sewer lines'));
@@ -149,4 +149,4 @@ for (const [slug, route] of expectedCityPages) {
   if (slug !== 'albert-lea') assert.ok(publishedSlugs.includes(slug), `Missing published Iowa page registry entry: ${slug}`);
 }
 
-console.log(`Schema validation passed: ${files.length} HTML pages, 74 communities, 10 counties, 2 states, 20 services, one business entity.`);
+console.log(`Schema validation passed: ${files.length} HTML pages, 74 communities, 10 counties, 2 states, 21 services, one business entity.`);
