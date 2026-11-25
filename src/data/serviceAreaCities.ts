@@ -2,12 +2,23 @@ export type ServiceAreaCity = {
   name: string;
   slug: string;
   counties: string[];
+  state: 'Iowa' | 'Minnesota';
+  stateCode: 'IA' | 'MN';
+  country: 'US';
 };
 
-const city = (name: string, counties: string[]): ServiceAreaCity => ({
+const city = (
+  name: string,
+  counties: string[],
+  state: 'Iowa' | 'Minnesota' = 'Iowa',
+  stateCode: 'IA' | 'MN' = 'IA'
+): ServiceAreaCity => ({
   name,
   slug: name.toLowerCase().replace(/\./g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, ''),
-  counties
+  counties,
+  state,
+  stateCode,
+  country: 'US'
 });
 
 /**
@@ -128,6 +139,9 @@ export const serviceAreaCities: ServiceAreaCity[] = [
   ].map(([name, counties]) => city(name as string, counties as string[]))
 ];
 
+// Albert Lea is a Minnesota service-area community, not an Iowa city page or business location.
+serviceAreaCities.push(city('Albert Lea', ['Freeborn'], 'Minnesota', 'MN'));
+
 // Merge repeated entries for towns that cross county lines rather than silently
 // dropping the second county when the same town appears in more than one group.
 export const uniqueServiceAreaCities = Array.from(
@@ -140,4 +154,24 @@ export const uniqueServiceAreaCities = Array.from(
     }
     return bySlug;
   }, new Map<string, ServiceAreaCity>()).values()
+);
+
+/** County directory derived from the single community registry. */
+export const serviceAreaCounties = Array.from(
+  uniqueServiceAreaCities.reduce((byKey, item) => {
+    for (const name of item.counties) {
+      const key = `${item.stateCode}:${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+      if (!byKey.has(key)) {
+        byKey.set(key, {
+          name,
+          state: item.state,
+          stateCode: item.stateCode,
+          country: item.country,
+          communities: [] as string[]
+        });
+      }
+      byKey.get(key)!.communities.push(item.name);
+    }
+    return byKey;
+  }, new Map<string, { name: string; state: 'Iowa' | 'Minnesota'; stateCode: 'IA' | 'MN'; country: 'US'; communities: string[] }>()).values()
 );
