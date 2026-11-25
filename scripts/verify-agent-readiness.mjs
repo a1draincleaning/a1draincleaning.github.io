@@ -25,8 +25,8 @@ for (const required of [
   '641-530-2728',
   'https://www.a1drain.com/sitemap-index.xml',
   'https://www.a1drain.com/llms.txt',
-  'Emergency drain cleaning',
-  'Emergency sewer backup service',
+  'Emergency Drain Cleaning',
+  'Sewer Backup Emergency Service',
   'Albert Lea, Minnesota',
 ]) {
   if (!agentIndex.includes(required)) throw new Error(`Markdown agent index is missing required fact: ${required}`);
