@@ -15,13 +15,13 @@ A-1 Drain Cleaning provides professional drain cleaning and sewer line clearing 
  * **Tree Root Removal:** Cutting through and clearing out aggressive tree roots that penetrate and block sewer lines.
  * **Hydro Jetting:** High-pressure water scouring to strip grease buildup, scale, and debris off pipe walls.
  * **Basement Drain Cleaning:** Clearing clogged floor drains to drain standing water and keep lower living spaces dry.
- * **Kitchen Sink Drains:** Removing grease traps, food buildup, and soap scum restricting sink drainage.
+ * **Kitchen Sink Drains:** Clearing grease buildup, food residue, and soap scum restricting kitchen sink drainage.
  * **Shower & BathTub Drains:** Clearing soap scum, hair clogs, and standing water from bathroom lines.
  * **Toilet Clog Removal:** Clearing blockages beyond standard plunging tools safely without damaging porcelain.
  * **Floor Drain Cleaning:** Servicing utility room, shop, and garage floor drains to ensure proper water discharge.
  * **Laundry Drains:** Clearing lint, detergent residue, and heavy discharge lines attached to washing machines.
  * **Roof Vent Clearing:** Clearing leaves, bird nests, and roof stack obstructions to restore proper venting and drain flow.
- * **Septic Line Cleaning:** Clearing the main incoming sewer pipe leading directly into your septic tank.
+ * **Septic Line Cleaning:** Clearing a blocked drain line carrying wastewater from a property toward its septic system. This is drain-line cleaning, not septic tank pumping or tank cleaning.
  * **Sewer Backup Service:** Clearing blocked sewer lines causing wastewater backups, basement flooding concerns, and drainage problems.
  * **Garbage Disposal Service:** Unjamming, repairing, or replacing worn-out garbage disposals.
  * **Dishwasher Drain Issues:** Clearing clogged waste lines and air gaps preventing dishwashers from draining completely.
