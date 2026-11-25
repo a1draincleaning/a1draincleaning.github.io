@@ -1,11 +1,10 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 import { uniqueServiceAreaCities } from '../../data/serviceAreaCities';
-
-const city = uniqueServiceAreaCities.find((item) => item.slug === 'albert-lea')!;
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
+const city = uniqueServiceAreaCities.find((item) => item.slug === 'albert-lea')!;
 
 const title = 'Albert Lea, Minnesota Drain Cleaning | A-1 Drain Cleaning';
 const description = 'A-1 Drain Cleaning serves Albert Lea, Minnesota for clogged drains, main drain backups, floor drain problems and sewer-line blockages. Call 641-530-2728.';
