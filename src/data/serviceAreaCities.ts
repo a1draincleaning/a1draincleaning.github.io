@@ -11,7 +11,7 @@ const city = (name: string, counties: string[]): ServiceAreaCity => ({
 });
 
 /**
- * City/community pages for A-1's current 9-county nearby communities service-area plan.
+ * City/community pages for A-1's current 8-county service-area directory.
  * County assignments are based on Iowa's incorporated-city directory and official
  * local-government sources. Review the full county coverage before expanding it.
  */
@@ -100,18 +100,6 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Kensett', ['Worth']],
     ['Manly', ['Worth']],
     ['Northwood', ['Worth']]
-  ].map(([name, counties]) => city(name as string, counties as string[])),
-
-  // Wright County
-  ...[
-    ['Belmond', ['Wright']],
-    ['Clarion', ['Wright']],
-    ['Dows', ['Wright']],
-    ['Eagle Grove', ['Wright']],
-    ['Galt', ['Wright']],
-    ['Goldfield', ['Wright']],
-    ['Rowan', ['Wright']],
-    ['Woolstock', ['Wright']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
 
   // Butler County
