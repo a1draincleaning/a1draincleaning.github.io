@@ -128,7 +128,7 @@ const publishedBlock = cityPagesSource.match(/publishedServiceAreaCitySlugs = ne
 assert.ok(publishedBlock, 'Published city-page registry missing');
 const publishedSlugs = [...publishedBlock[1].matchAll(/'([^']+)'/g)].map((match) => match[1]);
 assert.equal(publishedSlugs.length, 9, 'Expected exactly nine published Iowa city pages');
-const dynamicBlock = cityPagesSource.match(/builtServiceAreaCitySlugs = new Set\\(\\[([\\s\\S]*?)\\]\\)/);
+const dynamicBlock = cityPagesSource.match(/builtServiceAreaCitySlugs = new Set\(\[([\s\S]*?)\]\)/);
 assert.ok(dynamicBlock, 'Dynamic city-page registry missing');
 const dynamicSlugs = [...dynamicBlock[1].matchAll(/'([^']+)'/g)].map((match) => match[1]);
 assert.equal(dynamicSlugs.length, 8, 'Expected eight dynamic city pages plus the separate Mason City route');
