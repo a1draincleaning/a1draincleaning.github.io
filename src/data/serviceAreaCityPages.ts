@@ -10,3 +10,8 @@ export const builtServiceAreaCitySlugs = new Set([
   'nora-springs',
   'rockwell',
 ]);
+
+export const dedicatedServiceAreaCitySlugs = new Set([...builtServiceAreaCitySlugs, 'mason-city']);
+
+export const serviceAreaCityPageHref = (slug: string) =>
+  slug === 'mason-city' ? '/mason-city-drain-cleaning/' : `/service-area/${slug}/`;
