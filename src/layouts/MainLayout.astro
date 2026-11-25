@@ -1,10 +1,8 @@
 ---
 import { SEO } from 'astro-seo';
 import { Schema } from 'astro-seo-schema';
-import { services } from '../data/services';
-import { uniqueServiceAreaCities } from '../data/serviceAreaCities';
-import { builtServiceAreaCitySlugs } from '../data/serviceAreaCityPages';
-import { featuredServiceSlugs } from '../data/serviceGroups';
+import { uniqueServiceAreaCities, serviceAreaCounties, type ServiceAreaCity } from '../data/serviceAreaCities';
+import { schemaServices } from '../data/schemaServices';
 import { business } from '../data/business';
 import '../styles/global.css';
 
@@ -13,9 +11,9 @@ interface Props {
   description: string;
   path?: string;
   schemaType?: string;
-  service?: { title: string; description: string };
+  service?: { slug: string; title: string; description: string };
   faqs?: { question: string; answer: string }[];
-  city?: { name: string; counties: string[] };
+  city?: ServiceAreaCity;
   breadcrumbLabel?: string;
 }
 
@@ -25,27 +23,56 @@ const socialImage = new URL('/images/a1-main-sewer-drain-cleaning-mason-city.web
 const businessId = `${business.website}#business`;
 const websiteId = `${business.website}#website`;
 
-const serviceAreaAreas = [
-  { '@type': 'AdministrativeArea', name: 'North Iowa' },
-  ...uniqueServiceAreaCities
-    .filter((item) => builtServiceAreaCitySlugs.has(item.slug))
-    .map((item) => ({
-      '@type': 'Place',
-      name: `${item.name}, Iowa`
-    })),
-  {
-    '@type': 'Place',
-    name: 'Albert Lea, Minnesota',
-    containedInPlace: { '@type': 'AdministrativeArea', name: 'Minnesota' }
-  }
-];
+const stateId = (stateCode: string) => `${business.website}#state-${stateCode.toLowerCase()}`;
+const countyId = (name: string, stateCode: string) => `${business.website}#county-${stateCode.toLowerCase()}-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
+const placeId = (slug: string) => `${business.website}#place-${slug}`;
+const serviceId = (slug: string) => `${business.website}#service-${slug}`;
+
+const stateSchema = Array.from(new Set(uniqueServiceAreaCities.map((item) => item.stateCode))).map((stateCode) => {
+  const item = uniqueServiceAreaCities.find((city) => city.stateCode === stateCode)!;
+  return {
+    '@type': 'AdministrativeArea',
+    '@id': stateId(stateCode),
+    name: item.state
+  };
+});
+
+const countySchema = serviceAreaCounties.map((county) => ({
+  '@type': 'AdministrativeArea',
+  '@id': countyId(county.name, county.stateCode),
+  name: `${county.name} County`,
+  containedInPlace: { '@id': stateId(county.stateCode) }
+}));
+
+const communitySchema = uniqueServiceAreaCities.map((item) => ({
+  '@type': 'Place',
+  '@id': placeId(item.slug),
+  name: item.name,
+  containedInPlace: item.counties.map((county) => ({ '@id': countyId(county, item.stateCode) }))
+}));
+
+// The business serves every community in the directory. This does not assert that
+// every individual service is offered in every community.
+const serviceAreaAreas = uniqueServiceAreaCities.map((item) => ({ '@id': placeId(item.slug) }));
+
+const serviceSchema = schemaServices.map((item) => ({
+  '@type': 'Service',
+  '@id': serviceId(item.slug),
+  name: item.name,
+  ...(item.alternateName?.length ? { alternateName: item.alternateName } : {}),
+  serviceType: item.name,
+  description: item.description,
+  provider: { '@id': businessId },
+  ...(item.pageSlug ? { url: new URL(`/services/${item.pageSlug}/`, business.website).href } : {})
+}));
+
 
 const businessSchema = {
-  // One canonical business entity: Organization identity plus the specific local-business type.
+  // One canonical business entity; Plumber preserves the specific local-business classification.
   '@type': ['Organization', 'Plumber'],
   '@id': businessId,
   name: business.name,
-  description: 'A-1 Drain Cleaning provides drain cleaning and sewer service in Mason City, Iowa and surrounding North Iowa communities.',
+  description: 'A-1 Drain Cleaning provides drain cleaning and sewer service in Mason City, Iowa and nearby communities. Service is available 24/7.',
   url: business.website,
   logo: business.logo,
   image: business.image,
@@ -70,20 +97,19 @@ const businessSchema = {
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Drain Cleaning and Sewer Services',
-    itemListElement: services.filter(({ slug }) => featuredServiceSlugs.includes(slug as typeof featuredServiceSlugs[number])).map((item) => ({
+    itemListElement: schemaServices.map((item) => ({
       '@type': 'Offer',
-      itemOffered: {
-        '@type': 'Service',
-        name: item.title,
-        description: item.description,
-        url: `${business.website}services/${item.slug}/`
-      }
+      itemOffered: { '@id': serviceId(item.slug) }
     }))
   }
 };
 
 const graph = [
   businessSchema,
+  ...stateSchema,
+  ...countySchema,
+  ...communitySchema,
+  ...serviceSchema,
   {
     '@type': 'WebSite',
     '@id': websiteId,
@@ -101,19 +127,11 @@ const graph = [
     isPartOf: { '@id': websiteId },
     about: [
       { '@id': businessId },
-      ...(city ? [{ '@id': `${canonical}#place` }] : [])
+      ...(city ? [{ '@id': placeId(city.slug) }] : []),
+      ...(service ? (() => { const item = schemaServices.find((entry) => entry.pageSlug === service.slug); return item ? [{ '@id': serviceId(item.slug) }] : []; })() : [])
     ],
     publisher: { '@id': businessId }
   },
-  ...(city ? [{
-    '@type': 'Place',
-    '@id': `${canonical}#place`,
-    name: `${city.name}, Iowa`,
-    containedInPlace: [
-      ...city.counties.map((county) => ({ '@type': 'AdministrativeArea', name: `${county} County, Iowa` })),
-      { '@type': 'AdministrativeArea', name: 'Iowa' }
-    ]
-  }] : []),
   ...(faqs?.length ? [{
     '@type': 'FAQPage',
     '@id': `${canonical}#faq`,
@@ -126,20 +144,6 @@ const graph = [
       }
     }))
   }] : []),
-  ...(service ? [{
-    '@type': 'Service',
-    '@id': `${canonical}#service`,
-    name: service.title,
-    serviceType: service.title,
-    description: service.description,
-    provider: { '@id': businessId },
-    areaServed: serviceAreaAreas,
-    url: canonical,
-    availableChannel: {
-      '@type': 'ServiceChannel',
-      servicePhone: { '@type': 'ContactPoint', telephone: business.phone.tel, contactType: 'customer service' }
-    }
-  }] : []),
   ...(path !== '/' ? [{
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -147,7 +151,7 @@ const graph = [
       ...(path.startsWith('/services/') ? [
         { '@type': 'ListItem', position: 2, name: 'Services', item: `${business.website}services/` },
         ...(service ? [{ '@type': 'ListItem', position: 3, name: service.title, item: canonical }] : path === '/services/' ? [] : [{ '@type': 'ListItem', position: 3, name: breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''), item: canonical }])
-      ] : (path.startsWith('/service-area/') && path !== '/service-area/') || path === '/mason-city-drain-cleaning/' ? [
+      ] : (path.startsWith('/service-area/') && path !== '/service-area/') ? [
         { '@type': 'ListItem', position: 2, name: 'Areas We Serve', item: `${business.website}service-area/` },
         { '@type': 'ListItem', position: 3, name: breadcrumbLabel ?? title.replace(' | A-1 Drain Cleaning', ''), item: canonical }
       ] : [{

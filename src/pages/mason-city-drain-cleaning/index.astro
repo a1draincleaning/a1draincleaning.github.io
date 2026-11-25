@@ -1,15 +1,18 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
+import { uniqueServiceAreaCities } from '../../data/serviceAreaCities';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 import GoogleBusinessInfo from '../../components/GoogleBusinessInfo.astro';
 
+const city = uniqueServiceAreaCities.find((item) => item.slug === 'mason-city')!;
+
 const title = 'Mason City Drain Cleaning | A-1 Drain Cleaning';
 const description = 'Mason City drain cleaning for clogged drains, main drain backups, floor drains and sewer lines. A-1 Drain Cleaning is based in Mason City. Call 641-530-2728.';
 ---
 
-<MainLayout title={title} description={description} path="/mason-city-drain-cleaning/">
+<MainLayout title={title} description={description} path="/mason-city-drain-cleaning/" city={city}>
   <Header />
   <main id="main">
     <section class="bg-[#1A1A68] text-white">
@@ -20,7 +23,7 @@ const description = 'Mason City drain cleaning for clogged drains, main drain ba
           <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">A-1 Drain Cleaning is based in Mason City and cleans and unclogs drains, main drains, floor drains, and sewer lines for local homes and businesses.</p>
           <p class="mt-4 max-w-2xl leading-7 text-slate-200">If one sink is slow, several fixtures are backing up, or wastewater is coming up through a floor drain, tell us what the water is doing. That pattern helps identify where to start.</p>
           <a href="tel:+16415302728" class="mt-8 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-center text-lg font-black text-white hover:bg-[#a82129]">CALL 641-530-2728</a>
-          <p class="mt-5 text-sm font-semibold text-slate-300">24/7 drain and sewer service • Mason City and surrounding North Iowa</p>
+          <p class="mt-5 text-sm font-semibold text-slate-300">24/7 drain and sewer service • Mason City and surrounding nearby communities</p>
         </div>
         <aside class="border border-white/15 bg-white/10 p-6 sm:p-8" aria-labelledby="mason-city-problem">
           <p class="text-sm font-black uppercase tracking-[0.18em] text-red-200">Start with the symptom</p>
@@ -46,7 +49,7 @@ const description = 'Mason City drain cleaning for clogged drains, main drain ba
           <article class="border border-slate-200 p-6"><h3 class="text-xl font-black text-slate-950">Sewer line blockage</h3><p class="mt-3 leading-7 text-slate-700">Repeated backups or a blockage farther down the sewer line can affect several fixtures at once.</p><a href="/services/sewer-line-cleaning/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Sewer line cleaning →</a></article>
           <article class="border border-slate-200 p-6"><h3 class="text-xl font-black text-slate-950">Kitchen and bathroom drains</h3><p class="mt-3 leading-7 text-slate-700">Slow or stopped sinks, tubs, and showers can have a blockage in the fixture drain or a nearby branch line.</p><a href="/services/kitchen-drains/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Kitchen drains →</a><a href="/services/bathroom-shower-drains/" class="mt-2 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Bathroom &amp; shower drains →</a></article>
           <article class="border border-slate-200 p-6"><h3 class="text-xl font-black text-slate-950">Laundry drain backup</h3><p class="mt-3 leading-7 text-slate-700">A washing machine pumps out quickly. A restricted laundry or shared drain can cause water to rise when the washer empties.</p><a href="/services/laundry-drains/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Laundry drains →</a></article>
-          <article class="border border-slate-200 p-6"><h3 class="text-xl font-black text-slate-950">Tree roots in sewer lines</h3><p class="mt-3 leading-7 text-slate-700">Roots entering a sewer line can contribute to recurring blockages. Tell us if the same line keeps stopping up.</p><a href="/services/tree-roots-in-sewer-line/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Tree roots in sewer lines →</a></article>
+          <article class="border border-slate-200 p-6"><h3 class="text-xl font-black text-slate-950">Tree root removal from sewer lines</h3><p class="mt-3 leading-7 text-slate-700">Roots entering a sewer line can contribute to recurring blockages. Tell us if the same line keeps stopping up.</p><a href="/services/tree-roots-in-sewer-line/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Tree roots in sewer lines →</a></article>
         </div>
       </div>
     </section>
@@ -67,7 +70,7 @@ const description = 'Mason City drain cleaning for clogged drains, main drain ba
 
     <section class="bg-white py-14 sm:py-18" aria-labelledby="mason-city-local">
       <div class="container grid gap-8 lg:grid-cols-[1fr_1.2fr] lg:items-start">
-        <div><p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Local service</p><h2 id="mason-city-local" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Based in Mason City</h2><p class="mt-4 max-w-xl leading-7 text-slate-700">A-1 Drain Cleaning is based at 206 29th St SW, Mason City, Iowa 50401. Mason City is the home base for service in the surrounding North Iowa communities.</p><address class="mt-5 not-italic font-bold text-slate-950">206 29th St SW<br />Mason City, IA 50401</address><a href="tel:+16415302728" class="mt-6 inline-flex rounded-md bg-[#c52b34] px-6 py-3 font-black text-white hover:bg-[#a82129]">CALL 641-530-2728</a></div>
+        <div><p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Local service</p><h2 id="mason-city-local" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Based in Mason City</h2><p class="mt-4 max-w-xl leading-7 text-slate-700">A-1 Drain Cleaning is based at 206 29th St SW, Mason City, Iowa 50401. Mason City is the home base for service in the nearby communities.</p><address class="mt-5 not-italic font-bold text-slate-950">206 29th St SW<br />Mason City, IA 50401</address><a href="tel:+16415302728" class="mt-6 inline-flex rounded-md bg-[#c52b34] px-6 py-3 font-black text-white hover:bg-[#a82129]">CALL 641-530-2728</a></div>
         <div class="grid gap-3 sm:grid-cols-2"><a href="/service-area/clear-lake/" class="border border-slate-200 p-4 font-black text-slate-950 hover:border-[#b4232b] hover:text-[#b4232b]">Clear Lake</a><a href="/service-area/forest-city/" class="border border-slate-200 p-4 font-black text-slate-950 hover:border-[#b4232b] hover:text-[#b4232b]">Forest City</a><a href="/service-area/charles-city/" class="border border-slate-200 p-4 font-black text-slate-950 hover:border-[#b4232b] hover:text-[#b4232b]">Charles City</a><a href="/service-area/nora-springs/" class="border border-slate-200 p-4 font-black text-slate-950 hover:border-[#b4232b] hover:text-[#b4232b]">Nora Springs</a><a href="/service-area/garner/" class="border border-slate-200 p-4 font-black text-slate-950 hover:border-[#b4232b] hover:text-[#b4232b]">Garner</a><a href="/service-area/northwood/" class="border border-slate-200 p-4 font-black text-slate-950 hover:border-[#b4232b] hover:text-[#b4232b]">Northwood</a></div>
       </div>
     </section>
