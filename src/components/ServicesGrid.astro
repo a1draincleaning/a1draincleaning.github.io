@@ -2,19 +2,19 @@
 const services = [
   { slug: 'main-drain-cleaning', name: 'Main Drain Cleaning' },
   { slug: 'sewer-line-cleaning', name: 'Sewer Line Cleaning' },
-  { slug: 'tree-roots-in-sewer-line', name: 'Tree Roots in Sewer Line' },
-  { slug: 'basement-floor-drains', name: 'Basement Floor Drains' },
-  { slug: 'kitchen-drains', name: 'Kitchen Drains' },
-  { slug: 'bathroom-shower-drains', name: 'Bathroom & Shower Drains' },
-  { slug: 'toilet-clogs', name: 'Toilet Clogs' },
-  { slug: 'laundry-drains', name: 'Laundry Drains' },
-  { slug: 'sewer-backup-emergency', name: 'Sewer Backup Emergency' },
+  { slug: 'tree-roots-in-sewer-line', name: 'Tree Root Removal' },
+  { slug: 'basement-floor-drains', name: 'Basement Floor Drain Cleaning' },
+  { slug: 'kitchen-drains', name: 'Kitchen Sink Drain Cleaning' },
+  { slug: 'bathroom-shower-drains', name: 'Bathroom Sink, Tub & Shower Drains' },
+  { slug: 'toilet-clogs', name: 'Toilet Unclogging' },
+  { slug: 'laundry-drains', name: 'Washing Machine & Laundry Drains' },
+  { slug: 'sewer-backup-emergency', name: 'Emergency Drain & Sewer Backups' },
 ];
 ---
-
 <section aria-labelledby="services-heading" class="bg-white py-12 sm:py-16">
   <div class="container">
-    <h2 id="services-heading" class="text-3xl font-black tracking-tight text-[#1A1A68] sm:text-4xl">Drain &amp; Sewer Services</h2>
+    <h2 id="services-heading" class="text-3xl font-black tracking-tight text-[#1A1A68] sm:text-4xl">Drain Cleaning &amp; Sewer Services</h2>
+    <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">From one clogged sink to a main sewer line backup, A-1 Drain Cleaning works on residential and commercial drains in Mason City and surrounding North Iowa communities. Choose a service below for more information.</p>
     <div class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
       {services.map((service) => (
         <a href={`/services/${service.slug}/`} class="block overflow-hidden rounded-lg border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
