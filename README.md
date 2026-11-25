@@ -16,7 +16,7 @@ npm run check
 npm run build
 ```
 
-The site is configured for GitHub Pages at `https://a1draincleaning.github.io`.
+The production domain is `https://www.a1drain.com`. GitHub Pages serves this custom domain from the repository's `public/CNAME` file.
 
 ## Important
 
