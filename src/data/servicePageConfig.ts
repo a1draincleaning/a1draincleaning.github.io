@@ -4,7 +4,7 @@ const washingMachineService = services.find((service) => service.slug === 'washi
 const laundryService = services.find((service) => service.slug === 'laundry-drains');
 
 if (washingMachineService && laundryService) {
-  laundryService.title = 'Laundry & Washing Machine Drains';
+  laundryService.title = 'Laundry/Washing Machine Drain Cleaning';
   laundryService.description = 'Washing machine drain backing up, overflowing, or flooding the basement? A-1 Drain Cleaning cleans and unclogs laundry and washing machine drain lines in Mason City and nearby communities.';
   laundryService.problems = [...new Set([...laundryService.problems, ...washingMachineService.problems])];
   laundryService.signs = [...new Set([...laundryService.signs, ...washingMachineService.signs])];
@@ -14,7 +14,7 @@ if (washingMachineService && laundryService) {
 
 export const servicePageTitles: Record<string, string> = {
   'kitchen-drains': 'Kitchen Drain Cleaning | A-1 Drain Cleaning',
-  'bathroom-drain-cleaning': 'Bathroom Sink Drain Cleaning | A-1 Drain Cleaning',
+  'bathroom-drain-cleaning': 'Bathroom Drain Cleaning | A-1 Drain Cleaning',
   'shower-drain-cleaning': 'Shower Drain Cleaning | A-1 Drain Cleaning',
   'bathtub-drain-cleaning': 'Bathtub Drain Cleaning | A-1 Drain Cleaning',
   'basement-drain-cleaning': 'Basement Drain Cleaning | A-1 Drain Cleaning',
@@ -65,7 +65,7 @@ export const servicePageDescriptions: Record<string, string> = {
   'sewer-backup-into-tub-shower': 'Sewer backing up into a bathtub or shower? A-1 Drain Cleaning cleans and unclogs main drains and sewer lines in Mason City and nearby communities.',
   'garbage-disposal': 'Garbage disposal will not drain or the kitchen sink stays full? A-1 Drain Cleaning handles disposal and related drain problems in nearby communities.',
   'dishwasher-drain': 'Dishwasher not draining or backing up into the kitchen sink? A-1 Drain Cleaning handles the drain side of dishwasher backup problems.',
-  'sump-pumps': 'Sump pump stopped or not keeping up with basement water? A-1 Drain Cleaning repairs, replaces, and installs sump pumps in nearby communities.',
+  'sump-pumps': 'Sump pump repair in Mason City and nearby communities when a pump stops working or does not keep up with basement water.',
   'roof-drains': 'Roof drain blocked or not carrying rainwater away? A-1 Drain Cleaning provides roof drain cleaning in Mason City and nearby communities.',
   'septic-lines': 'Septic line cleaning in Mason City and nearby communities for a blocked house drain line leading to a septic system.',
   'storm-drain-cleaning': 'Storm drain cleaning in Mason City and nearby communities for accessible drains blocked by leaves, sediment, or debris.',
