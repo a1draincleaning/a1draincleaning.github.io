@@ -30,6 +30,13 @@ For the fuller business and service summary, see [llms.txt](https://a1drainclean
 - [Main drain cleaning](https://a1draincleaning.github.io/services/main-drain-cleaning/)
 - [Sewer line cleaning](https://a1draincleaning.github.io/services/sewer-line-cleaning/)
 - [Floor drain cleaning](https://a1draincleaning.github.io/services/basement-floor-drains/)
+- [Basement drain cleaning](https://a1draincleaning.github.io/services/basement-drain-cleaning/)
+- [Garage drain cleaning](https://a1draincleaning.github.io/services/garage-drain-cleaning/)
+- [Utility sink drain cleaning](https://a1draincleaning.github.io/services/utility-sink-drain-cleaning/)
+- [Bathroom sink drain cleaning](https://a1draincleaning.github.io/services/bathroom-drain-cleaning/)
+- [Shower drain cleaning](https://a1draincleaning.github.io/services/shower-drain-cleaning/)
+- [Bathtub drain cleaning](https://a1draincleaning.github.io/services/bathtub-drain-cleaning/)
+- [Roof drain cleaning](https://a1draincleaning.github.io/services/roof-drains/)
 - [Kitchen drain cleaning](https://a1draincleaning.github.io/services/kitchen-drains/)
 - [Toilet unclogging](https://a1draincleaning.github.io/services/toilet-clogs/)
 - [Laundry and washing machine drain cleaning](https://a1draincleaning.github.io/services/laundry-drains/)
@@ -42,13 +49,6 @@ For the fuller business and service summary, see [llms.txt](https://a1drainclean
 
 ## Confirmed services that need distinct page and schema treatment
 
-- Basement Drain Cleaning
-- Garage Drain Cleaning
-- Utility Sink Drain Cleaning
-- Bathroom Drain Cleaning
-- Shower Drain Cleaning
-- Bathtub Drain Cleaning
-- Roof Drain Service
 - Sump Pump Repair
 - Garbage Disposal Repair and Installation
 - Dishwasher Drain Service
