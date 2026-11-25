@@ -3,6 +3,7 @@ User-agent: *
 Allow: /
 
 # Search and retrieval crawlers — keep these accessible.
+# ChatGPT-User and Claude-User are user-triggered fetchers, not bulk search crawlers.
 User-agent: Googlebot
 Allow: /
 
@@ -28,8 +29,9 @@ User-agent: Applebot
 Allow: /
 
 # Google-Extended controls Gemini model training and non-Search grounding.
-# Allowing it preserves eligibility for Gemini Apps grounding; Google Search
-# and Search AI features use separate controls and are not blocked here.
+# Allowing it preserves eligibility for Gemini Apps grounding and also permits
+# Google's stated Gemini model-training use. Google Search and Search AI features
+# use separate controls and are not blocked by this token.
 User-agent: Google-Extended
 Allow: /
 
