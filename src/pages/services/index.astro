@@ -10,6 +10,7 @@ import '../../data/servicePageConfig';
 const retiredServiceSlugs = new Set([
   'washing-machine-basement-flooding',
   'kitchen-bathroom-drains',
+  'sewer-backup-into-tub-shower',
 ]);
 const featured = services.filter(({ slug }) => featuredServiceSlugs.includes(slug as typeof featuredServiceSlugs[number]));
 const additional = services.filter(({ slug }) => !retiredServiceSlugs.has(slug) && !featured.some((service) => service.slug === slug));
