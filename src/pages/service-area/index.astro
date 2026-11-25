@@ -4,10 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 import { uniqueServiceAreaCities } from '../../data/serviceAreaCities';
-import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
-
-const dedicatedServiceAreaCitySlugs = new Set([...builtServiceAreaCitySlugs, 'mason-city']);
-const cityPageHref = (slug: string) => slug === 'mason-city' ? '/mason-city-drain-cleaning/' : `/service-area/${slug}/`;
+import { dedicatedServiceAreaCitySlugs, serviceAreaCityPageHref } from '../../data/serviceAreaCityPages';
 ---
 
 <MainLayout
@@ -37,7 +34,7 @@ const cityPageHref = (slug: string) => slug === 'mason-city' ? '/mason-city-drai
             .filter((city) => dedicatedServiceAreaCitySlugs.has(city.slug))
             .sort((a, b) => a.name.localeCompare(b.name))
             .map((city) => (
-              <a href={cityPageHref(city.slug)} class="flex min-h-12 items-center justify-between border border-[#1A1A68] bg-[#1A1A68] px-5 py-4 font-black !text-white hover:bg-[#141452] hover:!text-white">
+              <a href={serviceAreaCityPageHref(city.slug)} class="flex min-h-12 items-center justify-between border border-[#1A1A68] bg-[#1A1A68] px-5 py-4 font-black !text-white hover:bg-[#141452] hover:!text-white">
                 <span class="!text-white">{city.name}, Iowa</span><span aria-hidden="true" class="!text-white">→</span>
               </a>
             ))}
@@ -64,7 +61,7 @@ const cityPageHref = (slug: string) => slug === 'mason-city' ? '/mason-city-drai
                     {countyCities.map((city) => (
                       <li>
                         {dedicatedServiceAreaCitySlugs.has(city.slug) ? (
-                          <a href={cityPageHref(city.slug)} class="flex min-h-12 items-center border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold !text-white hover:bg-[#141452] hover:!text-white">{city.name}</a>
+                          <a href={serviceAreaCityPageHref(city.slug)} class="flex min-h-12 items-center border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold !text-white hover:bg-[#141452] hover:!text-white">{city.name}</a>
                         ) : (
                           <span class="flex min-h-12 items-center border border-slate-200 bg-slate-100 px-3 py-3 text-sm font-bold text-slate-600">{city.name}</span>
                         )}
