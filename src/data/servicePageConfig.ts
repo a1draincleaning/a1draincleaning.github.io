@@ -53,7 +53,7 @@ export const servicePageDescriptions: Record<string, string> = {
   'sewer-camera-inspection': 'Drain and sewer camera inspections in Mason City and nearby communities to investigate recurring blockages and visible pipe conditions.',
   'sewer-line-locating': 'Sewer line locating in Mason City and nearby communities to help identify underground drain and sewer line routes.',
   'emergency-drain-cleaning': 'Emergency drain cleaning for clogged toilets, sinks, tubs, showers, laundry drains, and floor drains in Mason City and nearby communities. Call A-1 Drain Cleaning.',
-  'basement-floor-drains': 'Basement floor drain backing up or sewage coming up through the drain? A-1 Drain Cleaning cleans and unclogs floor and main drains in nearby communities.',
+  'basement-floor-drains': 'Floor drain cleaning in Mason City and nearby communities. A-1 Drain Cleaning clears buildup and restrictions in accessible floor drains and connected drain lines.',
   'main-drain-cleaning': 'Main drain line clogged or several drains backing up? A-1 Drain Cleaning cleans and unclogs house main drains in Mason City and nearby communities.',
   'sewer-line-cleaning': 'Main sewer pipe clogged or several fixtures backing up? A-1 Drain Cleaning cleans and unclogs residential sewer lines in nearby communities.',
   'laundry-drains': 'Washing machine drain backing up or water flooding the basement? A-1 Drain Cleaning cleans and unclogs laundry and washer drain lines in nearby communities.',
