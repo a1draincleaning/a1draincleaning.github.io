@@ -9,7 +9,6 @@ const businessId = `${website}#business`;
 const stateId = (code) => `${website}#state-${code.toLowerCase()}`;
 const countyId = (name, code) => `${website}#county-${code.toLowerCase()}-${name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`;
 const placeId = (slug) => `${website}#place-${slug}`;
-const serviceId = (slug) => `${website}#service-${slug}`;
 
 async function htmlFiles(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
