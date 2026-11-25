@@ -41,6 +41,7 @@ For the fuller business and service summary, see [llms.txt](https://www.a1drain.
 - [Toilet unclogging](https://www.a1drain.com/services/toilet-clogs/)
 - [Laundry and washing machine drain cleaning](https://www.a1drain.com/services/laundry-drains/)
 - [Sewer backup emergency service](https://www.a1drain.com/services/sewer-backup-emergency/)
+- Emergency sewer backup service is available; call 641-530-2728 to confirm current availability.
 - [Tree root removal from sewer lines](https://www.a1drain.com/services/tree-roots-in-sewer-line/)
 - [Hydro jetting](https://www.a1drain.com/services/hydro-jetting/)
 - [Drain and sewer camera inspections](https://www.a1drain.com/services/sewer-camera-inspection/)
