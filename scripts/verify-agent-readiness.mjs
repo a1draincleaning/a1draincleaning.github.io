@@ -101,8 +101,8 @@ if (new Set(allEntityIds).size !== allEntityIds.length) throw new Error('Homepag
 const organization = graphNodes.find((node) => hasType(node, 'Organization'));
 if (!organization) throw new Error('Homepage JSON-LD has no Organization identity.');
 const serviceAreaNode = graphNodes.find((node) => node['@id'] === 'https://www.a1drain.com/#service-area');
-if (!serviceAreaNode || !hasType(serviceAreaNode, 'Place') || !Array.isArray(serviceAreaNode.containsPlace) || serviceAreaNode.containsPlace.length !== 74) {
-  throw new Error('JSON-LD service-area directory must contain the 73 listed Iowa communities and Albert Lea, Minnesota.');
+if (!serviceAreaNode || !hasType(serviceAreaNode, 'Place') || !Array.isArray(serviceAreaNode.containsPlace) || serviceAreaNode.containsPlace.length !== 66) {
+  throw new Error('JSON-LD service-area directory must contain the 65 listed Iowa communities and Albert Lea, Minnesota.');
 }
 if (organization.areaServed?.['@id'] !== serviceAreaNode['@id']) throw new Error('Business areaServed does not reference the complete service-area directory.');
 
