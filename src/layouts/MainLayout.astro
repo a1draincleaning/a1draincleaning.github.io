@@ -26,7 +26,6 @@ const businessId = `${business.website}#business`;
 const websiteId = `${business.website}#website`;
 
 const serviceAreaAreas = [
-  { '@type': 'AdministrativeArea', name: 'nearby communities' },
   ...uniqueServiceAreaCities
     .filter((item) => builtServiceAreaCitySlugs.has(item.slug))
     .map((item) => ({
