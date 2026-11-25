@@ -21,7 +21,7 @@ export const servicePageTitles: Record<string, string> = {
   'sewer-line-cleaning': 'Sewer Line Cleaning | A-1 Drain Cleaning',
   'laundry-drains': 'Laundry & Washing Machine Drains | A-1 Drain Cleaning',
   'bathroom-shower-drains': 'Bathroom, Shower & Tub Drain Cleaning | A-1 Drain Cleaning',
-  'tree-roots-in-sewer-line': 'Tree Roots in Sewer Lines | A-1 Drain Cleaning',
+  'tree-roots-in-sewer-line': 'Tree Root Removal from Sewer Lines | A-1 Drain Cleaning',
   'hydro-jetting': 'Hydro Jetting | A-1 Drain Cleaning',
   'toilet-clogs': 'Toilet Clogs & Drain Problems | A-1 Drain Cleaning',
   'sewer-backup-emergency': 'Sewer Backup Emergency Service | A-1 Drain Cleaning',
