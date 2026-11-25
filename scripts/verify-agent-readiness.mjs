@@ -10,16 +10,28 @@ if (readFileSync(join(dist, 'CNAME'), 'utf8').trim() !== 'www.a1drain.com') {
   throw new Error('Built CNAME file does not name www.a1drain.com.');
 }
 const robots = readFileSync(join(dist, 'robots.txt'), 'utf8');
-for (const required of [
-  'User-agent: OAI-SearchBot\\nAllow: /',
-  'User-agent: ChatGPT-User\\nAllow: /',
-  'User-agent: Claude-SearchBot\\nAllow: /',
-  'User-agent: PerplexityBot\\nAllow: /',
-  'User-agent: GPTBot\\nDisallow: /',
-  'User-agent: ClaudeBot\\nDisallow: /',
-  'Sitemap: https://www.a1drain.com/sitemap-index.xml',
-]) {
-  if (!robots.includes(required.replaceAll('\\n', '\\n'))) throw new Error(`robots.txt is missing crawler policy: ${required.replaceAll('\\n', ' ')}`);
+const robotLines = robots.split(/\r?\n/);
+const requiredRobotRules = [
+  ['OAI-SearchBot', 'Allow: /'],
+  ['ChatGPT-User', 'Allow: /'],
+  ['Claude-SearchBot', 'Allow: /'],
+  ['Claude-User', 'Allow: /'],
+  ['PerplexityBot', 'Allow: /'],
+  ['Perplexity-User', 'Allow: /'],
+  ['Google-Extended', 'Allow: /'],
+  ['GPTBot', 'Disallow: /'],
+  ['ClaudeBot', 'Disallow: /'],
+  ['Applebot-Extended', 'Disallow: /'],
+  ['CCBot', 'Disallow: /'],
+];
+for (const [agent, rule] of requiredRobotRules) {
+  const agentIndex = robotLines.indexOf('User-agent: ' + agent);
+  if (agentIndex < 0 || robotLines[agentIndex + 1] !== rule) {
+    throw new Error('robots.txt has an incorrect crawler rule for ' + agent + '.');
+  }
+}
+if (!robots.includes('Sitemap: https://www.a1drain.com/sitemap-index.xml')) {
+  throw new Error('robots.txt does not point to the canonical sitemap index.');
 }
 if (existsSync(join(dist, 'sitemap.xml'))) throw new Error('Stale static sitemap.xml must not be published beside Astro sitemap-index.xml.');
 
@@ -150,25 +162,33 @@ for (const required of expectedServices) {
 const servicePageTitles = new Set();
 const servicePageDescriptions = new Set();
 for (const node of homepageServiceNodes) {
-  const slug = new URL(node.url).pathname.replace(/^\\/services\\//, '').replace(/\\/$/, '');
+  const slug = new URL(node.url).pathname.replace(/^\/services\//, '').replace(/\/$/, '');
   const htmlPath = join(dist, 'services', slug, 'index.html');
-  if (!existsSync(htmlPath)) throw new Error(`Published service page is missing generated HTML: ${node.url}`);
+  if (!existsSync(htmlPath)) throw new Error('Published service page is missing generated HTML: ' + node.url);
   const html = readFileSync(htmlPath, 'utf8');
-  if ([...html.matchAll(/<h1\\b/gi)].length !== 1) throw new Error(`Service page must have exactly one H1: ${node.url}`);
-  const title = html.match(/<title>([^<]+)<\\/title>/i)?.[1]?.trim();
-  const description = html.match(/<meta\\s+name="description"\\s+content="([^"]+)"/i)?.[1]?.trim();
-  const canonicalTag = [...html.matchAll(/<link\\b[^>]*>/gi)].map((match) => match[0]).find((tag) => /\\brel="canonical"/i.test(tag));
-  const canonical = canonicalTag?.match(/\\bhref="([^"]+)"/i)?.[1];
-  if (!title || !description || !canonical) throw new Error(`Service page is missing title, description, or canonical metadata: ${node.url}`);
-  if (canonical !== node.url) throw new Error(`Service page canonical does not match its Service URL: ${node.url}`);
-  if (servicePageTitles.has(title) || servicePageDescriptions.has(description)) throw new Error(`Duplicate service-page title or meta description: ${node.url}`);
+  if ([...html.matchAll(/<h1\b/gi)].length !== 1) throw new Error('Service page must have exactly one H1: ' + node.url);
+  const title = html.match(/<title>([^<]+)<\/title>/i)?.[1]?.trim();
+  const description = html.match(/<meta\s+name="description"\s+content="([^"]+)"/i)?.[1]?.trim();
+  const canonicalTag = [...html.matchAll(/<link\b[^>]*>/gi)].map((match) => match[0]).find((tag) => /\brel="canonical"/i.test(tag));
+  const canonical = canonicalTag?.match(/\bhref="([^"]+)"/i)?.[1];
+  if (!title || !description || !canonical) throw new Error('Service page is missing title, description, or canonical metadata: ' + node.url);
+  if (canonical !== node.url) throw new Error('Service page canonical does not match its Service URL: ' + node.url);
+  if (servicePageTitles.has(title) || servicePageDescriptions.has(description)) {
+    throw new Error('Duplicate service-page title or meta description: ' + node.url);
+  }
   servicePageTitles.add(title);
   servicePageDescriptions.add(description);
   const pageNodes = extractJsonLd(html).flatMap((value) => Array.isArray(value['@graph']) ? value['@graph'] : [value]);
+  const pageIds = pageNodes.map((item) => item['@id']).filter(Boolean);
+  if (new Set(pageIds).size !== pageIds.length) throw new Error('Duplicate JSON-LD entity IDs on service page: ' + node.url);
   const pageService = pageNodes.find((item) => item['@id'] === node['@id']);
-  if (!pageService || pageService.provider?.['@id'] !== organization['@id']) throw new Error(`Service page JSON-LD is missing its canonical provider-linked Service entity: ${node.url}`);
+  if (!pageService || pageService.provider?.['@id'] !== organization['@id']) {
+    throw new Error('Service page JSON-LD is missing its canonical provider-linked Service entity: ' + node.url);
+  }
   const webpage = pageNodes.find((item) => hasType(item, 'WebPage'));
-  if (!webpage?.about?.some((item) => item['@id'] === node['@id'])) throw new Error(`Service WebPage does not reference its Service entity: ${node.url}`);
+  if (!webpage?.about?.some((item) => item['@id'] === node['@id'])) {
+    throw new Error('Service WebPage does not reference its Service entity: ' + node.url);
+  }
 }
 const catalogItems = organization.hasOfferCatalog?.itemListElement ?? [];
 const catalogServiceIds = catalogItems.map((offer) => offer.itemOffered?.['@id']);
