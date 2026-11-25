@@ -68,7 +68,7 @@ const serviceSchema = schemaServices.map((item) => ({
 
 
 const businessSchema = {
-  // One canonical business entity: Organization identity plus the specific local-business type.
+  // One canonical business entity using Schema.org's specific Plumber local-business type.
   '@type': 'Plumber',
   '@id': businessId,
   name: business.name,
