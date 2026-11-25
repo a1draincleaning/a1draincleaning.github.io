@@ -1,158 +1,208 @@
 ---
-const fixtures = [
-  { id:'kitchen', label:'Kitchen sink', title:'Kitchen sink drain', detail:'The kitchen sink drains through a P-trap and a branch line that joins the larger house drain. Grease, food scraps, and soap residue can collect in this branch.', clue:'If only the kitchen sink is slow, the restriction may be near that fixture. If several fixtures are affected, it may be farther down the line.', service:'Kitchen Drain Cleaning', href:'/services/kitchen-bathroom-drains/' },
-  { id:'dishwasher', label:'Dishwasher', title:'Dishwasher drain connection', detail:'The dishwasher discharge hose connects to the kitchen drain system, commonly at the sink drain or disposal. A restriction in that connection or the kitchen branch can leave water in the appliance or push water back into the sink.', clue:'If the dishwasher leaves water behind or sends water into the sink, the drain connection may need attention. Appliance faults are separate.', service:'Dishwasher Drain Problems', href:'/services/dishwasher-drain/' },
-  { id:'bath-sink', label:'Bathroom sink', title:'Bathroom sink drain', detail:'A bathroom sink drains through a P-trap into a smaller branch line. Hair, soap residue, and buildup commonly collect near the stopper, trap, or branch.', clue:'If the sink is the only fixture draining slowly, the restriction may be local. If other bathroom fixtures are affected, the issue may be shared.', service:'Bathroom & Shower Drain Cleaning', href:'/services/kitchen-bathroom-drains/' },
-  { id:'tub', label:'Bathtub', title:'Bathtub drain', detail:'A bathtub drains through its waste-and-overflow fitting and a trapped branch line. Hair and soap buildup can restrict the tub drain; a shared-line blockage can cause a larger backup.', clue:'Notice whether the tub is the only fixture affected or whether the toilet, shower, or another drain changes when water is used.', service:'Bathroom & Shower Drain Cleaning', href:'/services/kitchen-bathroom-drains/' },
-  { id:'shower', label:'Shower', title:'Shower drain', detail:'A shower drain connects through a trap to the bathroom branch. Hair and soap buildup often restrict the fixture drain, while multiple affected fixtures can point to a shared line.', clue:'If the shower is slow by itself, the restriction may be near the shower. If another fixture makes it back up, the blockage may be farther downstream.', service:'Bathroom & Shower Drain Cleaning', href:'/services/kitchen-bathroom-drains/' },
-  { id:'toilet', label:'Toilet', title:'Toilet and soil branch', detail:'The toilet connects through its built-in trap to a larger soil branch and the home drain stack. A single toilet clog can be local; several fixtures backing up together can point farther down the system.', clue:'If flushing makes a tub, shower, or floor drain rise, stop flushing and describe which fixtures are affected.', service:'Toilet Clogs & Toilet Problems', href:'/services/toilet-clogs/' },
-  { id:'laundry', label:'Laundry / washer', title:'Laundry standpipe and drain', detail:'A washing machine pumps a large amount of water into a standpipe connected to the laundry branch. A partly restricted branch or shared drain can overflow during the pump-out cycle.', clue:'Water may spill from the standpipe or push up through a nearby floor drain when the washer pumps out. Stop the washer if water is spilling.', service:'Laundry & Washing Machine Drains', href:'/services/laundry-drains/' },
-  { id:'floor', label:'Basement floor drain', title:'Basement floor drain', detail:'A basement floor drain is often one of the lowest openings in the house. When sewage rises there, the restriction may be farther downstream in a shared building drain or sewer line—not necessarily at the floor drain itself.', clue:'If the washer, toilet, or another fixture makes the floor drain rise, stop using water and keep people and pets away from wastewater.', service:'Floor Drain Backups & Basement Drains', href:'/services/basement-floor-drains/' },
-  { id:'main', label:'Main drain', title:'Main drain through the house', detail:'Fixture branches join larger building drains that carry wastewater toward the building drain and out of the house. A restriction in this shared section can affect several fixtures.', clue:'Several drains slowing down together, a toilet affecting another fixture, or a low drain filling first can point to a main-drain problem.', service:'Main Drain Cleaning', href:'/services/main-drain-cleaning/' },
-  { id:'sewer', label:'Underground sewer line', title:'Underground sewer line', detail:'The private building sewer carries wastewater from the house toward the public sewer or a septic system. Roots, buildup, separated joints, or other pipe conditions can restrict this buried line.', clue:'Repeated backups or several affected fixtures can point to a problem in the sewer line leaving the house. A camera inspection may help when the problem keeps returning.', service:'Sewer Line Cleaning', href:'/services/sewer-line-cleaning/' },
+const failurePoints = [
+  {
+    number: '1',
+    title: 'Kitchen sink branch',
+    detail: 'The trap and short branch below a kitchen sink can collect grease, food residue, and soap. If only the kitchen sink is slow, the restriction may be close to that fixture.',
+    href: '/services/kitchen-drains/',
+    link: 'Kitchen drain cleaning',
+  },
+  {
+    number: '2',
+    title: 'Grease in the kitchen run',
+    detail: 'Grease can cool and stick to the inside of the kitchen drain line. More debris catches on that buildup until the line slows down or plugs.',
+    href: '/services/kitchen-drains/',
+    link: 'Kitchen drain cleaning',
+  },
+  {
+    number: '3',
+    title: 'Roots at a sewer-pipe joint',
+    detail: 'Roots can enter through an open joint or crack and catch waste moving through the line. If the same blockage keeps returning, a sewer camera can help show where roots are getting in.',
+    href: '/services/tree-roots-in-sewer-line/',
+    link: 'Tree roots in sewer lines',
+  },
+  {
+    number: '4',
+    title: 'Sewer cleanout and access point',
+    detail: 'A cleanout provides access to a section of the building drain or private sewer. The blockage may be beyond the cleanout, so the access point is not always where the problem started.',
+    href: '/services/main-drain-cleaning/',
+    link: 'Main drain cleaning',
+  },
+  {
+    number: '5',
+    title: 'Connection to the public sewer',
+    detail: 'The private sewer lateral carries wastewater from the house toward the public sewer. A restriction or pipe problem near the connection can affect drainage throughout the house.',
+    href: '/services/sewer-line-cleaning/',
+    link: 'Sewer line cleaning',
+  },
+  {
+    number: '6',
+    title: 'Damaged pipe beneath a driveway',
+    detail: 'A cracked, crushed, or collapsed sewer pipe can leak wastewater into the surrounding soil. Soil washout can contribute to a dip or settling above the line. A driveway crack by itself does not prove sewer damage.',
+    href: '/services/sewer-camera-inspection/',
+    link: 'Sewer camera inspection',
+  },
 ];
 ---
 <section class="bg-slate-100 py-14 sm:py-16" aria-labelledby="homepage-house-diagnostic-heading">
   <div class="container">
     <div class="max-w-4xl">
       <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Inside the house drain system</p>
-      <h2 id="homepage-house-diagnostic-heading" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">See where your drain connects.</h2>
-      <p class="mt-3 text-base leading-7 text-slate-700">Select a fixture in the house or use the list. The orange line follows that fixture's drain route through the house and out to the sewer. The drawing shows a typical layout; actual pipe routes vary from home to home.</p>
+      <h2 id="homepage-house-diagnostic-heading" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Where the house drain can go wrong</h2>
+      <p class="mt-3 text-base leading-7 text-slate-700">This cutaway follows wastewater from the fixtures, down the sewer stack, through the building drain and private sewer lateral, and out toward the public sewer. The six numbered locations show common trouble spots. The drawing is a teaching illustration, not a map of your exact pipes.</p>
     </div>
-    <div class="mt-8 grid gap-6 lg:grid-cols-[minmax(0,1.25fr)_minmax(18rem,.75fr)] lg:items-start">
-      <figure class="overflow-x-auto rounded-xl border border-slate-300 bg-white p-2 sm:p-4" tabindex="0" aria-label="Scrollable cutaway house plumbing diagram. On smaller screens, swipe horizontally to view the full illustration.">
-        <p class="px-2 pb-2 text-xs font-semibold text-slate-600 sm:hidden">Swipe left or right to see the full house.</p>
-        <svg viewBox="0 0 840 570" role="group" aria-labelledby="a1-house-svg-title a1-house-svg-desc" class="block h-auto min-w-[650px] w-full">
-          <title id="a1-house-svg-title">Cutaway of a typical American home's plumbing and sewer line</title>
-          <desc id="a1-house-svg-desc">A two-story house showing a kitchen sink and dishwasher, bathroom sink, bathtub, shower, toilet, laundry standpipe, basement floor drain, main drain stack, foundation, and underground sewer line.</desc>
-          <defs><pattern id="a1-house-soil" width="14" height="14" patternUnits="userSpaceOnUse"><path d="M0 14L14 0" stroke="#cbd5e1" stroke-width="1"/></pattern></defs>
-          <path d="M12 448H828V556H12Z" fill="url(#a1-house-soil)"/><path d="M12 448H828" stroke="#64748b" stroke-width="4"/>
-          <path d="M72 448V132L326 30L580 132V448Z" fill="#f8fafc" stroke="#334155" stroke-width="5" stroke-linejoin="round"/>
-          <path d="M50 137L326 20L602 137" fill="none" stroke="#b4232b" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M72 278H580M72 448H580" stroke="#94a3b8" stroke-width="5"/><path d="M326 278V448M430 132V278" stroke="#cbd5e1" stroke-width="3"/>
-          <text x="490" y="160" fill="#334155" font-size="15" font-weight="800" text-anchor="middle">UPPER FLOOR</text><text x="490" y="307" fill="#334155" font-size="15" font-weight="800" text-anchor="middle">MAIN FLOOR</text><text x="490" y="470" fill="#334155" font-size="15" font-weight="800" text-anchor="middle">BASEMENT</text>
-          <path d="M500 112V82H520V38" fill="none" stroke="#0f766e" stroke-width="9" stroke-linecap="round"/><text x="536" y="52" fill="#0f766e" font-size="13" font-weight="800">VENT THROUGH ROOF</text>
-          <path d="M500 112V505H690V525H804" fill="none" stroke="#1d4ed8" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/><path d="M500 112V505H690V525H804" fill="none" stroke="#93c5fd" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M690 525V448M678 448H702" stroke="#475569" stroke-width="6"/><path d="M804 525V548M786 548H822" stroke="#475569" stroke-width="7" stroke-linecap="round"/>
-          <text x="600" y="495" fill="#1e3a8a" font-size="13" font-weight="800" text-anchor="middle">MAIN BUILDING DRAIN</text><text x="745" y="514" fill="#1e3a8a" font-size="12" font-weight="800" text-anchor="middle">PRIVATE SEWER</text><text x="804" y="565" fill="#334155" font-size="11" font-weight="800" text-anchor="middle">TO PUBLIC SEWER</text><text x="704" y="430" fill="#334155" font-size="11" font-weight="700">CLEANOUT</text>
-          <g fill="none" stroke="#64748b" stroke-width="5" stroke-linejoin="round" stroke-linecap="round">
-            <path d="M145 245V263Q145 278 160 278H174Q190 278 190 263V255H390V335H500"/><path d="M225 245V270H300V300H420V335H500"/>
-            <path d="M160 145V170Q160 184 174 184H188Q202 184 202 170V165H440V205H500"/><path d="M300 145V165Q300 180 315 180H330Q345 180 345 165V190H455V220H500"/>
-            <path d="M390 145V170Q390 185 405 185H420Q435 185 435 170V240H470V250H500"/><path d="M520 170V195Q520 215 540 215H560V245H500"/>
-            <path d="M150 365V395Q150 415 170 415H205V435H455V455H500"/><path d="M340 430V442Q340 460 358 460H420V475H500"/>
-          </g>
-          <path d="M115 245V220H175V245" fill="#dbeafe" stroke="#475569" stroke-width="3"/><path d="M145 245V263Q145 278 160 278H174Q190 278 190 263V255" fill="none" stroke="#1d4ed8" stroke-width="6"/><text x="145" y="210" fill="#334155" font-size="12" font-weight="800" text-anchor="middle">KITCHEN SINK</text>
-          <rect x="195" y="218" width="58" height="38" rx="3" fill="#e2e8f0" stroke="#475569" stroke-width="3"/><path d="M204 228H244M204 236H244" stroke="#94a3b8" stroke-width="2"/><text x="224" y="210" fill="#334155" font-size="11" font-weight="800" text-anchor="middle">DISHWASHER</text>
-          <path d="M140 145V122H180V145" fill="#dbeafe" stroke="#475569" stroke-width="3"/><path d="M160 145V170Q160 184 174 184H188Q202 184 202 170V165" fill="none" stroke="#1d4ed8" stroke-width="6"/><text x="160" y="113" fill="#334155" font-size="12" font-weight="800" text-anchor="middle">BATH SINK</text>
-          <path d="M265 115H350V140H265Z" fill="#dbeafe" stroke="#475569" stroke-width="3"/><path d="M300 145V165Q300 180 315 180H330Q345 180 345 165" fill="none" stroke="#1d4ed8" stroke-width="6"/><text x="307" y="105" fill="#334155" font-size="12" font-weight="800" text-anchor="middle">BATHTUB</text>
-          <path d="M365 115H435V145H365Z" fill="#dbeafe" stroke="#475569" stroke-width="3"/><path d="M390 145V170Q390 185 405 185H420Q435 185 435 170" fill="none" stroke="#1d4ed8" stroke-width="6"/><text x="400" y="105" fill="#334155" font-size="12" font-weight="800" text-anchor="middle">SHOWER</text>
-          <path d="M520 135H568Q582 135 582 150V170H535Q520 170 520 155Z" fill="#dbeafe" stroke="#475569" stroke-width="3"/><path d="M520 170V195Q520 215 540 215" fill="none" stroke="#1d4ed8" stroke-width="7"/><text x="550" y="125" fill="#334155" font-size="12" font-weight="800" text-anchor="middle">TOILET</text>
-          <rect x="95" y="365" width="48" height="60" rx="4" fill="#e2e8f0" stroke="#475569" stroke-width="3"/><circle cx="119" cy="393" r="14" fill="#fff" stroke="#64748b" stroke-width="3"/><path d="M150 365V395Q150 415 170 415" fill="none" stroke="#1d4ed8" stroke-width="6"/><text x="119" y="444" fill="#334155" font-size="12" font-weight="800" text-anchor="middle">WASHER</text>
-          <rect x="326" y="424" width="28" height="10" fill="#cbd5e1" stroke="#475569" stroke-width="2"/><path d="M340 430V442Q340 460 358 460" fill="none" stroke="#1d4ed8" stroke-width="6"/><text x="340" y="415" fill="#334155" font-size="11" font-weight="800" text-anchor="middle">FLOOR DRAIN</text>
-          <g class="a1-route" data-route="kitchen"><path d="M145 245V263Q145 278 160 278H174Q190 278 190 263V255H390V335H500V505H690V525H804"/></g>
-          <g class="a1-route" data-route="dishwasher"><path d="M224 256V270H300V300H420V335H500V505H690V525H804"/></g>
-          <g class="a1-route" data-route="bath-sink"><path d="M160 145V170Q160 184 174 184H188Q202 184 202 170V165H440V205H500V505H690V525H804"/></g>
-          <g class="a1-route" data-route="tub"><path d="M300 145V165Q300 180 315 180H330Q345 180 345 165V190H455V220H500V505H690V525H804"/></g>
-          <g class="a1-route" data-route="shower"><path d="M390 145V170Q390 185 405 185H420Q435 185 435 170V240H470V250H500V505H690V525H804"/></g>
-          <g class="a1-route" data-route="toilet"><path d="M520 170V195Q520 215 540 215H560V245H500V505H690V525H804"/></g>
-          <g class="a1-route" data-route="laundry"><path d="M150 365V395Q150 415 170 415H205V435H455V455H500V505H690V525H804"/></g>
-          <g class="a1-route" data-route="floor"><path d="M340 430V442Q340 460 358 460H420V475H500V505H690V525H804"/></g>
-          <g class="a1-route" data-route="main"><path d="M500 335V505H690V525H804"/></g>
-          <g class="a1-route" data-route="sewer"><path d="M690 505V525H804"/></g>
-          <g class="a1-hotspot" role="button" tabindex="0" aria-pressed="false" aria-label="Select kitchen sink" data-fixture-hotspot="kitchen"><circle cx="145" cy="232" r="14"/><text x="145" y="237">1</text></g>
-          <g class="a1-hotspot" role="button" tabindex="0" aria-pressed="false" aria-label="Select dishwasher" data-fixture-hotspot="dishwasher"><circle cx="224" cy="236" r="14"/><text x="224" y="241">2</text></g>
-          <g class="a1-hotspot" role="button" tabindex="0" aria-pressed="false" aria-label="Select bathroom sink" data-fixture-hotspot="bath-sink"><circle cx="160" cy="135" r="14"/><text x="160" y="140">3</text></g>
-          <g class="a1-hotspot" role="button" tabindex="0" aria-pressed="false" aria-label="Select bathtub" data-fixture-hotspot="tub"><circle cx="307" cy="128" r="14"/><text x="307" y="133">4</text></g>
-          <g class="a1-hotspot" role="button" tabindex="0" aria-pressed="false" aria-label="Select shower" data-fixture-hotspot="shower"><circle cx="400" cy="130" r="14"/><text x="400" y="135">5</text></g>
-          <g class="a1-hotspot" role="button" tabindex="0" aria-pressed="false" aria-label="Select toilet" data-fixture-hotspot="toilet"><circle cx="550" cy="151" r="14"/><text x="550" y="156">6</text></g>
-          <g class="a1-hotspot" role="button" tabindex="0" aria-pressed="false" aria-label="Select laundry drain" data-fixture-hotspot="laundry"><circle cx="119" cy="390" r="14"/><text x="119" y="395">7</text></g>
-          <g class="a1-hotspot" role="button" tabindex="0" aria-pressed="false" aria-label="Select basement floor drain" data-fixture-hotspot="floor"><circle cx="340" cy="430" r="14"/><text x="340" y="435">8</text></g>
-          <g class="a1-hotspot" role="button" tabindex="0" aria-pressed="false" aria-label="Select main drain" data-fixture-hotspot="main"><circle cx="500" cy="490" r="14"/><text x="500" y="495">9</text></g>
-          <g class="a1-hotspot" role="button" tabindex="0" aria-pressed="false" aria-label="Select underground sewer line" data-fixture-hotspot="sewer"><circle cx="748" cy="525" r="14"/><text x="748" y="530">10</text></g>
-        </svg>
-        <figcaption class="px-2 pt-3 text-sm leading-6 text-slate-600"><span class="font-bold text-blue-800">Blue:</span> typical drain route. <span class="font-bold text-teal-700">Green:</span> vent. <span class="font-bold text-amber-700">Orange:</span> selected route. Simplified teaching diagram, not a construction plan. Actual fixture locations, pipe sizes, venting, and connections vary by house.</figcaption>
-      </figure>
-      <section class="rounded-xl border border-slate-300 bg-white p-5 sm:p-6" aria-labelledby="fixture-picker-heading">
-        <h3 id="fixture-picker-heading" class="text-xl font-black text-slate-950">Choose a fixture or drain</h3>
-        <p class="mt-1 text-sm leading-6 text-slate-600">Tap a numbered point in the drawing or choose it here.</p>
-        <div class="mt-4 grid grid-cols-2 gap-2">
-          {fixtures.map((fixture, index) => <button type="button" class="a1-fixture-choice min-h-12 rounded-md border border-slate-300 bg-slate-50 px-3 py-2 text-left text-sm font-bold text-slate-800 hover:border-[#1A1A68] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1A1A68]" data-fixture={fixture.id} data-title={fixture.title} data-detail={fixture.detail} data-clue={fixture.clue} data-service={fixture.service} data-href={fixture.href} aria-pressed="false"><span class="mr-1 text-[#b4232b]">{String(index + 1).padStart(2, '0')}.</span>{fixture.label}</button>)}
-        </div>
-        <div class="mt-5 border-l-4 border-[#b4232b] bg-slate-50 p-4" aria-live="polite" aria-atomic="true">
-          <h4 id="a1-fixture-result-title" class="text-lg font-black text-slate-950">Select a fixture to trace its drain.</h4>
-          <p id="a1-fixture-result-detail" class="mt-2 text-sm leading-6 text-slate-700">The orange overlay will follow the selected branch through the house and toward the sewer.</p>
-          <p id="a1-fixture-result-clue" class="mt-3 text-sm leading-6 text-slate-700"></p>
-          <p id="a1-fixture-result-service" class="mt-3 text-sm font-bold text-slate-800"></p>
-          <a id="a1-fixture-result-link" href="/services/main-drain-cleaning/" class="mt-3 inline-flex min-h-11 items-center font-black text-[#b4232b] underline decoration-2 underline-offset-4" hidden>View the matching A-1 service →</a>
-        </div>
-        <div class="mt-4 flex flex-wrap gap-3"><button type="button" id="a1-show-all-routes" class="min-h-11 rounded-md bg-[#1A1A68] px-4 py-2 text-sm font-black text-white hover:bg-[#142052]" aria-pressed="false">Show all plumbing</button><button type="button" id="a1-reset-routes" class="min-h-11 rounded-md border border-slate-300 px-4 py-2 text-sm font-bold text-slate-800 hover:bg-slate-100">Clear selection</button></div>
-        <p class="mt-4 text-xs leading-5 text-slate-600">A drawing cannot show where a blockage is inside your actual pipes. If sewage is coming up through a basement floor drain, stop using water and call A-1 Drain Cleaning at <a class="font-bold underline" href="tel:+16415302728">641-530-2728</a>.</p>
-      </section>
+
+    <figure class="mt-8 overflow-hidden rounded-xl border border-slate-300 bg-white p-2 sm:p-4">
+      <svg viewBox="0 0 1120 640" role="img" aria-labelledby="a1-house-svg-title a1-house-svg-desc" class="block h-auto w-full">
+        <title id="a1-house-svg-title">House cutaway showing the sewer stack, private sewer lateral, public sewer, and six possible drain failure locations</title>
+        <desc id="a1-house-svg-desc">A two-story home with kitchen, bathroom, toilet, laundry, and basement floor drain connected to a vertical sewer stack. The stack connects to a private sewer lateral running beneath the property to the public sewer. The diagram marks a kitchen branch, grease buildup, roots at a pipe joint, a cleanout, the public sewer connection, and a cracked or collapsed pipe beneath a settling driveway. No gully is shown.</desc>
+        <defs>
+          <pattern id="a1-house-soil" width="16" height="16" patternUnits="userSpaceOnUse">
+            <path d="M0 16L16 0" stroke="#d5dde7" stroke-width="1"/>
+          </pattern>
+          <marker id="a1-flow-arrow" markerWidth="8" markerHeight="8" refX="5" refY="3" orient="auto">
+            <path d="M0 0L6 3L0 6" fill="none" stroke="#0ea5e9" stroke-width="1.5"/>
+          </marker>
+        </defs>
+
+        <!-- Ground, soil, house shell, and floors -->
+        <path d="M18 470H1100V625H18Z" fill="url(#a1-house-soil)"/>
+        <path d="M18 470H1100" stroke="#64748b" stroke-width="4"/>
+        <path d="M75 470V166L330 42L585 166V470Z" fill="#f8fafc" stroke="#334155" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M50 172L330 30L610 172" fill="none" stroke="#b4232b" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M75 285H585M75 385H585M75 470H585" stroke="#94a3b8" stroke-width="5"/>
+        <path d="M330 285V470M455 166V285" stroke="#cbd5e1" stroke-width="3"/>
+        <text x="500" y="195" fill="#334155" font-size="16" font-weight="800" text-anchor="middle">UPPER FLOOR</text>
+        <text x="500" y="315" fill="#334155" font-size="16" font-weight="800" text-anchor="middle">MAIN FLOOR</text>
+        <text x="500" y="495" fill="#334155" font-size="16" font-weight="800" text-anchor="middle">BASEMENT</text>
+
+        <!-- Roof vent and main sewer stack -->
+        <path d="M535 170V105H558V55" fill="none" stroke="#0f766e" stroke-width="10" stroke-linecap="round"/>
+        <text x="575" y="68" fill="#0f766e" font-size="14" font-weight="800">VENT THROUGH ROOF</text>
+        <path d="M535 170V500" fill="none" stroke="#1d4ed8" stroke-width="17" stroke-linecap="round"/>
+        <path d="M535 170V500" fill="none" stroke="#93c5fd" stroke-width="6" stroke-linecap="round"/>
+        <text x="555" y="410" fill="#1e3a8a" font-size="14" font-weight="800">SEWER STACK</text>
+
+        <!-- Fixture branches -->
+        <g fill="none" stroke="#64748b" stroke-width="6" stroke-linejoin="round" stroke-linecap="round">
+          <path d="M155 245V260Q155 276 172 276H190V300H430V350H535"/>
+          <path d="M250 245V270H310V315H450V350H535"/>
+          <path d="M165 145V170Q165 185 182 185H200V205H435V230H535"/>
+          <path d="M310 145V168Q310 185 327 185H345V215H455V245H535"/>
+          <path d="M405 145V170Q405 187 422 187H440V255H500V265H535"/>
+          <path d="M535 190H555Q575 190 575 210V235"/>
+          <path d="M150 365V405Q150 425 170 425H210V445H470V465H535"/>
+          <path d="M365 430V445Q365 462 382 462H455V480H535"/>
+        </g>
+
+        <!-- Kitchen and dishwasher -->
+        <path d="M120 245V220H190V245" fill="#dbeafe" stroke="#475569" stroke-width="3"/>
+        <path d="M155 245V260Q155 276 172 276H190" fill="none" stroke="#1d4ed8" stroke-width="7"/>
+        <text x="155" y="210" fill="#334155" font-size="13" font-weight="800" text-anchor="middle">KITCHEN SINK</text>
+        <rect x="220" y="218" width="60" height="38" rx="3" fill="#e2e8f0" stroke="#475569" stroke-width="3"/>
+        <path d="M230 229H270M230 238H270" stroke="#94a3b8" stroke-width="2"/>
+        <text x="250" y="210" fill="#334155" font-size="12" font-weight="800" text-anchor="middle">DISHWASHER</text>
+
+        <!-- Bathroom fixtures -->
+        <path d="M145 145V122H185V145" fill="#dbeafe" stroke="#475569" stroke-width="3"/>
+        <text x="165" y="112" fill="#334155" font-size="13" font-weight="800" text-anchor="middle">BATH SINK</text>
+        <path d="M275 115H360V145H275Z" fill="#dbeafe" stroke="#475569" stroke-width="3"/>
+        <text x="318" y="105" fill="#334155" font-size="13" font-weight="800" text-anchor="middle">BATHTUB</text>
+        <path d="M380 115H450V145H380Z" fill="#dbeafe" stroke="#475569" stroke-width="3"/>
+        <text x="415" y="105" fill="#334155" font-size="13" font-weight="800" text-anchor="middle">SHOWER</text>
+        <path d="M555 135H595Q610 135 610 150V175H570Q555 175 555 160Z" fill="#dbeafe" stroke="#475569" stroke-width="3"/>
+        <text x="585" y="125" fill="#334155" font-size="13" font-weight="800" text-anchor="middle">TOILET</text>
+
+        <!-- Laundry and basement floor drain -->
+        <rect x="100" y="365" width="52" height="62" rx="4" fill="#e2e8f0" stroke="#475569" stroke-width="3"/>
+        <circle cx="126" cy="395" r="15" fill="#fff" stroke="#64748b" stroke-width="3"/>
+        <text x="126" y="447" fill="#334155" font-size="13" font-weight="800" text-anchor="middle">WASHER</text>
+        <rect x="351" y="423" width="28" height="11" fill="#cbd5e1" stroke="#475569" stroke-width="2"/>
+        <text x="365" y="415" fill="#334155" font-size="12" font-weight="800" text-anchor="middle">FLOOR DRAIN</text>
+
+        <!-- Building drain, cleanout, and private sewer lateral -->
+        <path d="M535 500H650V530H820" fill="none" stroke="#1d4ed8" stroke-width="17" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M535 500H650V530H820" fill="none" stroke="#93c5fd" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M880 530H1015" fill="none" stroke="#1d4ed8" stroke-width="17" stroke-linecap="round"/>
+        <path d="M880 530H1015" fill="none" stroke="#93c5fd" stroke-width="6" stroke-linecap="round"/>
+        <path d="M650 530V470M636 470H664" stroke="#475569" stroke-width="7" stroke-linecap="round"/>
+        <text x="650" y="450" fill="#334155" font-size="13" font-weight="800" text-anchor="middle">CLEANOUT</text>
+        <text x="720" y="510" fill="#1e3a8a" font-size="13" font-weight="800" text-anchor="middle">PRIVATE SEWER LATERAL</text>
+        <path d="M1015 530H1060V610" fill="none" stroke="#1d4ed8" stroke-width="22" stroke-linecap="round"/>
+        <path d="M1015 530H1060V610" fill="none" stroke="#93c5fd" stroke-width="7" stroke-linecap="round"/>
+        <text x="1060" y="635" fill="#334155" font-size="13" font-weight="800" text-anchor="middle">PUBLIC SEWER</text>
+        <text x="570" y="555" fill="#334155" font-size="12" font-weight="700">BUILDING DRAIN</text>
+
+        <!-- Roots entering a joint -->
+        <path d="M745 350V395M745 375L725 400M745 375L766 401M745 395L715 420M745 395L778 425" fill="none" stroke="#64748b" stroke-width="7" stroke-linecap="round"/>
+        <path d="M745 395L745 520" fill="none" stroke="#64748b" stroke-width="5" stroke-linecap="round"/>
+        <path d="M730 520Q745 510 760 520" fill="none" stroke="#b4232b" stroke-width="4" stroke-linecap="round"/>
+        <path d="M725 530L715 543M745 530L745 547M765 530L776 543" fill="none" stroke="#64748b" stroke-width="4" stroke-linecap="round"/>
+        <text x="745" y="335" fill="#334155" font-size="12" font-weight="800" text-anchor="middle">TREE ROOTS</text>
+
+        <!-- Driveway above damaged section -->
+        <path d="M790 430L845 423L900 426L960 432L1010 432V470H790Z" fill="#cbd5e1" stroke="#64748b" stroke-width="3"/>
+        <path d="M790 430L845 423L900 426L960 432L1010 432" fill="none" stroke="#475569" stroke-width="5"/>
+        <path d="M865 424L855 438L869 445L858 459" fill="none" stroke="#b4232b" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M820 470Q850 482 885 470" fill="none" stroke="#94a3b8" stroke-width="3" stroke-dasharray="5 5"/>
+        <text x="900" y="410" fill="#334155" font-size="14" font-weight="800" text-anchor="middle">DRIVEWAY</text>
+
+        <!-- Collapsed pipe, soil washout, and escaping wastewater -->
+        <path d="M820 530H838M864 530H880" fill="none" stroke="#1d4ed8" stroke-width="17" stroke-linecap="round"/>
+        <path d="M820 530H838M864 530H880" fill="none" stroke="#93c5fd" stroke-width="6" stroke-linecap="round"/>
+        <path d="M838 518L845 510L852 519L858 511L864 518" fill="none" stroke="#b4232b" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M850 540C835 553 840 566 850 574C860 565 865 553 850 540Z" fill="#38bdf8" opacity=".8"/>
+        <path d="M850 574C825 588 815 600 805 610M850 574C875 588 885 600 895 610" fill="none" stroke="#a16207" stroke-width="5" stroke-dasharray="5 5"/>
+        <text x="850" y="595" fill="#92400e" font-size="12" font-weight="800" text-anchor="middle">SOIL WASHOUT</text>
+
+        <!-- Flow animation: wastewater moving down the stack and out toward the public sewer -->
+        <path class="a1-water-flow" d="M535 205V500H650V530H820M880 530H1015H1060V600" fill="none" stroke="#0ea5e9" stroke-width="5" stroke-dasharray="10 18" stroke-linecap="round" marker-end="url(#a1-flow-arrow)"/>
+
+        <!-- Six static, non-interactive failure-location markers -->
+        <g class="a1-failure-marker"><circle cx="190" cy="276" r="18"/><text x="190" y="282">1</text></g>
+        <g class="a1-failure-marker"><circle cx="430" cy="350" r="18"/><text x="430" y="356">2</text></g>
+        <g class="a1-failure-marker"><circle cx="745" cy="530" r="18"/><text x="745" y="536">3</text></g>
+        <g class="a1-failure-marker"><circle cx="650" cy="480" r="18"/><text x="650" y="486">4</text></g>
+        <g class="a1-failure-marker"><circle cx="1015" cy="530" r="18"/><text x="1015" y="536">5</text></g>
+        <g class="a1-failure-marker"><circle cx="850" cy="530" r="18"/><text x="850" y="536">6</text></g>
+      </svg>
+      <figcaption class="px-2 pt-3 text-sm leading-6 text-slate-600">
+        <span class="font-bold text-blue-800">Blue:</span> drain and sewer piping.
+        <span class="font-bold text-teal-700">Green:</span> roof vent.
+        <span class="font-bold text-sky-600">Moving dashes:</span> wastewater direction.
+        Simplified diagram; actual fixture locations, pipe routes, and sewer connections vary by property. No gully is shown.
+      </figcaption>
+    </figure>
+
+    <div class="mt-7">
+      <h3 class="text-2xl font-black tracking-tight text-slate-950">Six places a house drain can fail</h3>
+      <p class="mt-2 max-w-3xl text-sm leading-6 text-slate-600">The numbered points in the drawing match these explanations. The cards are service links; the illustration itself is not clickable.</p>
+      <ol class="mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        {failurePoints.map((point) => (
+          <li>
+            <article class="h-full border border-slate-200 bg-white p-5 shadow-sm">
+              <div class="flex items-start gap-3">
+                <span class="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#1A1A68] text-sm font-black text-white">{point.number}</span>
+                <div>
+                  <h4 class="text-lg font-black leading-snug text-slate-950">{point.title}</h4>
+                  <p class="mt-2 text-sm leading-6 text-slate-700">{point.detail}</p>
+                  <a href={point.href} class="mt-4 inline-flex min-h-10 items-center font-black text-[#b4232b] underline decoration-2 underline-offset-4 hover:text-[#8f1b22]">{point.link} →</a>
+                </div>
+              </div>
+            </article>
+          </li>
+        ))}
+      </ol>
     </div>
+
+    <p class="mt-6 max-w-4xl text-sm leading-6 text-slate-600">A crack or low spot in a driveway can have several causes. It does not automatically mean the sewer is damaged. If the ground is settling over the route of a buried sewer, a camera inspection and line locating can help determine whether the pipe needs further attention. A-1 Drain Cleaning cleans and inspects drain and sewer lines; pipe repair is not represented as an A-1 service here.</p>
+    <p class="mt-4 text-sm font-semibold text-slate-700">If sewage is coming up through a basement floor drain, stop using water in the house and call A-1 Drain Cleaning at <a class="font-black text-[#b4232b] underline underline-offset-2" href="tel:+16415302728">641-530-2728</a>.</p>
   </div>
   <style>
-    .a1-route path{fill:none;stroke:#d97706;stroke-width:10;stroke-linecap:round;stroke-linejoin:round;opacity:0;pointer-events:none;transition:opacity .18s ease}
-    .a1-route.is-active path{opacity:.96}
-    .a1-fixture-choice[aria-pressed="true"]{border-color:#1A1A68;background:#1A1A68;color:#fff}
-    .a1-hotspot{cursor:pointer;outline:none}
-    .a1-hotspot circle{fill:#b4232b;stroke:#fff;stroke-width:3;transition:fill .15s ease}
-    .a1-hotspot text{fill:#fff;font-size:12px;font-weight:900;text-anchor:middle;pointer-events:none}
-    .a1-hotspot:hover circle,.a1-hotspot:focus circle,.a1-hotspot.is-selected circle{fill:#1A1A68;stroke:#fbbf24;stroke-width:4}
-    @media(prefers-reduced-motion:reduce){.a1-route path,.a1-hotspot circle{transition:none}}
+    .a1-failure-marker circle{fill:#b4232b;stroke:#fff;stroke-width:4}
+    .a1-failure-marker text{fill:#fff;font-size:15px;font-weight:900;text-anchor:middle;pointer-events:none}
+    .a1-water-flow{stroke-dasharray:10 18;animation:a1-water-flow 1.25s linear infinite}
+    @keyframes a1-water-flow{to{stroke-dashoffset:-56}}
+    @media(prefers-reduced-motion:reduce){.a1-water-flow{animation:none;stroke-dasharray:5 9}}
   </style>
-  <script>
-    const choices=document.querySelectorAll<HTMLButtonElement>('.a1-fixture-choice');
-    const hotspots=document.querySelectorAll<SVGGElement>('.a1-hotspot');
-    const routes=document.querySelectorAll<SVGGElement>('.a1-route');
-    const title=document.getElementById('a1-fixture-result-title') as HTMLElement;
-    const detail=document.getElementById('a1-fixture-result-detail') as HTMLElement;
-    const clue=document.getElementById('a1-fixture-result-clue') as HTMLElement;
-    const service=document.getElementById('a1-fixture-result-service') as HTMLElement;
-    const link=document.getElementById('a1-fixture-result-link') as HTMLAnchorElement;
-    const showAll=document.getElementById('a1-show-all-routes') as HTMLButtonElement;
-    const reset=document.getElementById('a1-reset-routes') as HTMLButtonElement;
-    function selectFixture(id:string){
-      const choice=Array.from(choices).find(item=>item.dataset.fixture===id);
-      if(!choice)return;
-      choices.forEach(item=>item.setAttribute('aria-pressed',String(item===choice)));
-      hotspots.forEach(item=>{const selected=item.dataset.fixtureHotspot===id;item.classList.toggle('is-selected',selected);item.setAttribute('aria-pressed',String(selected));});
-      routes.forEach(item=>item.classList.toggle('is-active',item.dataset.route===id));
-      showAll.setAttribute('aria-pressed','false');
-      title.textContent=choice.dataset.title||'';
-      detail.textContent=choice.dataset.detail||'';
-      clue.textContent=choice.dataset.clue||'';
-      service.textContent='A-1 service: '+(choice.dataset.service||'');
-      link.href=choice.dataset.href||'/services/';
-      link.hidden=false;
-    }
-    function clearSelection(){
-      choices.forEach(item=>item.setAttribute('aria-pressed','false'));
-      hotspots.forEach(item=>{item.classList.remove('is-selected');item.setAttribute('aria-pressed','false');});
-      routes.forEach(item=>item.classList.remove('is-active'));
-      showAll.setAttribute('aria-pressed','false');
-      title.textContent='Select a fixture to trace its drain.';
-      detail.textContent='The orange overlay will follow the selected branch through the house and toward the sewer.';
-      clue.textContent='';service.textContent='';link.hidden=true;
-    }
-    choices.forEach(choice=>choice.addEventListener('click',()=>selectFixture(choice.dataset.fixture||'')));
-    hotspots.forEach(hotspot=>{
-      const activate=()=>selectFixture(hotspot.dataset.fixtureHotspot||'');
-      hotspot.addEventListener('click',activate);
-      hotspot.addEventListener('keydown',event=>{
-        if(event.key==='Enter'||event.key===' '){event.preventDefault();activate();}
-      });
-    });
-    showAll.addEventListener('click',()=>{
-      const wasActive=showAll.getAttribute('aria-pressed')==='true';
-      clearSelection();
-      if(!wasActive){
-        routes.forEach(item=>item.classList.add('is-active'));
-        showAll.setAttribute('aria-pressed','true');
-        title.textContent='All plumbing routes';
-        detail.textContent='The fixture branches join the main drain and continue through the private sewer line.';
-        clue.textContent='Choose any numbered fixture to trace just that route.';
-      }
-    });
-    reset.addEventListener('click',clearSelection);
-  </script>
 </section>
