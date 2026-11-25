@@ -47,6 +47,14 @@ const relatedServices = (relatedServiceSlugs[service.slug] || [])
   .filter((item): item is { slug: string; title: string } => Boolean(item));
 const featuredServiceCities = uniqueServiceAreaCities.filter((city) => featuredServiceCitySlugs.includes(city.slug));
 const pageFaqs: Record<string, { question: string; answer: string }[]> = {
+  'sewer-backup-into-tub-shower': [
+    { question: 'Why is sewage or wastewater coming up through the bathtub or shower?', answer: 'A restriction in a shared drain or main sewer line can stop wastewater from leaving the house. In a home without a basement floor drain, a tub or shower may become the place where it backs up.' },
+    { question: 'Does a tub or shower backup mean that fixture is clogged?', answer: 'Not always. If only one tub or shower drains slowly, the clog may be local. If flushing a toilet, running the washer, or using another fixture makes wastewater rise in the tub or shower, the restriction may be farther down a shared drain or main line.' },
+    { question: 'What if the bathtub backs up when the washing machine drains?', answer: 'A washing machine sends a large amount of water into the drain quickly. A partially restricted shared line may back up when the washer empties, even if slower-running fixtures seem normal.' },
+    { question: 'Should I flush the toilet or run more water to test the backup?', answer: 'No. More water can add to the backup and cause more wastewater to enter the house. Stop using water where possible and explain what was running when the backup began.' },
+    { question: 'Does A-1 Drain Cleaning offer 24/7 service for sewer backups?', answer: 'Yes. A-1 Drain Cleaning offers 24/7 drain and sewer service in Mason City and North Iowa. Call 641-530-2728 and explain where wastewater is coming up.' },
+    { question: 'Can drain cleaning repair a damaged sewer pipe?', answer: 'No. Cleaning can remove a blockage, but it does not repair a cracked, separated, or collapsed pipe. A recurring backup may need a camera inspection and, if damage is found, pipe repair.' },
+  ],
   'main-drain-cleaning': [
     { question: 'Why does water come up through the basement floor drain?', answer: 'A restriction farther down a shared drain or main sewer line can stop wastewater from leaving the house. The low floor drain may become the place where it comes back up.' },
     { question: 'Can a washing machine reveal a main drain blockage?', answer: 'Yes. A washer releases a large amount of water in a short time. If the line cannot carry it away, water may rise in a standpipe or another connected drain.' },
@@ -342,6 +350,42 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
                 <p class="mt-2 leading-8 text-slate-700">No. Jetting is a cleaning method. A cracked, separated, or collapsed pipe may require repair rather than more cleaning.</p>
                 <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">When might a camera inspection help?</h3>
                 <p class="mt-2 leading-8 text-slate-700">It may help when the blockage repeatedly returns or the condition of the line is uncertain and that information would affect the cleaning approach.</p>
+              </section>
+            </>
+          ) : service.slug === 'sewer-backup-into-tub-shower' ? (
+            <>
+              <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Tub and shower sewer backup help</p>
+              <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Wastewater coming up through the bathtub or shower?</h2>
+              <p class="mt-6 text-lg leading-8 text-slate-700">In a home without a basement floor drain, a bathtub or shower can become the visible backup point when wastewater cannot move through a shared drain or the main sewer line. The tub or shower is where the wastewater appears; that does not automatically mean the blockage is inside that fixture.</p>
+              <p class="mt-4 leading-8 text-slate-700">If the tub or shower backs up when a toilet is flushed, the washing machine drains, or another fixture is used, the restriction may be farther down the drain system. If only one tub or shower is slow while the other fixtures work normally, the problem may be closer to that fixture. These symptoms help narrow the possibilities but do not confirm the exact blockage location.</p>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">What to do when wastewater backs up into a tub or shower</h2>
+              <ul class="mt-5 list-disc space-y-3 pl-6 leading-8 text-slate-700">
+                <li><strong class="text-slate-950">Stop using water where possible.</strong> Do not keep flushing toilets, running the washing machine, or using sinks and showers to test the drain.</li>
+                <li><strong class="text-slate-950">Keep people and pets away.</strong> Avoid direct contact with sewage or possibly contaminated water.</li>
+                <li><strong class="text-slate-950">Stay out of standing water near electricity.</strong> Do not enter wet areas if electrical outlets, cords, appliances, or other equipment may be affected.</li>
+                <li><strong class="text-slate-950">Do not attempt an unprotected cleanup.</strong> Arrange for the backup to be addressed and use appropriate protection for any cleanup.</li>
+              </ul>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">How to tell a fixture clog from a sewer backup</h2>
+              <p class="mt-4 leading-8 text-slate-700">A local tub or shower clog often affects that one fixture: water drains slowly or stands in the basin while the toilet and other drains work normally. A shared drain or main sewer restriction can affect more than one fixture. For example, flushing a toilet may cause wastewater to rise in the shower, or the washer may discharge and push water back through the tub.</p>
+              <p class="mt-4 leading-8 text-slate-700">A toilet does not have to bubble or gurgle for a main-line restriction to exist. Pay attention to which fixture was used just before the backup and whether another drain changed at the same time.</p>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">How A-1 Drain Cleaning handles a tub or shower sewer backup</h2>
+              <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning starts with the symptoms and which fixtures are affected. We clean blocked drain and sewer lines in Mason City and North Iowa. If the same line keeps backing up or pipe damage is suspected, a <a href="/services/sewer-camera-inspection/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer camera inspection</a> may help show the visible condition of an accessible section. Cleaning can open a blockage, but it does not repair a cracked, separated, or collapsed pipe.</p>
+              <p class="mt-4 leading-8 text-slate-700">Related service information: <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a>, <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a>, and <a href="/services/sewer-backup-emergency/" class="font-bold text-[#b4232b] underline underline-offset-4">emergency sewer backup service</a>.</p>
+
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Sewer backup into a tub or shower in Mason City and North Iowa</h2>
+              <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning is based in Mason City, Iowa, and offers 24/7 drain and sewer service. When you call, tell us whether the tub or shower backs up when the toilet is flushed, the washer drains, or another fixture is used. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a>.</p>
+
+              <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="tub-shower-backup-faq">
+                <h2 id="tub-shower-backup-faq" class="text-3xl font-black tracking-tight text-slate-950">Tub and shower sewer backup questions</h2>
+                {pageFaqs[service.slug]?.map((faq) => (
+                  <div class="mt-6">
+                    <h3 class="text-xl font-black tracking-tight text-slate-950">{faq.question}</h3>
+                    <p class="mt-2 leading-8 text-slate-700">{faq.answer}</p>
+                  </div>
+                ))}
               </section>
             </>
           ) : service.slug === 'basement-floor-drains' ? (
