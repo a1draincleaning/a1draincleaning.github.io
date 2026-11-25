@@ -1,6 +1,6 @@
 # A-1 Drain Cleaning — Agent Index
 
-For the fuller business and service summary, see [llms.txt](https://a1draincleaning.github.io/llms.txt). For published canonical pages, see the [sitemap index](https://a1draincleaning.github.io/sitemap-index.xml).
+For the fuller business and service summary, see [llms.txt](https://www.a1drain.com/llms.txt). For published canonical pages, see the [sitemap index](https://www.a1drain.com/sitemap-index.xml).
 
 ## Business identity
 
@@ -10,42 +10,42 @@ For the fuller business and service summary, see [llms.txt](https://a1drainclean
 - Base: Mason City, Iowa
 - Address: 206 29th St SW, Mason City, IA 50401
 - Phone: 641-530-2728
-- Website: https://a1draincleaning.github.io/
+- Website: https://www.a1drain.com/
 - Service availability: 24/7 service; call to confirm current availability.
 - Additional service area: Albert Lea, Minnesota. This is a service area, not a second business address or office.
 
 ## Main pages
 
-- [Home](https://a1draincleaning.github.io/)
-- [About A-1 Drain Cleaning](https://a1draincleaning.github.io/about/)
-- [Contact](https://a1draincleaning.github.io/contact/)
-- [Service areas](https://a1draincleaning.github.io/service-area/)
-- [Mason City drain cleaning](https://a1draincleaning.github.io/mason-city-drain-cleaning/)
-- [Albert Lea, Minnesota service area](https://a1draincleaning.github.io/albert-lea-mn-drain-cleaning/)
-- [All drain and sewer services](https://a1draincleaning.github.io/services/)
+- [Home](https://www.a1drain.com/)
+- [About A-1 Drain Cleaning](https://www.a1drain.com/about/)
+- [Contact](https://www.a1drain.com/contact/)
+- [Service areas](https://www.a1drain.com/service-area/)
+- [Mason City drain cleaning](https://www.a1drain.com/mason-city-drain-cleaning/)
+- [Albert Lea, Minnesota service area](https://www.a1drain.com/albert-lea-mn-drain-cleaning/)
+- [All drain and sewer services](https://www.a1drain.com/services/)
 
 ## Published service pages
 
-- [Emergency drain cleaning](https://a1draincleaning.github.io/services/emergency-drain-cleaning/)
-- [Main drain cleaning](https://a1draincleaning.github.io/services/main-drain-cleaning/)
-- [Sewer line cleaning](https://a1draincleaning.github.io/services/sewer-line-cleaning/)
-- [Floor drain cleaning](https://a1draincleaning.github.io/services/basement-floor-drains/)
-- [Basement drain cleaning](https://a1draincleaning.github.io/services/basement-drain-cleaning/)
-- [Garage drain cleaning](https://a1draincleaning.github.io/services/garage-drain-cleaning/)
-- [Utility sink drain cleaning](https://a1draincleaning.github.io/services/utility-sink-drain-cleaning/)
-- [Bathroom sink drain cleaning](https://a1draincleaning.github.io/services/bathroom-drain-cleaning/)
-- [Shower drain cleaning](https://a1draincleaning.github.io/services/shower-drain-cleaning/)
-- [Bathtub drain cleaning](https://a1draincleaning.github.io/services/bathtub-drain-cleaning/)
-- [Roof drain cleaning](https://a1draincleaning.github.io/services/roof-drains/)
-- [Kitchen drain cleaning](https://a1draincleaning.github.io/services/kitchen-drains/)
-- [Toilet unclogging](https://a1draincleaning.github.io/services/toilet-clogs/)
-- [Laundry and washing machine drain cleaning](https://a1draincleaning.github.io/services/laundry-drains/)
-- [Sewer backup emergency service](https://a1draincleaning.github.io/services/sewer-backup-emergency/)
-- [Tree root removal from sewer lines](https://a1draincleaning.github.io/services/tree-roots-in-sewer-line/)
-- [Hydro jetting](https://a1draincleaning.github.io/services/hydro-jetting/)
-- [Drain and sewer camera inspections](https://a1draincleaning.github.io/services/sewer-camera-inspection/)
-- [Sewer line locating](https://a1draincleaning.github.io/services/sewer-line-locating/)
-- [Smoke testing](https://a1draincleaning.github.io/services/smoke-testing/)
+- [Emergency drain cleaning](https://www.a1drain.com/services/emergency-drain-cleaning/)
+- [Main drain cleaning](https://www.a1drain.com/services/main-drain-cleaning/)
+- [Sewer line cleaning](https://www.a1drain.com/services/sewer-line-cleaning/)
+- [Floor drain cleaning](https://www.a1drain.com/services/basement-floor-drains/)
+- [Basement drain cleaning](https://www.a1drain.com/services/basement-drain-cleaning/)
+- [Garage drain cleaning](https://www.a1drain.com/services/garage-drain-cleaning/)
+- [Utility sink drain cleaning](https://www.a1drain.com/services/utility-sink-drain-cleaning/)
+- [Bathroom sink drain cleaning](https://www.a1drain.com/services/bathroom-drain-cleaning/)
+- [Shower drain cleaning](https://www.a1drain.com/services/shower-drain-cleaning/)
+- [Bathtub drain cleaning](https://www.a1drain.com/services/bathtub-drain-cleaning/)
+- [Roof drain cleaning](https://www.a1drain.com/services/roof-drains/)
+- [Kitchen drain cleaning](https://www.a1drain.com/services/kitchen-drains/)
+- [Toilet unclogging](https://www.a1drain.com/services/toilet-clogs/)
+- [Laundry and washing machine drain cleaning](https://www.a1drain.com/services/laundry-drains/)
+- [Sewer backup emergency service](https://www.a1drain.com/services/sewer-backup-emergency/)
+- [Tree root removal from sewer lines](https://www.a1drain.com/services/tree-roots-in-sewer-line/)
+- [Hydro jetting](https://www.a1drain.com/services/hydro-jetting/)
+- [Drain and sewer camera inspections](https://www.a1drain.com/services/sewer-camera-inspection/)
+- [Sewer line locating](https://www.a1drain.com/services/sewer-line-locating/)
+- [Smoke testing](https://www.a1drain.com/services/smoke-testing/)
 
 ## Confirmed services that need distinct page and schema treatment
 
@@ -60,18 +60,18 @@ These are not combined with kitchen drains or with one another. The list records
 
 ## Service-area pages
 
-- [Mason City, Iowa](https://a1draincleaning.github.io/mason-city-drain-cleaning/)
-- [Clear Lake, Iowa](https://a1draincleaning.github.io/service-area/clear-lake/)
-- [Charles City, Iowa](https://a1draincleaning.github.io/service-area/charles-city/)
-- [Forest City, Iowa](https://a1draincleaning.github.io/service-area/forest-city/)
-- [Garner, Iowa](https://a1draincleaning.github.io/service-area/garner/)
-- [Hampton, Iowa](https://a1draincleaning.github.io/service-area/hampton/)
-- [Nora Springs, Iowa](https://a1draincleaning.github.io/service-area/nora-springs/)
-- [Northwood, Iowa](https://a1draincleaning.github.io/service-area/northwood/)
-- [Rockwell, Iowa](https://a1draincleaning.github.io/service-area/rockwell/)
-- [Albert Lea, Minnesota](https://a1draincleaning.github.io/albert-lea-mn-drain-cleaning/)
+- [Mason City, Iowa](https://www.a1drain.com/mason-city-drain-cleaning/)
+- [Clear Lake, Iowa](https://www.a1drain.com/service-area/clear-lake/)
+- [Charles City, Iowa](https://www.a1drain.com/service-area/charles-city/)
+- [Forest City, Iowa](https://www.a1drain.com/service-area/forest-city/)
+- [Garner, Iowa](https://www.a1drain.com/service-area/garner/)
+- [Hampton, Iowa](https://www.a1drain.com/service-area/hampton/)
+- [Nora Springs, Iowa](https://www.a1drain.com/service-area/nora-springs/)
+- [Northwood, Iowa](https://www.a1drain.com/service-area/northwood/)
+- [Rockwell, Iowa](https://www.a1drain.com/service-area/rockwell/)
+- [Albert Lea, Minnesota](https://www.a1drain.com/albert-lea-mn-drain-cleaning/)
 
 ## Machine-readable resources
 
-- [Full agent information](https://a1draincleaning.github.io/llms.txt)
-- [Sitemap index](https://a1draincleaning.github.io/sitemap-index.xml)
+- [Full agent information](https://www.a1drain.com/llms.txt)
+- [Sitemap index](https://www.a1drain.com/sitemap-index.xml)
