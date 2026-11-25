@@ -1,4 +1,4 @@
-import { existsSync, readFileSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync } from 'node:fs';
 import { join } from 'node:path';
 
 const dist = join(process.cwd(), 'dist');
@@ -254,6 +254,36 @@ const sitemapUrlSet = new Set([...seen]);
 for (const node of homepageServiceNodes) {
   if (!sitemapUrlSet.has(node.url)) throw new Error(`Service URL is missing from the canonical sitemap: ${node.url}`);
 }
+
+const walkHtml = (directory) => readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
+  const entryPath = join(directory, entry.name);
+  return entry.isDirectory() ? walkHtml(entryPath) : entry.isFile() && entry.name.endsWith('.html') ? [entryPath] : [];
+});
+const localHosts = new Set(['www.a1drain.com', 'a1drain.com']);
+let checkedInternalLinks = 0;
+for (const htmlPath of walkHtml(dist)) {
+  const html = readFileSync(htmlPath, 'utf8');
+  const references = [...html.matchAll(/\b(?:href|src)=["']([^"']+)["']/gi)].map((match) => match[1]);
+  for (const reference of references) {
+    if (!reference || /^(?:#|mailto:|tel:|javascript:|data:)/i.test(reference)) continue;
+    let parsed;
+    try {
+      parsed = new URL(reference, 'https://www.a1drain.com/');
+    } catch {
+      continue;
+    }
+    if (!localHosts.has(parsed.hostname)) continue;
+    const pathname = decodeURIComponent(parsed.pathname);
+    const candidates = pathname.endsWith('/')
+      ? [join(dist, pathname, 'index.html')]
+      : [join(dist, pathname), join(dist, pathname, 'index.html'), join(dist, pathname + '.html')];
+    if (!candidates.some((candidate) => existsSync(candidate))) {
+      throw new Error('Broken internal link in ' + htmlPath.replace(dist, '') + ': ' + reference);
+    }
+    checkedInternalLinks += 1;
+  }
+}
+console.log('Validated ' + checkedInternalLinks + ' internal links across ' + walkHtml(dist).length + ' generated HTML files.');
 
 const indexXml = readFileSync(join(dist, 'sitemap-index.xml'), 'utf8');
 if (!indexXml.includes('https://www.a1drain.com/sitemap-0.xml')) {
