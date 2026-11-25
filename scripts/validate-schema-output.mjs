@@ -1,7 +1,6 @@
 import assert from 'node:assert/strict';
 import { readdir, readFile, access } from 'node:fs/promises';
 import path from 'node:path';
-import { pathToFileURL } from 'node:url';
 
 const root = process.cwd();
 const dist = path.join(root, 'dist');
@@ -22,7 +21,7 @@ async function htmlFiles(directory) {
 }
 
 function parseGraphs(html, file) {
-  const matches = [...html.matchAll(/<script\\b[^>]*type=["']application\\/ld\\+json["'][^>]*>([\\s\\S]*?)<\\/script>/gi)];
+  const matches = [...html.matchAll(/<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)];
   assert.ok(matches.length > 0, `No JSON-LD block found in ${file}`);
   return matches.map((match) => {
     try { return JSON.parse(match[1]); }
@@ -39,7 +38,7 @@ function walkReferences(value, visit) {
 function distPathForUrl(value) {
   const pathname = new URL(value).pathname;
   const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
-  return path.join(dist, normalized.replace(/^\\//, ''), 'index.html');
+  return path.join(dist, normalized.replace(/^\//, ''), 'index.html');
 }
 
 const files = await htmlFiles(dist);
@@ -84,10 +83,10 @@ assert.equal(stateNodes.length, 2, 'Expected Iowa and Minnesota');
 assert.equal(serviceNodes.length, 20, 'Expected 20 canonical service entities');
 
 const citySource = await readFile(path.join(root, 'src/data/serviceAreaCities.ts'), 'utf8');
-const iowaRows = [...citySource.matchAll(/\\['([^']+)',\\s*\\['([^']+)'\\]\\]/g)].map((match) => ({ name: match[1], county: match[2] }));
+const iowaRows = [...citySource.matchAll(/\['([^']+)',\s*\['([^']+)'\]\]/g)].map((match) => ({ name: match[1], county: match[2] }));
 assert.equal(iowaRows.length, 73, 'Expected 73 Iowa communities in the canonical source registry');
 assert.equal(new Set(iowaRows.map((item) => item.name)).size, 73, 'Duplicate Iowa community in source registry');
-assert.match(citySource, /city\\('Albert Lea',\\s*\\['Freeborn'\\],\\s*'Minnesota',\\s*'MN'\\)/);
+assert.match(citySource, /city\('Albert Lea',\s*\['Freeborn'\],\s*'Minnesota',\s*'MN'\)/);
 assert.equal(new Set(iowaRows.map((item) => item.county)).size, 9, 'Expected exactly nine Iowa counties');
 
 const placesByName = new Map(placeNodes.map((node) => [node.name, node]));
@@ -114,7 +113,7 @@ for (const offer of catalogOffers) assert.ok(byId.has(offer.itemOffered['@id']),
 for (const service of serviceNodes) assert.equal(service.provider['@id'], businessId);
 
 const serviceSource = await readFile(path.join(root, 'src/data/schemaServices.ts'), 'utf8');
-const expectedServiceNames = [...serviceSource.matchAll(/name:\\s*'([^']+)'/g)].map((match) => match[1]);
+const expectedServiceNames = [...serviceSource.matchAll(/name:\s*'([^']+)'/g)].map((match) => match[1]);
 assert.equal(expectedServiceNames.length, 20, 'Canonical service source count mismatch');
 assert.deepEqual(new Set(serviceNodes.map((node) => node.name)), new Set(expectedServiceNames));
 const serializedServices = JSON.stringify(serviceNodes);
@@ -122,7 +121,7 @@ assert.ok(serializedServices.includes('Tree root removal from sewer lines'));
 assert.ok(!/Root Cutting|pipe repairs|septic pumping|gully cleaning/i.test(serializedServices));
 
 const cityPagesSource = await readFile(path.join(root, 'src/data/serviceAreaCityPages.ts'), 'utf8');
-const publishedBlock = cityPagesSource.match(/publishedServiceAreaCitySlugs = new Set\\(\\[([\\s\\S]*?)\\]\\)/);
+const publishedBlock = cityPagesSource.match(/publishedServiceAreaCitySlugs = new Set\(\[([\s\S]*?)\]\)/);
 assert.ok(publishedBlock, 'Published city-page registry missing');
 const publishedSlugs = [...publishedBlock[1].matchAll(/'([^']+)'/g)].map((match) => match[1]);
 assert.equal(publishedSlugs.length, 9, 'Expected exactly nine published Iowa city pages');
