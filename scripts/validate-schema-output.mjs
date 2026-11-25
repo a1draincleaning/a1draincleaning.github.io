@@ -64,7 +64,7 @@ const byId = new Map(nodes.map((node) => [node['@id'], node]));
 const businessNodes = nodes.filter((node) => node['@id'] === businessId);
 assert.equal(businessNodes.length, 1, 'Expected exactly one canonical business entity');
 const business = businessNodes[0];
-assert.equal(business['@type'], 'Plumber');
+assert.deepEqual(business['@type'], ['Organization', 'Plumber']);
 assert.equal(business.name, 'A-1 Drain Cleaning');
 assert.equal(business.telephone, '+16415302728');
 assert.deepEqual(business.address, {
