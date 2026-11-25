@@ -68,8 +68,8 @@ const serviceSchema = schemaServices.map((item) => ({
 
 
 const businessSchema = {
-  // One canonical business entity using Schema.org's specific Plumber local-business type.
-  '@type': 'Plumber',
+  // One canonical business entity; Plumber preserves the specific local-business classification.
+  '@type': ['Organization', 'Plumber'],
   '@id': businessId,
   name: business.name,
   description: 'A-1 Drain Cleaning provides drain cleaning and sewer service in Mason City, Iowa and nearby communities. Service is available 24/7.',
