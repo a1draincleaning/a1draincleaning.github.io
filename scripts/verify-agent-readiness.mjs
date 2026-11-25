@@ -2,10 +2,26 @@ import { existsSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const dist = join(process.cwd(), 'dist');
-const requiredFiles = ['404.html', 'agent-index.md', 'llms.txt', 'llms.md', 'sitemap-0.xml', 'sitemap-index.xml'];
+const requiredFiles = ['404.html', 'agent-index.md', 'llms.txt', 'llms.md', 'robots.txt', 'CNAME', 'sitemap-0.xml', 'sitemap-index.xml'];
 for (const file of requiredFiles) {
   if (!existsSync(join(dist, file))) throw new Error(`Agent-readiness output is missing dist/${file}`);
 }
+if (readFileSync(join(dist, 'CNAME'), 'utf8').trim() !== 'www.a1drain.com') {
+  throw new Error('Built CNAME file does not name www.a1drain.com.');
+}
+const robots = readFileSync(join(dist, 'robots.txt'), 'utf8');
+for (const required of [
+  'User-agent: OAI-SearchBot\\nAllow: /',
+  'User-agent: ChatGPT-User\\nAllow: /',
+  'User-agent: Claude-SearchBot\\nAllow: /',
+  'User-agent: PerplexityBot\\nAllow: /',
+  'User-agent: GPTBot\\nDisallow: /',
+  'User-agent: ClaudeBot\\nDisallow: /',
+  'Sitemap: https://www.a1drain.com/sitemap-index.xml',
+]) {
+  if (!robots.includes(required.replaceAll('\\n', '\\n'))) throw new Error(`robots.txt is missing crawler policy: ${required.replaceAll('\\n', ' ')}`);
+}
+if (existsSync(join(dist, 'sitemap.xml'))) throw new Error('Stale static sitemap.xml must not be published beside Astro sitemap-index.xml.');
 
 const notFound = readFileSync(join(dist, '404.html'), 'utf8');
 for (const href of ['/sitemap-index.xml', '/llms.txt', '/agent-index.md', '/services/', '/contact/']) {
@@ -131,6 +147,29 @@ for (const required of expectedServices) {
     throw new Error(`Service "${required}" has a non-canonical service URL.`);
   }
 }
+const servicePageTitles = new Set();
+const servicePageDescriptions = new Set();
+for (const node of homepageServiceNodes) {
+  const slug = new URL(node.url).pathname.replace(/^\\/services\\//, '').replace(/\\/$/, '');
+  const htmlPath = join(dist, 'services', slug, 'index.html');
+  if (!existsSync(htmlPath)) throw new Error(`Published service page is missing generated HTML: ${node.url}`);
+  const html = readFileSync(htmlPath, 'utf8');
+  if ([...html.matchAll(/<h1\\b/gi)].length !== 1) throw new Error(`Service page must have exactly one H1: ${node.url}`);
+  const title = html.match(/<title>([^<]+)<\\/title>/i)?.[1]?.trim();
+  const description = html.match(/<meta\\s+name="description"\\s+content="([^"]+)"/i)?.[1]?.trim();
+  const canonicalTag = [...html.matchAll(/<link\\b[^>]*>/gi)].map((match) => match[0]).find((tag) => /\\brel="canonical"/i.test(tag));
+  const canonical = canonicalTag?.match(/\\bhref="([^"]+)"/i)?.[1];
+  if (!title || !description || !canonical) throw new Error(`Service page is missing title, description, or canonical metadata: ${node.url}`);
+  if (canonical !== node.url) throw new Error(`Service page canonical does not match its Service URL: ${node.url}`);
+  if (servicePageTitles.has(title) || servicePageDescriptions.has(description)) throw new Error(`Duplicate service-page title or meta description: ${node.url}`);
+  servicePageTitles.add(title);
+  servicePageDescriptions.add(description);
+  const pageNodes = extractJsonLd(html).flatMap((value) => Array.isArray(value['@graph']) ? value['@graph'] : [value]);
+  const pageService = pageNodes.find((item) => item['@id'] === node['@id']);
+  if (!pageService || pageService.provider?.['@id'] !== organization['@id']) throw new Error(`Service page JSON-LD is missing its canonical provider-linked Service entity: ${node.url}`);
+  const webpage = pageNodes.find((item) => hasType(item, 'WebPage'));
+  if (!webpage?.about?.some((item) => item['@id'] === node['@id'])) throw new Error(`Service WebPage does not reference its Service entity: ${node.url}`);
+}
 const catalogItems = organization.hasOfferCatalog?.itemListElement ?? [];
 const catalogServiceIds = catalogItems.map((offer) => offer.itemOffered?.['@id']);
 if (catalogServiceIds.length !== homepageServiceNodes.length || new Set(catalogServiceIds).size !== catalogServiceIds.length) {
@@ -143,6 +182,17 @@ for (const field of ['name', 'url', 'logo', 'description', 'sameAs', 'address', 
   if (!organization[field]) throw new Error(`Organization JSON-LD is missing ${field}.`);
 }
 if (!organization.contactPoint.telephone) throw new Error('Organization contactPoint has no telephone.');
+if (organization.name !== 'A-1 Drain Cleaning' || organization.url !== 'https://www.a1drain.com/') {
+  throw new Error('Organization JSON-LD has the wrong business name or canonical website URL.');
+}
+if (organization.telephone !== '+16415302728' || organization.contactPoint.telephone !== '+16415302728') {
+  throw new Error('Organization JSON-LD has the wrong business telephone number.');
+}
+if (!hasType(organization, 'Plumber')) throw new Error('Business JSON-LD is missing the specific Plumber type.');
+const postalAddress = organization.address;
+if (postalAddress.streetAddress !== '206 29th St SW' || postalAddress.addressLocality !== 'Mason City' || postalAddress.addressRegion !== 'IA' || postalAddress.postalCode !== '50401' || postalAddress.addressCountry !== 'US') {
+  throw new Error('Organization JSON-LD address does not match the verified business address.');
+}
 if (!graphNodes.some((node) => hasType(node, 'WebSite') && node.name && node.url && node.description && node.publisher)) {
   throw new Error('Homepage JSON-LD WebSite node is incomplete.');
 }
