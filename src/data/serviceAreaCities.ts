@@ -22,9 +22,9 @@ const city = (
 });
 
 /**
- * City/community pages for A-1's current 9-county service-area plan.
- * County assignments are based on Iowa's incorporated-city directory and official
- * local-government sources. Review the full county coverage before expanding it.
+ * Complete service-area directory. Published landing-page routes are tracked separately
+ * in serviceAreaCityPages.ts so directory coverage never creates automatic doorway pages.
+ * Iowa county assignments follow the Iowa Secretary of State incorporated-city directory.
  */
 export const serviceAreaCities: ServiceAreaCity[] = [
   // County assignments checked against the Iowa Secretary of State incorporated-city list.
