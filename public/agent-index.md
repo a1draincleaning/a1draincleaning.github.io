@@ -21,7 +21,6 @@ This file is a short Markdown directory for search agents and automated website 
 - [Contact](https://a1draincleaning.github.io/contact/)
 - [Service areas](https://a1draincleaning.github.io/service-area/)
 - [Mason City drain cleaning](https://a1draincleaning.github.io/mason-city-drain-cleaning/)
-- [Albert Lea, Minnesota service area](https://a1draincleaning.github.io/albert-lea-mn-drain-cleaning/)
 - [All drain and sewer services](https://a1draincleaning.github.io/services/)
 
 ## Services
