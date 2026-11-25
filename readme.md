@@ -18,7 +18,7 @@ A symptom such as a floor drain backup is not the service name. Kitchen, bathroo
 
 The nine dedicated Iowa city pages are Mason City, Clear Lake, Charles City, Forest City, Garner, Hampton, Nora Springs, Northwood, and Rockwell. Albert Lea, Minnesota, is also included in the service-area directory.
 
-The community directory includes locations in Cerro Gordo, Floyd, Franklin, Hancock, Mitchell, Winnebago, Worth, Wright, and Butler counties. These are directory communities, not separate county landing pages. Do not add Hardin or Chickasaw County.
+The community directory includes locations in Cerro Gordo, Floyd, Franklin, Hancock, Mitchell, Winnebago, Worth, and Butler counties. These are directory communities, not separate county landing pages. Do not add Hardin or Chickasaw County.
 
 ## Development
 
