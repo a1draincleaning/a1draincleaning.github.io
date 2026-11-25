@@ -68,8 +68,15 @@ const homepageGraphs = extractJsonLd(homepage);
 if (!homepageGraphs.length) throw new Error('Homepage has no JSON-LD script.');
 const graphNodes = homepageGraphs.flatMap((value) => Array.isArray(value['@graph']) ? value['@graph'] : [value]);
 const hasType = (node, type) => (Array.isArray(node['@type']) ? node['@type'] : [node['@type']]).includes(type);
+const allEntityIds = graphNodes.map((node) => node['@id']).filter(Boolean);
+if (new Set(allEntityIds).size !== allEntityIds.length) throw new Error('Homepage JSON-LD contains duplicate entity IDs.');
 const organization = graphNodes.find((node) => hasType(node, 'Organization'));
 if (!organization) throw new Error('Homepage JSON-LD has no Organization identity.');
+const serviceAreaNode = graphNodes.find((node) => node['@id'] === 'https://www.a1drain.com/#service-area');
+if (!serviceAreaNode || !hasType(serviceAreaNode, 'Place') || !Array.isArray(serviceAreaNode.containsPlace) || serviceAreaNode.containsPlace.length !== 74) {
+  throw new Error('JSON-LD service-area directory must contain the 73 listed Iowa communities and Albert Lea, Minnesota.');
+}
+if (organization.areaServed?.['@id'] !== serviceAreaNode['@id']) throw new Error('Business areaServed does not reference the complete service-area directory.');
 
 const expectedServices = [
   'Emergency Drain Cleaning',
@@ -108,6 +115,7 @@ if (homepageServiceNodes.length !== expectedServices.length) {
   throw new Error(`Homepage JSON-LD has ${homepageServiceNodes.length} Service entities; expected ${expectedServices.length}.`);
 }
 for (const required of expectedServices) {
+  if (!llms.includes(required) || !agentIndex.includes(required)) throw new Error(`AI reference files are missing the published service label: ${required}`);
   const matches = homepageServiceNodes.filter((node) => node.name === required);
   if (matches.length !== 1) {
     throw new Error(`Expected exactly one JSON-LD Service entity named "${required}", found ${matches.length}.`);
@@ -115,6 +123,9 @@ for (const required of expectedServices) {
   const node = matches[0];
   if (node.provider?.['@id'] !== organization['@id']) {
     throw new Error(`Service "${required}" does not reference the canonical A-1 Drain Cleaning provider.`);
+  }
+  if (node.areaServed?.['@id'] !== serviceAreaNode['@id']) {
+    throw new Error(`Service "${required}" does not reference the complete service-area directory.`);
   }
   if (!node.url?.startsWith('https://www.a1drain.com/services/') || !node.url.endsWith('/')) {
     throw new Error(`Service "${required}" has a non-canonical service URL.`);
@@ -167,6 +178,11 @@ for (const [index, entry] of entries.entries()) {
   if (Date.parse(lastmod) > Date.now() + 5 * 60 * 1000) {
     throw new Error(`Sitemap lastmod is in the future: ${loc}`);
   }
+}
+
+const sitemapUrlSet = new Set([...seen]);
+for (const node of homepageServiceNodes) {
+  if (!sitemapUrlSet.has(node.url)) throw new Error(`Service URL is missing from the canonical sitemap: ${node.url}`);
 }
 
 const indexXml = readFileSync(join(dist, 'sitemap-index.xml'), 'utf8');
