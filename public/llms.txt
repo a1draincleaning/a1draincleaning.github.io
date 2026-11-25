@@ -9,32 +9,33 @@
 - Base: Mason City, Iowa
 - Address: 206 29th St SW, Mason City, Iowa 50401
 - Phone: 641-530-2728
-- Website: https://a1draincleaning.github.io/
+- Website: https://www.a1drain.com/
+- Agent-readable index: https://www.a1drain.com/agent-index.md
 - Additional service area: Albert Lea, Minnesota. This is a service area, not a second business address or office.
 
 ## Published service pages
 
-- [Drain Cleaning](https://a1draincleaning.github.io/services/)
-- [Emergency Drain Cleaning](https://a1draincleaning.github.io/services/emergency-drain-cleaning/)
-- [Main Drain Cleaning](https://a1draincleaning.github.io/services/main-drain-cleaning/)
-- [Sewer Line Cleaning](https://a1draincleaning.github.io/services/sewer-line-cleaning/)
-- [Tree Root Removal from Sewer Lines](https://a1draincleaning.github.io/services/tree-roots-in-sewer-line/)
-- [Hydro Jetting](https://a1draincleaning.github.io/services/hydro-jetting/)
-- [Floor Drain Cleaning](https://a1draincleaning.github.io/services/basement-floor-drains/)
-- [Basement Drain Cleaning](https://a1draincleaning.github.io/services/basement-drain-cleaning/)
-- [Garage Drain Cleaning](https://a1draincleaning.github.io/services/garage-drain-cleaning/)
-- [Utility Sink Drain Cleaning](https://a1draincleaning.github.io/services/utility-sink-drain-cleaning/)
-- [Bathroom Drain Cleaning](https://a1draincleaning.github.io/services/bathroom-drain-cleaning/)
-- [Shower Drain Cleaning](https://a1draincleaning.github.io/services/shower-drain-cleaning/)
-- [Bathtub Drain Cleaning](https://a1draincleaning.github.io/services/bathtub-drain-cleaning/)
-- [Roof Drain Cleaning](https://a1draincleaning.github.io/services/roof-drains/)
-- [Kitchen Drain Cleaning](https://a1draincleaning.github.io/services/kitchen-drains/)
-- [Toilet Clog Cleaning](https://a1draincleaning.github.io/services/toilet-clogs/)
-- [Laundry and Washing Machine Drain Cleaning](https://a1draincleaning.github.io/services/laundry-drains/)
-- [Sewer Backup Emergency Service](https://a1draincleaning.github.io/services/sewer-backup-emergency/)
-- [Drain and Sewer Camera Inspections](https://a1draincleaning.github.io/services/sewer-camera-inspection/)
-- [Sewer Line Locating](https://a1draincleaning.github.io/services/sewer-line-locating/)
-- [Smoke Testing](https://a1draincleaning.github.io/services/smoke-testing/)
+- [Drain Cleaning](https://www.a1drain.com/services/)
+- [Emergency Drain Cleaning](https://www.a1drain.com/services/emergency-drain-cleaning/)
+- [Main Drain Cleaning](https://www.a1drain.com/services/main-drain-cleaning/)
+- [Sewer Line Cleaning](https://www.a1drain.com/services/sewer-line-cleaning/)
+- [Tree Root Removal from Sewer Lines](https://www.a1drain.com/services/tree-roots-in-sewer-line/)
+- [Hydro Jetting](https://www.a1drain.com/services/hydro-jetting/)
+- [Floor Drain Cleaning](https://www.a1drain.com/services/basement-floor-drains/)
+- [Basement Drain Cleaning](https://www.a1drain.com/services/basement-drain-cleaning/)
+- [Garage Drain Cleaning](https://www.a1drain.com/services/garage-drain-cleaning/)
+- [Utility Sink Drain Cleaning](https://www.a1drain.com/services/utility-sink-drain-cleaning/)
+- [Bathroom Drain Cleaning](https://www.a1drain.com/services/bathroom-drain-cleaning/)
+- [Shower Drain Cleaning](https://www.a1drain.com/services/shower-drain-cleaning/)
+- [Bathtub Drain Cleaning](https://www.a1drain.com/services/bathtub-drain-cleaning/)
+- [Roof Drain Cleaning](https://www.a1drain.com/services/roof-drains/)
+- [Kitchen Drain Cleaning](https://www.a1drain.com/services/kitchen-drains/)
+- [Toilet Clog Cleaning](https://www.a1drain.com/services/toilet-clogs/)
+- [Laundry and Washing Machine Drain Cleaning](https://www.a1drain.com/services/laundry-drains/)
+- [Sewer Backup Emergency Service](https://www.a1drain.com/services/sewer-backup-emergency/)
+- [Drain and Sewer Camera Inspections](https://www.a1drain.com/services/sewer-camera-inspection/)
+- [Sewer Line Locating](https://www.a1drain.com/services/sewer-line-locating/)
+- [Smoke Testing](https://www.a1drain.com/services/smoke-testing/)
 
 ## Confirmed services
 
@@ -75,21 +76,21 @@ Homes without basements can show a main-line backup differently. Wastewater may 
 
 ## Service-area pages
 
-- [Mason City, Iowa](https://a1draincleaning.github.io/mason-city-drain-cleaning/)
-- [Clear Lake, Iowa](https://a1draincleaning.github.io/service-area/clear-lake/)
-- [Charles City, Iowa](https://a1draincleaning.github.io/service-area/charles-city/)
-- [Forest City, Iowa](https://a1draincleaning.github.io/service-area/forest-city/)
-- [Garner, Iowa](https://a1draincleaning.github.io/service-area/garner/)
-- [Hampton, Iowa](https://a1draincleaning.github.io/service-area/hampton/)
-- [Nora Springs, Iowa](https://a1draincleaning.github.io/service-area/nora-springs/)
-- [Northwood, Iowa](https://a1draincleaning.github.io/service-area/northwood/)
-- [Rockwell, Iowa](https://a1draincleaning.github.io/service-area/rockwell/)
-- [Albert Lea, Minnesota](https://a1draincleaning.github.io/albert-lea-mn-drain-cleaning/)
+- [Mason City, Iowa](https://www.a1drain.com/mason-city-drain-cleaning/)
+- [Clear Lake, Iowa](https://www.a1drain.com/service-area/clear-lake/)
+- [Charles City, Iowa](https://www.a1drain.com/service-area/charles-city/)
+- [Forest City, Iowa](https://www.a1drain.com/service-area/forest-city/)
+- [Garner, Iowa](https://www.a1drain.com/service-area/garner/)
+- [Hampton, Iowa](https://www.a1drain.com/service-area/hampton/)
+- [Nora Springs, Iowa](https://www.a1drain.com/service-area/nora-springs/)
+- [Northwood, Iowa](https://www.a1drain.com/service-area/northwood/)
+- [Rockwell, Iowa](https://www.a1drain.com/service-area/rockwell/)
+- [Albert Lea, Minnesota](https://www.a1drain.com/albert-lea-mn-drain-cleaning/)
 
 ## Other site pages
 
-- [Home](https://a1draincleaning.github.io/)
-- [About A-1 Drain Cleaning](https://a1draincleaning.github.io/about/)
-- [Contact](https://a1draincleaning.github.io/contact/)
-- [Service Area Directory](https://a1draincleaning.github.io/service-area/)
-- [Sitemap index](https://a1draincleaning.github.io/sitemap-index.xml)
+- [Home](https://www.a1drain.com/)
+- [About A-1 Drain Cleaning](https://www.a1drain.com/about/)
+- [Contact](https://www.a1drain.com/contact/)
+- [Service Area Directory](https://www.a1drain.com/service-area/)
+- [Sitemap index](https://www.a1drain.com/sitemap-index.xml)
