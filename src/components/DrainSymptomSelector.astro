@@ -1,0 +1,134 @@
+---
+const symptoms = [
+  {
+    id: 'slow', number: '01', label: 'Slow draining sink, bath or shower',
+    summary: 'A sink, bath, or shower is draining slowly.',
+    cause: 'A partial blockage may be building up in the waste pipe or outside drain: hair, soap, grease, and scale can narrow the pipe until water backs up.',
+    action: 'We clear the drain run with mechanical drain-cleaning equipment or high-pressure water jetting, depending on the blockage. We also check the accessible outside drain where appropriate.',
+    urgency: 'Book in the next few days.',
+    urgencyLabel: 'Book in the next few days', href: '/services/drain-cleaning/', link: 'About drain unblocking'
+  },
+  {
+    id: 'gurgle', number: '02', label: 'Gurgling from the toilet or plughole',
+    summary: 'A toilet or drain gurgles when water is used elsewhere.',
+    cause: 'Air may be trapped behind a blockage farther down the line. Gurgling is often a warning before wastewater overflows.',
+    action: 'We locate the blockage and clear it with the appropriate drain-cleaning equipment, including high-pressure jetting where suitable. If it keeps happening, a sewer camera inspection can help find out why.',
+    urgency: 'Sooner rather than later.',
+    urgencyLabel: 'Sooner rather than later', href: '/services/main-drain-cleaning/', link: 'About drain unblocking'
+  },
+  {
+    id: 'overflow', number: '03', label: 'Overflowing outside drain, floor drain or sewer cleanout',
+    summary: 'Wastewater is overflowing from an outside drain, basement floor drain, or sewer cleanout.',
+    cause: 'The main drain may be blocked and wastewater has nowhere to go. If a line is shared, a blockage elsewhere may also cause wastewater to appear at your cleanout or drain.',
+    action: 'A-1 Drain Cleaning clears main drain and sewer-line blockages using professional drain-cleaning and jetting equipment. Contaminated-area cleanup and sanitizing should be handled by an appropriate cleanup provider.',
+    urgency: 'Call now. A-1 Drain Cleaning offers 24/7 service.',
+    urgencyLabel: 'Call now · 24/7 service', href: '/services/basement-floor-drains/', link: 'About basement floor drain backups'
+  },
+  {
+    id: 'odor', number: '04', label: 'Bad smell inside or outside the house',
+    summary: 'A persistent sewer or drain odor is coming from inside the house or the yard.',
+    cause: 'Standing wastewater in a partly blocked drain, a dry or damaged trap, or a cracked pipe may be letting foul air escape beneath the floor or in the yard.',
+    action: 'We trace the source. A sewer camera inspection can help identify a blockage or damaged pipe; we then recommend the appropriate cleaning or drain repair.',
+    urgency: 'Book an inspection this week.',
+    urgencyLabel: 'Book an inspection this week', href: '/services/sewer-camera-inspection/', link: 'About sewer camera inspection'
+  },
+  {
+    id: 'repeat', number: '05', label: 'Blockages that keep coming back',
+    summary: 'The same drain or sewer line blocks again after it has been cleared.',
+    cause: 'A recurring blockage can point to a structural problem, such as a displaced joint, tree-root intrusion, a low spot in the pipe, or a collapsed section that keeps catching debris.',
+    action: 'A sewer camera inspection can show where the problem is and what may be causing it. A-1 Drain Cleaning can clear root and debris blockages and assess drain repair options. The repair method depends on the pipe condition and access.',
+    urgency: 'Survey first, then plan a permanent fix.',
+    urgencyLabel: 'Survey first · then plan the repair', href: '/services/sewer-camera-inspection/', link: 'About sewer camera inspection'
+  },
+  {
+    id: 'rats', number: '06', label: 'Rats or scratching under the floor',
+    summary: 'You hear scratching under the floor or suspect rodents are entering through a drain.',
+    cause: 'Rats can travel through sewer lines and may enter a property through a broken pipe, open connection, or disused branch.',
+    action: 'We can inspect accessible drain and sewer lines with a camera to look for damage or an opening. If a defect is found, we can discuss drain repair. A-1 Drain Cleaning does not provide pest control or rat-flap installation.',
+    urgency: 'Book a drain inspection in the next few days. Contact a pest-control professional about the rodents.',
+    urgencyLabel: 'Book in the next few days', href: '/services/sewer-camera-inspection/', link: 'About sewer camera inspection'
+  },
+  {
+    id: 'ground', number: '07', label: 'A wet patch or sinking ground outside',
+    summary: 'A wet patch, soft spot, or sinking area has appeared in the yard or near the sewer route.',
+    cause: 'A leaking or collapsed drain may be washing soil away beneath the surface. Left unchecked, it can undermine nearby paths, driveways, and other structures.',
+    action: 'A sewer camera inspection can help confirm whether the drain is damaged. A-1 Drain Cleaning can assess the line and discuss an appropriate drain repair. The repair method depends on the pipe condition and access.',
+    urgency: 'Get it looked at this week.',
+    urgencyLabel: 'Inspect this week', href: '/services/sewer-camera-inspection/', link: 'About sewer camera inspection'
+  },
+  {
+    id: 'septic', number: '08', label: 'Septic tank full or grease trap due',
+    summary: 'You think a septic tank needs pumping or a commercial grease trap needs service.',
+    cause: 'Septic tanks and grease traps need periodic pumping and maintenance. When they are overdue, wastewater can back up and odors can develop.',
+    action: 'A-1 Drain Cleaning does not provide septic-tank pumping or grease-trap cleaning. Contact a septic hauler or grease-trap service provider. If a separate building drain or sewer line is clogged, A-1 can help with that drain blockage.',
+    urgency: 'Book routine service with a septic or grease-trap provider.',
+    urgencyLabel: 'Book a routine visit', href: '/services/drain-cleaning/', link: 'About A-1 drain cleaning'
+  }
+];
+const first = symptoms[0];
+---
+<section class="bg-slate-100 py-14 sm:py-20" aria-labelledby="drain-symptom-heading">
+  <div class="container">
+    <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Start here</p>
+    <h2 id="drain-symptom-heading" class="mt-2 max-w-4xl text-4xl font-black leading-tight tracking-tight text-slate-950 sm:text-5xl">What's your drain doing?</h2>
+    <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">Pick the one closest to what you are seeing. We'll explain the likely cause, what A-1 Drain Cleaning can do, and how quickly you should call.</p>
+    <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4" role="group" aria-label="Choose the drain symptom">
+      {symptoms.map((symptom, index) => (
+        <button type="button" class:list={['drain-symptom-choice flex min-h-24 items-start gap-3 border-2 p-4 text-left transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1A1A68]', index === 0 ? 'is-active border-[#1A1A68] bg-[#1A1A68] text-white' : 'border-slate-200 bg-white text-slate-950 hover:border-[#1A1A68]']} data-symptom={symptom.id} data-label={symptom.label} data-summary={symptom.summary} data-cause={symptom.cause} data-action={symptom.action} data-urgency={symptom.urgency} data-urgency-label={symptom.urgencyLabel} data-href={symptom.href} data-link={symptom.link} aria-pressed={index === 0 ? 'true' : 'false'} aria-controls="drain-symptom-result">
+          <span class="shrink-0 text-xs font-black tracking-[0.15em] opacity-75">{symptom.number}</span>
+          <span class="text-base font-black leading-snug">{symptom.label}</span>
+        </button>
+      ))}
+    </div>
+    <article id="drain-symptom-result" class="mt-5 border border-slate-200 bg-white p-6 shadow-sm sm:p-8" aria-live="polite" aria-atomic="true">
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <p id="drain-symptom-urgency" class="inline-flex min-h-8 items-center bg-[#fff1f2] px-3 py-1 text-sm font-black text-[#9f2028]">{first.urgencyLabel}</p>
+        <p class="text-xs font-bold uppercase tracking-[0.15em] text-slate-500">A-1 Drain Cleaning · Mason City, Iowa</p>
+      </div>
+      <h3 id="drain-symptom-title" class="mt-3 text-2xl font-black leading-tight text-slate-950 sm:text-3xl">{first.label}</h3>
+      <p id="drain-symptom-summary" class="mt-2 text-base leading-7 text-slate-700">{first.summary}</p>
+      <div class="mt-6 grid gap-5 md:grid-cols-3">
+        <section><h4 class="text-sm font-black uppercase tracking-wide text-slate-950">What may be happening</h4><p id="drain-symptom-cause" class="mt-2 text-sm leading-6 text-slate-700">{first.cause}</p></section>
+        <section><h4 class="text-sm font-black uppercase tracking-wide text-slate-950">What A-1 can do</h4><p id="drain-symptom-action" class="mt-2 text-sm leading-6 text-slate-700">{first.action}</p></section>
+        <section><h4 class="text-sm font-black uppercase tracking-wide text-slate-950">How urgent is it?</h4><p id="drain-symptom-urgency-detail" class="mt-2 text-sm leading-6 text-slate-700">{first.urgency}</p></section>
+      </div>
+      <div class="mt-6 flex flex-col gap-3 border-t border-slate-200 pt-5 sm:flex-row sm:items-center sm:justify-between">
+        <a id="drain-symptom-service" href={first.href} class="inline-flex min-h-11 items-center font-black text-[#b4232b] underline decoration-2 underline-offset-4">{first.link} →</a>
+        <a href="tel:+16415302728" class="inline-flex min-h-12 items-center justify-center rounded-md bg-[#b4232b] px-6 py-3 text-base font-black text-white hover:bg-[#951d24]">CALL TO BOOK · 641-530-2728</a>
+      </div>
+    </article>
+    <p class="mt-4 max-w-3xl text-sm leading-6 text-slate-600">These symptoms help narrow down where a problem may be. They do not replace an inspection of the actual drain or sewer line.</p>
+  </div>
+  <script>
+    const symptomButtons = document.querySelectorAll<HTMLButtonElement>('.drain-symptom-choice');
+    const urgency = document.getElementById('drain-symptom-urgency') as HTMLElement;
+    const title = document.getElementById('drain-symptom-title') as HTMLElement;
+    const summary = document.getElementById('drain-symptom-summary') as HTMLElement;
+    const cause = document.getElementById('drain-symptom-cause') as HTMLElement;
+    const action = document.getElementById('drain-symptom-action') as HTMLElement;
+    const urgencyDetail = document.getElementById('drain-symptom-urgency-detail') as HTMLElement;
+    const service = document.getElementById('drain-symptom-service') as HTMLAnchorElement;
+    symptomButtons.forEach((button) => {
+      button.addEventListener('click', () => {
+        symptomButtons.forEach((item) => {
+          const active = item === button;
+          item.setAttribute('aria-pressed', String(active));
+          item.classList.toggle('border-[#1A1A68]', active);
+          item.classList.toggle('bg-[#1A1A68]', active);
+          item.classList.toggle('text-white', active);
+          item.classList.toggle('border-slate-200', !active);
+          item.classList.toggle('bg-white', !active);
+          item.classList.toggle('text-slate-950', !active);
+        });
+        urgency.textContent = button.dataset.urgencyLabel || '';
+        title.textContent = button.dataset.label || '';
+        summary.textContent = button.dataset.summary || '';
+        cause.textContent = button.dataset.cause || '';
+        action.textContent = button.dataset.action || '';
+        urgencyDetail.textContent = button.dataset.urgency || '';
+        service.href = button.dataset.href || '/services/';
+        service.textContent = (button.dataset.link || 'View service') + ' →';
+      });
+    });
+  </script>
+</section>
