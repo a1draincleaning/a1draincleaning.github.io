@@ -60,7 +60,7 @@ The following are distinct services or work types. A service name in this list d
 - Septic Line Cleaning.
 - Sump Pump Repair.
 - Garbage Disposal Repair and Installation.
-- Roof Drain Service — distinct from plumbing vents, storm drains, and yard drains.
+- Roof Drain Service — separate from storm drain and yard drain cleaning.
 - Storm Drain Cleaning.
 - Yard Drain Cleaning.
 - Dishwasher Drain Service.
