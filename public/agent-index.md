@@ -44,7 +44,7 @@ For the fuller business and service summary, see [llms.txt](https://www.a1drain.
 - Emergency sewer backup service is available; call 641-530-2728 to confirm current availability.
 - [Tree root removal from sewer lines](https://www.a1drain.com/services/tree-roots-in-sewer-line/)
 - [Hydro jetting](https://www.a1drain.com/services/hydro-jetting/)
-- [Drain and sewer camera inspections](https://www.a1drain.com/services/sewer-camera-inspection/)
+- [Drain & Sewer Camera Inspections](https://www.a1drain.com/services/sewer-camera-inspection/)
 - [Sewer line locating](https://www.a1drain.com/services/sewer-line-locating/)
 - [Smoke testing](https://www.a1drain.com/services/smoke-testing/)
 
