@@ -8,11 +8,12 @@ const dist = join(process.cwd(), 'dist');
 // source generation prevents them from becoming current canonical pages.
 const retiredRoutes = [
   { from: '/service-area/mason-city/', to: '/mason-city-drain-cleaning/' },
-  { from: '/pipe-repair/', to: '/services/sewer-camera-inspection/' },
-  { from: '/services/drain-repair/', to: '/services/sewer-camera-inspection/' },
+  { from: '/pipe-repair/', to: '/services/' },
+  { from: '/services/drain-repair/', to: '/services/' },
   { from: '/services/washing-machine-basement-flooding/', to: '/services/laundry-drains/' },
-  { from: '/services/kitchen-bathroom-drains/', to: '/services/bathroom-drain-cleaning/' },
-  { from: '/services/bathroom-shower-drains/', to: '/services/bathroom-drain-cleaning/' }
+  { from: '/services/kitchen-bathroom-drains/', to: '/services/' },
+  { from: '/services/bathroom-shower-drains/', to: '/services/' },
+  { from: '/services/roof-vent-drains/', to: '/services/roof-drains/' }
 ];
 
 function routeDir(route) {
