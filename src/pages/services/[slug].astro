@@ -4,6 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 import { services } from '../../data/services';
+import { serviceAreaCityPageHref } from '../../data/serviceAreaCityPages';
 import { uniqueServiceAreaCities } from '../../data/serviceAreaCities';
 import {
   servicePageTitles,
@@ -476,7 +477,7 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
         <p class="mt-4 max-w-3xl leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and communities across North Iowa. Choose a town below to read its local drain-cleaning and sewer-service information.</p>
         <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-5">
           {featuredServiceCities.map((city) => (
-            <a href={`/service-area/${city.slug}/`} class="border border-slate-200 bg-white px-4 py-4 font-bold text-[#1A1A68] underline underline-offset-4 hover:border-[#b4232b] hover:text-[#b4232b]">{city.name}, Iowa</a>
+            <a href={serviceAreaCityPageHref(city.slug)} class="border border-slate-200 bg-white px-4 py-4 font-bold text-[#1A1A68] underline underline-offset-4 hover:border-[#b4232b] hover:text-[#b4232b]">{city.name}, Iowa</a>
           ))}
         </div>
         <a href="/service-area/" class="mt-6 inline-block font-black text-[#b4232b] underline underline-offset-4">View all North Iowa service towns →</a>
