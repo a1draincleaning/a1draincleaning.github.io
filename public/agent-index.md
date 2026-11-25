@@ -66,6 +66,10 @@ For the fuller business and service summary, see [llms.txt](https://www.a1drain.
 - [Rockwell, Iowa](https://www.a1drain.com/service-area/rockwell/)
 - [Albert Lea, Minnesota](https://www.a1drain.com/albert-lea-mn-drain-cleaning/)
 
+## Service-area directory
+
+The community directory covers locations in Cerro Gordo, Floyd, Franklin, Hancock, Mitchell, Winnebago, Worth, Wright, and Butler counties. These are directory communities, not nine county landing pages. The nine dedicated Iowa city pages are listed above. Albert Lea, Minnesota, is also included as a service area, not a second office. Call to confirm availability for a specific address.
+
 ## Machine-readable resources
 
 - [Full agent information](https://www.a1drain.com/llms.txt)
