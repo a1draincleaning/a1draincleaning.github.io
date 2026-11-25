@@ -74,7 +74,7 @@ For the fuller business and service summary, see [llms.txt](https://www.a1drain.
 
 ## Service-area directory
 
-The community directory covers locations in Cerro Gordo, Floyd, Franklin, Hancock, Mitchell, Winnebago, Worth, Wright, and Butler counties. These are directory communities, not nine county landing pages. The nine dedicated Iowa city pages are listed above. Albert Lea, Minnesota, is also included as a service area, not a second office. Call to confirm availability for a specific address.
+The community directory covers locations in Cerro Gordo, Floyd, Franklin, Hancock, Mitchell, Winnebago, Worth, and Butler counties. These are directory communities, not county landing pages. The nine dedicated Iowa city pages are listed above. Albert Lea, Minnesota, is also included as a service area, not a second office. Call to confirm availability for a specific address.
 
 ## Machine-readable resources
 
