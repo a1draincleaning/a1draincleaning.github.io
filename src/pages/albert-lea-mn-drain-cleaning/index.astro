@@ -1,5 +1,8 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
+import { uniqueServiceAreaCities } from '../../data/serviceAreaCities';
+
+const city = uniqueServiceAreaCities.find((item) => item.slug === 'albert-lea')!;
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
@@ -8,7 +11,7 @@ const title = 'Albert Lea, Minnesota Drain Cleaning | A-1 Drain Cleaning';
 const description = 'A-1 Drain Cleaning serves Albert Lea, Minnesota for clogged drains, main drain backups, floor drain problems and sewer-line blockages. Call 641-530-2728.';
 ---
 
-<MainLayout title={title} description={description} path="/albert-lea-mn-drain-cleaning/">
+<MainLayout title={title} description={description} path="/albert-lea-mn-drain-cleaning/" city={city}>
   <Header />
   <main id="main">
     <section class="bg-[#1A1A68] text-white">
