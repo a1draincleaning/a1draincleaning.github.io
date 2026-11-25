@@ -4,7 +4,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 import { uniqueServiceAreaCities, type ServiceAreaCity } from '../../data/serviceAreaCities';
-import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
+import { dedicatedServiceAreaCitySlugs, serviceAreaCityPageHref } from '../../data/serviceAreaCityPages';
 import { services } from '../../data/services';
 
 export function getStaticPaths() {
@@ -239,8 +239,8 @@ const nearbyCities = uniqueServiceAreaCities
         </p>
         <div class="mt-8 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
           {nearbyCities.map((nearby) => (
-            builtServiceAreaCitySlugs.has(nearby.slug) ? (
-              <a href={`/service-area/${nearby.slug}/`} class="border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold text-white hover:bg-[#141452]" style="color: #ffffff !important;">{nearby.name}</a>
+            dedicatedServiceAreaCitySlugs.has(nearby.slug) ? (
+              <a href={serviceAreaCityPageHref(nearby.slug)} class="border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold text-white hover:bg-[#141452]" style="color: #ffffff !important;">{nearby.name}</a>
             ) : (
               <span class="border border-slate-200 bg-slate-100 px-3 py-3 text-sm font-bold text-slate-600">{nearby.name}</span>
             )
