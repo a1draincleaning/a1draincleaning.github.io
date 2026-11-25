@@ -14,10 +14,16 @@ export function sourceFilesForUrl(url, projectRoot = root) {
     : ['src/pages/index.astro'];
   const staticPage = staticCandidates.find((file) => existsSync(join(projectRoot, file)));
 
-  const shared = ['src/layouts/MainLayout.astro', 'src/data/business.ts'];
+  const shared = [
+    'src/layouts/MainLayout.astro',
+    'src/data/business.ts',
+    'src/data/schemaServices.ts',
+    'src/data/services.ts',
+    'src/data/serviceAreaCities.ts'
+  ];
   if (staticPage) {
     if (pathname.startsWith('/services/')) {
-      return [...new Set([staticPage, ...shared, 'src/data/services.ts', 'src/data/servicePageConfig.ts'])];
+      return [...new Set([staticPage, ...shared, 'src/data/servicePageConfig.ts', 'src/data/serviceGroups.ts'])];
     }
     if (pathname.startsWith('/service-area/')) {
       return [...new Set([staticPage, ...shared, 'src/data/serviceAreaCities.ts', 'src/data/serviceAreaCityPages.ts'])];
@@ -26,22 +32,22 @@ export function sourceFilesForUrl(url, projectRoot = root) {
   }
 
   if (pathname.startsWith('/services/')) {
-    return [
+    return [...new Set([
       'src/pages/services/[slug].astro',
       'src/data/services.ts',
       'src/data/servicePageConfig.ts',
       'src/data/serviceGroups.ts',
       ...shared
-    ];
+    ])];
   }
 
   if (pathname.startsWith('/service-area/')) {
-    return [
+    return [...new Set([
       'src/pages/service-area/[slug].astro',
       'src/data/serviceAreaCities.ts',
       'src/data/serviceAreaCityPages.ts',
       ...shared
-    ];
+    ])];
   }
 
   throw new Error(`No source file mapping found for sitemap URL: ${url}`);
