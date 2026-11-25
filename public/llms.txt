@@ -96,6 +96,12 @@ The directory groups listed communities under nine Iowa counties: Cerro Gordo, F
 - [Rockwell, Iowa](https://www.a1drain.com/service-area/rockwell/)
 - [Albert Lea, Minnesota](https://www.a1drain.com/albert-lea-mn-drain-cleaning/)
 
+## Symptom and diagnostic pages
+
+- [Sewer backup into a bathtub or shower](https://www.a1drain.com/services/sewer-backup-into-tub-shower/) explains a sewer-backup symptom. It is not a combined bathroom-and-shower drain service.
+- [Drain Diagnosis](https://www.a1drain.com/drain-diagnosis/) is the interactive drain-problem diagnostic page.
+- [Service directory and symptom guides](https://www.a1drain.com/services/) separates service pages from common drain symptoms.
+
 ## Other site pages
 
 - [Home](https://www.a1drain.com/)
