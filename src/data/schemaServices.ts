@@ -15,6 +15,7 @@ export const schemaServices: SchemaService[] = [
   { slug: 'drain-cleaning', name: 'Drain Cleaning', description: 'Cleaning and unclogging household drain lines to restore drainage.', pageSlug: 'drain-cleaning' },
   { slug: 'main-drain-cleaning', name: 'Main Drain Cleaning', description: 'Cleaning a blocked main drain that carries wastewater away from the home.', pageSlug: 'main-drain-cleaning' },
   { slug: 'sewer-line-cleaning', name: 'Sewer Line Cleaning', description: 'Cleaning blocked residential sewer lines to restore wastewater flow.', pageSlug: 'sewer-line-cleaning' },
+  { slug: 'sewer-line-locating', name: 'Sewer Line Locating', description: 'Locating an underground sewer or drain line and identifying its approximate route or a point of interest.', pageSlug: 'sewer-line-locating' },
   { slug: 'emergency-drain-cleaning', name: 'Emergency Drain Cleaning', description: 'Emergency cleaning for stopped or backed-up household drains.', pageSlug: 'emergency-drain-cleaning' },
   { slug: 'floor-drain-cleaning', name: 'Floor Drain Cleaning', description: 'Cleaning blocked or backed-up floor drains, including basement floor drains.', alternateName: ['Basement Floor Drain Cleaning'], pageSlug: 'basement-floor-drains' },
   { slug: 'bathroom-shower-drain-cleaning', name: 'Bathroom and Shower Drain Cleaning', description: 'Cleaning bathroom sink, bathtub, and shower drains.', alternateName: ['Bathroom Drain Cleaning', 'Shower Drain Cleaning'], pageSlug: 'bathroom-shower-drains' },
