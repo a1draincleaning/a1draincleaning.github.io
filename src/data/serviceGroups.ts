@@ -22,6 +22,5 @@ export const featuredServiceSlugs = [
   'laundry-drains',
   'sewer-backup-emergency',
   'smoke-testing',
-  'sewer-backup-into-tub-shower',
   'hydro-jetting',
 ] as const;
