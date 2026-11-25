@@ -2,8 +2,8 @@
 
 ## Project
 - This repository is the production website for A-1 Drain Cleaning, based in Mason City, Iowa.
-- Repository: https://github.com/a1draincleaning/a1draincleaning.github.io
-- Production site: https://a1draincleaning.github.io
+- Repository: https://github.com/a1draincleaning/www.a1drain.com
+- Production site: https://www.a1drain.com
 - Stack: Astro static site generation, Tailwind CSS, GitHub Pages, GitHub Actions.
 - Default branch: main.
 
@@ -39,7 +39,7 @@
 - Inspect the build output and workflow implications before proposing deployment-sensitive changes.
 
 ## SEO and structured data
-- Preserve the canonical production domain: https://a1draincleaning.github.io
+- Preserve the canonical production domain: https://www.a1drain.com
 - Preserve existing sitemap integration and trailing-slash routing unless a verified fix requires otherwise.
 - Keep structured data accurate and use the most specific supported Schema.org types. Do not invent reviews, ratings, credentials, service coverage, or business attributes.
 - Avoid keyword stuffing, duplicate city-page copy, and unsupported claims.
