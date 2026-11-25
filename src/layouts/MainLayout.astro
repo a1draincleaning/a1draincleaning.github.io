@@ -28,11 +28,14 @@ const countyId = (name: string, stateCode: string) => `${business.website}#count
 const placeId = (slug: string) => `${business.website}#place-${slug}`;
 const serviceId = (slug: string) => `${business.website}#service-${slug}`;
 
-const stateSchema = Array.from(new Map(uniqueServiceAreaCities.map((item) => [item.stateCode, {
-  '@type': 'AdministrativeArea',
-  '@id': stateId(item.stateCode),
-  name: item.state
-}])).values());
+const stateSchema = Array.from(new Set(uniqueServiceAreaCities.map((item) => item.stateCode))).map((stateCode) => {
+  const item = uniqueServiceAreaCities.find((city) => city.stateCode === stateCode)!;
+  return {
+    '@type': 'AdministrativeArea',
+    '@id': stateId(stateCode),
+    name: item.state
+  };
+});
 
 const countySchema = serviceAreaCounties.map((county) => ({
   '@type': 'AdministrativeArea',
