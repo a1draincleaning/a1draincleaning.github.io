@@ -63,7 +63,7 @@ export const servicePageDescriptions: Record<string, string> = {
   'toilet-clogs': 'Toilet clogged, backing up, or bubbling when flushed? A-1 Drain Cleaning unclogs toilets and connected drains in Mason City and nearby communities.',
   'sewer-backup-emergency': 'Sewage coming up through a floor drain, tub, or toilet? A-1 Drain Cleaning provides emergency drain and sewer service in nearby communities.',
   'sewer-backup-into-tub-shower': 'Sewer backing up into a bathtub or shower? A-1 Drain Cleaning cleans and unclogs main drains and sewer lines in Mason City and nearby communities.',
-  'garbage-disposal': 'Garbage disposal will not drain or the kitchen sink stays full? A-1 Drain Cleaning handles disposal and related drain problems in nearby communities.',
+  'garbage-disposal': 'Garbage disposal repair and installation in Mason City and nearby communities. A-1 Drain Cleaning handles disposal problems and installation.',
   'dishwasher-drain': 'Dishwasher not draining or backing up into the kitchen sink? A-1 Drain Cleaning handles the drain side of dishwasher backup problems.',
   'sump-pumps': 'Sump pump repair in Mason City and nearby communities when a pump stops working or does not keep up with basement water.',
   'roof-drains': 'Roof drain blocked or not carrying rainwater away? A-1 Drain Cleaning provides roof drain cleaning in Mason City and nearby communities.',
