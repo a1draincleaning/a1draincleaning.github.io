@@ -50,7 +50,7 @@ export const servicePageDescriptions: Record<string, string> = {
   'sewer-backup-into-tub-shower': 'Sewer backing up into a bathtub or shower? A-1 Drain Cleaning cleans and unclogs main drains and sewer lines in Mason City and North Iowa.',
   'drain-repair': 'Recurring drain backups or suspected pipe damage? A-1 Drain Cleaning can inspect the line and determine when cleaning is not enough.',
   'garbage-disposal': 'Garbage disposal will not drain or the kitchen sink stays full? A-1 Drain Cleaning handles disposal and related drain problems in North Iowa.',
-  'dishwasher-drain': 'Dishwasher not draining or backing up into the kitchen sink? A-1 Drain Cleaning handles the drain side of dishwasher backup problems.',
+  'dishwasher-drain': 'Dishwasher not draining or water backing up into the kitchen sink? A-1 Drain Cleaning handles dishwasher drain problems in Mason City. Call 641-530-2728.',
   'sump-pumps': 'Sump pump stopped or not keeping up with basement water? A-1 Drain Cleaning repairs, replaces, and installs sump pumps in North Iowa.',
   'roof-vent-drains': 'Drains gurgling or behaving oddly with no clear clog? A-1 Drain Cleaning can help determine whether a plumbing vent is involved.',
   'septic-lines': 'House drain line to a septic system backing up? A-1 Drain Cleaning cleans and unclogs blocked drain lines leading to septic systems in Mason City and North Iowa.',
