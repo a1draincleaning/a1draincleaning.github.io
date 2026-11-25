@@ -22,6 +22,7 @@ const canonical = new URL(path, Astro.site ?? business.website).href;
 const socialImage = new URL('/images/a1-main-sewer-drain-cleaning-mason-city.webp', canonical).href;
 const businessId = `${business.website}#business`;
 const websiteId = `${business.website}#website`;
+const serviceAreaId = `${business.website}#service-area`;
 const pageService = service ? schemaServices.find((item) => item.title === service.title) : undefined;
 
 const serviceAreaAreas = [
@@ -61,7 +62,7 @@ const businessSchema = {
     postalCode: business.address.postalCode,
     addressCountry: business.address.country
   },
-  areaServed: serviceAreaAreas,
+  areaServed: { '@id': serviceAreaId },
   ...(path === '/about/' ? { founder: { '@type': 'Person', name: business.owner } } : {}),
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
@@ -78,6 +79,12 @@ const businessSchema = {
 
 const graph = [
   businessSchema,
+  {
+    '@type': 'Place',
+    '@id': serviceAreaId,
+    name: 'A-1 Drain Cleaning service-area communities',
+    containsPlace: serviceAreaAreas
+  },
   {
     '@type': 'WebSite',
     '@id': websiteId,
@@ -128,7 +135,7 @@ const graph = [
     serviceType: item.title,
     description: item.description,
     provider: { '@id': businessId },
-    areaServed: serviceAreaAreas,
+    areaServed: { '@id': serviceAreaId },
     url: `${business.website}services/${item.slug}/`,
     availableChannel: {
       '@type': 'ServiceChannel',
