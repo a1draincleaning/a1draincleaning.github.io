@@ -43,6 +43,6 @@ export const business = {
     'Clear Lake',
     'Forest City',
     'Charles City',
-    'North Iowa',
+    'nearby communities',
   ],
 } as const;
