@@ -3,7 +3,7 @@ import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://a1draincleaning.github.io',
+  site: 'https://www.a1drain.com',
   base: '/',
   output: 'static',
   trailingSlash: 'always',
