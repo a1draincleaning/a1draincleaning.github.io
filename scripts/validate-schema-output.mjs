@@ -110,7 +110,10 @@ for (const place of placeNodes) assert.ok(servedIds.has(place['@id']), `Business
 const catalogOffers = business.hasOfferCatalog?.itemListElement ?? [];
 assert.equal(catalogOffers.length, 20, 'OfferCatalog must reference all canonical services');
 for (const offer of catalogOffers) assert.ok(byId.has(offer.itemOffered['@id']), 'OfferCatalog has an unresolved Service reference');
-for (const service of serviceNodes) assert.equal(service.provider['@id'], businessId);
+for (const service of serviceNodes) {
+  assert.equal(service.provider['@id'], businessId);
+  if (service.url) await access(distPathForUrl(service.url));
+}
 
 const serviceSource = await readFile(path.join(root, 'src/data/schemaServices.ts'), 'utf8');
 const expectedServiceNames = [...serviceSource.matchAll(/name:\s*'([^']+)'/g)].map((match) => match[1]);
@@ -125,6 +128,11 @@ const publishedBlock = cityPagesSource.match(/publishedServiceAreaCitySlugs = ne
 assert.ok(publishedBlock, 'Published city-page registry missing');
 const publishedSlugs = [...publishedBlock[1].matchAll(/'([^']+)'/g)].map((match) => match[1]);
 assert.equal(publishedSlugs.length, 9, 'Expected exactly nine published Iowa city pages');
+const dynamicBlock = cityPagesSource.match(/builtServiceAreaCitySlugs = new Set\\(\\[([\\s\\S]*?)\\]\\)/);
+assert.ok(dynamicBlock, 'Dynamic city-page registry missing');
+const dynamicSlugs = [...dynamicBlock[1].matchAll(/'([^']+)'/g)].map((match) => match[1]);
+assert.equal(dynamicSlugs.length, 8, 'Expected eight dynamic city pages plus the separate Mason City route');
+assert.ok(!dynamicSlugs.includes('mason-city'), 'Mason City must not receive a duplicate /service-area/ route');
 const expectedCityPages = [
   ['mason-city', '/mason-city-drain-cleaning/'], ['clear-lake', '/service-area/clear-lake/'],
   ['charles-city', '/service-area/charles-city/'], ['forest-city', '/service-area/forest-city/'],
