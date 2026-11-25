@@ -33,11 +33,13 @@ test('maps dynamic service URLs to the service template and content data', () =>
   try {
     const files = [
       'src/pages/services/[slug].astro',
-      'src/layouts/MainLayout.astro',
-      'src/data/business.ts',
       'src/data/services.ts',
       'src/data/servicePageConfig.ts',
-      'src/data/serviceGroups.ts'
+      'src/data/serviceGroups.ts',
+      'src/layouts/MainLayout.astro',
+      'src/data/business.ts',
+      'src/data/schemaServices.ts',
+      'src/data/serviceAreaCities.ts'
     ];
     for (const file of files) {
       const target = join(root, file);
@@ -46,7 +48,7 @@ test('maps dynamic service URLs to the service template and content data', () =>
     }
     assert.deepEqual(
       sourceFilesForUrl('https://www.a1drain.com/services/main-drain-cleaning/', root),
-      files.slice(0, 1).concat(files.slice(3, 4), files.slice(4, 6), files.slice(1, 3))
+      files
     );
   } finally {
     rmSync(root, { recursive: true, force: true });
