@@ -40,7 +40,17 @@ function distPathForUrl(value) {
   return path.join(dist, normalized.replace(/^\//, ''), 'index.html');
 }
 
-const files = (await htmlFiles(dist)).filter((file) => path.relative(dist, file) !== '404.html');
+// The custom 404 and retired-route redirects are intentionally noindex documents
+// without business schema. Validate every canonical generated page, not these redirects.
+const nonSchemaDocuments = new Set([
+  '404.html',
+  'pipe-repair/index.html',
+  'service-area/mason-city/index.html',
+  'services/drain-repair/index.html',
+  'services/washing-machine-basement-flooding/index.html',
+  'services/kitchen-bathroom-drains/index.html'
+]);
+const files = (await htmlFiles(dist)).filter((file) => !nonSchemaDocuments.has(path.relative(dist, file).split(path.sep).join('/')));
 assert.ok(files.length > 0, 'Astro dist directory contains no HTML pages');
 let homeGraph;
 for (const file of files) {
