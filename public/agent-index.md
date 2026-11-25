@@ -41,7 +41,6 @@ This file is a short Markdown directory for search agents and automated website 
 - [Drain and sewer camera inspections](https://a1draincleaning.github.io/services/sewer-camera-inspection/)
 - [Sewer line locating](https://a1draincleaning.github.io/services/sewer-line-locating/)
 - [Smoke testing](https://a1draincleaning.github.io/services/smoke-testing/)
-- [Drain and sewer pipe repair](https://a1draincleaning.github.io/pipe-repair/)
 
 ## Service-area pages
 

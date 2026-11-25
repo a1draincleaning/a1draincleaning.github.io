@@ -23,7 +23,6 @@ A-1 Drain Cleaning provides professional drain cleaning and sewer line clearing 
  * **Roof Vent Clearing:** Clearing leaves, bird nests, and roof stack obstructions to restore proper venting and drain flow.
  * **Septic Line Cleaning:** Clearing the main incoming sewer pipe leading directly into your septic tank.
  * **Sewer Backup Service:** Clearing blocked sewer lines causing wastewater backups, basement flooding concerns, and drainage problems.
- * **Drain Repairs:** Diagnosing, spot-repairing, and fixing broken, cracked, or misaligned drain lines.
  * **Garbage Disposal Service:** Unjamming, repairing, or replacing worn-out garbage disposals.
  * **Dishwasher Drain Issues:** Clearing clogged waste lines and air gaps preventing dishwashers from draining completely.
  * **Sump Pump Service:** Servicing discharge pipes and sump pits to ensure reliable storm water removal.

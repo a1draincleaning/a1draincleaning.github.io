@@ -43,7 +43,6 @@ for (const required of [
   'Sewer Backup Emergency Service',
   'Drain & Sewer Camera Inspections',
   'Sewer Line Locating',
-  'Drain & Sewer Pipe Repair',
 ]) {
   if (!llms.includes(required)) throw new Error(`llms.txt is missing a core service: ${required}`);
 }

@@ -29,7 +29,6 @@
 - [Smoke Testing](https://a1draincleaning.github.io/services/smoke-testing/)
 - [Drain & Sewer Camera Inspections](https://a1draincleaning.github.io/services/sewer-camera-inspection/)
 - [Sewer Line Locating](https://a1draincleaning.github.io/services/sewer-line-locating/)
-- [Drain & Sewer Pipe Repair](https://a1draincleaning.github.io/pipe-repair/)
 
 ## Service Intent
 
@@ -41,7 +40,6 @@
 - Emergency Drain Cleaning: urgent clogs affecting individual toilets, sinks, bathtubs, showers, laundry drains, and floor drains; distinct from a sewer backup emergency.
 - Drain & Sewer Camera Inspections: camera checks of accessible drain or sewer lines when recurring blockages or pipe condition need investigation.
 - Sewer Line Locating: locating an accessible underground sewer or drain line route or point of interest.
-- Drain & Sewer Pipe Repair: pipe repair when cleaning alone cannot address a damaged or failing line.
 - Kitchen Drains: kitchen sink and kitchen drain problems, including slow or blocked sink drains and related disposal or dishwasher drainage issues.
 - Bathroom & Shower Drains: bathroom sink, shower, and bathtub drain problems when the affected fixture is the primary symptom.
 - Toilet Clogs & Toilet Problems: toilet-specific clogs and toilet drainage symptoms, with larger-line problems considered when multiple fixtures are affected.
