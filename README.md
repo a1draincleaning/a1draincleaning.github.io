@@ -32,6 +32,13 @@ The contact form is in `src/components/ContactCTA.astro` and posts through FormS
 
 The CNAME file is a build artifact input. It does not, by itself, prove that GitHub Pages has the custom domain configured, that DNS is correct, or that HTTPS and redirects work. Verify those separately in GitHub Pages settings and with live DNS/HTTP checks.
 
+## AI crawler policy
+
+- Search/retrieval access remains allowed for OAI-SearchBot, ChatGPT-User, Claude-SearchBot, Claude-User, PerplexityBot, Perplexity-User, Googlebot, and Applebot.
+- GPTBot, ClaudeBot, Applebot-Extended, and CCBot are disallowed as training or broad dataset crawlers.
+- Google-Extended is explicitly allowed to retain Gemini Apps grounding eligibility. Google documents that this also permits its stated Gemini model-training use. Blocking Google-Extended would not remove the site from Google Search or Search AI features, but would limit non-Search Gemini grounding.
+- robots.txt is a voluntary crawler policy, not a security boundary. Malicious scrapers that ignore it require server/CDN controls.
+
 ## Local development and validation
 
 ```sh
