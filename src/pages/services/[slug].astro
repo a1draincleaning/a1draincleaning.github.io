@@ -77,6 +77,15 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
     { question: 'Why does the backup happen when the washer drains?', answer: 'The washer releases a large volume of water quickly. A restricted line may handle smaller amounts but back up when the washer empties.' },
     { question: 'What if the floor drain backs up again after cleaning?', answer: 'A recurring backup may need further investigation to check for repeated buildup, roots, or pipe damage. Cleaning restores flow through a blockage but does not repair damaged pipe.' },
   ],
+  'toilet-clogs': [
+    { question: 'Why does my toilet keep clogging?', answer: 'A clog may be in the toilet trap or nearby branch drain. If the same toilet repeatedly clogs or other fixtures are affected, the restriction may be farther down a shared drain or main line.' },
+    { question: 'What does it mean if the toilet bubbles when flushed?', answer: 'Bubbling can be a sign of air movement in a restricted drain system, but it does not identify the blockage location by itself. Check whether sinks, tubs, showers, or floor drains are affected too.' },
+    { question: 'Should I keep flushing if the toilet bowl is filling up?', answer: 'No. Stop flushing when the bowl water rises and does not go down. Repeated flushing can overflow the toilet and add more water to a restricted drain.' },
+    { question: 'What if flushing the toilet makes another drain back up?', answer: 'That can point to a restriction in a shared drain or main line rather than a clog limited to the toilet. Stop using water where possible and explain which fixture is backing up.' },
+    { question: 'Does A-1 Drain Cleaning repair toilet tanks and flush mechanisms?', answer: 'No. A-1 Drain Cleaning handles toilet drain blockages. Broken flush mechanisms, fill valves, leaking tanks, and other toilet fixture repairs are separate from drain cleaning.' },
+    { question: 'Does A-1 Drain Cleaning offer 24/7 toilet drain service?', answer: 'Yes. A-1 Drain Cleaning offers 24/7 drain and sewer service in Mason City and North Iowa. Call 641-530-2728 and explain whether one toilet or several fixtures are affected.' },
+  ],
+
 };
 ---
 
@@ -408,6 +417,32 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
                 <section class="mt-8 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="toilet-drain-size">
                   <h2 id="toilet-drain-size" class="text-2xl font-black tracking-tight text-slate-950">Typical toilet drain pipe size</h2>
                   <p class="mt-3 leading-7 text-slate-700">Toilets commonly connect to a 3-inch drain, and some installations use 4-inch piping. A toilet that will not flush may have a clog in the toilet trap, the branch drain, or farther down the main drain. Pipe diameter alone does not identify the blockage location.</p>
+                </section>
+              )}
+              {service.slug === 'toilet-clogs' && (
+                <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="toilet-main-drain">
+                  <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Toilet drain cleaning</p>
+                  <h2 id="toilet-main-drain" class="mt-2 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">One toilet clog or a larger drain problem?</h2>
+                  <p class="mt-5 text-lg leading-8 text-slate-700">If one toilet is slow or will not flush while the other fixtures work normally, the blockage may be in the toilet trap or nearby branch drain. If the toilet repeatedly clogs, bubbles when flushed, or causes water to rise through another fixture, the restriction may be farther down a shared drain or the main line.</p>
+                  <h3 class="mt-8 text-xl font-black tracking-tight text-slate-950">What to do when the toilet is backing up</h3>
+                  <ul class="mt-4 list-disc space-y-3 pl-6 leading-8 text-slate-700">
+                    <li>Stop flushing if the bowl water is rising and not going down.</li>
+                    <li>Do not keep adding water to test a toilet that is already close to overflowing.</li>
+                    <li>If other fixtures are backing up too, stop using water where possible.</li>
+                    <li>When you call, explain whether one toilet or several fixtures are affected and whether flushing causes water to rise somewhere else.</li>
+                  </ul>
+                  <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning handles toilet drain blockages in Mason City and North Iowa. This service is for the drain, not repairs to a broken toilet flush mechanism, fill valve, or leaking tank.</p>
+                  <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning offers 24/7 drain and sewer service. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a>.</p>
+                  <p class="mt-4 leading-8 text-slate-700">If flushing the toilet makes a floor drain, tub, or shower back up, see <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a> or <a href="/services/sewer-backup-emergency/" class="font-bold text-[#b4232b] underline underline-offset-4">emergency sewer backup service</a>.</p>
+                  <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="toilet-drain-faq">
+                    <h2 id="toilet-drain-faq" class="text-3xl font-black tracking-tight text-slate-950">Toilet drain cleaning questions</h2>
+                    {pageFaqs[service.slug]?.map((faq) => (
+                      <div class="mt-6">
+                        <h3 class="text-xl font-black tracking-tight text-slate-950">{faq.question}</h3>
+                        <p class="mt-2 leading-8 text-slate-700">{faq.answer}</p>
+                      </div>
+                    ))}
+                  </section>
                 </section>
               )}
               {service.slug === 'basement-floor-drains' && (
