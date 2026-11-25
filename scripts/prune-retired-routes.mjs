@@ -11,7 +11,8 @@ const retiredRoutes = [
   { from: '/pipe-repair/', to: '/services/sewer-camera-inspection/' },
   { from: '/services/drain-repair/', to: '/services/sewer-camera-inspection/' },
   { from: '/services/washing-machine-basement-flooding/', to: '/services/laundry-drains/' },
-  { from: '/services/kitchen-bathroom-drains/', to: '/services/bathroom-shower-drains/' }
+  { from: '/services/kitchen-bathroom-drains/', to: '/services/bathroom-drain-cleaning/' },
+  { from: '/services/bathroom-shower-drains/', to: '/services/bathroom-drain-cleaning/' }
 ];
 
 function routeDir(route) {
