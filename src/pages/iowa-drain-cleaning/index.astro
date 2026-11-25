@@ -4,9 +4,10 @@ import Header from '../../components/Header.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
 import GoogleBusinessInfo from '../../components/GoogleBusinessInfo.astro';
 import Footer from '../../components/Footer.astro';
+import { schemaServices } from '../../data/schemaServices';
 
-const title = 'Iowa Drain Cleaning | A-1 Drain Cleaning';
-const description = 'A-1 Drain Cleaning provides drain cleaning and sewer line service from Mason City, Iowa. Call 641-530-2728 for clogged drains, floor drain backups, and sewer problems.';
+const title = 'Drain Cleaning in Mason City and Nearby Communities | A-1 Drain Cleaning';
+const description = 'A-1 Drain Cleaning provides drain cleaning and sewer service from Mason City, Iowa, for the communities listed in its service-area directory. Call 641-530-2728.';
 ---
 
 <MainLayout title={title} description={description} path="/iowa-drain-cleaning/">
@@ -16,8 +17,8 @@ const description = 'A-1 Drain Cleaning provides drain cleaning and sewer line s
       <div class="container grid gap-10 py-14 sm:py-18 lg:grid-cols-[1.15fr_.85fr] lg:items-center lg:py-20">
         <div>
           <p class="text-sm font-black uppercase tracking-[0.2em] text-red-300">A-1 Drain Cleaning • Mason City, Iowa</p>
-          <h1 class="mt-4 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">Iowa Drain Cleaning for Homes and Businesses</h1>
-          <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">A-1 Drain Cleaning is based in Mason City and handles drain and sewer problems for customers in Iowa. We clean and unclog drains and sewer lines, including main drain blockages, floor drain backups, kitchen drains, bathroom sink drains, shower drains, and bathtub drains, laundry drains, and sewer lines affected by tree roots.</p>
+          <h1 class="mt-4 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">Drain Cleaning and Sewer Service in Mason City and Nearby Communities</h1>
+          <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-200 sm:text-xl">A-1 Drain Cleaning is based in Mason City and serves the communities listed in its service-area directory. Services include floor, basement, garage, utility sink, kitchen, bathroom sink, shower, bathtub, roof, storm, yard, and laundry drain cleaning, along with main drain and sewer line work.</p>
           <p class="mt-4 max-w-2xl leading-7 text-slate-200">If you need drain cleaning or sewer service, call A-1 Drain Cleaning. Explain what's happening, where you're located, and what you've noticed. We can talk through the problem and explain what service may be needed.</p>
           <a href="tel:+16415302728" class="mt-8 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-center text-lg font-black text-white hover:bg-[#a82129]">CALL 641-530-2728</a>
           <p class="mt-5 text-sm font-semibold text-slate-300">Drain cleaning • Sewer line cleaning • Tree root removal • Hydro jetting • 24/7 service</p>
@@ -28,7 +29,10 @@ const description = 'A-1 Drain Cleaning provides drain cleaning and sewer line s
           <ul class="mt-6 space-y-4 text-slate-200">
             <li class="border-b border-white/10 pb-4"><strong class="text-white">Basement floor drain:</strong> fills or overflows when water is used elsewhere in the house.</li>
             <li class="border-b border-white/10 pb-4"><strong class="text-white">Laundry:</strong> washer water rises in the standpipe or comes out of a nearby floor drain.</li>
-            <li class="border-b border-white/10 pb-4"><strong class="text-white">Kitchen or bathroom:</strong> a sink, tub, or shower drains slowly or stops.</li>
+            <li class="border-b border-white/10 pb-4"><strong class="text-white">Kitchen sink:</strong> drains slowly or stops.</li>
+            <li class="border-b border-white/10 pb-4"><strong class="text-white">Bathroom sink:</strong> drains slowly or stops.</li>
+            <li class="border-b border-white/10 pb-4"><strong class="text-white">Shower:</strong> water drains slowly or stands in the base.</li>
+            <li class="border-b border-white/10 pb-4"><strong class="text-white">Bathtub:</strong> water drains slowly or stands in the tub.</li>
             <li><strong class="text-white">Main sewer:</strong> several fixtures back up together, or wastewater appears in the lowest fixture.</li>
           </ul>
         </aside>
@@ -41,66 +45,15 @@ const description = 'A-1 Drain Cleaning provides drain cleaning and sewer line s
         <h2 class="mt-2 max-w-4xl text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Drain cleaning starts with finding where the blockage is.</h2>
         <p class="mt-5 max-w-3xl text-lg leading-8 text-slate-700">One slow sink may have a blockage in its own drain. When several fixtures are affected, a toilet flush causes another drain to rise, or wastewater comes up through a floor drain, the restriction may be farther down a shared line or the main sewer. The pattern helps determine where to start.</p>
         <div class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          <article class="border border-slate-200 bg-white p-6">
-            <h3 class="text-xl font-black text-slate-950"><a href="/services/main-drain-cleaning/" class="hover:text-[#b4232b]">Main Drain Cleaning</a></h3>
-            <p class="mt-3 leading-7 text-slate-700">For a stopped or backed-up main drain affecting more than one fixture.</p>
-            <a href="/services/main-drain-cleaning/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Main drain cleaning service details →</a>
-          </article>
-          <article class="border border-slate-200 bg-white p-6">
-            <h3 class="text-xl font-black text-slate-950"><a href="/services/sewer-line-cleaning/" class="hover:text-[#b4232b]">Sewer Line Cleaning</a></h3>
-            <p class="mt-3 leading-7 text-slate-700">For sewer line blockages and drainage problems that keep coming back.</p>
-            <a href="/services/sewer-line-cleaning/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Sewer line cleaning service details →</a>
-          </article>
-          <article class="border border-slate-200 bg-white p-6">
-            <h3 class="text-xl font-black text-slate-950"><a href="/services/basement-floor-drains/" class="hover:text-[#b4232b]">Basement &amp; Floor Drains</a></h3>
-            <p class="mt-3 leading-7 text-slate-700">For water or sewage rising through a floor drain.</p>
-            <a href="/services/basement-floor-drains/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Basement floor drain backup service details →</a>
-          </article>
-          <article class="border border-slate-200 bg-white p-6">
-            <h3 class="text-xl font-black text-slate-950"><a href="/services/kitchen-drains/" class="hover:text-[#b4232b]">Kitchen Drains</a></h3>
-            <p class="mt-3 leading-7 text-slate-700">For kitchen sinks, kitchen drain lines, garbage disposals, and dishwasher drain problems.</p>
-            <a href="/services/kitchen-drains/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Read service details →</a>
-          </article>
-          <article class="border border-slate-200 bg-white p-6">
-            <h3 class="text-xl font-black text-slate-950"><a href="/services/bathroom-drain-cleaning/" class="hover:text-[#b4232b]">Bathroom Drain Cleaning</a></h3>
-            <p class="mt-3 leading-7 text-slate-700">For slow or stopped bathroom sink drains.</p>
-            <a href="/services/bathroom-drain-cleaning/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Read service details →</a>
-          </article>
-          <article class="border border-slate-200 bg-white p-6">
-            <h3 class="text-xl font-black text-slate-950"><a href="/services/shower-drain-cleaning/" class="hover:text-[#b4232b]">Shower Drain Cleaning</a></h3>
-            <p class="mt-3 leading-7 text-slate-700">For slow or stopped shower drains.</p>
-            <a href="/services/shower-drain-cleaning/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Read service details →</a>
-          </article>
-          <article class="border border-slate-200 bg-white p-6">
-            <h3 class="text-xl font-black text-slate-950"><a href="/services/bathtub-drain-cleaning/" class="hover:text-[#b4232b]">Bathtub Drain Cleaning</a></h3>
-            <p class="mt-3 leading-7 text-slate-700">For slow or stopped bathtub drains.</p>
-            <a href="/services/bathtub-drain-cleaning/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Read service details →</a>
-          </article>
-          <article class="border border-slate-200 bg-white p-6">
-            <h3 class="text-xl font-black text-slate-950"><a href="/services/laundry-drains/" class="hover:text-[#b4232b]">Laundry &amp; Washing Machine Drains</a></h3>
-            <p class="mt-3 leading-7 text-slate-700">For a washer standpipe overflowing or water coming up through a floor drain during a drain cycle.</p>
-            <a href="/services/laundry-drains/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Read service details →</a>
-          </article>
-          <article class="border border-slate-200 bg-white p-6">
-            <h3 class="text-xl font-black text-slate-950"><a href="/services/toilet-clogs/" class="hover:text-[#b4232b]">Toilet Clogs &amp; Problems</a></h3>
-            <p class="mt-3 leading-7 text-slate-700">For toilet clogs and toilet symptoms that may be connected to a larger drain problem.</p>
-            <a href="/services/toilet-clogs/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Read service details →</a>
-          </article>
-          <article class="border border-slate-200 bg-white p-6">
-            <h3 class="text-xl font-black text-slate-950"><a href="/services/tree-roots-in-sewer-line/" class="hover:text-[#b4232b]">Tree Roots in Sewer Lines</a></h3>
-            <p class="mt-3 leading-7 text-slate-700">For recurring sewer blockages where roots may be entering the line.</p>
-            <a href="/services/tree-roots-in-sewer-line/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Read service details →</a>
-          </article>
-          <article class="border border-slate-200 bg-white p-6">
-            <h3 class="text-xl font-black text-slate-950"><a href="/services/hydro-jetting/" class="hover:text-[#b4232b]">Hydro-Jetting</a></h3>
-            <p class="mt-3 leading-7 text-slate-700">Water-jet cleaning for suitable drain and sewer lines when the pipe and blockage call for it.</p>
-            <a href="/services/hydro-jetting/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Read service details →</a>
-          </article>
-          <article class="border border-slate-200 bg-white p-6">
-            <h3 class="text-xl font-black text-slate-950"><a href="/services/sewer-backup-into-tub-shower/" class="hover:text-[#b4232b]">Sewer Backup into a Tub or Shower</a></h3>
-            <p class="mt-3 leading-7 text-slate-700">In homes without basements, a blocked main line can show up in a tub or shower instead of a floor drain.</p>
-            <a href="/services/sewer-backup-into-tub-shower/" class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Read service details →</a>
-          </article>
+          {schemaServices.map((service) => (
+            <article class="border border-slate-200 bg-white p-6">
+              <h3 class="text-xl font-black text-slate-950">
+                <a href={`/services/${service.slug}/`} class="hover:text-[#b4232b]">{service.title}</a>
+              </h3>
+              <p class="mt-3 leading-7 text-slate-700">{service.description}</p>
+              <a href={`/services/${service.slug}/`} class="mt-4 inline-flex font-black text-[#b4232b] underline decoration-2 underline-offset-4">Read service details →</a>
+            </article>
+          ))}
         </div>
         <a href="/services/" class="mt-8 inline-flex rounded-md bg-[#1A1A68] px-6 py-3 font-black text-white hover:bg-slate-800">See all drain &amp; sewer services</a>
       </div>
