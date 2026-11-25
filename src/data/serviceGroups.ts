@@ -14,6 +14,8 @@ export const featuredServiceSlugs = [
   'garage-drain-cleaning',
   'utility-sink-drain-cleaning',
   'roof-drains',
+  'storm-drain-cleaning',
+  'yard-drain-cleaning',
   'garbage-disposal',
   'sump-pumps',
   'toilet-clogs',
