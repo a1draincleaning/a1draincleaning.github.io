@@ -22,7 +22,7 @@
 - Business location: 206 29th St SW, Mason City, Iowa 50401.
 - Phone: 641-530-2728.
 - Service area: Mason City and nearby communities. Do not add Chickasaw County to the service area.
-- Services include drain and sewer cleaning, tree root removal from sewer lines, hydro jetting, smoke testing, laundry drains, floor drain cleaning, main drain cleaning, and sewer-backup emergency service. Do not list pipe repair as an offered service.
+- Services include drain and sewer cleaning, tree root removal from sewer lines, hydro jetting, smoke testing, laundry drains, floor drain cleaning, main drain cleaning, and sewer-backup emergency service. Keep the service list limited to confirmed work.
 - Floor Drain Cleaning is the service name; a floor-drain backup is a symptom. Keep Basement Drain Cleaning as a separate service. Kitchen, bathroom, shower, and bathtub drains must remain separate services.
 - A-1 offers 24/7 service; do not describe this as a guarantee.
 - Write in direct, plain language with a practical Midwestern contractor's voice. Avoid corporate marketing language and generic filler.
