@@ -3,7 +3,6 @@ import { SEO } from 'astro-seo';
 import { Schema } from 'astro-seo-schema';
 import { services } from '../data/services';
 import { uniqueServiceAreaCities } from '../data/serviceAreaCities';
-import { builtServiceAreaCitySlugs } from '../data/serviceAreaCityPages';
 import { featuredServiceSlugs } from '../data/serviceGroups';
 import { business } from '../data/business';
 import '../styles/global.css';
@@ -27,12 +26,10 @@ const websiteId = `${business.website}#website`;
 
 const serviceAreaAreas = [
   { '@type': 'AdministrativeArea', name: 'North Iowa' },
-  ...uniqueServiceAreaCities
-    .filter((item) => builtServiceAreaCitySlugs.has(item.slug))
-    .map((item) => ({
-      '@type': 'Place',
-      name: `${item.name}, Iowa`
-    })),
+  ...uniqueServiceAreaCities.map((item) => ({
+    '@type': 'Place',
+    name: `${item.name}, Iowa`
+  })),
   {
     '@type': 'Place',
     name: 'Albert Lea, Minnesota',
