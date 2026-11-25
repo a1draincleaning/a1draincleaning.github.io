@@ -41,7 +41,7 @@ function distPathForUrl(value) {
   return path.join(dist, normalized.replace(/^\//, ''), 'index.html');
 }
 
-const files = await htmlFiles(dist);
+const files = (await htmlFiles(dist)).filter((file) => path.relative(dist, file) !== '404.html');
 assert.ok(files.length > 0, 'Astro dist directory contains no HTML pages');
 let homeGraph;
 for (const file of files) {
