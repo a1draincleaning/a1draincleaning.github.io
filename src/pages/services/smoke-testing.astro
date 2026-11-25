@@ -3,23 +3,13 @@ import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
+import { services } from '../../data/services';
 
-const service = {
-  slug: 'smoke-testing',
-  title: 'Smoke Testing',
-  description: 'Smoke testing can help locate openings, breaks, disconnected piping, or other places where smoke is escaping from a drain or sewer system.',
-  problems: ['sewer gas odors', 'hidden drain openings', 'suspected broken or disconnected piping', 'unknown source of sewer odor'],
-  signs: ['A sewer or drain odor keeps coming back', 'The source of an odor is difficult to locate', 'Smoke appears where a drain or sewer opening may be hidden', 'A drain system needs to be checked for openings or disconnected piping'],
-  details: [
-    'Smoke testing puts smoke into the appropriate part of a drain or sewer system so escaping smoke can help show where an opening or connection problem may be.',
-    'It can be useful when there is a recurring sewer odor but no obvious source. Smoke may show up through a floor drain, cracked or disconnected piping, an abandoned drain, or another opening connected to the system.',
-    'Finding smoke does not automatically mean the pipe needs to be replaced. The result helps identify where the problem is so the next repair or inspection can be based on what is actually found.',
-    'A-1 Drain Cleaning can use smoke testing when the symptoms make it useful as part of finding a drain or sewer problem.'
-  ]
-};
+const service = services.find((item) => item.slug === 'smoke-testing');
+if (!service) throw new Error('Smoke Testing is missing from the central service inventory.');
 
 const title = `${service.title} | A-1 Drain Cleaning`;
-const description = 'Smoke testing can help locate sewer and drain openings, breaks, or disconnected piping. A-1 Drain Cleaning serves Mason City and North Iowa.';
+const description = 'Smoke testing can help locate sewer and drain openings, breaks, or disconnected piping. A-1 Drain Cleaning serves Mason City and nearby communities.';
 ---
 
 <MainLayout title={title} description={description} path="/services/smoke-testing/" service={service}>
@@ -28,7 +18,7 @@ const description = 'Smoke testing can help locate sewer and drain openings, bre
     <section class="bg-[#1A1A68] text-white">
       <div class="container py-14 sm:py-18 lg:py-24">
         <nav aria-label="Breadcrumb" class="text-sm font-bold text-slate-300"><a href="/" class="hover:text-white">Home</a><span class="mx-2" aria-hidden="true">/</span><a href="/services/" class="hover:text-white">Services</a><span class="mx-2" aria-hidden="true">/</span><span class="text-white">{service.title}</span></nav>
-        <p class="mt-5 text-sm font-black uppercase tracking-[0.2em] text-red-300">Mason City • North Iowa</p>
+        <p class="mt-5 text-sm font-black uppercase tracking-[0.2em] text-red-300">Mason City • Nearby Communities</p>
         <h1 class="mt-3 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">{service.title}</h1>
         <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">{service.description}</p>
         <a href="tel:+16415302728" class="call-button mt-8 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-center text-lg font-black text-white shadow-lg hover:bg-[#a82129]">CALL 641-530-2728</a>
