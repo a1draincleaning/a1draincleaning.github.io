@@ -1,11 +1,10 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
 import { uniqueServiceAreaCities } from '../../data/serviceAreaCities';
-
-const city = uniqueServiceAreaCities.find((item) => item.slug === 'mason-city')!;
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ContactCTA from '../../components/ContactCTA.astro';
+const city = uniqueServiceAreaCities.find((item) => item.slug === 'mason-city')!;
 import GoogleBusinessInfo from '../../components/GoogleBusinessInfo.astro';
 
 const title = 'Mason City Drain Cleaning | A-1 Drain Cleaning';
