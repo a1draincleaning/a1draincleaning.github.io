@@ -26,38 +26,32 @@ For the fuller business and service summary, see [llms.txt](https://www.a1drain.
 
 ## Published service pages
 
-- [Emergency drain cleaning](https://www.a1drain.com/services/emergency-drain-cleaning/)
-- [Main drain cleaning](https://www.a1drain.com/services/main-drain-cleaning/)
-- [Sewer line cleaning](https://www.a1drain.com/services/sewer-line-cleaning/)
-- [Floor drain cleaning](https://www.a1drain.com/services/basement-floor-drains/)
-- [Basement drain cleaning](https://www.a1drain.com/services/basement-drain-cleaning/)
-- [Garage drain cleaning](https://www.a1drain.com/services/garage-drain-cleaning/)
-- [Utility sink drain cleaning](https://www.a1drain.com/services/utility-sink-drain-cleaning/)
-- [Bathroom sink drain cleaning](https://www.a1drain.com/services/bathroom-drain-cleaning/)
-- [Shower drain cleaning](https://www.a1drain.com/services/shower-drain-cleaning/)
-- [Bathtub drain cleaning](https://www.a1drain.com/services/bathtub-drain-cleaning/)
-- [Roof drain cleaning](https://www.a1drain.com/services/roof-drains/)
-- [Kitchen drain cleaning](https://www.a1drain.com/services/kitchen-drains/)
-- [Toilet unclogging](https://www.a1drain.com/services/toilet-clogs/)
-- [Laundry and washing machine drain cleaning](https://www.a1drain.com/services/laundry-drains/)
-- [Sewer backup emergency service](https://www.a1drain.com/services/sewer-backup-emergency/)
-- Emergency sewer backup service is available; call 641-530-2728 to confirm current availability.
-- [Tree root removal from sewer lines](https://www.a1drain.com/services/tree-roots-in-sewer-line/)
-- [Hydro jetting](https://www.a1drain.com/services/hydro-jetting/)
+- [Emergency Drain Cleaning](https://www.a1drain.com/services/emergency-drain-cleaning/)
+- [Main Drain Cleaning](https://www.a1drain.com/services/main-drain-cleaning/)
+- [Sewer Line Cleaning](https://www.a1drain.com/services/sewer-line-cleaning/)
 - [Drain & Sewer Camera Inspections](https://www.a1drain.com/services/sewer-camera-inspection/)
-- [Sewer line locating](https://www.a1drain.com/services/sewer-line-locating/)
-- [Smoke testing](https://www.a1drain.com/services/smoke-testing/)
-
-## Confirmed services that need distinct page and schema treatment
-
-- Sump Pump Repair
-- Garbage Disposal Repair and Installation
-- Dishwasher Drain Service
-- Septic Line Cleaning
-- Storm Drain Cleaning
-- Yard Drain Cleaning
-
-These are not combined with kitchen drains or with one another. The list records confirmed work; it does not claim each has a dedicated published page yet.
+- [Sewer Line Locating](https://www.a1drain.com/services/sewer-line-locating/)
+- [Tree Root Removal and Cutting](https://www.a1drain.com/services/tree-roots-in-sewer-line/)
+- [Hydro Jetting](https://www.a1drain.com/services/hydro-jetting/)
+- [Floor Drain Cleaning](https://www.a1drain.com/services/basement-floor-drains/)
+- [Basement Drain Cleaning](https://www.a1drain.com/services/basement-drain-cleaning/)
+- [Garage Drain Cleaning](https://www.a1drain.com/services/garage-drain-cleaning/)
+- [Utility Sink Drain Cleaning](https://www.a1drain.com/services/utility-sink-drain-cleaning/)
+- [Kitchen Drain Cleaning](https://www.a1drain.com/services/kitchen-drains/)
+- [Bathroom Drain Cleaning](https://www.a1drain.com/services/bathroom-drain-cleaning/)
+- [Shower Drain Cleaning](https://www.a1drain.com/services/shower-drain-cleaning/)
+- [Bathtub Drain Cleaning](https://www.a1drain.com/services/bathtub-drain-cleaning/)
+- [Roof Drain Cleaning](https://www.a1drain.com/services/roof-drains/)
+- [Storm Drain Cleaning](https://www.a1drain.com/services/storm-drain-cleaning/)
+- [Yard Drain Cleaning](https://www.a1drain.com/services/yard-drain-cleaning/)
+- [Laundry/Washing Machine Drain Cleaning](https://www.a1drain.com/services/laundry-drains/)
+- [Toilet Unclogging](https://www.a1drain.com/services/toilet-clogs/)
+- [Septic Line Cleaning](https://www.a1drain.com/services/septic-lines/)
+- [Dishwasher Drain Service](https://www.a1drain.com/services/dishwasher-drain/)
+- [Garbage Disposal Repair and Installation](https://www.a1drain.com/services/garbage-disposal/)
+- [Sump Pump Repair](https://www.a1drain.com/services/sump-pumps/)
+- [Sewer Backup Emergency Service](https://www.a1drain.com/services/sewer-backup-emergency/)
+- [Smoke Testing](https://www.a1drain.com/services/smoke-testing/)
 
 ## Service-area pages
 
