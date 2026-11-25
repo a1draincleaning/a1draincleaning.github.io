@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, readdirSync } from 'node:fs';
+import { existsSync, readFileSync, readdirSync, statSync } from 'node:fs';
 import { join } from 'node:path';
 
 const dist = join(process.cwd(), 'dist');
@@ -263,12 +263,14 @@ const localHosts = new Set(['www.a1drain.com', 'a1drain.com']);
 let checkedInternalLinks = 0;
 for (const htmlPath of walkHtml(dist)) {
   const html = readFileSync(htmlPath, 'utf8');
+  const relativePagePath = htmlPath.slice(dist.length).replace(/index\\.html$/, '');
+  const pageBase = new URL(relativePagePath || '/', 'https://www.a1drain.com/');
   const references = [...html.matchAll(/\b(?:href|src)=["']([^"']+)["']/gi)].map((match) => match[1]);
   for (const reference of references) {
     if (!reference || /^(?:#|mailto:|tel:|javascript:|data:)/i.test(reference)) continue;
     let parsed;
     try {
-      parsed = new URL(reference, 'https://www.a1drain.com/');
+      parsed = new URL(reference, pageBase);
     } catch {
       continue;
     }
@@ -277,7 +279,9 @@ for (const htmlPath of walkHtml(dist)) {
     const candidates = pathname.endsWith('/')
       ? [join(dist, pathname, 'index.html')]
       : [join(dist, pathname), join(dist, pathname, 'index.html'), join(dist, pathname + '.html')];
-    if (!candidates.some((candidate) => existsSync(candidate))) {
+    if (!candidates.some((candidate) => {
+      try { return statSync(candidate).isFile(); } catch { return false; }
+    })) {
       throw new Error('Broken internal link in ' + htmlPath.replace(dist, '') + ': ' + reference);
     }
     checkedInternalLinks += 1;
