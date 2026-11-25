@@ -3,7 +3,6 @@ import { SEO } from 'astro-seo';
 import { Schema } from 'astro-seo-schema';
 import { schemaServices } from '../data/schemaServices';
 import { uniqueServiceAreaCities } from '../data/serviceAreaCities';
-import { builtServiceAreaCitySlugs } from '../data/serviceAreaCityPages';
 import { business } from '../data/business';
 import '../styles/global.css';
 
@@ -26,9 +25,7 @@ const websiteId = `${business.website}#website`;
 const pageService = service ? schemaServices.find((item) => item.title === service.title) : undefined;
 
 const serviceAreaAreas = [
-  ...uniqueServiceAreaCities
-    .filter((item) => builtServiceAreaCitySlugs.has(item.slug))
-    .map((item) => ({
+  ...uniqueServiceAreaCities.map((item) => ({
       '@type': 'Place',
       name: `${item.name}, Iowa`
     })),
