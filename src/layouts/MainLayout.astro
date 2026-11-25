@@ -15,11 +15,12 @@ interface Props {
   schemaType?: string;
   service?: { title: string; description: string };
   faqs?: { question: string; answer: string }[];
+  reviews?: { author: string; datePublished: string; reviewBody: string }[];
   city?: { name: string; counties: string[] };
   breadcrumbLabel?: string;
 }
 
-const { title, description, path = '/', service, city, breadcrumbLabel, faqs } = Astro.props;
+const { title, description, path = '/', service, city, breadcrumbLabel, faqs, reviews } = Astro.props;
 const canonical = new URL(path, Astro.site ?? business.website).href;
 const socialImage = new URL('/images/a1-main-sewer-drain-cleaning-mason-city.webp', canonical).href;
 const businessId = `${business.website}#business`;
@@ -114,6 +115,21 @@ const graph = [
       { '@type': 'AdministrativeArea', name: 'Iowa' }
     ]
   }] : []),
+  ...(reviews?.length ? reviews.map((review, index) => ({
+    '@type': 'Review',
+    '@id': `${canonical}#review-${index + 1}`,
+    author: {
+      '@type': 'Person',
+      name: review.author
+    },
+    datePublished: review.datePublished,
+    reviewBody: review.reviewBody,
+    itemReviewed: {
+      '@type': 'Service',
+      name: 'Drain and sewer line cleaning',
+      provider: { '@id': businessId }
+    }
+  })) : []),
   ...(faqs?.length ? [{
     '@type': 'FAQPage',
     '@id': `${canonical}#faq`,
