@@ -1,0 +1,26 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import HomepageHouseDiagnostic from '../components/HomepageHouseDiagnostic.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<MainLayout
+  title="House Drain Diagnostic Test | A-1 Drain Cleaning"
+  description="Preview the interactive house plumbing diagnostic for A-1 Drain Cleaning."
+  path="/diagnostic-test/"
+  noindex={true}
+>
+  <Header />
+  <main id="main">
+    <section class="bg-white py-8">
+      <div class="container">
+        <p class="text-sm font-black uppercase tracking-[0.18em] text-[#b4232b]">Preview page — not a live service page</p>
+        <h1 class="mt-2 text-3xl font-black tracking-tight text-slate-950">A-1 House Drain Diagnostic Test</h1>
+        <p class="mt-3 max-w-3xl leading-7 text-slate-700">Use this page to test the house illustration, fixture selections, orange pipe overlays, service links, and mobile layout without changing the rest of the homepage.</p>
+      </div>
+    </section>
+    <HomepageHouseDiagnostic />
+  </main>
+  <Footer />
+</MainLayout>
