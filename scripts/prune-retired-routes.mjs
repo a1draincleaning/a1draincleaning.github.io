@@ -45,7 +45,21 @@ for (const { from, to } of retiredRoutes) {
   const directory = routeDir(from);
   if (existsSync(directory)) rmSync(directory, { recursive: true, force: true });
   mkdirSync(directory, { recursive: true });
-  writeFileSync(join(directory, 'index.html'), redirectHtml(to));
+  const redirectPath = join(directory, 'index.html');
+  writeFileSync(redirectPath, redirectHtml(to));
+
+  // Confirm retired service URLs are emitted as noindex redirects, never as
+  // stale service pages. This specifically protects the removed Pipe Repair URL.
+  const generatedRedirect = readFileSync(redirectPath, 'utf8');
+  const destination = `https://a1draincleaning.github.io${to}`;
+  if (
+    !generatedRedirect.includes('<meta name="robots" content="noindex,follow">') ||
+    !generatedRedirect.includes(`<link rel="canonical" href="${destination}">`) ||
+    !generatedRedirect.includes(`<meta http-equiv="refresh" content="0;url=${destination}">`) ||
+    generatedRedirect.includes('<h1>Pipe Repair</h1>')
+  ) {
+    throw new Error(`Retired route was not emitted as the expected noindex redirect: ${from}`);
+  }
 }
 
 function filesUnder(dir, predicate) {
@@ -133,4 +147,3 @@ execFileSync(process.execPath, [join(process.cwd(), 'scripts/add-sitemap-lastmod
 execFileSync(process.execPath, [join(process.cwd(), 'scripts/verify-agent-readiness.mjs')], { stdio: 'inherit' });
 
 console.log(`Pruned ${retiredRoutes.length} retired routes, validated ${sitemapUrls.length} canonical sitemap URLs against generated HTML pages, kept Astro's sitemap-index.xml and sitemap-0.xml, and copied llms.txt to llms.md.`);
-
