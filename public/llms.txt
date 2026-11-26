@@ -10,25 +10,25 @@
 - Phone: 641-530-2728
 - Primary service area: Mason City and North Iowa
 - Additional service area: Albert Lea, Minnesota
-- Website: https://a1draincleaning.github.io/
+- Website: https://a1drain.com/
 
 ## Services
 
-- [Drain Cleaning](https://a1draincleaning.github.io/services/)
-- [Emergency Drain Cleaning](https://a1draincleaning.github.io/services/emergency-drain-cleaning/)
-- [Main Drain Cleaning](https://a1draincleaning.github.io/services/main-drain-cleaning/)
-- [Sewer Line Cleaning](https://a1draincleaning.github.io/services/sewer-line-cleaning/)
-- [Tree Roots in Sewer Lines](https://a1draincleaning.github.io/services/tree-roots-in-sewer-line/)
-- [Hydro Jetting](https://a1draincleaning.github.io/services/hydro-jetting/)
-- [Floor Drain Backups & Basement Drains](https://a1draincleaning.github.io/services/basement-floor-drains/)
-- [Kitchen Drains](https://a1draincleaning.github.io/services/kitchen-drains/)
-- [Bathroom & Shower Drains](https://a1draincleaning.github.io/services/bathroom-shower-drains/)
-- [Toilet Clogs & Toilet Problems](https://a1draincleaning.github.io/services/toilet-clogs/)
-- [Laundry & Washing Machine Drains](https://a1draincleaning.github.io/services/laundry-drains/)
-- [Sewer Backup Emergency Service](https://a1draincleaning.github.io/services/sewer-backup-emergency/)
-- [Smoke Testing](https://a1draincleaning.github.io/services/smoke-testing/)
-- [Drain & Sewer Camera Inspections](https://a1draincleaning.github.io/services/sewer-camera-inspection/)
-- [Sewer Line Locating](https://a1draincleaning.github.io/services/sewer-line-locating/)
+- [Drain Cleaning](https://a1drain.com/services/)
+- [Emergency Drain Cleaning](https://a1drain.com/services/emergency-drain-cleaning/)
+- [Main Drain Cleaning](https://a1drain.com/services/main-drain-cleaning/)
+- [Sewer Line Cleaning](https://a1drain.com/services/sewer-line-cleaning/)
+- [Tree Roots in Sewer Lines](https://a1drain.com/services/tree-roots-in-sewer-line/)
+- [Hydro Jetting](https://a1drain.com/services/hydro-jetting/)
+- [Floor Drain Backups & Basement Drains](https://a1drain.com/services/basement-floor-drains/)
+- [Kitchen Drains](https://a1drain.com/services/kitchen-drains/)
+- [Bathroom & Shower Drains](https://a1drain.com/services/bathroom-shower-drains/)
+- [Toilet Clogs & Toilet Problems](https://a1drain.com/services/toilet-clogs/)
+- [Laundry & Washing Machine Drains](https://a1drain.com/services/laundry-drains/)
+- [Sewer Backup Emergency Service](https://a1drain.com/services/sewer-backup-emergency/)
+- [Smoke Testing](https://a1drain.com/services/smoke-testing/)
+- [Drain & Sewer Camera Inspections](https://a1drain.com/services/sewer-camera-inspection/)
+- [Sewer Line Locating](https://a1drain.com/services/sewer-line-locating/)
 
 ## Service Intent
 
@@ -46,19 +46,19 @@
 
 ## Priority Service Areas
 
-- [Mason City, Iowa](https://a1draincleaning.github.io/mason-city-drain-cleaning/)
-- [Clear Lake, Iowa](https://a1draincleaning.github.io/service-area/clear-lake/)
-- [Charles City, Iowa](https://a1draincleaning.github.io/service-area/charles-city/)
-- [Forest City, Iowa](https://a1draincleaning.github.io/service-area/forest-city/)
-- [Garner, Iowa](https://a1draincleaning.github.io/service-area/garner/)
-- [Northwood, Iowa](https://a1draincleaning.github.io/service-area/northwood/)
-- [Hampton, Iowa](https://a1draincleaning.github.io/service-area/hampton/)
-- [Nora Springs, Iowa](https://a1draincleaning.github.io/service-area/nora-springs/)
-- [Rockwell, Iowa](https://a1draincleaning.github.io/service-area/rockwell/)
+- [Mason City, Iowa](https://a1drain.com/mason-city-drain-cleaning/)
+- [Clear Lake, Iowa](https://a1drain.com/service-area/clear-lake/)
+- [Charles City, Iowa](https://a1drain.com/service-area/charles-city/)
+- [Forest City, Iowa](https://a1drain.com/service-area/forest-city/)
+- [Garner, Iowa](https://a1drain.com/service-area/garner/)
+- [Northwood, Iowa](https://a1drain.com/service-area/northwood/)
+- [Hampton, Iowa](https://a1drain.com/service-area/hampton/)
+- [Nora Springs, Iowa](https://a1drain.com/service-area/nora-springs/)
+- [Rockwell, Iowa](https://a1drain.com/service-area/rockwell/)
 
 ## Additional Service Area
 
-- [Albert Lea, Minnesota Drain Cleaning](https://a1draincleaning.github.io/albert-lea-mn-drain-cleaning/)
+- [Albert Lea, Minnesota Drain Cleaning](https://a1drain.com/albert-lea-mn-drain-cleaning/)
 
 A-1 Drain Cleaning is based in Mason City, Iowa. The Albert Lea page is a service-area page and does not represent a physical Minnesota office.
 
@@ -85,12 +85,12 @@ A-1 Drain Cleaning serves Mason City and North Iowa and provides 24/7 drain clea
 
 ## Site Pages
 
-- [Home](https://a1draincleaning.github.io/)
-- [About A-1 Drain Cleaning](https://a1draincleaning.github.io/about/)
-- [Contact A-1 Drain Cleaning](https://a1draincleaning.github.io/contact/)
-- [Service Area](https://a1draincleaning.github.io/service-area/)
-- [Albert Lea, Minnesota Drain Cleaning](https://a1draincleaning.github.io/albert-lea-mn-drain-cleaning/)
+- [Home](https://a1drain.com/)
+- [About A-1 Drain Cleaning](https://a1drain.com/about/)
+- [Contact A-1 Drain Cleaning](https://a1drain.com/contact/)
+- [Service Area](https://a1drain.com/service-area/)
+- [Albert Lea, Minnesota Drain Cleaning](https://a1drain.com/albert-lea-mn-drain-cleaning/)
 
 ## Agent Index
 
-- [Markdown agent index](https://a1draincleaning.github.io/agent-index.md)
+- [Markdown agent index](https://a1drain.com/agent-index.md)
