@@ -120,8 +120,6 @@ const expectedServices = [
   'Utility Sink Drain Cleaning',
   'Kitchen Drain Cleaning',
   'Bathroom Drain Cleaning',
-  'Shower Drain Cleaning',
-  'Bathtub Drain Cleaning',
   'Roof Drain Cleaning',
   'Storm Drain Cleaning',
   'Yard Drain Cleaning',
@@ -226,9 +224,37 @@ if (!homepage.includes('type="text/markdown"') || !homepage.includes('href="/age
   throw new Error('Homepage HTML does not link to the Markdown agent index.');
 }
 
+const bathroomServiceUrl = 'https://a-1drain.com/services/bathroom-drain-cleaning/';
+const retiredBathroomRoutes = ['/services/shower-drain-cleaning/', '/services/bathtub-drain-cleaning/'];
+for (const route of retiredBathroomRoutes) {
+  const redirectPath = join(dist, route.slice(1, -1), 'index.html');
+  if (!existsSync(redirectPath)) throw new Error('Retired bathroom URL is missing its redirect page: ' + route);
+  const redirectHtml = readFileSync(redirectPath, 'utf8');
+  if (!redirectHtml.includes('<meta http-equiv="refresh" content="0;url=' + bathroomServiceUrl + '">') ||
+      !redirectHtml.includes('<link rel="canonical" href="' + bathroomServiceUrl + '">') ||
+      !redirectHtml.includes('<meta name="robots" content="noindex,follow">') ||
+      !redirectHtml.includes('href="/services/bathroom-drain-cleaning/"')) {
+    throw new Error('Retired bathroom URL does not redirect to the canonical Bathroom Drain Cleaning page: ' + route);
+  }
+}
 const sitemap = readFileSync(join(dist, 'sitemap-0.xml'), 'utf8');
 if (!sitemap.includes('<urlset')) throw new Error('sitemap-0.xml is not a URL-set child sitemap.');
 const entries = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => match[1]);
+for (const retiredUrl of [
+  'https://a-1drain.com/services/shower-drain-cleaning/',
+  'https://a-1drain.com/services/bathtub-drain-cleaning/',
+]) {
+  if (sitemap.includes(retiredUrl)) throw new Error('Retired bathroom URL remains in the canonical sitemap: ' + retiredUrl);
+}
+const bathroomUrlCount = sitemap.split('<loc>' + bathroomServiceUrl + '</loc>').length - 1;
+if (bathroomUrlCount !== 1) throw new Error('Bathroom Drain Cleaning must appear exactly once in the sitemap.');
+const bathroomPagePath = join(dist, 'services', 'bathroom-drain-cleaning', 'index.html');
+if (!existsSync(bathroomPagePath)) throw new Error('Bathroom Drain Cleaning page was not generated.');
+const bathroomHtml = readFileSync(bathroomPagePath, 'utf8');
+for (const phrase of ['Bathroom Drain Cleaning', 'bathroom sink', 'shower drain', 'bathtub drain', 'hair', 'soap residue', 'standing water', 'Professional bathroom drain cleaning']) {
+  if (!bathroomHtml.toLowerCase().includes(phrase.toLowerCase())) throw new Error('Bathroom Drain Cleaning page is missing required coverage: ' + phrase);
+}
+
 if (!entries.length) throw new Error('sitemap-0.xml contains no URL entries.');
 
 const seen = new Set();
@@ -268,6 +294,9 @@ for (const htmlPath of walkHtml(dist)) {
   const references = [...html.matchAll(/\b(?:href|src)=["']([^"']+)["']/gi)].map((match) => match[1]);
   for (const reference of references) {
     if (!reference || /^(?:#|mailto:|tel:|javascript:|data:)/i.test(reference)) continue;
+    if (reference.includes('/services/shower-drain-cleaning/') || reference.includes('/services/bathtub-drain-cleaning/')) {
+      throw new Error('Generated HTML still links to a retired bathroom service URL: ' + reference);
+    }
     let parsed;
     try {
       parsed = new URL(reference, pageBase);
