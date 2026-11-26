@@ -2,7 +2,7 @@
 
 Astro static website for A-1 Drain Cleaning in Mason City, Iowa.
 
-- Production domain: https://www.a1drain.com/
+- Production domain: https://a-1drain.com/
 - Repository: https://github.com/a1draincleaning/a1draincleaning.github.io
 - Hosting: GitHub Pages
 - Framework: Astro static site generation
@@ -26,9 +26,9 @@ The contact form is in `src/components/ContactCTA.astro` and posts through FormS
 
 ## Custom domain
 
-- Canonical site URL in Astro: `https://www.a1drain.com`
+- Canonical site URL in Astro: `https://a-1drain.com`
 - Build-time CNAME file: `public/CNAME`
-- CNAME contents: `www.a1drain.com`
+- CNAME contents: `a-1drain.com`
 
 The CNAME file is a build artifact input. It does not, by itself, prove that GitHub Pages has the custom domain configured, that DNS is correct, or that HTTPS and redirects work. Verify those separately in GitHub Pages settings and with live DNS/HTTP checks.
 
