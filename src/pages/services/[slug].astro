@@ -56,7 +56,7 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
     { question: 'Do I need a camera inspection every time?', answer: 'No. A camera can be useful when the blockage returns or the pipe’s condition is uncertain. It is not automatically needed for every cleaning.' },
     { question: 'What should I do while sewage is backing up?', answer: 'Stop using water where possible, avoid contact with sewage, and keep people and pets away from the affected area until the backup is addressed.' },
   ],
-  'tree-roots-in-sewer-line': [
+  'tree-root-removal-from-sewer-lines': [
     { question: 'Can tree roots get into a sewer pipe that is still draining?', answer: 'Yes. Roots can narrow the opening and catch waste before the pipe becomes completely blocked. Early symptoms may include a recurring slow drain or repeated backups.' },
     { question: 'Will tree roots return after removal?', answer: 'Removing tree roots can reopen the line, but it does not close the joint or repair the crack where roots entered. A damaged entry point can allow another root blockage to develop.' },
     { question: 'How can I tell whether roots are the cause?', answer: 'Recurring blockages can raise suspicion, but symptoms alone do not confirm roots. A sewer camera inspection may help identify roots and show the visible condition of the pipe.' },
@@ -64,7 +64,7 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
   ],
   'hydro-jetting': [
     { question: 'Does every clogged drain need hydro jetting?', answer: 'No. Many clogs can be cleaned with other equipment. Jetting is considered when the blockage and pipe conditions make it a suitable option.' },
-    { question: 'Can hydro jetting remove tree roots?', answer: 'Roots may need to be removed with suitable tree root removal equipment. The best method depends on the root blockage and pipe condition; jetting is not a universal substitute for tree root removal.' },
+    { question: 'Can hydro jetting remove tree roots?', answer: 'Tree roots can be removed with drain-cleaning equipment suited to the blockage and the condition of the sewer pipe. The best method depends on the root blockage and pipe condition; jetting is not a universal substitute for tree root removal.' },
     { question: 'Will hydro jetting repair a cracked or collapsed sewer pipe?', answer: 'No. Jetting is a cleaning method. A cracked, separated, or collapsed pipe may require repair rather than more cleaning.' },
     { question: 'When might a camera inspection help?', answer: 'It may help when the blockage repeatedly returns or the condition of the line is uncertain and that information would affect the cleaning approach.' },
   ],
@@ -188,7 +188,7 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
               </section>
 
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Main drain cleaning or sewer line cleaning?</h2>
-              <p class="mt-5 leading-8 text-slate-700">These terms often overlap because the main drain carries wastewater out of the house and into the sewer or septic connection. The important question is where the restriction is and whether the pipe itself is in good condition. Cleaning can open a blockage; a cracked or collapsed pipe may need repair. Learn more about <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a> and <a href="/services/tree-roots-in-sewer-line/" class="font-bold text-[#b4232b] underline underline-offset-4">tree roots in sewer lines</a>.</p>
+              <p class="mt-5 leading-8 text-slate-700">These terms often overlap because the main drain carries wastewater out of the house and into the sewer or septic connection. The important question is where the restriction is and whether the pipe itself is in good condition. Cleaning can open a blockage; a cracked or collapsed pipe may need repair. Learn more about <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a> and <a href="/services/tree-root-removal-from-sewer-lines/" class="font-bold text-[#b4232b] underline underline-offset-4">tree roots in sewer lines</a>.</p>
 
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Main drain cleaning in Mason City and nearby communities</h2>
               <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning is based at 206 29th St SW in Mason City, Iowa, and serves Mason City and nearby communities, including Clear Lake, Forest City, Charles City, and Nora Springs. Drain and sewer problems do not always wait for business hours; call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a> for service information.</p>
@@ -235,7 +235,7 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
               </section>
 
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Sewer line cleaning or drain repair?</h2>
-              <p class="mt-5 leading-8 text-slate-700">Cleaning removes a blockage and opens the line. Repair addresses physical damage such as a cracked, separated, or collapsed pipe. If a line repeatedly blocks or will not stay open, further inspection may be needed to determine whether cleaning alone is enough. See <a href="/services/tree-roots-in-sewer-line/" class="font-bold text-[#b4232b] underline underline-offset-4">tree roots in sewer lines</a> and <a href="/services/sewer-camera-inspection/" class="font-bold text-[#b4232b] underline underline-offset-4">drain and sewer camera inspections</a>.</p>
+              <p class="mt-5 leading-8 text-slate-700">Cleaning removes a blockage and opens the line. Repair addresses physical damage such as a cracked, separated, or collapsed pipe. If a line repeatedly blocks or will not stay open, further inspection may be needed to determine whether cleaning alone is enough. See <a href="/services/tree-root-removal-from-sewer-lines/" class="font-bold text-[#b4232b] underline underline-offset-4">tree roots in sewer lines</a> and <a href="/services/sewer-camera-inspection/" class="font-bold text-[#b4232b] underline underline-offset-4">drain and sewer camera inspections</a>.</p>
 
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Sewer line cleaning in Mason City and nearby communities</h2>
               <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning is based at 206 29th St SW in Mason City, Iowa, and serves Mason City and nearby communities. When you call, tell us which fixtures are backing up, whether wastewater is coming up through a floor drain or tub, and whether the line has clogged before. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a>.</p>
@@ -252,9 +252,9 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
                 <p class="mt-2 leading-8 text-slate-700">Stop using water where possible, avoid contact with sewage, and keep people and pets away from the affected area until the backup is addressed.</p>
               </section>
             </>
-          ) : service.slug === 'tree-roots-in-sewer-line' ? (
+          ) : service.slug === 'tree-root-removal-from-sewer-lines' ? (
             <>
-              <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Tree roots in sewer lines</p>
+              <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Tree Root Removal from Sewer Lines</p>
               <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Roots can turn a small opening in a sewer pipe into a recurring blockage</h2>
               <p class="mt-6 text-lg leading-8 text-slate-700">Tree roots usually get into a sewer line through an existing opening, such as a pipe joint, crack, or damaged section. They do not have to fill the pipe completely to cause trouble. As roots grow inside the line, they can catch toilet paper and other waste, narrow the passage, and slow wastewater leaving the house.</p>
               <p class="mt-5 text-lg leading-8 text-slate-700">A-1 Drain Cleaning provides tree root removal from sewer lines in Mason City and nearby communities. Removing roots can reopen the pipe, but it does not seal the entry point or repair damaged pipe.</p>
@@ -272,7 +272,7 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
               <p class="mt-4 leading-8 text-slate-700">Once roots enter the pipe, they can catch paper and waste. That material builds up around the roots and restricts flow. A line may drain after cleaning, then clog again if roots remain or the damaged entry point is still open.</p>
 
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">How A-1 Drain Cleaning removes tree roots</h2>
-              <p class="mt-5 leading-8 text-slate-700">A-1 uses drain-cleaning equipment to remove tree roots that are blocking the line and restore a path for wastewater. The approach depends on access to the pipe, the blockage, and the condition of the line. Opening the pipe helps wastewater flow, but root removal is not the same as repairing a crack, separated joint, or collapsed section.</p>
+              <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning uses drain-cleaning equipment suited to the pipe and blockage to remove tree roots and restore a path for wastewater. The approach depends on access to the pipe, the blockage, and the condition of the line. Opening the pipe helps wastewater flow, but root removal is not the same as repairing a crack, separated joint, or collapsed section.</p>
               <p class="mt-4 leading-8 text-slate-700">If the line has plugged repeatedly or the pipe condition is uncertain, a sewer camera inspection can help show whether roots are present and whether the pipe has visible damage. That information can help distinguish a blockage that needs cleaning from a pipe problem that may need repair.</p>
               <p class="mt-4 leading-8 text-slate-700">When you call, explain how often the line has backed up, whether cleaning has been done before, and which drains are affected. If wastewater is currently coming up through a floor drain, tub, or shower, stop using water where possible and keep people and pets away from the affected area.</p>
 
@@ -282,11 +282,11 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
                 <p class="mt-4 leading-7 text-slate-700">Learn about <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a>, <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a>, and <a href="/services/sewer-camera-inspection/" class="font-bold text-[#b4232b] underline underline-offset-4">drain and sewer camera inspections</a>.</p>
               </section>
 
-              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Tree roots in sewer lines in Mason City and nearby communities</h2>
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Tree Root Removal from Sewer Lines in Mason City and nearby communities</h2>
               <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning works on blocked sewer lines in Mason City and across nearby communities. If your sewer line has been cleaned before and the same symptoms return, share that history when you call. It helps us assess whether the immediate job is to remove a root blockage, investigate a recurring restriction, or determine whether pipe damage may be involved.</p>
 
               <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="tree-root-faqs">
-                <h2 id="tree-root-faqs" class="text-3xl font-black tracking-tight text-slate-950">Tree root sewer line FAQs</h2>
+                <h2 id="tree-root-faqs" class="text-3xl font-black tracking-tight text-slate-950">Tree Root Removal from Sewer Lines FAQs</h2>
                 <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Can tree roots get into a sewer pipe that is still draining?</h3>
                 <p class="mt-2 leading-8 text-slate-700">Yes. Roots can narrow the opening and catch waste before the pipe becomes completely blocked. Early symptoms may include a recurring slow drain or repeated backups.</p>
                 <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Will tree roots return after removal?</h3>
@@ -314,7 +314,7 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
 
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Hydro jetting compared with cable drain cleaning</h2>
               <p class="mt-5 leading-8 text-slate-700">A drain cable is used to reach and break through or cut certain blockages. Hydro jetting uses pressurized water to clean material from the pipe's interior. The methods do different jobs, and the right choice depends on what is blocking the line and what condition the pipe is in. Hydro jetting should not be treated as an automatic upgrade for every drain call.</p>
-              <p class="mt-4 leading-8 text-slate-700">Tree roots may need to be cut out, while grease and other buildup may respond to water jetting when the pipe is suitable for it. A cracked, separated, or collapsed pipe is a different problem: cleaning does not repair structural damage.</p>
+              <p class="mt-4 leading-8 text-slate-700">Tree roots may need to be removed, while grease and other buildup may respond to water jetting when the pipe is suitable for it. A cracked, separated, or collapsed pipe is a different problem: cleaning does not repair structural damage.</p>
 
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Check the pipe condition before choosing the method</h2>
               <p class="mt-5 leading-8 text-slate-700">The condition and material of the line matter when deciding whether to use high-pressure water. If a pipe is damaged, its condition is uncertain, or the blockage keeps returning, further assessment may be needed before choosing the cleaning method. A sewer camera inspection can help show visible conditions inside an accessible line when that information would affect the next step.</p>
@@ -323,7 +323,7 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
               <section class="mt-10 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="hydro-jetting-next-step">
                 <h2 id="hydro-jetting-next-step" class="text-2xl font-black tracking-tight text-slate-950">Choosing the right drain-cleaning method</h2>
                 <p class="mt-3 leading-7 text-slate-700">The goal is to clear the restriction without using a method that does not fit the pipe or the blockage. A-1 Drain Cleaning assesses the symptoms and line conditions to determine the practical next step.</p>
-                <p class="mt-4 leading-7 text-slate-700">Related information: <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a>, <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a>, and <a href="/services/tree-roots-in-sewer-line/" class="font-bold text-[#b4232b] underline underline-offset-4">tree roots in sewer lines</a>.</p>
+                <p class="mt-4 leading-7 text-slate-700">Related information: <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">main drain cleaning</a>, <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a>, and <a href="/services/tree-root-removal-from-sewer-lines/" class="font-bold text-[#b4232b] underline underline-offset-4">tree roots in sewer lines</a>.</p>
               </section>
 
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Hydro jetting in Mason City and nearby communities</h2>
