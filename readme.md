@@ -2,7 +2,7 @@
 
 This repository contains the existing Astro static website for A-1 Drain Cleaning in Mason City, Iowa.
 
-- Production website: https://www.a1drain.com/
+- Production website: https://a-1drain.com/
 - Repository: https://github.com/a1draincleaning/a1draincleaning.github.io
 - Hosting: GitHub Pages
 - Main contact number: 641-530-2728
