@@ -53,7 +53,9 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Hansell', ['Franklin']],
     ['Latimer', ['Franklin']],
     ['Popejoy', ['Franklin']],
-    ['Sheffield', ['Franklin']]
+    ['Sheffield', ['Franklin']],
+    // A portion of Dows City lies in Franklin County; it also remains listed in Wright County below.
+    ['Dows', ['Franklin']]
   ].map(([name, counties]) => city(name as string, counties as string[])),
 
   // Hancock County
@@ -61,6 +63,8 @@ export const serviceAreaCities: ServiceAreaCity[] = [
     ['Britt', ['Hancock']],
     ['Corwith', ['Hancock']],
     ['Crystal Lake', ['Hancock']],
+    // Forest City is listed by both Hancock and Winnebago County official directories.
+    ['Forest City', ['Hancock']],
     ['Garner', ['Hancock']],
     ['Goodell', ['Hancock']],
     ['Kanawha', ['Hancock']],
