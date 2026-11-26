@@ -6,10 +6,10 @@ import { join } from 'node:path';
 import { addIndexLastmod, addUrlLastmod, sourceFilesForUrl } from '../scripts/add-sitemap-lastmod.mjs';
 
 test('adds a distinct source date to every URL and replaces stale dates', () => {
-  const xml = `<?xml version="1.0"?><urlset><url><loc>https://www.a1drain.com/</loc></url><url><loc>https://www.a1drain.com/about/</loc><lastmod>2020-01-01</lastmod></url></urlset>`;
+  const xml = `<?xml version="1.0"?><urlset><url><loc>https://a-1drain.com/</loc></url><url><loc>https://a-1drain.com/about/</loc><lastmod>2020-01-01</lastmod></url></urlset>`;
   const dates = new Map([
-    ['https://www.a1drain.com/', '2026-11-01T10:00:00Z'],
-    ['https://www.a1drain.com/about/', '2026-11-02T10:00:00Z']
+    ['https://a-1drain.com/', '2026-11-01T10:00:00Z'],
+    ['https://a-1drain.com/about/', '2026-11-02T10:00:00Z']
   ]);
   const result = addUrlLastmod(xml, (url) => dates.get(url));
   assert.match(result, /<lastmod>2026-11-01T10:00:00.000Z<\/lastmod>/);
@@ -23,7 +23,7 @@ test('rejects missing URL locations and invalid modification dates', () => {
 });
 
 test('adds the latest child sitemap date to each sitemap-index entry', () => {
-  const xml = '<sitemapindex><sitemap><loc>https://www.a1drain.com/sitemap-0.xml</loc></sitemap></sitemapindex>';
+  const xml = '<sitemapindex><sitemap><loc>https://a-1drain.com/sitemap-0.xml</loc></sitemap></sitemapindex>';
   const result = addIndexLastmod(xml, '2026-11-03T12:00:00Z');
   assert.match(result, /<lastmod>2026-11-03T12:00:00.000Z<\/lastmod>/);
 });
@@ -47,7 +47,7 @@ test('maps dynamic service URLs to the service template and content data', () =>
       writeFileSync(target, '');
     }
     assert.deepEqual(
-      sourceFilesForUrl('https://www.a1drain.com/services/main-drain-cleaning/', root),
+      sourceFilesForUrl('https://a-1drain.com/services/main-drain-cleaning/', root),
       files
     );
   } finally {
