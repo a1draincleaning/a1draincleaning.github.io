@@ -93,6 +93,8 @@ for (const [slug, additions] of Object.entries(serviceDetailAdditions)) {
 }
 
 export const relatedServiceSlugs: Record<string, string[]> = {
+  'sewer-camera-inspection': ['sewer-line-cleaning', 'tree-root-removal'],
+  'sewer-line-cleaning': ['main-drain-cleaning', 'tree-root-removal', 'basement-floor-drains'],
   'sewer-line-locating': ['sewer-camera-inspection', 'sewer-line-cleaning'],
   'emergency-drain-cleaning': ['toilet-clogs', 'kitchen-drains', 'bathroom-drain-cleaning', 'shower-drain-cleaning', 'bathtub-drain-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
   'main-drain-cleaning': ['sewer-line-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
