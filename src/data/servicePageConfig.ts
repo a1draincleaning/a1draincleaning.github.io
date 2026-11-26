@@ -15,8 +15,6 @@ if (washingMachineService && laundryService) {
 export const servicePageTitles: Record<string, string> = {
   'kitchen-drains': 'Kitchen Drain Cleaning | A-1 Drain Cleaning',
   'bathroom-drain-cleaning': 'Bathroom Drain Cleaning | A-1 Drain Cleaning',
-  'shower-drain-cleaning': 'Shower Drain Cleaning | A-1 Drain Cleaning',
-  'bathtub-drain-cleaning': 'Bathtub Drain Cleaning | A-1 Drain Cleaning',
   'basement-drain-cleaning': 'Basement Drain Cleaning | A-1 Drain Cleaning',
   'garage-drain-cleaning': 'Garage Drain Cleaning | A-1 Drain Cleaning',
   'utility-sink-drain-cleaning': 'Utility Sink Drain Cleaning | A-1 Drain Cleaning',
@@ -44,9 +42,7 @@ export const servicePageTitles: Record<string, string> = {
 
 export const servicePageDescriptions: Record<string, string> = {
   'kitchen-drains': 'Kitchen sink drain cleaning in Mason City and nearby communities. Garbage disposal and dishwasher drain work are separate services.',
-  'bathroom-drain-cleaning': 'Bathroom sink drain cleaning in Mason City and nearby communities. Kitchen, shower, and bathtub drains are separate services.',
-  'shower-drain-cleaning': 'Shower drain cleaning in Mason City and nearby communities. Bathroom sink and bathtub drains are separate services.',
-  'bathtub-drain-cleaning': 'Bathtub drain cleaning in Mason City and nearby communities. Bathroom sink and shower drains are separate services.',
+  'bathroom-drain-cleaning': 'Bathroom sink, shower, and bathtub drain cleaning in Mason City, Iowa. Help for clogged drains, slow drainage, standing water, hair, and soap buildup.',
   'basement-drain-cleaning': 'Basement drain cleaning in Mason City and nearby communities. Separate from Floor Drain Cleaning.',
   'garage-drain-cleaning': 'Garage drain cleaning in Mason City and nearby communities.',
   'utility-sink-drain-cleaning': 'Utility sink drain cleaning in Mason City and nearby communities.',
@@ -97,7 +93,7 @@ for (const [slug, additions] of Object.entries(serviceDetailAdditions)) {
 export const relatedServiceSlugs: Record<string, string[]> = {
   'sewer-camera-inspection': ['sewer-line-cleaning', 'tree-roots-in-sewer-line'],
   'sewer-line-locating': ['sewer-camera-inspection', 'sewer-line-cleaning'],
-  'emergency-drain-cleaning': ['toilet-clogs', 'kitchen-drains', 'bathroom-drain-cleaning', 'shower-drain-cleaning', 'bathtub-drain-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
+  'emergency-drain-cleaning': ['toilet-clogs', 'kitchen-drains', 'bathroom-drain-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
   'main-drain-cleaning': ['sewer-line-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
   'sewer-line-cleaning': ['main-drain-cleaning', 'tree-roots-in-sewer-line', 'basement-floor-drains'],
   'tree-roots-in-sewer-line': ['sewer-line-cleaning', 'main-drain-cleaning'],
@@ -112,9 +108,7 @@ export const relatedServiceSlugs: Record<string, string[]> = {
   'dishwasher-drain': ['kitchen-drains', 'garbage-disposal', 'main-drain-cleaning'],
   'sump-pumps': ['basement-drain-cleaning', 'basement-floor-drains'],
   'kitchen-drains': ['garbage-disposal', 'dishwasher-drain', 'main-drain-cleaning'],
-  'bathroom-drain-cleaning': ['shower-drain-cleaning', 'bathtub-drain-cleaning', 'toilet-clogs'],
-  'shower-drain-cleaning': ['bathroom-drain-cleaning', 'bathtub-drain-cleaning'],
-  'bathtub-drain-cleaning': ['shower-drain-cleaning', 'bathroom-drain-cleaning'],
+  'bathroom-drain-cleaning': ['toilet-clogs'],
   'basement-drain-cleaning': ['basement-floor-drains', 'sump-pumps', 'main-drain-cleaning'],
   'garage-drain-cleaning': ['yard-drain-cleaning', 'storm-drain-cleaning'],
   'utility-sink-drain-cleaning': ['laundry-drains', 'main-drain-cleaning'],
