@@ -3,7 +3,7 @@
 ## Project
 - This repository is the production website for A-1 Drain Cleaning, based in Mason City, Iowa.
 - Repository: https://github.com/a1draincleaning/a1draincleaning.github.io
-- Production site: https://a1draincleaning.github.io
+- Production site: https://www.a1drain.com
 - Stack: Astro static site generation, Tailwind CSS, GitHub Pages, GitHub Actions.
 - Default branch: main.
 
@@ -21,12 +21,16 @@
 - Always use the full business name: A-1 Drain Cleaning.
 - Business location: 206 29th St SW, Mason City, Iowa 50401.
 - Phone: 641-530-2728.
-- Service area: Mason City and North Iowa communities. Do not add Chickasaw County to the service area.
-- Services include drain and sewer cleaning, root cutting, hydro jetting, smoke testing, drain repair, laundry drains, basement floor drains, main drain cleaning, and sewer-backup emergency service.
-- Floor-drain backups and basement sewer backups are a high-priority service topic.
+- Service area: Mason City and nearby communities. Do not add Hardin or Chickasaw County.
+- Confirmed services: Floor Drain Cleaning; Basement Drain Cleaning; Garage Drain Cleaning; Utility Sink Drain Cleaning; Kitchen Drain Cleaning; Bathroom Drain Cleaning; Shower Drain Cleaning; Bathtub Drain Cleaning; Roof Drain Cleaning; Storm Drain Cleaning; Yard Drain Cleaning; Main Drain Cleaning; Sewer Line Cleaning; Drain & Sewer Camera Inspections; Tree Root Removal and Cutting; Hydro Jetting; Smoke Testing; Sewer Line Locating; Laundry/Washing Machine Drain Cleaning; Toilet Unclogging; Emergency Drain Cleaning; Septic Line Cleaning; Dishwasher Drain Service; Garbage Disposal Repair and Installation; Sump Pump Repair; and Sewer Backup Emergency Service. Keep every service distinct and the service list limited to confirmed work.
+- Floor Drain Cleaning is the service name; a floor-drain backup is a symptom. Keep Basement Drain Cleaning as a separate service. Kitchen, bathroom, shower, and bathtub drains must remain separate services.
 - A-1 offers 24/7 service; do not describe this as a guarantee.
+- The 25-years-experience statement belongs only on the About page.
 - Write in direct, plain language with a practical Midwestern contractor's voice. Avoid corporate marketing language and generic filler.
 - Keep city and service pages factually distinct. Do not fabricate local soil, pipe, housing, municipal, or service claims.
+
+- Dedicated Iowa city pages: Mason City, Clear Lake, Charles City, Forest City, Garner, Hampton, Nora Springs, Northwood, and Rockwell. Albert Lea, Minnesota, is included in the service-area directory.
+- The service-area directory covers communities in Cerro Gordo, Floyd, Franklin, Hancock, Mitchell, Winnebago, Worth, Wright, and Butler counties. These are directory communities, not county landing pages.
 
 ## Astro and deployment
 - Preserve static GitHub Pages deployment and the existing Astro architecture.
@@ -39,7 +43,7 @@
 - Inspect the build output and workflow implications before proposing deployment-sensitive changes.
 
 ## SEO and structured data
-- Preserve the canonical production domain: https://a1draincleaning.github.io
+- Preserve the canonical production domain: https://www.a1drain.com
 - Preserve existing sitemap integration and trailing-slash routing unless a verified fix requires otherwise.
 - Keep structured data accurate and use the most specific supported Schema.org types. Do not invent reviews, ratings, credentials, service coverage, or business attributes.
 - Avoid keyword stuffing, duplicate city-page copy, and unsupported claims.

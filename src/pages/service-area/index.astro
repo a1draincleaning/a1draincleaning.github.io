@@ -9,7 +9,7 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
 
 <MainLayout
   title="Drain Cleaning Service Area | A-1 Drain Cleaning"
-  description="Find the North Iowa communities served by A-1 Drain Cleaning for drain cleaning, main drain blockages, floor drain backups and sewer-line problems."
+  description="Find the communities served by A-1 Drain Cleaning for drain cleaning, main drain blockages, floor drain backups and sewer-line problems."
   path="/service-area/"
 >
   <Header />
@@ -17,8 +17,8 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
     <section class="bg-[#1A1A68] py-14 text-white sm:py-20">
       <div class="container">
         <p class="text-sm font-black uppercase tracking-[0.2em] text-red-300">Areas We Serve</p>
-        <h1 class="mt-4 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">Drain Cleaning in Mason City and North Iowa</h1>
-        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">A-1 Drain Cleaning is based at 206 29th St SW in Mason City and travels for drain cleaning and sewer work in surrounding North Iowa communities.</p>
+        <h1 class="mt-4 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">Drain Cleaning in Mason City and nearby communities</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">A-1 Drain Cleaning is based at 206 29th St SW in Mason City and travels for drain cleaning and sewer work in nearby communities.</p>
         <a href="tel:+16415302728" class="call-button mt-8 inline-flex min-h-12 items-center rounded-md bg-[#c52b34] px-7 py-4 text-center text-lg font-black text-white shadow-lg hover:bg-[#a82129]">CALL 641-530-2728</a>
       </div>
     </section>
@@ -26,15 +26,15 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
     <section class="bg-white py-16 sm:py-20" aria-labelledby="communities-heading">
       <div class="container">
         <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Local coverage</p>
-        <h2 id="communities-heading" class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">North Iowa service-area directory</h2>
+        <h2 id="communities-heading" class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Service-area community directory</h2>
         <p class="mt-4 max-w-3xl text-lg leading-8 text-slate-700">The linked cities above have dedicated A-1 Drain Cleaning pages. The county lists below are regional directory references, not confirmation that every town or address is covered. Call 641-530-2728 with your address to confirm service availability.</p>
 
         <div class="mt-7 grid gap-4 sm:grid-cols-3" aria-label="Primary service-area communities">
           {uniqueServiceAreaCities
-            .filter((city) => builtServiceAreaCitySlugs.has(city.slug))
+            .filter((city) => builtServiceAreaCitySlugs.has(city.slug) || city.slug === 'mason-city')
             .sort((a, b) => a.name.localeCompare(b.name))
             .map((city) => (
-              <a href={`/service-area/${city.slug}/`} class="flex min-h-12 items-center justify-between border border-[#1A1A68] bg-[#1A1A68] px-5 py-4 font-black !text-white hover:bg-[#141452] hover:!text-white">
+              <a href={city.slug === 'mason-city' ? '/mason-city-drain-cleaning/' : `/service-area/${city.slug}/`} class="flex min-h-12 items-center justify-between border border-[#1A1A68] bg-[#1A1A68] px-5 py-4 font-black !text-white hover:bg-[#141452] hover:!text-white">
                 <span class="!text-white">{city.name}, Iowa</span><span aria-hidden="true" class="!text-white">→</span>
               </a>
             ))}
@@ -60,7 +60,7 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
                   <ul class="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
                     {countyCities.map((city) => (
                       <li>
-                        {builtServiceAreaCitySlugs.has(city.slug) ? (
+                        {builtServiceAreaCitySlugs.has(city.slug) || city.slug === 'mason-city' ? (
                           <a href={`/service-area/${city.slug}/`} class="flex min-h-12 items-center border border-[#1A1A68] bg-[#1A1A68] px-3 py-3 text-sm font-bold !text-white hover:bg-[#141452] hover:!text-white">{city.name}</a>
                         ) : (
                           <span class="flex min-h-12 items-center border border-slate-200 bg-slate-100 px-3 py-3 text-sm font-bold text-slate-600">{city.name}</span>
@@ -80,7 +80,7 @@ import { builtServiceAreaCitySlugs } from '../../data/serviceAreaCityPages';
         <div>
           <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">How the coverage works</p>
           <h2 id="service-area-details-heading" class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Mason City is the home base</h2>
-          <p class="mt-4 text-lg leading-8 text-slate-700">A-1 Drain Cleaning is based in Mason City and serves nearby North Iowa communities. Service availability can depend on the job, timing, and exact address, so call before assuming a town or property is covered.</p>
+          <p class="mt-4 text-lg leading-8 text-slate-700">A-1 Drain Cleaning is based in Mason City and serves nearby communities. Service availability can depend on the job, timing, and exact address, so call before assuming a town or property is covered.</p>
         </div>
         <div class="grid gap-4 sm:grid-cols-2">
           <article class="border border-slate-200 bg-white p-6">

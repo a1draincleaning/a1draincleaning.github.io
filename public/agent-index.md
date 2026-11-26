@@ -1,61 +1,82 @@
 # A-1 Drain Cleaning — Agent Index
 
-This file is a short Markdown directory for search agents and automated website readers. For the fuller business and service summary, see [llms.txt](https://a1draincleaning.github.io/llms.txt). For every published canonical page, see the [Astro sitemap index](https://a1draincleaning.github.io/sitemap-index.xml).
+For the fuller business and service summary, see [llms.txt](https://www.a1drain.com/llms.txt). For published canonical pages, see the [sitemap index](https://www.a1drain.com/sitemap-index.xml).
 
 ## Business identity
 
-- **Business:** A-1 Drain Cleaning
-- **Business type:** Drain cleaning and sewer service
-- **Base:** Mason City, Iowa
-- **Address:** 206 29th St SW, Mason City, IA 50401
-- **Phone:** 641-530-2728
-- **Website:** https://a1draincleaning.github.io/
-- **Service availability:** 24/7 service
-- **Primary service area:** Mason City and North Iowa
-- **Additional service area:** Albert Lea, Minnesota. This is a service area, not a second business address or office.
+- Business: A-1 Drain Cleaning
+- Owner/operator: Josh Theilen
+- Business type: Drain cleaning and sewer service
+- Base: Mason City, Iowa
+- Address: 206 29th St SW, Mason City, IA 50401
+- Phone: 641-530-2728
+- Website: https://www.a1drain.com/
+- Service availability: 24/7 service; call to confirm current availability.
+- Additional service area: Albert Lea, Minnesota. This is a service area, not a second business address or office.
 
 ## Main pages
 
-- [Home](https://a1draincleaning.github.io/)
-- [About A-1 Drain Cleaning](https://a1draincleaning.github.io/about/)
-- [Contact](https://a1draincleaning.github.io/contact/)
-- [Service areas](https://a1draincleaning.github.io/service-area/)
-- [Mason City drain cleaning](https://a1draincleaning.github.io/mason-city-drain-cleaning/)
-- [Albert Lea, Minnesota service area](https://a1draincleaning.github.io/albert-lea-mn-drain-cleaning/)
-- [All drain and sewer services](https://a1draincleaning.github.io/services/)
+- [Home](https://www.a1drain.com/)
+- [About A-1 Drain Cleaning](https://www.a1drain.com/about/)
+- [Contact](https://www.a1drain.com/contact/)
+- [Service areas](https://www.a1drain.com/service-area/)
+- [Mason City drain cleaning](https://www.a1drain.com/mason-city-drain-cleaning/)
+- [Albert Lea, Minnesota service area](https://www.a1drain.com/albert-lea-mn-drain-cleaning/)
+- [All drain and sewer services](https://www.a1drain.com/services/)
 
-## Services
+## Published service pages
 
-- [General drain cleaning](https://a1draincleaning.github.io/services/drain-cleaning/)
-- [Emergency drain cleaning](https://a1draincleaning.github.io/services/emergency-drain-cleaning/)
-- [Main drain cleaning](https://a1draincleaning.github.io/services/main-drain-cleaning/)
-- [Sewer line cleaning](https://a1draincleaning.github.io/services/sewer-line-cleaning/)
-- [Emergency sewer backup service](https://a1draincleaning.github.io/services/sewer-backup-emergency/)
-- [Basement floor drain backups](https://a1draincleaning.github.io/services/basement-floor-drains/)
-- [Tree root removal from sewer lines](https://a1draincleaning.github.io/services/tree-roots-in-sewer-line/)
-- [Toilet unclogging](https://a1draincleaning.github.io/services/toilet-clogs/)
-- [Kitchen sink drain cleaning](https://a1draincleaning.github.io/services/kitchen-drains/)
-- [Bathroom sink, bathtub and shower drain cleaning](https://a1draincleaning.github.io/services/bathroom-shower-drains/)
-- [Laundry and washing machine drain cleaning](https://a1draincleaning.github.io/services/laundry-drains/)
-- [Hydro jetting](https://a1draincleaning.github.io/services/hydro-jetting/)
-- [Drain and sewer camera inspections](https://a1draincleaning.github.io/services/sewer-camera-inspection/)
-- [Sewer line locating](https://a1draincleaning.github.io/services/sewer-line-locating/)
-- [Smoke testing](https://a1draincleaning.github.io/services/smoke-testing/)
+- [Emergency Drain Cleaning](https://www.a1drain.com/services/emergency-drain-cleaning/)
+- [Main Drain Cleaning](https://www.a1drain.com/services/main-drain-cleaning/)
+- [Sewer Line Cleaning](https://www.a1drain.com/services/sewer-line-cleaning/)
+- [Drain & Sewer Camera Inspections](https://www.a1drain.com/services/sewer-camera-inspection/)
+- [Sewer Line Locating](https://www.a1drain.com/services/sewer-line-locating/)
+- [Tree Root Removal and Cutting](https://www.a1drain.com/services/tree-roots-in-sewer-line/)
+- [Hydro Jetting](https://www.a1drain.com/services/hydro-jetting/)
+- [Floor Drain Cleaning](https://www.a1drain.com/services/basement-floor-drains/)
+- [Basement Drain Cleaning](https://www.a1drain.com/services/basement-drain-cleaning/)
+- [Garage Drain Cleaning](https://www.a1drain.com/services/garage-drain-cleaning/)
+- [Utility Sink Drain Cleaning](https://www.a1drain.com/services/utility-sink-drain-cleaning/)
+- [Kitchen Drain Cleaning](https://www.a1drain.com/services/kitchen-drains/)
+- [Bathroom Drain Cleaning](https://www.a1drain.com/services/bathroom-drain-cleaning/)
+- [Shower Drain Cleaning](https://www.a1drain.com/services/shower-drain-cleaning/)
+- [Bathtub Drain Cleaning](https://www.a1drain.com/services/bathtub-drain-cleaning/)
+- [Roof Drain Cleaning](https://www.a1drain.com/services/roof-drains/)
+- [Storm Drain Cleaning](https://www.a1drain.com/services/storm-drain-cleaning/)
+- [Yard Drain Cleaning](https://www.a1drain.com/services/yard-drain-cleaning/)
+- [Laundry/Washing Machine Drain Cleaning](https://www.a1drain.com/services/laundry-drains/)
+- [Toilet Unclogging](https://www.a1drain.com/services/toilet-clogs/)
+- [Septic Line Cleaning](https://www.a1drain.com/services/septic-lines/)
+- [Dishwasher Drain Service](https://www.a1drain.com/services/dishwasher-drain/)
+- [Garbage Disposal Repair and Installation](https://www.a1drain.com/services/garbage-disposal/)
+- [Sump Pump Repair](https://www.a1drain.com/services/sump-pumps/)
+- [Sewer Backup Emergency Service](https://www.a1drain.com/services/sewer-backup-emergency/)
+- [Smoke Testing](https://www.a1drain.com/services/smoke-testing/)
 
 ## Service-area pages
 
-- [Mason City, Iowa](https://a1draincleaning.github.io/mason-city-drain-cleaning/)
-- [Clear Lake, Iowa](https://a1draincleaning.github.io/service-area/clear-lake/)
-- [Charles City, Iowa](https://a1draincleaning.github.io/service-area/charles-city/)
-- [Forest City, Iowa](https://a1draincleaning.github.io/service-area/forest-city/)
-- [Garner, Iowa](https://a1draincleaning.github.io/service-area/garner/)
-- [Hampton, Iowa](https://a1draincleaning.github.io/service-area/hampton/)
-- [Nora Springs, Iowa](https://a1draincleaning.github.io/service-area/nora-springs/)
-- [Northwood, Iowa](https://a1draincleaning.github.io/service-area/northwood/)
-- [Rockwell, Iowa](https://a1draincleaning.github.io/service-area/rockwell/)
-- [Albert Lea, Minnesota](https://a1draincleaning.github.io/albert-lea-mn-drain-cleaning/)
+- [Mason City, Iowa](https://www.a1drain.com/mason-city-drain-cleaning/)
+- [Clear Lake, Iowa](https://www.a1drain.com/service-area/clear-lake/)
+- [Charles City, Iowa](https://www.a1drain.com/service-area/charles-city/)
+- [Forest City, Iowa](https://www.a1drain.com/service-area/forest-city/)
+- [Garner, Iowa](https://www.a1drain.com/service-area/garner/)
+- [Hampton, Iowa](https://www.a1drain.com/service-area/hampton/)
+- [Nora Springs, Iowa](https://www.a1drain.com/service-area/nora-springs/)
+- [Northwood, Iowa](https://www.a1drain.com/service-area/northwood/)
+- [Rockwell, Iowa](https://www.a1drain.com/service-area/rockwell/)
+- [Albert Lea, Minnesota](https://www.a1drain.com/albert-lea-mn-drain-cleaning/)
+
+## Symptom and diagnostic pages
+
+- [Sewer backup into a bathtub or shower](https://www.a1drain.com/services/sewer-backup-into-tub-shower/) is a symptom explanation, not a combined bathroom-and-shower drain service.
+- [Drain Diagnosis](https://www.a1drain.com/drain-diagnosis/) is the interactive drain-problem diagnostic page.
+- [Service directory and symptom guides](https://www.a1drain.com/services/) separates service pages from common drain symptoms.
+
+## Service-area directory
+
+The community directory covers locations in Cerro Gordo, Floyd, Franklin, Hancock, Mitchell, Winnebago, Worth, and Butler counties. These are directory communities, not county landing pages. The nine dedicated Iowa city pages are listed above. Albert Lea, Minnesota, is also included as a service area, not a second office. Call to confirm availability for a specific address.
 
 ## Machine-readable resources
 
-- [Full agent information](https://a1draincleaning.github.io/llms.txt)
-- [Sitemap index](https://a1draincleaning.github.io/sitemap-index.xml)
+- [Full agent information](https://www.a1drain.com/llms.txt)
+- [Sitemap index](https://www.a1drain.com/sitemap-index.xml)

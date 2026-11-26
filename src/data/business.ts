@@ -16,10 +16,10 @@ export const business = {
     country: 'US',
   },
 
-  website: 'https://a1draincleaning.github.io/',
-  logo: 'https://a1draincleaning.github.io/a1-logo.svg',
+  website: 'https://www.a1drain.com/',
+  logo: 'https://www.a1drain.com/a1-logo.svg',
   image:
-    'https://a1draincleaning.github.io/images/a1-main-sewer-drain-cleaning-mason-city.webp',
+    'https://www.a1drain.com/images/a1-main-sewer-drain-cleaning-mason-city.webp',
 
   sameAs: [
     'https://www.brownbook.net/business/43888974/a-1-drain-cleaning',
@@ -43,6 +43,5 @@ export const business = {
     'Clear Lake',
     'Forest City',
     'Charles City',
-    'North Iowa',
   ],
 } as const;

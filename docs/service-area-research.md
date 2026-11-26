@@ -123,7 +123,7 @@ The five existing priority pages are Clear Lake, Charles City, Forest City, Garn
 
 The service-area directory was checked against the Iowa Secretary of State's official **List of Incorporated Cities** (the published PDF is dated November 2, 2022): https://sos.iowa.gov/business/pdf/IncCities.pdf. This roster lists incorporated cities by county; the customer-facing directory also retains some additional communities A-1 may serve, even when they are not incorporated cities.
 
-The 10 counties currently shown on the service-area page are:
+The eight counties currently shown on the service-area page are:
 
 - **Cerro Gordo County:** Clear Lake, Dougherty, Mason City, Meservey, Plymouth, Rock Falls, Rockwell, Swaledale, Thornton, Ventura.
 - **Floyd County:** Charles City, Colwell, Floyd, Marble Rock, Nora Springs, Rockford, Rudd.
@@ -132,7 +132,6 @@ The 10 counties currently shown on the service-area page are:
 - **Mitchell County:** Carpenter, McIntire, Mitchell, Orchard, Osage, Riceville, St. Ansgar, Stacyville.
 - **Winnebago County:** Buffalo Center, Forest City, Lake Mills, Leland, Rake, Scarville, Thompson.
 - **Worth County:** Fertile, Grafton, Hanlontown, Joice, Kensett, Manly, Northwood.
-- **Wright County:** Belmond, Clarion, Dows, Eagle Grove, Galt, Goldfield, Rowan, Woolstock.
 - **Butler County:** Allison, Aplington, Aredale, Bristow, Clarksville, Dumont, Greene, New Hartford, Parkersburg, Shell Rock.
 
 ### Assignment corrections applied

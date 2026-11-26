@@ -3,16 +3,16 @@ import MainLayout from '../layouts/MainLayout.astro';
 import Header from '../components/Header.astro';
 import TrustBadge from '../components/TrustBadge.astro';
 const title = "What's Causing Your Drain Problem? | A-1 Drain Cleaning, Mason City";
-const description = "Diagnose common drain symptoms such as a basement floor drain backup, sewer backup, or slow drain. A-1 Drain Cleaning serves Mason City and North Iowa.";
+const description = "Diagnose common drain symptoms such as a basement floor drain backup, sewer backup, or slow drain. A-1 Drain Cleaning serves Mason City and nearby communities.";
 ---
-<!-- Republish diagnosis landing page without changing its content. -->
+
 <MainLayout title={title} description={description} path="/drain-diagnosis/">
   <Header compact />
   <a href="#quiz" class="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-30 focus:bg-card focus:px-4 focus:py-2 focus:text-navy">Skip to the quiz</a>
   <main>
     <div class="mx-auto grid max-w-5xl gap-8 px-4 py-8 sm:py-12 lg:grid-cols-[minmax(0,.9fr)_minmax(0,1.1fr)] lg:items-start lg:gap-12">
       <div class="lg:sticky lg:top-28 lg:self-start">
-        <p class="text-sm font-semibold tracking-wide text-navy uppercase">Drain &amp; sewer symptoms · North Iowa</p>
+        <p class="text-sm font-semibold tracking-wide text-navy uppercase">Drain &amp; sewer symptoms · nearby communities</p>
         <h1 class="mt-2 font-display text-5xl leading-none tracking-wide text-navy uppercase sm:text-6xl">What’s Causing Your Drain Problem?</h1>
         <p class="mt-4 text-lg leading-relaxed text-ink">Answer a few questions about what you’re seeing. We’ll narrow down the most likely cause and tell you what to check next.</p>
         <p class="mt-3 text-base leading-relaxed text-muted">Nine questions. No typing. You can go back and change an answer. This will not price the job or promise a repair.</p>
@@ -27,7 +27,7 @@ const description = "Diagnose common drain symptoms such as a basement floor dra
           <div class="border-t border-line px-4 py-5 sm:px-6" aria-labelledby="quiz-no-js-heading">
             <h2 id="quiz-no-js-heading" class="text-2xl font-black tracking-tight text-navy">Drain problem help</h2>
             <p class="mt-3 leading-7 text-ink">This symptom guide needs JavaScript to run. If sewage is coming up through a basement floor drain, stop using water and call A-1 Drain Cleaning at <a class="font-semibold text-navy underline" href="tel:+16415302728">641-530-2728</a>.</p>
-            <p class="mt-3 leading-7 text-ink">For a slow or stopped sink, tub, shower, toilet, laundry drain, or main drain, call and describe which fixtures are affected.</p>
+            <p class="mt-3 leading-7 text-ink">For a slow or stopped kitchen sink, bathroom sink, shower, bathtub, toilet, laundry drain, or main drain, call and describe which drain is affected.</p>
           </div>
         </noscript>
       </section>
@@ -56,9 +56,24 @@ const description = "Diagnose common drain symptoms such as a basement floor dra
               <option value="">Select a problem</option>
               <option>Clogged toilet</option>
               <option>Kitchen sink drain</option>
-              <option>Bathtub / shower drain</option>
-              <option>Floor drain</option>
-              <option>Main sewer line</option>
+              <option>Bathroom sink drain</option>
+              <option>Shower drain</option>
+              <option>Bathtub drain</option>
+              <option>Basement floor drain</option>
+              <option>Basement drain</option>
+              <option>Garage floor drain</option>
+              <option>Utility sink drain</option>
+              <option>Laundry / washing machine drain</option>
+              <option>Toilet unclogging</option>
+              <option>Main drain</option>
+              <option>Sewer line</option>
+              <option>Roof drain</option>
+              <option>Storm drain</option>
+              <option>Yard drain</option>
+              <option>Garbage disposal repair / installation</option>
+              <option>Dishwasher drain service</option>
+              <option>Sump pump repair</option>
+              <option>Septic line cleaning</option>
               <option>Other</option>
             </select>
           </div>
@@ -76,7 +91,7 @@ const description = "Diagnose common drain symptoms such as a basement floor dra
             <article><h3 class="text-xl font-semibold text-navy">Sewer backup in the basement</h3><p class="mt-2">A sewer backup in the basement is not a slow sink you can wait on. Dirty water on the floor means the line is already full. Stop using water so you are not sending more into it. An emergency sewer backup — sewage coming up right now — is the situation to treat as urgent and call about, not to keep testing with another load of laundry.</p></article>
             <article><h3 class="text-xl font-semibold text-navy">Main sewer drain clogged</h3><p class="mt-2">A main sewer drain clogged usually shows up in more than one fixture. The tub gurgles when the washer drains. The basement floor drain and a toilet act up together. A single bathroom sink that drains slowly, with everything else fine, is often just that sink. Sewer line cleaning is for the line that serves the house, not for every clogged lavatory.</p></article>
             <article><h3 class="text-xl font-semibold text-navy">Tree roots in the sewer line</h3><p class="mt-2">Tree roots in a sewer line are a regular find where the pipes and the trees are both old. Roots enter at a joint, catch paper and grease, and the backup returns after a basic cabling. That is when tree root removal and a camera inspection tell you more than another quick pass with a cable. A slow basement floor drain that gets worse every few months is worth looking at before it becomes a full backup.</p></article>
-            <p>Drain cleaning in Mason City, Iowa covers both of those jobs: the one fixture, and the main line. A-1 Drain Cleaning does this work for houses in Mason City and surrounding North Iowa. The quiz above uses the same kind of questions a technician asks first. It is not a camera, and it is not a quote.</p>
+            <p>Drain cleaning in Mason City, Iowa covers both of those jobs: the one fixture, and the main line. A-1 Drain Cleaning does this work for homes in Mason City and nearby communities. The quiz above uses the same kind of questions a technician asks first. It is not a camera, and it is not a quote.</p>
           </div>
         </div>
         <figure class="lg:sticky lg:top-28"><img src="/images/floor-drain-backing-up-mason-city-iowa.jpeg" alt="Basement floor drain backing up in Mason City, Iowa." width="1200" height="800" loading="lazy" decoding="async" class="w-full bg-paper object-cover outline outline-1 -outline-offset-1 outline-navy/15" /><figcaption class="mt-3 text-sm leading-relaxed text-muted">A basement floor drain backing up in Mason City, Iowa.</figcaption></figure>
@@ -103,14 +118,15 @@ const description = "Diagnose common drain symptoms such as a basement floor dra
           <li><a href="/services/" class="text-white hover:underline">All Drain &amp; Sewer Services</a></li>
           <li><a href="/services/main-drain-cleaning/" class="text-white hover:underline">Main Drain Cleaning</a></li>
           <li><a href="/services/sewer-line-cleaning/" class="text-white hover:underline">Sewer Line Cleaning</a></li>
-          <li><a href="/services/basement-floor-drains/" class="text-white hover:underline">Basement &amp; Floor Drains</a></li>
-          <li><a href="/services/tree-roots-in-sewer-line/" class="text-white hover:underline">Tree Roots in Sewer Lines</a></li>
+          <li><a href="/services/basement-floor-drains/" class="text-white hover:underline">Floor Drain Cleaning</a></li>
+          <li><a href="/services/basement-drain-cleaning/" class="text-white hover:underline">Basement Drain Cleaning</a></li>
+          <li><a href="/services/tree-roots-in-sewer-line/" class="text-white hover:underline">Tree Root Removal and Cutting</a></li>
           <li><a href="/services/smoke-testing/" class="text-white hover:underline">Smoke Testing</a></li>
           <li><a href="/service-area/" class="text-white hover:underline">All Service Areas</a></li>
         </ul>
       </nav>
       <nav aria-label="Cities served">
-        <h2 class="text-sm font-black uppercase tracking-[0.18em] text-white">North Iowa City Pages</h2>
+        <h2 class="text-sm font-black uppercase tracking-[0.18em] text-white">Iowa City Pages</h2>
         <ul class="mt-3 space-y-2 text-white">
           <li><a href="/mason-city-drain-cleaning/" class="text-white hover:underline">Mason City</a></li>
           <li><a href="/service-area/clear-lake/" class="text-white hover:underline">Clear Lake</a></li>
@@ -119,6 +135,8 @@ const description = "Diagnose common drain symptoms such as a basement floor dra
           <li><a href="/service-area/garner/" class="text-white hover:underline">Garner</a></li>
           <li><a href="/service-area/northwood/" class="text-white hover:underline">Northwood</a></li>
           <li><a href="/service-area/hampton/" class="text-white hover:underline">Hampton</a></li>
+          <li><a href="/service-area/nora-springs/" class="text-white hover:underline">Nora Springs</a></li>
+          <li><a href="/service-area/rockwell/" class="text-white hover:underline">Rockwell</a></li>
         </ul>
       </nav>
     </div>

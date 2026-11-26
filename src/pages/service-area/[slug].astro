@@ -129,23 +129,34 @@ const description = localContent
   ? `A-1 Drain Cleaning serves ${city.name}, Iowa for clogged drains, floor drain backups, main drain cleaning and sewer-line blockages. Call 641-530-2728.`
   : `A-1 Drain Cleaning serves ${city.name}, Iowa for drain cleaning, main drain and sewer line cleaning, floor drain backups, sewer backups and related drain problems. Call 641-530-2728.`;
 const coreServiceSlugs = [
+  'emergency-drain-cleaning',
   'main-drain-cleaning',
   'sewer-line-cleaning',
+  'sewer-camera-inspection',
+  'sewer-line-locating',
   'tree-roots-in-sewer-line',
+  'hydro-jetting',
   'basement-floor-drains',
-  'toilet-clogs',
+  'basement-drain-cleaning',
+  'garage-drain-cleaning',
+  'utility-sink-drain-cleaning',
+  'kitchen-drains',
+  'bathroom-drain-cleaning',
+  'shower-drain-cleaning',
+  'bathtub-drain-cleaning',
+  'roof-drains',
+  'storm-drain-cleaning',
+  'yard-drain-cleaning',
   'laundry-drains',
+  'toilet-clogs',
+  'septic-lines',
+  'dishwasher-drain',
+  'garbage-disposal',
+  'sump-pumps',
   'sewer-backup-emergency',
-  'hydro-jetting'
+  'smoke-testing'
 ];
-const coreServices = [
-  ...services.filter((service) => coreServiceSlugs.includes(service.slug)),
-  {
-    slug: 'bathroom-shower-drains',
-    title: 'Bathroom & Shower Drains',
-    description: 'Bathroom sink, shower, and bathtub drain cleaning for slow, clogged, or backing-up drains.'
-  }
-];
+const coreServices = services.filter((service) => coreServiceSlugs.includes(service.slug));
 const nearbyCities = uniqueServiceAreaCities
   .filter((item) => item.slug !== city.slug && item.counties.some((county) => city.counties.includes(county)))
   .slice(0, 12);
@@ -246,7 +257,7 @@ const nearbyCities = uniqueServiceAreaCities
             )
           ))}
         </div>
-        <a href="/service-area/" class="mt-8 inline-block font-black text-[#b4232b] underline underline-offset-4">See the full North Iowa service area →</a>
+        <a href="/service-area/" class="mt-8 inline-block font-black text-[#b4232b] underline underline-offset-4">See the full service-area directory →</a>
       </div>
     </section>
 

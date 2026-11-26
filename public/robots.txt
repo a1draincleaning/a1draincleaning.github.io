@@ -1,31 +1,55 @@
+# General access: search engines and unlisted crawlers may fetch public pages.
 User-agent: *
 Allow: /
 
-# Permit Screpy site audits
-User-agent: ScrepyBot
-Allow: /
-
-# Permit production AI Search Crawlers for Generative Engine Visibility
-User-agent: GPTBot
+# Search and retrieval crawlers — keep these accessible.
+# ChatGPT-User and Claude-User are user-triggered fetchers, not bulk search crawlers.
+User-agent: Googlebot
 Allow: /
 
 User-agent: OAI-SearchBot
 Allow: /
 
-User-agent: Google-Extended
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
 Allow: /
 
 User-agent: PerplexityBot
 Allow: /
 
-User-agent: ClaudeBot
+User-agent: Perplexity-User
 Allow: /
+
+User-agent: Applebot
+Allow: /
+
+# Google-Extended controls Gemini model training and non-Search grounding.
+# Allowing it preserves eligibility for Gemini Apps grounding and also permits
+# Google's stated Gemini model-training use. Google Search and Search AI features
+# use separate controls and are not blocked by this token.
+User-agent: Google-Extended
+Allow: /
+
+# Training/dataset crawlers — no access is needed for search/retrieval visibility.
+User-agent: GPTBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
 
 User-agent: Applebot-Extended
-Allow: /
+Disallow: /
 
-# Permit Common Crawl for AI/search dataset discovery
 User-agent: CCBot
+Disallow: /
+
+# SEO and site-audit crawlers.
+User-agent: ScrepyBot
 Allow: /
 
 User-agent: SemrushBot
@@ -34,4 +58,7 @@ Allow: /
 User-agent: DotBot
 Allow: /
 
-Sitemap: https://a1draincleaning.github.io/sitemap-index.xml
+# robots.txt is voluntary; malicious scrapers that ignore it require
+# server/CDN controls such as rate limits and request filtering.
+
+Sitemap: https://www.a1drain.com/sitemap-index.xml

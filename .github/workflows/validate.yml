@@ -30,7 +30,13 @@ jobs:
         run: npm test
       - name: Astro type and content check
         run: npm run check
+      - name: Install production image optimizer
+        run: npm install sharp --no-save --ignore-scripts --no-audit --no-fund
       - name: Build Astro site
         run: npm run build
-      - name: Validate generated routes and sitemap
+      - name: Apply production HTML and JSON-LD corrections
+        run: node scripts/remove-keyword-stuffing-blocks.mjs
+      - name: Optimize deployed images
+        run: node scripts/optimize-deployed-images.mjs
+      - name: Validate generated routes, schema, internal links, and sitemap
         run: node scripts/prune-retired-routes.mjs

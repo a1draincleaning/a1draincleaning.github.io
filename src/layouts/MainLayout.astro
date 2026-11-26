@@ -1,10 +1,8 @@
 ---
 import { SEO } from 'astro-seo';
 import { Schema } from 'astro-seo-schema';
-import { services } from '../data/services';
+import { schemaServices } from '../data/schemaServices';
 import { uniqueServiceAreaCities } from '../data/serviceAreaCities';
-import { builtServiceAreaCitySlugs } from '../data/serviceAreaCityPages';
-import { featuredServiceSlugs } from '../data/serviceGroups';
 import { business } from '../data/business';
 import '../styles/global.css';
 
@@ -24,12 +22,11 @@ const canonical = new URL(path, Astro.site ?? business.website).href;
 const socialImage = new URL('/images/a1-main-sewer-drain-cleaning-mason-city.webp', canonical).href;
 const businessId = `${business.website}#business`;
 const websiteId = `${business.website}#website`;
+const serviceAreaId = `${business.website}#service-area`;
+const pageService = service ? schemaServices.find((item) => item.title === service.title) : undefined;
 
 const serviceAreaAreas = [
-  { '@type': 'AdministrativeArea', name: 'North Iowa' },
-  ...uniqueServiceAreaCities
-    .filter((item) => builtServiceAreaCitySlugs.has(item.slug))
-    .map((item) => ({
+  ...uniqueServiceAreaCities.map((item) => ({
       '@type': 'Place',
       name: `${item.name}, Iowa`
     })),
@@ -45,7 +42,7 @@ const businessSchema = {
   '@type': ['Organization', 'Plumber'],
   '@id': businessId,
   name: business.name,
-  description: 'A-1 Drain Cleaning provides drain cleaning and sewer service in Mason City, Iowa and surrounding North Iowa communities.',
+  description: 'A-1 Drain Cleaning provides drain cleaning and sewer service in Mason City, Iowa and nearby communities.',
   url: business.website,
   logo: business.logo,
   image: business.image,
@@ -65,18 +62,16 @@ const businessSchema = {
     postalCode: business.address.postalCode,
     addressCountry: business.address.country
   },
-  areaServed: serviceAreaAreas,
+  areaServed: { '@id': serviceAreaId },
   ...(path === '/about/' ? { founder: { '@type': 'Person', name: business.owner } } : {}),
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Drain Cleaning and Sewer Services',
-    itemListElement: services.filter(({ slug }) => featuredServiceSlugs.includes(slug as typeof featuredServiceSlugs[number])).map((item) => ({
+    itemListElement: schemaServices.map((item) => ({
       '@type': 'Offer',
       itemOffered: {
         '@type': 'Service',
-        name: item.title,
-        description: item.description,
-        url: `${business.website}services/${item.slug}/`
+        '@id': `${business.website}services/${item.slug}/#service`
       }
     }))
   }
@@ -84,6 +79,12 @@ const businessSchema = {
 
 const graph = [
   businessSchema,
+  {
+    '@type': 'Place',
+    '@id': serviceAreaId,
+    name: 'A-1 Drain Cleaning service-area communities',
+    containsPlace: serviceAreaAreas
+  },
   {
     '@type': 'WebSite',
     '@id': websiteId,
@@ -101,7 +102,8 @@ const graph = [
     isPartOf: { '@id': websiteId },
     about: [
       { '@id': businessId },
-      ...(city ? [{ '@id': `${canonical}#place` }] : [])
+      ...(city ? [{ '@id': `${canonical}#place` }] : []),
+      ...(pageService ? [{ '@id': `${business.website}services/${pageService.slug}/#service` }] : [])
     ],
     publisher: { '@id': businessId }
   },
@@ -126,20 +128,20 @@ const graph = [
       }
     }))
   }] : []),
-  ...(service ? [{
+  ...schemaServices.map((item) => ({
     '@type': 'Service',
-    '@id': `${canonical}#service`,
-    name: service.title,
-    serviceType: service.title,
-    description: service.description,
+    '@id': `${business.website}services/${item.slug}/#service`,
+    name: item.title,
+    serviceType: item.title,
+    description: item.description,
     provider: { '@id': businessId },
-    areaServed: serviceAreaAreas,
-    url: canonical,
+    areaServed: { '@id': serviceAreaId },
+    url: `${business.website}services/${item.slug}/`,
     availableChannel: {
       '@type': 'ServiceChannel',
       servicePhone: { '@type': 'ContactPoint', telephone: business.phone.tel, contactType: 'customer service' }
     }
-  }] : []),
+  })),
   ...(path !== '/' ? [{
     '@type': 'BreadcrumbList',
     itemListElement: [

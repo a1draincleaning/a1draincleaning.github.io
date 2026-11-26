@@ -6,7 +6,7 @@
     "build": "astro build",
     "preview": "astro preview",
     "check": "astro check",
-    "test": "node --test"
+    "test": "node --check public/drain-diagnosis.js && node --test"
   },
   "dependencies": {
     "@astrojs/check": "0.9.10",

@@ -68,7 +68,7 @@ jobs:
       - name: Submit changed pages to IndexNow
         env:
           INDEXNOW_KEY: a1d1e0c9b7f34a6d8c2e5f9017b3a4c6
-          SITE_URL: https://a1draincleaning.github.io
+          SITE_URL: https://www.a1drain.com
           BEFORE_SHA: ${{ github.event.before }}
           CURRENT_SHA: ${{ github.sha }}
         run: |
