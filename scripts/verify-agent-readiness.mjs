@@ -259,7 +259,7 @@ const walkHtml = (directory) => readdirSync(directory, { withFileTypes: true }).
   const entryPath = join(directory, entry.name);
   return entry.isDirectory() ? walkHtml(entryPath) : entry.isFile() && entry.name.endsWith('.html') ? [entryPath] : [];
 });
-const localHosts = new Set(['a-1drain.com', 'a-1drain.com']);
+const localHosts = new Set(['a-1drain.com', 'www.a-1drain.com']);
 let checkedInternalLinks = 0;
 for (const htmlPath of walkHtml(dist)) {
   const html = readFileSync(htmlPath, 'utf8');
