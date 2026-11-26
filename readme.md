@@ -10,7 +10,7 @@ This repository contains the existing Astro static website for A-1 Drain Cleanin
 
 ## Service inventory
 
-The website keeps separate service records for floor drain cleaning, basement drain cleaning, garage drain cleaning, utility sink drain cleaning, kitchen drain cleaning, bathroom drain cleaning, shower drain cleaning, bathtub drain cleaning, roof drain cleaning, storm drain cleaning, yard drain cleaning, main drain cleaning, sewer line cleaning, camera inspections, tree root removal/cutting, hydro jetting, smoke testing, sewer line locating, laundry and washing machine drain cleaning, toilet unclogging, emergency drain cleaning, septic line cleaning, dishwasher drain service, garbage disposal repair and installation, and sump pump repair.
+The website keeps separate service records for floor drain cleaning, basement drain cleaning, garage drain cleaning, utility sink drain cleaning, kitchen drain cleaning, bathroom drain cleaning (including bathroom sink, shower, and bathtub drains), roof drain cleaning, storm drain cleaning, yard drain cleaning, main drain cleaning, sewer line cleaning, camera inspections, tree root removal/cutting, hydro jetting, smoke testing, sewer line locating, laundry and washing machine drain cleaning, toilet unclogging, emergency drain cleaning, septic line cleaning, dishwasher drain service, garbage disposal repair and installation, and sump pump repair.
 
 A symptom such as a floor drain backup is not the service name. Kitchen, bathroom, shower, and bathtub drain work remain separate.
 
