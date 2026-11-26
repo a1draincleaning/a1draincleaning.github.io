@@ -8,8 +8,6 @@ export const featuredServiceSlugs = [
   'basement-floor-drains',
   'kitchen-drains',
   'bathroom-drain-cleaning',
-  'shower-drain-cleaning',
-  'bathtub-drain-cleaning',
   'basement-drain-cleaning',
   'garage-drain-cleaning',
   'utility-sink-drain-cleaning',
