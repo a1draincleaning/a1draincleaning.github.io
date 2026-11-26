@@ -12,13 +12,6 @@ const servicePageImages: Record<string, { src: string; alt: string; caption: str
     width: 598,
     height: 1000
   },
-  '/services/tree-roots-in-sewer-line/': {
-    src: '/images/tree-root-removal-mason-city-iowa.jpg',
-    alt: 'Tree roots removed from a sewer line in Mason City, Iowa',
-    caption: 'Tree roots removed from a sewer line in Mason City, Iowa.',
-    width: 1952,
-    height: 3264
-  },
   '/services/basement-floor-drains/': {
     src: '/images/floor-drain-backing-up-iowa.jpg',
     alt: 'Basement floor drain backing up in Iowa',
@@ -35,7 +28,7 @@ const servicePageImages: Record<string, { src: string; alt: string; caption: str
   }
 };
 const servicePageImage = servicePageImages[Astro.url.pathname];
-const isTreeRootImage = Astro.url.pathname === '/services/tree-roots-in-sewer-line/';
+const isTreeRootImage = false;
 ---
 
 {servicePageImage && (

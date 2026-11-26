@@ -28,7 +28,6 @@ export const servicePageTitles: Record<string, string> = {
   'sewer-line-cleaning': 'Sewer Line Cleaning | A-1 Drain Cleaning',
   'laundry-drains': 'Laundry/Washing Machine Drain Cleaning | A-1 Drain Cleaning',
   
-  'tree-roots-in-sewer-line': 'Tree Root Removal and Cutting | A-1 Drain Cleaning',
   'hydro-jetting': 'Hydro Jetting | A-1 Drain Cleaning',
   'toilet-clogs': 'Toilet Unclogging | A-1 Drain Cleaning',
   'sewer-backup-emergency': 'Sewer Backup Emergency Service | A-1 Drain Cleaning',
@@ -58,7 +57,6 @@ export const servicePageDescriptions: Record<string, string> = {
   'sewer-line-cleaning': 'Main sewer pipe clogged or several fixtures backing up? A-1 Drain Cleaning cleans and unclogs residential sewer lines in nearby communities.',
   'laundry-drains': 'Washing machine drain backing up or water flooding the basement? A-1 Drain Cleaning cleans and unclogs laundry and washer drain lines in nearby communities.',
   
-  'tree-roots-in-sewer-line': 'Tree roots blocking a sewer pipe or causing repeat backups? A-1 Drain Cleaning removes tree roots from sewer lines in Mason City and nearby communities.',
   'hydro-jetting': 'Need hydro jetting for buildup or a recurring sewer restriction? A-1 Drain Cleaning uses water jetting when the pipe and blockage are suitable.',
   'toilet-clogs': 'Toilet clogged, backing up, or bubbling when flushed? A-1 Drain Cleaning unclogs toilets and connected drains in Mason City and nearby communities.',
   'sewer-backup-emergency': 'Sewage coming up through a floor drain, tub, or toilet? A-1 Drain Cleaning provides emergency drain and sewer service in nearby communities.',
@@ -95,12 +93,12 @@ for (const [slug, additions] of Object.entries(serviceDetailAdditions)) {
 }
 
 export const relatedServiceSlugs: Record<string, string[]> = {
-  'sewer-camera-inspection': ['sewer-line-cleaning', 'tree-roots-in-sewer-line'],
+  'sewer-camera-inspection': ['sewer-line-cleaning', 'tree-root-removal'],
+  'sewer-line-cleaning': ['main-drain-cleaning', 'tree-root-removal', 'basement-floor-drains'],
   'sewer-line-locating': ['sewer-camera-inspection', 'sewer-line-cleaning'],
   'emergency-drain-cleaning': ['toilet-clogs', 'kitchen-drains', 'bathroom-drain-cleaning', 'shower-drain-cleaning', 'bathtub-drain-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
   'main-drain-cleaning': ['sewer-line-cleaning', 'basement-floor-drains', 'sewer-backup-emergency'],
-  'sewer-line-cleaning': ['main-drain-cleaning', 'tree-roots-in-sewer-line', 'basement-floor-drains'],
-  'tree-roots-in-sewer-line': ['sewer-line-cleaning', 'main-drain-cleaning'],
+  'tree-root-removal': ['sewer-line-cleaning', 'main-drain-cleaning', 'sewer-camera-inspection'],
   'hydro-jetting': ['main-drain-cleaning', 'sewer-line-cleaning'],
   'basement-floor-drains': ['main-drain-cleaning', 'sewer-line-cleaning', 'laundry-drains', 'sewer-backup-emergency'],
   'laundry-drains': ['basement-floor-drains', 'main-drain-cleaning', 'sewer-line-cleaning'],

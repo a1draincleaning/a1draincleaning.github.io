@@ -13,7 +13,8 @@ const retiredRoutes = [
   { from: '/services/washing-machine-basement-flooding/', to: '/services/laundry-drains/' },
   { from: '/services/kitchen-bathroom-drains/', to: '/services/' },
   { from: '/services/bathroom-shower-drains/', to: '/services/' },
-  { from: '/services/roof-vent-drains/', to: '/services/roof-drains/' }
+  { from: '/services/roof-vent-drains/', to: '/services/roof-drains/' },
+  { from: '/services/tree-roots-in-sewer-line/', to: '/services/' }
 ];
 
 function routeDir(route) {

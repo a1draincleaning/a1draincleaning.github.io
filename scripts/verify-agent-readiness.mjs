@@ -112,7 +112,7 @@ const expectedServices = [
   'Drain & Sewer Camera Inspections',
   'Sewer Line Locating',
   'Sewer Line Cleaning',
-  'Tree Root Removal and Cutting',
+  'Tree Root Removal from Sewer Lines',
   'Hydro Jetting',
   'Floor Drain Cleaning',
   'Basement Drain Cleaning',
