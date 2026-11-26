@@ -12,6 +12,8 @@ const retiredRoutes = [
   { from: '/services/drain-repair/', to: '/services/' },
   { from: '/services/washing-machine-basement-flooding/', to: '/services/laundry-drains/' },
   { from: '/services/kitchen-bathroom-drains/', to: '/services/' },
+  { from: '/services/shower-drain-cleaning/', to: '/services/bathroom-drain-cleaning/' },
+  { from: '/services/bathtub-drain-cleaning/', to: '/services/bathroom-drain-cleaning/' },
   { from: '/services/bathroom-shower-drains/', to: '/services/' },
   { from: '/services/roof-vent-drains/', to: '/services/roof-drains/' }
 ];
