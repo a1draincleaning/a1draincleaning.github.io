@@ -61,4 +61,4 @@ Allow: /
 # robots.txt is voluntary; malicious scrapers that ignore it require
 # server/CDN controls such as rate limits and request filtering.
 
-Sitemap: https://www.a1drain.com/sitemap-index.xml
+Sitemap: https://a-1drain.com/sitemap-index.xml
