@@ -1,0 +1,79 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import ContactCTA from '../../components/ContactCTA.astro';
+import { services } from '../../data/services';
+
+const service = services.find((item) => item.slug === 'tree-root-removal');
+if (!service) throw new Error('Tree Root Removal from Sewer Lines service record is missing.');
+
+const title = 'Tree Root Removal from Sewer Lines | A-1 Drain Cleaning';
+const description = 'Tree roots blocking a sewer line or causing repeated clogs? A-1 Drain Cleaning removes root obstructions from sewer lines in Mason City, Iowa.';
+const faqs = [
+  { question: 'What are signs of tree roots in a sewer line?', answer: 'A sewer line that repeatedly clogs, several fixtures that slow down together, or a camera inspection showing root growth can point to roots inside the pipe. Symptoms alone do not confirm the cause.' },
+  { question: 'Can tree roots block a sewer line without stopping it completely?', answer: 'Yes. Root growth can narrow the passage and catch toilet paper and other waste while some water still gets through. The line may drain slowly before it becomes fully blocked.' },
+  { question: 'Does removing tree roots repair the sewer pipe?', answer: 'No. Removing roots clears the obstruction inside the pipe. It does not seal an open joint or repair a crack, separation, or collapsed section.' },
+  { question: 'Can a camera inspection show roots in a sewer line?', answer: 'A camera inspection of an accessible line can help show root growth and visible pipe conditions. It can be useful when the same blockage returns or the cause is uncertain.' },
+];
+---
+
+<MainLayout title={title} description={description} path="/services/tree-root-removal/" service={service} faqs={faqs}>
+  <Header />
+  <main id="main">
+    <section class="bg-[#1A1A68] text-white">
+      <div class="container py-14 sm:py-18 lg:py-24">
+        <nav aria-label="Breadcrumb" class="text-sm font-bold text-slate-300">
+          <a href="/" class="hover:text-white">Home</a><span class="mx-2" aria-hidden="true">/</span>
+          <a href="/services/" class="hover:text-white">Services</a><span class="mx-2" aria-hidden="true">/</span>
+          <span class="text-white">Tree Root Removal from Sewer Lines</span>
+        </nav>
+        <p class="mt-5 text-sm font-black uppercase tracking-[0.2em] text-red-300">Mason City, Iowa</p>
+        <h1 class="mt-3 max-w-4xl text-5xl font-black leading-[.98] tracking-tight sm:text-6xl lg:text-7xl">Tree Root Removal from Sewer Lines</h1>
+        <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-200 sm:text-xl">Roots inside a sewer pipe can catch waste, restrict flow, and cause the same line to clog again. A-1 Drain Cleaning removes tree-root obstructions from sewer lines in Mason City and nearby communities.</p>
+        <a href="tel:+16415302728" class="call-button mt-8 inline-block rounded-md bg-[#c52b34] px-7 py-4 text-center text-lg font-black text-white shadow-lg hover:bg-[#a82129]">CALL 641-530-2728</a>
+      </div>
+    </section>
+
+    <section class="bg-white py-14 sm:py-18">
+      <div class="container grid gap-10 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
+        <article>
+          <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Sewer line blockage</p>
+          <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">When roots get inside the sewer pipe</h2>
+          <p class="mt-6 text-lg leading-8 text-slate-700">Tree roots can enter an underground sewer pipe where a joint has opened or a section of pipe has been damaged. Roots grow into the available space and can catch paper and other material moving through the line. As that material collects, wastewater has less room to pass.</p>
+          <p class="mt-5 leading-8 text-slate-700">A nearby tree does not automatically mean the sewer line has root intrusion. The pipe has to be assessed based on the symptoms, access, and what can be seen inside the line. A recurring blockage may have more than one possible cause, including accumulated waste or a damaged pipe.</p>
+
+          <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Signs the sewer line may have root intrusion</h2>
+          <ul class="mt-5 grid gap-3 sm:grid-cols-2">
+            {service.signs.map((sign) => <li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>)}
+          </ul>
+          <p class="mt-5 leading-8 text-slate-700">If several fixtures are affected at once, the restriction may be in a shared drain or the main sewer line rather than at one sink, toilet, or tub. Stop using water if wastewater is backing up into the house. Do not keep flushing or running fixtures to test a blocked line.</p>
+
+          <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Removing roots from the sewer line</h2>
+          <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning removes tree-root obstructions from accessible sewer lines using drain-cleaning equipment suited to the pipe and the blockage. The approach depends on the line's material, access point, and the amount and location of root growth.</p>
+          <p class="mt-4 leading-8 text-slate-700">Clearing roots can restore a path for wastewater, but it does not repair the opening where the roots entered. If the same blockage comes back, a <a href="/services/sewer-camera-inspection/" class="font-bold text-[#b4232b] underline underline-offset-4">drain and sewer camera inspection</a> can help show root growth and visible pipe conditions. Further work depends on what the inspection reveals.</p>
+
+          <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Tree root removal in Mason City, Iowa</h2>
+          <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning is based at 206 29th St SW in Mason City, Iowa. If your sewer line keeps clogging, tell us how often it happens, whether the line has been cleaned before, and which fixtures are affected. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a>.</p>
+
+          <section class="mt-10 border-t border-slate-200 pt-8" aria-labelledby="tree-root-faqs">
+            <h2 id="tree-root-faqs" class="text-3xl font-black tracking-tight text-slate-950">Tree Root Removal from Sewer Lines FAQs</h2>
+            {faqs.map((faq) => <section class="mt-6"><h3 class="text-xl font-black tracking-tight text-slate-950">{faq.question}</h3><p class="mt-2 leading-8 text-slate-700">{faq.answer}</p></section>)}
+          </section>
+        </article>
+
+        <aside class="border border-slate-200 bg-slate-50 p-6">
+          <h2 class="text-2xl font-black text-slate-950">Related sewer services</h2>
+          <ul class="mt-4 space-y-3 leading-7">
+            <li><a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">Sewer Line Cleaning</a></li>
+            <li><a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">Main Drain Cleaning</a></li>
+            <li><a href="/services/sewer-camera-inspection/" class="font-bold text-[#b4232b] underline underline-offset-4">Drain &amp; Sewer Camera Inspections</a></li>
+          </ul>
+          <p class="mt-8 leading-7 text-slate-700">Need help with a blocked sewer line? Call A-1 Drain Cleaning at <a href="tel:+16415302728" class="font-black text-[#b4232b] underline underline-offset-4">641-530-2728</a>.</p>
+        </aside>
+      </div>
+    </section>
+    <ContactCTA />
+  </main>
+  <Footer />
+</MainLayout>
