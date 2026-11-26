@@ -44,6 +44,13 @@ const relatedServices = (relatedServiceSlugs[service.slug] || [])
   .filter((item): item is { slug: string; title: string } => Boolean(item));
 const featuredServiceCities = uniqueServiceAreaCities.filter((city) => featuredServiceCitySlugs.includes(city.slug));
 const pageFaqs: Record<string, { question: string; answer: string }[]> = {
+  'bathroom-drain-cleaning': [
+    { question: 'Why is my bathroom sink draining slowly?', answer: 'Hair, soap residue, toothpaste, and personal-care products can collect in the sink drain or its branch pipe. If the sink is the only fixture affected, the restriction may be close to that sink.' },
+    { question: 'What causes a clogged shower drain?', answer: 'Hair and soap residue commonly collect around the shower drain and inside the branch line. As material builds up, water drains more slowly and can pool around your feet.' },
+    { question: 'Why does my bathtub drain so slowly?', answer: 'Hair, soap residue, and other material can restrict the bathtub drain. If water remains in the tub after use, the drain may need to be cleared.' },
+    { question: 'Can you clean a shower drain or bathtub drain as part of bathroom drain cleaning?', answer: 'Yes. Bathroom Drain Cleaning covers bathroom sink drains, clogged shower drains, and slow or clogged bathtub drains. They are handled as part of the same bathroom drain service, not as separate service pages.' },
+    { question: 'What if my shower or bathtub backs up when another fixture is used?', answer: 'If several fixtures are affected together, the restriction may be in a shared branch, main drain, or sewer line rather than at the tub or shower itself. Stop using water if wastewater is backing up and describe which fixtures are affected.' },
+  ],
   'main-drain-cleaning': [
     { question: 'Why does water come up through the basement floor drain?', answer: 'A restriction farther down a shared drain or main sewer line can stop wastewater from leaving the house. The low floor drain may become the place where it comes back up.' },
     { question: 'Can a washing machine reveal a main drain blockage?', answer: 'Yes. A washer releases a large amount of water in a short time. If the line cannot carry it away, water may rise in a standpipe or another connected drain.' },
@@ -151,6 +158,42 @@ const pageFaqs: Record<string, { question: string; answer: string }[]> = {
               <p class="mt-4 leading-8 text-slate-700">See <a href="/services/sewer-camera-inspection/" class="font-bold text-[#b4232b] underline underline-offset-4">drain and sewer camera inspections</a> or <a href="/services/sewer-line-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">sewer line cleaning</a> for related work.</p>
               <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Sewer line locating in Mason City and nearby communities</h2>
               <p class="mt-4 leading-8 text-slate-700">A-1 Drain Cleaning provides sewer line locating in Mason City and nearby communities. Call 641-530-2728 and explain why the line needs to be found and whether there is an accessible cleanout or inspection point.</p>
+            </>
+          ) : service.slug === 'bathroom-drain-cleaning' ? (
+            <>
+              <p class="text-sm font-black uppercase tracking-[0.2em] text-[#b4232b]">Bathroom drain cleaning</p>
+              <h2 class="mt-2 text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">Bathroom sink, shower, and bathtub drains</h2>
+              <p class="mt-6 text-lg leading-8 text-slate-700">A bathroom drain does not have to be completely stopped to become a problem. A sink that takes too long to empty, a shower that leaves water around your feet, or a bathtub that holds standing water can all point to a restriction in the fixture drain or its branch line. A-1 Drain Cleaning cleans bathroom sink drains, clogged shower drains, and slow or clogged bathtub drains in Mason City, Iowa.</p>
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Signs a bathroom drain needs cleaning</h2>
+              <ul class="mt-5 grid gap-3 sm:grid-cols-2">
+                {service.signs.map((sign) => (<li class="border border-slate-200 bg-slate-50 p-4 font-semibold leading-7 text-slate-700">{sign}</li>))}
+              </ul>
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Common causes of bathroom drain blockages</h2>
+              <p class="mt-5 leading-8 text-slate-700">Hair and soap buildup are common causes of a clogged shower drain or bathtub drain. Hair can collect around the drain opening and combine with soap residue, shampoo, conditioner, and other material. Over time, that buildup narrows the path water uses to leave the fixture.</p>
+              <p class="mt-4 leading-8 text-slate-700">Bathroom sink drains can collect hair, toothpaste, shaving residue, soap, and personal-care products. A sink may start by draining slowly, then stop emptying altogether if the restriction continues to build.</p>
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Professional bathroom drain cleaning</h2>
+              <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning looks at which fixture is affected, whether water is standing or draining slowly, and whether another fixture changes when water is used. The right cleaning method depends on the blockage, the drain layout, and access to the line. A fixture-level clog is different from a restriction farther down a shared bathroom branch.</p>
+              <p class="mt-4 leading-8 text-slate-700">If the bathroom sink, shower, or bathtub is the only fixture affected, the problem may be close to that fixture. If multiple fixtures slow or back up together, the restriction may be farther down a shared drain or main line. Cleaning can remove a blockage, but it does not repair a cracked, separated, or damaged pipe.</p>
+              <section class="mt-10 border-l-4 border-[#b4232b] bg-slate-50 p-6" aria-labelledby="bathroom-drain-backup">
+                <h2 id="bathroom-drain-backup" class="text-2xl font-black tracking-tight text-slate-950">Shower or bathtub backing up with other drains?</h2>
+                <p class="mt-3 leading-7 text-slate-700">Water backing up into a tub or shower when a toilet is flushed, a sink is used, or the washing machine drains can point to a shared drain or main sewer-line restriction. That is different from hair or soap buildup at the shower or bathtub drain. Stop using water where possible while wastewater is backing up and call A-1 Drain Cleaning at <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a>.</p>
+                <p class="mt-3 leading-7 text-slate-700">For a multi-fixture or sewer backup, see <a href="/services/main-drain-cleaning/" class="font-bold text-[#b4232b] underline underline-offset-4">Main Drain Cleaning</a> or <a href="/services/sewer-backup-emergency/" class="font-bold text-[#b4232b] underline underline-offset-4">Sewer Backup Emergency Service</a>.</p>
+              </section>
+              <h2 class="mt-10 text-3xl font-black tracking-tight text-slate-950">Bathroom Drain Cleaning in Mason City, Iowa</h2>
+              <p class="mt-5 leading-8 text-slate-700">A-1 Drain Cleaning serves Mason City and nearby communities. Call <a href="tel:+16415302728" class="font-bold text-[#b4232b] underline underline-offset-4">641-530-2728</a> and tell us whether the bathroom sink, shower, or bathtub is slow, stopped, or holding standing water.</p>
+              <section class="mt-10" aria-labelledby="bathroom-drain-faq">
+                <h2 id="bathroom-drain-faq" class="text-3xl font-black tracking-tight text-slate-950">Bathroom drain cleaning questions</h2>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Why is my bathroom sink draining slowly?</h3>
+                <p class="mt-2 leading-8 text-slate-700">Hair, soap residue, toothpaste, and personal-care products can collect in the sink drain or branch pipe. If the sink is the only fixture affected, the restriction may be close to that sink.</p>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">What causes a clogged shower drain?</h3>
+                <p class="mt-2 leading-8 text-slate-700">Hair and soap residue commonly collect around the shower drain and inside the branch line. As material builds up, water drains more slowly and can pool around your feet.</p>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Why does my bathtub drain so slowly?</h3>
+                <p class="mt-2 leading-8 text-slate-700">Hair, soap residue, and other material can restrict the bathtub drain. If water remains in the tub after use, the drain may need to be cleared.</p>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">Can you clean a shower drain or bathtub drain as part of bathroom drain cleaning?</h3>
+                <p class="mt-2 leading-8 text-slate-700">Yes. Bathroom Drain Cleaning covers bathroom sink drains, clogged shower drains, and slow or clogged bathtub drains. They are handled as part of the same bathroom drain service.</p>
+                <h3 class="mt-6 text-xl font-black tracking-tight text-slate-950">What if my shower or bathtub backs up when another fixture is used?</h3>
+                <p class="mt-2 leading-8 text-slate-700">If several fixtures are affected together, the restriction may be in a shared branch, main drain, or sewer line rather than at the tub or shower itself. Stop using water if wastewater is backing up and describe which fixtures are affected.</p>
+              </section>
             </>
           ) : service.slug === 'main-drain-cleaning' ? (
             <>
