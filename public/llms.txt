@@ -28,8 +28,6 @@
 - [Utility Sink Drain Cleaning](https://a-1drain.com/services/utility-sink-drain-cleaning/)
 - [Kitchen Drain Cleaning](https://a-1drain.com/services/kitchen-drains/)
 - [Bathroom Drain Cleaning](https://a-1drain.com/services/bathroom-drain-cleaning/)
-- [Shower Drain Cleaning](https://a-1drain.com/services/shower-drain-cleaning/)
-- [Bathtub Drain Cleaning](https://a-1drain.com/services/bathtub-drain-cleaning/)
 - [Roof Drain Cleaning](https://a-1drain.com/services/roof-drains/)
 - [Storm Drain Cleaning](https://a-1drain.com/services/storm-drain-cleaning/)
 - [Yard Drain Cleaning](https://a-1drain.com/services/yard-drain-cleaning/)
@@ -44,16 +42,14 @@
 
 ## Service distinctions
 
-Each item below is a distinct service. Kitchen, bathroom sink, shower, bathtub, roof, storm, and yard drains are separate services.
+Each item below is a distinct service. Bathroom Drain Cleaning covers bathroom sink, shower, and bathtub drains; kitchen, roof, storm, and yard drains remain separate services.
 
 - Floor Drain Cleaning — separate from basement drain cleaning; a backup is a symptom, not the service name.
 - Basement Drain Cleaning.
 - Garage Drain Cleaning.
 - Utility Sink Drain Cleaning.
 - Kitchen Drain Cleaning.
-- Bathroom Drain Cleaning — separate from kitchen drains and shower drains.
-- Shower Drain Cleaning — separate from bathroom sink and bathtub drains.
-- Bathtub Drain Cleaning — its own distinct service.
+- Bathroom Drain Cleaning — covers bathroom sink, shower, and bathtub drain cleaning; separate from kitchen drains.
 - Main Drain Cleaning.
 - Sewer Line Cleaning.
 - Emergency Drain Cleaning and Sewer Backup Emergency Service.
