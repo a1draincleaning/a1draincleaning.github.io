@@ -4,7 +4,7 @@ export const featuredServiceSlugs = [
   'sewer-line-locating',
   'main-drain-cleaning',
   'sewer-line-cleaning',
-  'tree-roots-in-sewer-line',
+  'tree-root-removal',
   'basement-floor-drains',
   'kitchen-drains',
   'bathroom-drain-cleaning',
