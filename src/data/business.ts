@@ -16,10 +16,10 @@ export const business = {
     country: 'US',
   },
 
-  website: 'https://www.a1drain.com/',
-  logo: 'https://www.a1drain.com/a1-logo.svg',
+  website: 'https://a-1drain.com/',
+  logo: 'https://a-1drain.com/a1-logo.svg',
   image:
-    'https://www.a1drain.com/images/a1-main-sewer-drain-cleaning-mason-city.webp',
+    'https://a-1drain.com/images/a1-main-sewer-drain-cleaning-mason-city.webp',
 
   sameAs: [
     'https://www.brownbook.net/business/43888974/a-1-drain-cleaning',
