@@ -39,8 +39,6 @@ For the fuller business and service summary, see [llms.txt](https://a-1drain.com
 - [Utility Sink Drain Cleaning](https://a-1drain.com/services/utility-sink-drain-cleaning/)
 - [Kitchen Drain Cleaning](https://a-1drain.com/services/kitchen-drains/)
 - [Bathroom Drain Cleaning](https://a-1drain.com/services/bathroom-drain-cleaning/)
-- [Shower Drain Cleaning](https://a-1drain.com/services/shower-drain-cleaning/)
-- [Bathtub Drain Cleaning](https://a-1drain.com/services/bathtub-drain-cleaning/)
 - [Roof Drain Cleaning](https://a-1drain.com/services/roof-drains/)
 - [Storm Drain Cleaning](https://a-1drain.com/services/storm-drain-cleaning/)
 - [Yard Drain Cleaning](https://a-1drain.com/services/yard-drain-cleaning/)
