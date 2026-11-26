@@ -31,7 +31,7 @@ For the fuller business and service summary, see [llms.txt](https://a-1drain.com
 - [Sewer Line Cleaning](https://a-1drain.com/services/sewer-line-cleaning/)
 - [Drain & Sewer Camera Inspections](https://a-1drain.com/services/sewer-camera-inspection/)
 - [Sewer Line Locating](https://a-1drain.com/services/sewer-line-locating/)
-- [Tree Root Removal and Cutting](https://a-1drain.com/services/tree-roots-in-sewer-line/)
+- [Tree Root Removal from Sewer Lines](https://a-1drain.com/services/tree-root-removal-from-sewer-lines/)
 - [Hydro Jetting](https://a-1drain.com/services/hydro-jetting/)
 - [Floor Drain Cleaning](https://a-1drain.com/services/basement-floor-drains/)
 - [Basement Drain Cleaning](https://a-1drain.com/services/basement-drain-cleaning/)
