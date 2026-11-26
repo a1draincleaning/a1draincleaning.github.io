@@ -16,7 +16,7 @@ npm run check
 npm run build
 ```
 
-The site is configured for GitHub Pages at `https://a1draincleaning.github.io`.
+The site is configured for GitHub Pages at `https://a1drain.com`.
 
 ## Important
 
